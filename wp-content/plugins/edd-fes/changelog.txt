@@ -1,0 +1,104 @@
+2.1.9.1: 4/2/2014
+* Bug: Removed system info output
+
+2.1.9: 3/24/2014
+* Bug: Fixed an issue with the vendor avatar not saving on application submission
+
+2.1.8: 3/18/2014
+* Bug: updated licensing / updater to use the version included in EDD core.
+ 
+2.1.7: 3/11/2014
+* Bug: Fixed an issue with discount code validation
+
+2.1.6: 3/9/2014
+* Bug: Fixed an issue with the featured image not saving
+* Bug: Fixed an issue that caused products to be duplicated many, many times
+* Bug: Fixed an issue with the profile avatar field not saving
+* Bug: Removed ability for vendors to upload unfiltered HTML
+* Bug: Fixed issue with avatar field not being able to be added to the form editor properly
+* Bug: Fixed some improper colloquial language
+* Bug: Fixed outdated language files
+
+2.1.5: 2/25/2014
+* Bug: Fixed an issue with editing / saving multiple files with the File Upload field
+
+2.1.4: 1/30/2014
+* Bug: Fixed an undefined index error when editing a product
+
+2.1.3: 1/23/2014
+* Bug: clicking "Add Price Option" added two rows
+* Bug: Price options couldn't be deleted
+* Bug: Price name isn't saved when submitting just one price
+
+2.1.2: 1/18/2014
+* Bug: avatars could not be deleted from the profile editor
+* Bug: fields container goes off screen on small screens, making it impossible to add some fields
+* Bug: commissions not automatically enabled on product submission
+
+2.1.1: 1/14/2014
+* Bug: vendors could see media files that were not their own
+* Bug: minor layout issues on the Vendor Dashboard page
+* Bug: Disabling vendor registration didn't work
+
+2.1: 1/11/2014
+* Feature: Added the ability for vendors to delete products
+* Feature: Added the ability for vendors to edit products
+* Feature: The application process is now an FES form
+* Feature: Removed a ton of CSS and JS
+* Feature: FES Formbuilder has been improved with better labels, more responsive css, and a new design
+* Bug: Removed Add New button from FES forms page
+* Bug: CSS classes are now consistent
+* Bug: Fixed an issue with Author URLs getting hijacked for non-vendors
+* Bug: Fixed an issue with vendor pages showing all downloads, not just those of the current vendor
+* Bug: Fixed an issue with 404's on author pages
+* Bug: Improved the install/update script
+* Bug: Fixed an issue with approving / denying vendor applications in bulk
+* Bug: Fixed numerous undefined index errors
+* Bug: Fixed improper and missing text domains
+
+2.0.5: 12/20/2013
+* Bug: Fixes CSS setting issue
+
+2.0.4: 12/10/2013
+* Feature: Adds options to prices and files field
+* Bug: Field values of login/register forms not lost on error now
+* Bug: Vendors not allowed to upload product files
+
+2.0.3: 11/24/2013
+* Bug: change "changes" to uppercase on settings panel
+* Bug: Flash of intro message on FES_forms on saved forms fixed
+* Bug: Shortcode redirects no longer cause fatal errors
+* Bug: Vendors were accidentily always getting approved
+
+2.0.2: 11/23/2013
+* New: Replaced CList with direct links to FES-forms
+* New: MP6 compatibility
+* New: Author page now redirects to vendor page
+* Bug: Vendors if allowed to go to backend, can no longer edit products
+* Bug: Fatal error caused by typo of email function name
+* Bug: Comments form hidden on submission form view
+* Bug: CSS caused publish button to look odd on edit download
+
+2.0.1: 11/15/2013
+* Bug: Fixed issue in setup class causing fatal error
+* Bug: Corrected spelling mistake in plugin
+
+2.0: 11/13/2013
+* New: FES Forms added
+* New: Vendor dashboard reorganized
+* New: Admin download list reorganized
+* Bug: Hundreds of bugs fixed. 
+
+1.1.6/1.1.9:
+* regression fix
+
+1.1.5: 7/12/2012
+* fix email bug
+* add start of S3 support
+
+1.1: 6/17/2013
+* fix email bug
+* fix styling bug
+
+1.0: 5/17/2013
+ * Initial release
