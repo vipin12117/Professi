@@ -50,10 +50,6 @@
     min-height: 50px;
     background: #eee;
 }
-.fes-form-editor li.password .required-field,
-.fes-form-editor li.user_email .required-field {
-    display: none
-}
 .fes-form-editor li .fes-legend {
     background: #f1f1f1;
     background-image: -webkit-gradient(linear, left bottom, left top, from(#ececec), to(#f9f9f9));
@@ -130,27 +126,25 @@
     height: 1.5em;
     line-height: 1.2em;
 }
+#fes-metabox-save .hndle,
+#fes-metabox-save .handlediv{
+display: none;
+}
 
-#major-publishing-actions {
-	padding: 0 !important;
-	background: #FFF !important;
-	border-top: none !important;
-}
+
 #fes-metabox-fields {
-	z-index: 9999;
-	position: fixed;
-}
-#publishing-action {
-	margin-bottom: 5px;
-	}
-.hndle {
-	padding-left: 20px !important;
+    z-index: 9999;
 }
 .fes-button{
-	width:110px;
-	margin-right:5px !important;
-	margin-left:5px  !important;
+    width:110px;
+    margin-right:5px !important;
+    margin-left:5px  !important;
 }
+
+.fes-button .fes-loading {
+    margin-left: 35px;
+}
+
 #message {
 	margin-top: 10px;
 }
@@ -170,4 +164,7 @@
 }
 .add-new-h2{
 	display: none !important;
+}
+input#publish {
+    width: 100%;
 }

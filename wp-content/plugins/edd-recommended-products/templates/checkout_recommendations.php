@@ -12,7 +12,7 @@ $post_ids = wp_list_pluck( $cart_items, 'id' );
 	$suggestions = array_keys( $suggestion_data );
 
 	$suggested_downloads = new WP_Query( array( 'post__in' => $suggestions, 'post_type' => 'download' ) );
-	
+
 	if ( $suggested_downloads->have_posts() ) :
 		$single = __( 'this item', EDD_RP_TEXT_DOMAIN );
 		$plural = __( 'these items', EDD_RP_TEXT_DOMAIN );
@@ -37,7 +37,9 @@ $post_ids = wp_list_pluck( $cart_items, 'id' );
 						<?php if ( !edd_has_variable_prices( get_the_ID() ) ) : ?>
 							<?php edd_price( get_the_ID() ); ?>
 						<?php endif; ?>
-						<?php echo edd_get_purchase_link( array( 'download_id' => get_the_ID(), 'price' => false ) );	?>
+						<?php echo edd_get_purchase_link( array( 'download_id' => get_the_ID(),
+																 'price' => false,
+																 'direct' => false ) );	?>
 					</div>
 				<?php endwhile; ?>
 			</div>

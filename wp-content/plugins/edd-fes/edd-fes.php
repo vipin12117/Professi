@@ -6,19 +6,19 @@
  * Author:              Chris Christoff
  * Author URI:          http://www.chriscct7.com
  *
- * Version:             2.1.9.1
+ * Version:             2.2.9.5
  * Requires at least:   3.8
- * Tested up to:        3.9-beta
+ * Tested up to:        3.9
  *
  * Text Domain:         edd_fes
  * Domain Path:         /edd_fes/languages/
  *
  * @category            Plugin
- * @copyright           Copyright © 2013 Chris Christoff
+ * @copyright           Copyright © 2014 Chris Christoff
  * @author              Chris Christoff
  * @package             FES
  */
- 
+
 if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -33,30 +33,29 @@ class EDD_Front_End_Submissions {
 	 */
 	private static $instance;
 	public $id = 'edd_fes';
-	public $fes_options;
 	public $basename;
-	
+
 	// Setup objects for each class
-	public $render_form;
-	public $admin;
-	public $admin_posting;
-	public $emails;
-	public $frontend;
-	public $frontend_application;
-	public $frontend_form_profile;
-	public $install;
-	public $login_register;
-	public $menu;
-	public $queries;
+	public $forms;
 	public $templates;
-	public $vendor_applicants;
+	public $setup;
+	public $emails;
+	public $vendors;
 	public $vendor_permissions;
 	public $vendor_shop;
-	public $vendors;
-	public $upload;
+	public $dashboard;
+	public $queries;
+	public $menu;
 	public $comments;
-	public $shortcodes;
-	
+	public $helper;
+	public $download_table;
+	public $edit_download;
+	public $edit_vendor;
+	//public $formbuilder;
+	public $formbuilder_templates;
+
+	public $fes_options; // Here for backwards compatibility
+
 	/**
 	 * Main EDD_Front_End_Submissions Instance
 	 *
@@ -79,43 +78,49 @@ class EDD_Front_End_Submissions {
 			self::$instance->includes();
 			self::$instance->setup();
 			// Setup class instances
-			self::$instance->render_form           = new FES_Render_Form;
-			self::$instance->login_register        = new FES_Login_Register;
+			self::$instance->helper 			   = new FES_Helpers;
+			self::$instance->forms		           = new FES_Forms;
 			self::$instance->templates             = new FES_Templates;
-			self::$instance->setup                 = new FES_Setup;
 			self::$instance->emails                = new FES_Emails;
 			self::$instance->vendors               = new FES_Vendors;
-			self::$instance->vendor_permissions    = new FES_Vendor_Permissions;
-			self::$instance->vendor_applicants     = new FES_Vendor_Applicants;
 			self::$instance->vendor_shop           = new FES_Vendor_Shop;
-			self::$instance->upload                = new FES_Upload;
-			self::$instance->frontend              = new FES_Frontend;
-			self::$instance->frontend_form_profile = new FES_Frontend_Form_Profile;
-			self::$instance->frontend_form_post    = new FES_Frontend_Form_Post;
-			self::$instance->frontend_application  = new FES_Frontend_Application;
-			self::$instance->queries               = new FES_Queries;
+			self::$instance->dashboard             = new FES_Dashboard;
 			self::$instance->menu                  = new FES_Menu;
-			self::$instance->comments			   = new FES_Comments;
-			self::$instance->shortcodes			   = new FES_Shortcodes;
+			self::$instance->integrations		   = new FES_Integrations;
+			self::$instance->fes_options		   = self::$instance->helper; // Backwards compatibility
 			if ( is_admin() ) {
-				self::$instance->admin                 = new FES_Admin;
-				self::$instance->admin_posting         = new FES_Admin_Posting;
+				self::$instance->download_table        = new FES_Download_Table;
+				self::$instance->edit_download         = new FES_Edit_Download;
+				self::$instance->edit_vendor           = new FES_Edit_Vendor;
+				//self::$instance->formbuilder           = new FES_Formbuilder; for 2.3
+				self::$instance->formbuilder_templates = new FES_Formbuilder_Templates;
+			}
+			if ( ( is_admin() && defined( 'DOING_AJAX' ) && DOING_AJAX ) || !is_admin() ){
+				require_once EDD_PLUGIN_DIR . 'includes/admin/upload-functions.php';
+				require_once EDD_PLUGIN_DIR . 'includes/misc-functions.php';
+				$override_default_dir = apply_filters('override_default_fes_dir', false );
+				if ( function_exists( 'edd_set_upload_dir' ) && !$override_default_dir ) {
+					add_filter( 'upload_dir', 'edd_set_upload_dir' );
+				}
+				else if ( $override_default_dir ){
+					add_filter( 'upload_dir', 'fes_set_custom_upload_dir' );
+				}
 			}
 		}
 		return self::$instance;
 	}
-	
+
 	public function define_globals() {
 		$this->title    = __( 'Frontend Submissions', 'edd_fes' );
 		$this->file     = __FILE__;
-		$this->basename = apply_filters( 'edd_fes_plugin_basename', plugin_basename( $this->file ) );
+		$this->basename = apply_filters( 'fes_plugin_basename', plugin_basename( $this->file ) );
 		// Plugin Name
 		if ( !defined( 'fes_plugin_name' ) ) {
 			define( 'fes_plugin_name', 'Frontend Submissions' );
 		}
 		// Plugin Version
 		if ( !defined( 'fes_plugin_version' ) ) {
-			define( 'fes_plugin_version', '2.1.9.1' );
+			define( 'fes_plugin_version', '2.2.9.5' );
 		}
 		// Plugin Root File
 		if ( !defined( 'fes_plugin_file' ) ) {
@@ -134,67 +139,87 @@ class EDD_Front_End_Submissions {
 			define( 'fes_assets_url', fes_plugin_url . 'assets/' );
 		}
 	}
-	
+
 	public function includes() {
-		require_once fes_plugin_dir . 'classes/class-vendor-shop.php';
-		require_once fes_plugin_dir . 'classes/class-templates.php';
-		require_once fes_plugin_dir . 'classes/class-queries.php';
-		require_once fes_plugin_dir . 'classes/class-comments.php';
-		require_once fes_plugin_dir . 'classes/class-vendors.php';
-		require_once fes_plugin_dir . 'classes/class-vendor-permissions.php';
-		require_once fes_plugin_dir . 'classes/class-frontend.php';
-		require_once fes_plugin_dir . 'classes/class-login-register.php';
-		require_once fes_plugin_dir . 'classes/class-shortcodes.php';
-		require_once fes_plugin_dir . 'classes/class-emails.php';
+		require_once fes_plugin_dir . 'classes/class-helpers.php';
+		require_once fes_plugin_dir . 'classes/frontend/class-vendor-shop.php';
+		require_once fes_plugin_dir . 'classes/frontend/class-templates.php';
+		require_once fes_plugin_dir . 'classes/frontend/class-dashboard.php';
+		require_once fes_plugin_dir . 'classes/frontend/class-forms.php';
 		require_once fes_plugin_dir . 'classes/class-setup.php';
-		require_once fes_plugin_dir . 'classes/class-vendor-applicants.php';
-		require_once fes_plugin_dir . 'classes/class-menu.php';
-		require_once fes_plugin_dir . 'classes/forms/render-form.php';
-		require_once fes_plugin_dir . 'classes/forms/frontend-form-post.php';
-		require_once fes_plugin_dir . 'classes/forms/frontend-form-profile.php';
-		require_once fes_plugin_dir . 'classes/forms/frontend-form-application.php';
-		require_once fes_plugin_dir . 'classes/forms/upload.php';
-		require_once fes_plugin_dir . 'classes/forms/functions.php';
-		if ( is_admin() ) {
-			if ( !class_exists( 'WP_List_Table' ) ) {
-				require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
-			}
-			require_once fes_plugin_dir . 'classes/class-fes-list-table.php';
-			require_once fes_plugin_dir . 'classes/admin/class-applications-table.php';
-			require_once fes_plugin_dir . 'classes/admin/class-admin-post-types.php';
-			require_once fes_plugin_dir . 'classes/class-admin.php';
-			require_once fes_plugin_dir . 'classes/forms/admin-form.php';
-			require_once fes_plugin_dir . 'classes/forms/admin-posting.php';
-			require_once fes_plugin_dir . 'classes/forms/admin-template.php';
+		require_once fes_plugin_dir . 'classes/class-vendors.php';
+		require_once fes_plugin_dir . 'classes/class-emails.php';
+		require_once fes_plugin_dir . 'classes/class-integrations.php';
+		require_once fes_plugin_dir . 'classes/misc-functions.php';
+		if ( !class_exists( 'WP_List_Table' ) ) {
+			require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 		}
+		require_once fes_plugin_dir . 'classes/admin/class-update.php';
+		require_once fes_plugin_dir . 'classes/admin/class-menu.php';
+		require_once fes_plugin_dir . 'classes/admin/class-list-table.php';
+		require_once fes_plugin_dir . 'classes/admin/downloads/class-download-table.php';
+		require_once fes_plugin_dir . 'classes/admin/downloads/class-edit-download.php';
+		require_once fes_plugin_dir . 'classes/admin/vendors/class-vendor-table.php';
+		require_once fes_plugin_dir . 'classes/admin/vendors/class-edit-vendor.php';
+		require_once fes_plugin_dir . 'classes/admin/formbuilder/class-formbuilder.php';
+		require_once fes_plugin_dir . 'classes/admin/formbuilder/class-formbuilder-templates.php';
+
 		if ( !function_exists( 'recaptcha_get_html' ) ) {
 			require_once fes_plugin_dir . 'assets/lib/recaptchalib.php';
 		}
+
+		add_filter( 'edd_template_paths', array( $this, 'edd_template_paths' ) );
 	}
-	
-	public static function install() {
-		require_once fes_plugin_dir . 'classes/class-install.php';
+
+	public function install(){
+		$this->load_settings();
+		require_once fes_plugin_dir . 'classes/admin/class-install.php';
 		$install = new FES_Install;
 		$install->init();
+		do_action( 'fes_upgrade_actions' );
 	}
-	
+
 	public function setup() {
 		$this->load_settings();
-		$this->setup = new FES_Setup;
+		self::$instance->setup = $this->setup = new FES_Setup;
 
 		if ( class_exists( 'EDD_License' ) ) {
 			$license = new EDD_License( __FILE__, fes_plugin_name, fes_plugin_version, 'Chris Christoff' );
 		}
-		
-		do_action( 'edd_fes_setup_actions' );
+
+		add_action( 'init', array( $this, 'load_textdomain' ) );
+
+		do_action( 'fes_setup_actions' );
 	}
-	
-	public function load_settings() {
-		if ( empty( $this->fes_options ) ) {
-			require_once fes_plugin_dir . 'classes/settings/classes/sf-class-settings.php';
-			$this->fes_options = new SF_Settings_API( $this->id, 'Settings', 'fes-about', __FILE__ );
-			$this->fes_options->load_options( fes_plugin_dir . 'classes/settings/sf-options.php' );
+
+	public function load_textdomain() {
+		$locale        = apply_filters( 'plugin_locale', get_locale(), 'edd_fes' );
+		$mofile        = sprintf( '%1$s-%2$s.mo', 'edd_fes', $locale );
+
+		$mofile_local  = trailingslashit( fes_plugin_dir . 'languages' ) . $mofile;
+		$mofile_global = WP_LANG_DIR . '/edd_fes/' . $mofile;
+
+		if ( file_exists( $mofile_global ) ) {
+			return load_textdomain( 'edd_fes', $mofile_global );
+		} elseif ( file_exists( $mofile_local ) ) {
+			return load_textdomain( 'edd_fes', $mofile_local );
 		}
+		else{
+			load_plugin_textdomain( 'edd_fes', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		}
+	}
+
+	public function edd_template_paths( $paths ) {
+		$paths[80] = trailingslashit( fes_plugin_dir ) . trailingslashit( 'templates' );
+
+		return $paths;
+	}
+
+	public function load_settings() {
+		if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/classes/redux/ReduxCore/framework.php' ) ) {
+			require_once( dirname( __FILE__ ) . '/classes/redux/ReduxCore/framework.php' );
+		}
+		require_once( dirname( __FILE__ ) . '/classes/admin/class-settings.php' );
 	}
 }
 
@@ -216,8 +241,12 @@ function EDD_FES() {
 
 EDD_FES();
 
-function EDD_FES_Install() {
-	EDD_FES()->install();
+function FES_Install() {
+    require_once fes_plugin_dir . 'classes/admin/class-install.php';
+    $install = new FES_Install;
+    $install->init();
+    EDD_FES()->load_settings();
+    do_action( 'fes_install_actions' );
 }
 
-register_activation_hook( __FILE__, 'EDD_FES_Install' );
+register_activation_hook( __FILE__, 'FES_Install' );

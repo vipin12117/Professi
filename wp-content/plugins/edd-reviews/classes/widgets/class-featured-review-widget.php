@@ -27,7 +27,7 @@ final class EDD_Reviews_Widget_Featured_Review extends WP_Widget {
 	 * Constructor Function
 	 *
 	 * @since 1.0
-	 * @access protected
+	 * @access public
 	 * @see WP_Widget::__construct()
 	 */
 	public function __construct() {

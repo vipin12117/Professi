@@ -4,7 +4,7 @@
  * Plugin URI: http://easydigitaldownloads.com/extension/reviews/
  * Description: A fully featured reviewing system for Easy Digital Downloads.
  * Author: Sunny Ratilal
- * Version: 1.3.6
+ * Version: 1.3.7
  * Requires at least: 3.5
  * Tested up to: 3.9-alpha
  *
@@ -16,7 +16,7 @@
  * @package		EDD_Reviews
  * @category 	Core
  * @author		Sunny Ratilal
- * @version 	1.3.6
+ * @version 	1.3.7
  */
 
 // Exit if accessed directly
@@ -74,7 +74,7 @@ final class EDD_Reviews {
 	 * @var string
 	 * @since 1.0
 	 */
-	public $version = '1.3.6';
+	public $version = '1.3.7';
 
 	/**
 	 * Get the instance and store the class inside it. This plugin utilises
@@ -275,6 +275,7 @@ final class EDD_Reviews {
 		require $this->classes_dir . 'shortcodes/class-edd-reviews-shortcode-review.php';
 		require $this->classes_dir . 'widgets/class-reviews-widget.php';
 		require $this->classes_dir . 'widgets/class-featured-review-widget.php';
+		require $this->classes_dir . 'widgets/class-per-product-reviews-widget.php';
 	}
 
 	/**
@@ -374,7 +375,7 @@ final class EDD_Reviews {
 		add_action( 'wp_ajax_edd_reviews_process_vote',        array( $this, 'process_ajax_vote'  ) );
 		add_action( 'wp_ajax_nopriv_edd_reviews_process_vote', array( $this, 'process_ajax_vote'  ) );
 		add_action( 'wp_dashboard_setup',                      array( $this, 'dashboard_widgets'  ) );
-		add_action( 'add_meta_boxes',                          array( $this, 'add_meta_boxes'     ) );
+		add_action( 'load-comment.php',                        array( $this, 'add_meta_boxes'     ) );
 		add_action( 'edit_comment',                            array( $this, 'update_review_meta' ) );
 		add_action( 'init',                                    array( $this, 'tinymce_button'     ) );
 		add_action( 'init',                                    array( $this, 'process_mce_dialog' ) );
@@ -412,6 +413,7 @@ final class EDD_Reviews {
 	public function register_widgets() {
 		register_widget( 'EDD_Reviews_Widget_Reviews' );
 		register_widget( 'EDD_Reviews_Widget_Featured_Review' );
+		register_widget( 'EDD_Reviews_Per_Product_Reviews_Widget' );
 	}
 
 	/**
@@ -686,7 +688,7 @@ final class EDD_Reviews {
 		?>
 		<div style="display:none" class="edd-review-microdata" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
 			<span itemprop="ratingValue"><?php echo $this->average_rating(); ?></span>
-			<span itemprop="reviewCount"><?php echo wp_count_comments( $post->ID )->total_comments; ?></span>
+			<span itemprop="reviewCount"><?php echo $this->count_reviews(); ?></span>
 		</div>
 		<?php
 		do_action( 'edd_reviews_microdata_after' );
@@ -710,22 +712,21 @@ final class EDD_Reviews {
 			'post_id' => $post->ID
 		) ) );
 
-		$total         = count( $reviews );
+		$total         = 0;
 		$total_ratings = 0;
 
 		foreach ( $reviews as $review ) {
 
-			if( $review->user_id == $post->post_author ) {
-				continue; // Skip author's comments
-			}
-			
 			$rating = get_comment_meta( $review->comment_ID, 'edd_rating', true );
+			if ( $rating == '' ) {
+				continue; // Skip comments that aren't reviews
+			}
+			$total++;
 			$total_ratings += $rating;
 		}
 
 		if ( 0 == $total )
 			$total = 1;
-
 		$average = round( $total_ratings / $total, 1 );
 
 		if ( $echo ) {
@@ -1574,6 +1575,24 @@ final class EDD_Reviews {
 	}
 
 	/**
+	 * Display an aggregate review score across all reviews.
+	 *
+	 * @since   1.3.7
+	 * @access  public
+	 * @return  void
+	 */
+	public function display_aggregate_rating() {
+		$average = $this->average_rating( false );
+		?>
+		<div class="edd_reviews_aggregate_rating_display">
+			<div class="edd_reviews_rating_box" role="img" aria-label="<?php echo $average . ' ' . __( 'stars', 'edd-reviews' ); ?>">
+				<div class="edd_star_rating" style="width: <?php echo ( 19 * $average ); ?>px"></div>
+			</div>
+		</div>
+		<?php
+	}
+
+	/**
 	 * Process Vote from Review
 	 *
 	 * This function is called if a JavaScript isn't enabled
@@ -1731,7 +1750,10 @@ final class EDD_Reviews {
 
 				$rating = get_comment_meta( $review->comment_ID, 'edd_rating', true );
 
-				$output .= '<h4 class="meta"><a href="' . get_permalink( $review->ID ) . '#comment-' . absint( $review->comment_ID ) .'">' . esc_html__( get_comment_meta( $review->comment_ID, 'edd_review_title', true ) ) . '</a></h4>';
+				$output .= '<h4 class="meta">';
+				$output .= '<a href="' . get_permalink( $review->ID ) . '#comment-' . absint( $review->comment_ID ) .'">' . esc_html__( get_comment_meta( $review->comment_ID, 'edd_review_title', true ) ) . '</a>';
+				$output .= __( ' on ', 'edd-reviews' ) . '<a href="' . get_permalink( $review->ID ) . '">' . esc_html( $review->post_title ) . '</a>';
+				$output .= '</h4>';
 				$output .= '<div class="edd_reviews_rating_box"><div class="edd_star_rating" style="width: ' . 19 * $rating  . 'px"></div></div>';
 				$output .= '<p>' . __( 'By', 'edd-reviews' ) . ' ' . esc_html( $review->comment_author ) . ', ' . get_comment_date( get_option( 'date_format()' ), $review->comment_ID ) . '</p>';
 				$output .= '<blockquote>' . wp_kses_data( $review->excerpt ) . ' ...</blockquote></div>';
@@ -1754,7 +1776,8 @@ final class EDD_Reviews {
 	 * @return void
 	 */
 	public function add_meta_boxes() {
-		if ( 'comment' == WP_Screen::get()->base && $this->has_review_meta( $_GET['c'] ) ) {
+		$comment_id = ! empty( $_GET['c'] ) ? absint( $_GET['c'] ) : 0;
+		if ( $this->has_review_meta( $comment_id ) ) {
 			add_meta_box( 'edd_reviews_review_meta_box', __( 'Review Information', 'edd-reviews' ), array( $this, 'review_meta_box' ), 'comment', 'normal', 'high' );
 		}
 	}

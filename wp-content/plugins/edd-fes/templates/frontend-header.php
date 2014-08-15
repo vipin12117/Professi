@@ -1,1 +1,0 @@
-<?php // Nothing here by default, add content if you wish ?>

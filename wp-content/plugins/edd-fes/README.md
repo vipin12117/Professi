@@ -1,9 +1,14 @@
-# Easy Digital Downloads - Frontend Submissions (version 2.1.9.1) #
+# Easy Digital Downloads - Frontend Submissions (version 2.2) #
 
 ## Who this README file is for ##
 This readme file is to share information to plugin & theme developers.
 Users looking for assistance with FES (like setting it up) should check
 out the KB for FES at kb.eddfes.com
+
+## Planned Codebase Changes ##
+At this time, only 2 more major codebase changes are planned post 2.2:
++ The admin formbuilder will be completely rewritten
++ The menu class will be split into a menu class, export/import class, welcome class, and system info class
 
 ## Formatting of FES ##
 Where the majority of the file was not an HTML template, FES was formatted

@@ -1,3 +1,157 @@
+2.2.9.5: 7/28/2014
+* Tweak: Allow plain image names in the file upload fields instead of just full URLs
+* Fix: Missing icon on the Earnings tab
+
+2.2.9.4: 7/28/2014
+* Fix: Avatar fields weren't saving properly when the image was removed
+* New: Added new action hooks to the registration and contact form processing
+* Tweak: Added support for H6 tags in the HTML tag whitelist
+
+2.2.9.3: 7/15/2014
+* Fix: Accept Terms field didn't render on the profile form
+* Fix: The Captcha field didn't render on the vendor contact form
+
+2.2.9.2: 7/10/2014
+* Fix: Images not getting attached when uploading via the submission form
+
+2.2.9.1: 7/2/2014
+* Fix: Emails not getting sent from the vendor contact form
+
+2.2.9: 7/2/2014
+* Fix: Submitting the vendor contact form leads to a 404 error
+* Fix: Vendor emails when an application is automatically approved don't get sent
+* Fix: File URLs don't save when prices and names are disabled
+* Fix: Manually modified commission rates get wiped out when a product is updated
+* Fix: File upload field repeats numerous times when a meta_key is not supplied
+* Fix: Short codes improperly echoing content instead of returning it
+
+2.2.8: 6/26/2014
+* Fix: Infinite loop during post save that resulted in thousands of duplicate products on a small number of sites
+
+2.2.7: 6/25/2014
+* Fix: Application and Profile forms cannot be updated from the admin
+* Fix: Pagination in the Vendors admin table doesn't function
+* Fix: Scheduled products are not visible in the Vendor Dashboard
+* Fix: Bug with last price option being able to be removed
+* Fix: Poor I18N of the Registration submit button text
+* Fix: Application form in the admin showed incorrect user's information
+* Fix: Missing rewrite rule that caused the Vendor page to 404 with the Marketify theme
+* Fix: Disabling the toolbar for Vendors didn't function properly
+
+
+2.2.6: 6/20/2014
+* Fix: Preset price option names / amounts don't save when changing the descriptions or amounts is disabled
+* Fix: Application Received emails are not sent
+* Fix: Biography field does not save during registration
+* Fix: Vendor store URL on dashboard does not respect custom vendor permalinks
+
+2.2.5: 6/16/2014
+* Fix: Number of products wrong on the Vendor Edit screen
+* Fix: Headers already sent error when clicking on "Approve" for a pending vendor
+* Fix: Application status emails not sent
+* Fix: The Add File button shouldn't show when files are limited to one
+* Fix: Vendor personal details not saved on registration
+* Fix: is_pending() method doesn't properly detect vendors that have multiple roles
+* Fix: Product sorting links in Vendor Dashboard don't work
+* Fix: Number of products in Vendors list incorrect
+* Fix: Editing a pending product publishes it
+* Fix: Allow file URLs that start with "file:" to pass validation
+* Fix: Undefined index for placeholder attribute on vendor profile form
+* Fix: Tags not properly stripped from post excerpt
+* Fix: Vendor contact form sometimes pre-populated site admin details
+* Fix: Vendor permalinks don't respect custom slugs for pretty permalinks
+* Tweak: Added a CSS classname option to the Section Break and Accept Terms field types
+* Tweak: Improved the loading indicator when adding a new field to a form editor
+
+2.2.4: 6/7/2014
+* Fix: Emails have no formatting and lose all line breaks
+* Fix: Vendor name / email lost when replying to comments from the dashboard
+* Fix: Non-required profile fields cannot be left empty after a value has been saved
+* Fix: "Name of Store" profile field doesn't save updates
+* Fix: Pagination on Vendor store pages fails
+* Fix: Non-required checkbox fields with a single value cannot be unset
+
+2.2.3: 6/5/2014
+* New: Faster loading time with 58 less database calls in in the backend and 22 less calls on the frontend by stopping FES_Setup from being called twice and moving instantiation of roles from FES_Setup to FES_Install
+* New: FES Tools on the form import/export page offers a 1 click solution to remove any extraneous fes-forms
+* New: FES import/export forms page has been redesigned
+* New: FES forms can now be reset to defaults on the import/export forms page
+* New: Don't show "add file" if disabled
+* Tweak: Combo registration & login view on vendor dashboard has been given a rework to allow it to show one form at full width if the other form isn't applicable. Now more intelligently detects if a person is already a vendor.
+* Fix: Form import/export process fixed
+* Fix: Contact form first and last name fields sometimes disabled
+* Fix: Username field sometimes disabled on the registration form
+* Fix: Admin bar doesn't show for admins if hide admin bar feature turned off
+* Fix: Vendor URL for dashboard sometimes off when author archive pages enabled
+* Fix: Email tags for post-categories and post-tags re-added (accidentily removed in 2.2)
+* Fix: Removed jQuery Validate (no longer being used)
+
+2.2.2.1: 5/22/2014
+* Fix: bug with retrieving the vendor store URL from the dashboard
+* Fix: bug with registration form showing incorrect fields for logged-in users
+
+2.2.2: 5/22/2014
+* New: added a Country field to the Profile form editor
+* Tweak: use the manage_shop_settings capability instead of manage_options
+* Tweak: vendor contact details are now pre-filled
+* Fix: bug with vendor URLs not resolving properly
+* Fix: paragraph text losts formatting after submission
+* Fix: error message about not being able to create a user with an empty user name
+* Fix: access denied error when viewing a vendor
+* Fix: profile password error message
+* Fix: vendor Announcement area doesn't allow short codes
+* Fix: form importer / exports broken
+
+2.2: 5/9/2014
+* New: Introduces the much requested vendor contact form
+* New: Full integration with EDD Audio Player
+* New: Converted to using the WordPress Media Uploader for all uploaders
+* New: Introduced a new featured image/avatar uploader
+* New: Over 200 new filters and actions to make it more developer friendly
+* New: Redesigned form editor makes creating forms even easier than before
+* New: Added validation for the multiple price field
+* New: Allows vendors to change the name of their store
+* New: Allows vendors to change the email the vendor contact form sends emails for them to
+* New: Added a simple UI to let store owners set prices and the names of price options on the  multiple pricing field
+* New: Added more ways to customize the multiple pricing field to meet your exact store needs
+* New: Allows for a consistent email experience with FES
+* New: Added the ability to use fields from the profile, registration and submission forms in emails
+* New: Added the ability for people to create their own email tags
+* New: New settings panel with the ablity to import/export settings
+* New: New vendor management list table to let store owners easily manage vendors
+* New: Added the ability for store owners to instantly see the data entered into the profile and registration forms of vendors
+* New: Added the ability to import and export FES Forms
+* New: Added the ability to revoke previously approved submissions and vendors
+* New: Added a new System Info allowing quick access to essential inform for suport purposes
+* New: Moved from 5 uploaders to 2 really nice new ones that use the WP Media Manager
+* New: Merged the vendor application and registration forms into a single 1 step form submission process, making it easier for vendors to sign up
+* New: Added the ability to show a CAPTCHA field on the vendor contact and login forms
+* New: Added the ability to let customers sign into the vendor dashboard\'s login form and be brought to the My Account page 
+* New: Added new shortcodes to let you show information from the submission form on the frontend of products
+* New: Added new shortcodes to render all of the forms
+* New: Changed the vendor store URLS to use pretty permalinks
+* New: Created the ability for vendors to be able to see orders involving their products
+* New: Integrated with Simple Shipping to allow vendors to mark orders as "completed"
+* New: Added a "forgot password" link to the login form
+* New: FES now loads templates for FES found in the edd_templates folder of themes
+* New: Multiple price field is now validated
+* New: Checkbox fields are now validated
+* New: Added direct complete integration with EDD Audio Player (update of that plugin required)
+* New: Added the ability to suspend and unsuspend vendor accounts
+* New: Added a link from vendor products in the backend to their respective edit vendor page
+* New: FES now uses minified versions of our JS and CSS by default (toggle off via a filter) on the frontend
+* New: Added the ability to predefine prices and names of price options on the multiple pricing field
+* New: Added a helper function to get FES settings
+* Changed: All vendors now use the frontend_vendor role (even if it's not their primary role). Use of fes_is_vendor cap is no longer supported (for performance reasons)
+* Changed: All settings now use the global $fes_settings variable. Names have changed on a few settings
+* Changed: From functions to filters to actions to settings, "edd_fes" has been replaced to the less redundant "fes" so all of them are consistently named. Also, whenever possible, underscores have been changed to "-"s
+* Bug: A littany of small bugs were fixed. Too many to name.
+* Bug: Now no more fatal errors if FES Forms aren't created in admin area.
+* Bug: Removed password strength meter
+* Bug: Fixed all the strict errors
+* Bug: reCAPTCHA now uses the clean theme
+* Bug: Fixed a bug where on some setups, files were not protected
+
 2.1.9.1: 4/2/2014
 * Bug: Removed system info output
 
@@ -41,11 +195,11 @@
 * Bug: Disabling vendor registration didn't work
 
 2.1: 1/11/2014
-* Feature: Added the ability for vendors to delete products
-* Feature: Added the ability for vendors to edit products
-* Feature: The application process is now an FES form
-* Feature: Removed a ton of CSS and JS
-* Feature: FES Formbuilder has been improved with better labels, more responsive css, and a new design
+* New: Added the ability for vendors to delete products
+* New: Added the ability for vendors to edit products
+* New: The application process is now an FES form
+* New: Removed a ton of CSS and JS
+* New: FES Formbuilder has been improved with better labels, more responsive css, and a new design
 * Bug: Removed Add New button from FES forms page
 * Bug: CSS classes are now consistent
 * Bug: Fixed an issue with Author URLs getting hijacked for non-vendors
@@ -60,7 +214,7 @@
 * Bug: Fixes CSS setting issue
 
 2.0.4: 12/10/2013
-* Feature: Adds options to prices and files field
+* New: Adds options to prices and files field
 * Bug: Field values of login/register forms not lost on error now
 * Bug: Vendors not allowed to upload product files
 

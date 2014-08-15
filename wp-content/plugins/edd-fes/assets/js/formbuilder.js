@@ -12,25 +12,42 @@
             this.tabber();
             this.showHideHelp();
 
+            // on save validation
+            $('form#post').submit(function(e) {
+                var errors = false;
+                $('li.custom-field input[data-type="label"]').each( function(index) {
+                    if ($(this).val().length === 0) {
+                        errors = true;
+                        $(this).css('border', '1px solid #993333');
+                    }
+                });
+
+                if (errors) {
+                    e.preventDefault();
+                    alert( 'Please fix the errors to save the form.' );
+                }
+
+            });
+
             // collapse all
-            $('button.fes-collapse').on('click', this.collpaseEditFields);
+            $('button.fes-collapse').on('click', this.collapseEditFields);
 
             // add field click
             $('.fes-form-buttons').on('click', 'button', this.addNewField);
 
             // remove form field
-            $('#fes-form-editor').on('click', '.fes-remove', this.removeFormField);
+            $('ul#fes-form-editor').on('click', '.fes-remove', this.removeFormField);
 
             // on change event: meta key
-            $('#fes-form-editor').on('change', 'li.custom-field input[data-type="label"]', this.setMetaKey);
+            $('ul#fes-form-editor').on('blur', 'li.custom-field input[data-type="label"]', this.setMetaKey);
 
             // on change event: checkbox|radio fields
-            $('#fes-form-editor').on('change', '.fes-form-sub-fields input[type=text]', function() {
+            $('ul#fes-form-editor').on('change', '.fes-form-sub-fields input[type=text]', function() {
                 $(this).prev('input[type=checkbox], input[type=radio]').val($(this).val());
             });
 
             // on change event: checkbox|radio fields
-            $('#fes-form-editor').on('click', 'input[type=checkbox].multicolumn', function() {
+            $('ul#fes-form-editor').on('click', 'input[type=checkbox].multicolumn', function() {
                 // $(this).prev('input[type=checkbox], input[type=radio]').val($(this).val());
                 var $self = $(this),
                     $parent = $self.closest('.fes-form-rows');
@@ -45,7 +62,7 @@
             });
 
             // on change event: checkbox|radio fields
-            $('#fes-form-editor').on('click', 'input[type=checkbox].retype-pass', function() {
+            $('ul#fes-form-editor').on('click', 'input[type=checkbox].retype-pass', function() {
                 // $(this).prev('input[type=checkbox], input[type=radio]').val($(this).val());
                 var $self = $(this),
                     $parent = $self.closest('.fes-form-rows');
@@ -58,11 +75,11 @@
             });
 
             // toggle form field
-            $('#fes-form-editor').on('click', '.fes-toggle', this.toggleFormField);
+            $('ul#fes-form-editor').on('click', '.fes-toggle', this.toggleFormField);
 
             // clone and remove repeated field
-            $('#fes-form-editor').on('click', 'img.fes-clone-field', this.cloneField);
-            $('#fes-form-editor').on('click', 'img.fes-remove-field', this.removeField);
+            $('ul#fes-form-editor').on('click', 'img.fes-clone-field', this.cloneField);
+            $('ul#fes-form-editor').on('click', 'img.fes-remove-field', this.removeField);
         },
 
         showHideHelp: function() {
@@ -106,7 +123,7 @@
             // check if these are already inserted
             var oneInstance = ['user_login', 'first_name', 'last_name', 'nickname', 'display_name', 'user_email', 'user_url',
                 'user_bio', 'password', 'user_avatar', 'post_title', 'post_content', 'featured_image', 'download_category',
-				'download_tag','multiple_pricing','post_excerpt','eddc_user_paypal'];
+				'download_tag','multiple_pricing','post_excerpt','eddc_user_paypal', 'edd_ap'];
 
             if ($.inArray(name, oneInstance) >= 0) {
                 if( $formEditor.find('li.' + name).length ) {
@@ -115,7 +132,9 @@
                 }
             }
 
-            $('.fes-loading').removeClass('hide');
+            var buttonText = $self.text();
+            $self.html('<div class="fes-loading"></div>');
+            $self.attr('disabled', 'disabled');
             $.post(ajaxurl, data, function(res) {
                 $formEditor.append(res);
 
@@ -125,7 +144,8 @@
                 // enable tooltip
                 Editor.tooltip();
 
-                $('.fes-loading').addClass('hide');
+                $self.removeAttr('disabled');
+                $self.text(buttonText);
                 Editor.showHideHelp();
             });
         },
@@ -191,7 +211,7 @@
             });
         },
 
-        collpaseEditFields: function(e) {
+        collapseEditFields: function(e) {
             e.preventDefault();
 
             $('ul#fes-form-editor').children('li').find('.fes-form-holder').slideToggle();

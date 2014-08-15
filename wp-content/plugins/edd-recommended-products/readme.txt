@@ -2,9 +2,9 @@
 Contributors: cklosows
 Tags: Easy Digital Downloads, Recommendations
 Requires at least: 3.0
-Tested up to: 3.8.1
-Stable tag: 1.2.1.1
-Donate link: https://kungfugrep.com
+Tested up to: 3.9.1
+Stable tag: 1.2.2
+Donate link: https://filament-studios.com.com
 License: GPLv2 or later
 
 Show recommended products based on other customer purchases.
@@ -13,7 +13,16 @@ Show recommended products based on other customer purchases.
 
 Recommended Products for Easy Digital Downloads allows you to show a cross sell of recommended products when viewing downloads or the checkout screen, with just a couple of checkboxes. These aren’t “related products” but specifically chosen products based off your stores previous sales. Every night, the recommendations are refreshed to include the day’s sales. You can manually run the update script as well via the Easy Digital Downloads Misc Settings
 
+You can use the [recommended_products] shortcode to display recommenations for a download or downloads. It accepts the following parameters:
+ids: a comma seprated list of Download IDs to provide suggestions for (default: current post ID)
+user: "true" or "false", wheather to hide already purchased items from displaying (default: false)
+count: number of suggestions to show (default: 3)
+title: A title to display (default: "Recommended Products")
+
 == Changelog ==
+= 1.2.2 =
+* NEW: Shortcode recommended_products for dislaying recommendations where desired.
+
 = 1.2.1 =
 * FIX: formatting prices, above buttons and forcing no prices on recommended products buttons
 * FIX: Only add a breakspace between title and price if theme doesn't support featured images, or one isn't present

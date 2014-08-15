@@ -1,6 +1,6 @@
 <?php
-if ( EDD_FES()->vendors->is_commissions_active() ) { ?>
-	<h2><?php _e( 'Commissions Overview', 'edd_fes' ); ?></h2>
+if ( EDD_FES()->integrations->is_commissions_active() ) { ?>
+	<h1 class="fes-headers" id="fes-commissions-page-title"><?php _e( 'Commissions Overview', 'edd_fes' ); ?></h1>
 	<?php 
 	if( eddc_user_has_commissions() ) {
 		echo do_shortcode('[edd_commissions]'); 

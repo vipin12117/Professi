@@ -28,7 +28,9 @@ if ( is_array( $suggestion_data ) && !empty( $suggestion_data ) ) :
 							<?php edd_price( get_the_ID() ); ?>
 						<?php endif; ?>
 
-						<?php echo edd_get_purchase_link( array( 'download_id' => get_the_ID(), 'price' => false ) );	?>
+						<?php echo edd_get_purchase_link( array( 'download_id' => get_the_ID(), 
+																 'price' => false, 
+																 'direct' => false ) );	?>
 					</div>
 				<?php endwhile; ?>
 			</div>

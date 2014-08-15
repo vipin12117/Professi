@@ -6,7 +6,7 @@ Description: Record commisions automatically for users in your site when downloa
 Author: Pippin Williamson
 Author URI: http://pippinsplugins.com
 Contributors: mordauk
-Version: 2.7.1
+Version: 2.7.6
 */
 
 
@@ -29,7 +29,7 @@ if(!defined('EDDC_PLUGIN_FILE')) {
 	define('EDDC_PLUGIN_FILE', __FILE__ );
 }
 
-define( 'EDD_COMMISSIONS_VERSION', '2.7.1' );
+define( 'EDD_COMMISSIONS_VERSION', '2.7.6' );
 
 
 /*
@@ -56,8 +56,13 @@ include_once(EDDC_PLUGIN_DIR . 'includes/commission-functions.php');
 include_once(EDDC_PLUGIN_DIR . 'includes/post-type.php');
 include_once(EDDC_PLUGIN_DIR . 'includes/user-meta.php');
 include_once(EDDC_PLUGIN_DIR . 'includes/rest-api.php');
+include_once(EDDC_PLUGIN_DIR . 'includes/short-codes.php');
 
 if( is_admin() ) {
+
+	if( class_exists( 'EDD_License' ) ) {
+		$eddc_license = new EDD_License( __FILE__, 'Commissions', EDD_COMMISSIONS_VERSION, 'Pippin Williamson' );
+	}
 	//include_once(EDDC_PLUGIN_DIR . 'includes/scheduled-payouts.php');
 	//include_once(EDDC_PLUGIN_DIR . 'includes/masspay/class-paypal-masspay.php');
 	include_once(EDDC_PLUGIN_DIR . 'includes/reports.php');
@@ -68,10 +73,5 @@ if( is_admin() ) {
 	include_once(EDDC_PLUGIN_DIR . 'includes/upgrades.php');
 	include_once(EDDC_PLUGIN_DIR . 'includes/widgets.php');
 } else {
-	include_once(EDDC_PLUGIN_DIR . 'includes/short-codes.php');
 	include_once(EDDC_PLUGIN_DIR . 'includes/adaptive-payments.php');
-}
-
-if( class_exists( 'EDD_License' ) ) {
-	$eddc_license = new EDD_License( __FILE__, 'Commissions', EDD_COMMISSIONS_VERSION, 'Pippin Williamson' );
 }

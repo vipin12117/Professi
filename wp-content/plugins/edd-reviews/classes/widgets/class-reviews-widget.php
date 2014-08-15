@@ -27,7 +27,7 @@ final class EDD_Reviews_Widget_Reviews extends WP_Widget {
 	 * Constructor Function
 	 *
 	 * @since 1.0
-	 * @access protected
+	 * @access public
 	 * @see WP_Widget::__construct()
 	 */
 	public function __construct() {
@@ -75,8 +75,14 @@ final class EDD_Reviews_Widget_Reviews extends WP_Widget {
 		$cache = wp_cache_get( 'widget_edd_recent_reviews', 'widget' );
 
 		// If cache doesn't exist, create an array for the cache
-		if ( ! is_array( $cache ) )
+		if ( $cache !== false ) {
+			if ( !empty( $cache[$args['widget_id']] ) ) {
+				echo $cache[$args['widget_id']];
+				return;
+			}
+		} else {
 			$cache = array();
+		}
 
 		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Recent Reviews', 'edd-reviews' );
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
@@ -105,6 +111,8 @@ final class EDD_Reviews_Widget_Reviews extends WP_Widget {
 			}
 
 			$output .= '</ul>';
+		} else {
+			$output .= '<span class="edd-reviews-no-reviews">' . __( 'There are no reviews yet.', 'edd-reviews' ) . '</span>';
 		}
 
 		$output .= $after_widget;
@@ -112,7 +120,7 @@ final class EDD_Reviews_Widget_Reviews extends WP_Widget {
 		echo $output;
 
 		// Stores the output in the $cache array
-		$ouput = $cache[ $args['widget_id'] ];
+		$cache[$args['widget_id']] = $output;
 
 		// Puts the reviews data in the cache for performance enhancements
 		wp_cache_set( 'widget_edd_recent_reviews', $cache, 'widget' );

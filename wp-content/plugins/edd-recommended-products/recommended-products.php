@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Easy Digital Downloads - Recommended Products
-Plugin URI: http://wp-push.com
+Plugin URI: https://filament-studios.com
 Description: Recommended downloads plugin for Easy Digital Downloads
-Version: 1.2.1.1
+Version: 1.2.2
 Author: Chris Klosowski
-Author URI: http://kungfugrep.com
+Author URI: http://filament-studios.com
 Text Domain: edd-rp-txt
 */
 // plugin folder url
@@ -27,7 +27,7 @@ if( ! class_exists( 'EDD_License' ) )
 
 define( 'EDD_RP_STORE_API_URL', 'https://easydigitaldownloads.com' );
 define( 'EDD_RP_PRODUCT_NAME', 'Recommended Products' );
-define( 'EDD_RP_VERSION', '1.2.1.1' );
+define( 'EDD_RP_VERSION', '1.2.2' );
 define( 'EDD_RP_TEXT_DOMAIN', 'edd-rp-txt' );
 
 class EDDRecommendedDownloads {
@@ -50,7 +50,7 @@ class EDDRecommendedDownloads {
 			include_once( EDD_RP_PLUGIN_DIR . '/includes/settings.php' );
 			add_action( 'admin_init', array( $this, 'admin_hooks'  ) );
 		}
-		
+
 		add_action( 'init', array( $this, 'ckpn_edd_rp_loaddomain' ) );
 		add_action( 'init', array( $this, 'frontend_hooks' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'define_custom_scripts' ) );
@@ -66,7 +66,7 @@ class EDDRecommendedDownloads {
 
 	public function missing_edd_core() {
 		add_settings_error( 'edd-rp-notices', 'missing-edd', sprintf( __( 'Recommended Products for Easy Digital Downloads requires Easy Digital Downloads. Please <a href="%s">install & activate</a> Easy Digital Downloads.', EDD_RP_TEXT_DOMAIN ), admin_url( 'plugins.php' ) ) );
-		
+
 		settings_errors( 'edd-rp-notices' );
 	}
 
@@ -92,7 +92,7 @@ class EDDRecommendedDownloads {
 		$single_status = edd_get_option( 'edd_rp_display_single',  1 );
 		if ( $single_status )
 			add_filter( 'edd_after_download_content', 'edd_rp_display_single', 10, 1 );
-		
+
 		$checkout_status = edd_get_option( 'edd_rp_display_checkout', 1 );
 		if ( $checkout_status )
 			add_filter( 'edd_after_checkout_cart', 'edd_rp_display_checkout' );
