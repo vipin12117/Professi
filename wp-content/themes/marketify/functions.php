@@ -319,7 +319,7 @@ function marketify_entry_page_title() {
 
 	the_post();
 ?>
-	<div class="entry-page-title container">
+	<div class="entry-page-title container" style="display:none;">
 		<?php get_template_part( 'content', 'author' ); ?>
 
 		<h1 class="entry-title"><?php the_title(); ?></h1>
