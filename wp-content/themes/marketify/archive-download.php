@@ -32,7 +32,7 @@ get_header(); ?>
 		<div id="content" class="site-content row">
 		
 			<div class="left sidebar" style="width:30%;float:left;">
-				<?php wp_list_categories(array('taxonomy' => 'download_category' , 'depth' => 2 , 'hide_empty' => 0))?>
+				<?php wp_list_categories(array('taxonomy' => 'download_category' , 'depth' => 2 , 'hide_empty' => 0 , 'show_count' => 1))?>
 			</div>
 			
 			<div style="width:70%;float:right;">

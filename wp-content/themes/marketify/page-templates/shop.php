@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-	<header class="page-header">
+	<header class="page-header" style="display:none">
 		<h1 class="page-title"><?php the_title(); ?></h1>
 	</header><!-- .page-header -->
 

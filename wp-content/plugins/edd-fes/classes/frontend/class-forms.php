@@ -2672,13 +2672,14 @@ class FES_Forms {
 
 		$multi = $multiselect ? ' multiple="multiple"' : '';
 		$data_type = $multiselect ? 'multiselect' : 'select';
-		$css = $multiselect ? ' class="multiselect"' : '';
+		$css  = $multiselect ? ' class="multiselect"' : '';
+		$size = $multiselect ? ' size="10"' : '';
 		ob_start();
 ?>
 
         <div class="fes-fields">
 
-            <select<?php echo $css; ?> name="<?php echo $attr['name'] ?>[]"<?php echo $multi; ?> data-required="<?php echo $attr['required'] ?>" data-type="<?php echo $data_type; ?>"<?php $this->required_html5( $attr ); ?>>
+            <select<?php echo $css; echo $size; ?> name="<?php echo $attr['name'] ?>[]" <?php echo $multi; ?> data-required="<?php echo $attr['required'] ?>" data-type="<?php echo $data_type; ?>"<?php $this->required_html5( $attr ); ?>>
 
                 <?php if ( !empty( $attr['first'] ) ) { ?>
                     <option value=""><?php echo $attr['first']; ?></option>
@@ -3059,7 +3060,7 @@ class FES_Forms {
 					'walker' => $walker
 				) );
 
-			echo str_replace( '<select', '<select multiple="multiple" ' . $required, $select );
+			echo str_replace( '<select', '<select size="10" multiple="multiple" ' . $required, $select );
 			break;
 
 		case 'checkbox':
