@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 17, 2014 at 09:54 AM
+-- Generation Time: Aug 23, 2014 at 11:58 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `comment_id` (`comment_id`),
   KEY `meta_key` (`meta_key`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `wp_commentmeta`
@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
 
 INSERT INTO `wp_commentmeta` (`meta_id`, `comment_id`, `meta_key`, `meta_value`) VALUES
 (1, 4, 'edd_rating', '5'),
-(2, 4, 'edd_review_title', 'test');
+(2, 4, 'edd_review_title', 'test'),
+(3, 4, 'edd_review_vote_yes', '1');
 
 -- --------------------------------------------------------
 
@@ -124,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
   `autoload` varchar(20) NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1118 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1124 ;
 
 --
 -- Dumping data for table `wp_options`
@@ -226,7 +227,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (93, 'widget_archives', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
 (94, 'widget_meta', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
 (95, 'sidebars_widgets', 'a:9:{s:19:"wp_inactive_widgets";a:0:{}s:6:"home-1";a:1:{i:0;s:28:"edd_categories_tags_widget-2";}s:9:"sidebar-1";a:0:{}s:8:"footer-1";a:0:{}s:25:"widget-area-price-options";a:0:{}s:16:"sidebar-download";a:0:{}s:23:"sidebar-download-single";a:1:{i:0;s:28:"edd_categories_tags_widget-4";}s:32:"sidebar-download-single-comments";a:0:{}s:13:"array_version";i:3;}', 'yes'),
-(96, 'cron', 'a:10:{i:1408262925;a:1:{s:25:"su-sds-blog-load-blog-rss";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:6:"hourly";s:4:"args";a:0:{}s:8:"interval";i:3600;}}}i:1408284435;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1408291250;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1408291540;a:1:{s:29:"wp_session_garbage_collection";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1408302840;a:1:{s:20:"wp_maybe_auto_update";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1408316400;a:1:{s:18:"edd_rp_suggestions";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1408334468;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1408334740;a:1:{s:26:"edd_daily_scheduled_events";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1408680340;a:1:{s:27:"edd_weekly_scheduled_events";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:6:"weekly";s:4:"args";a:0:{}s:8:"interval";i:604800;}}}s:7:"version";i:2;}', 'yes'),
+(96, 'cron', 'a:10:{i:1408273725;a:1:{s:25:"su-sds-blog-load-blog-rss";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:6:"hourly";s:4:"args";a:0:{}s:8:"interval";i:3600;}}}i:1408284435;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1408291250;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1408291540;a:1:{s:29:"wp_session_garbage_collection";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1408302840;a:1:{s:20:"wp_maybe_auto_update";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1408316400;a:1:{s:18:"edd_rp_suggestions";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1408334468;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1408334740;a:1:{s:26:"edd_daily_scheduled_events";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1408680340;a:1:{s:27:"edd_weekly_scheduled_events";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:6:"weekly";s:4:"args";a:0:{}s:8:"interval";i:604800;}}}s:7:"version";i:2;}', 'yes'),
 (98, '_site_transient_update_core', 'O:8:"stdClass":4:{s:7:"updates";a:1:{i:0;O:8:"stdClass":10:{s:8:"response";s:6:"latest";s:8:"download";s:59:"https://downloads.wordpress.org/release/wordpress-3.9.2.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:59:"https://downloads.wordpress.org/release/wordpress-3.9.2.zip";s:10:"no_content";s:70:"https://downloads.wordpress.org/release/wordpress-3.9.2-no-content.zip";s:11:"new_bundled";s:71:"https://downloads.wordpress.org/release/wordpress-3.9.2-new-bundled.zip";s:7:"partial";b:0;s:8:"rollback";b:0;}s:7:"current";s:5:"3.9.2";s:7:"version";s:5:"3.9.2";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"3.8";s:15:"partial_version";s:0:"";}}s:12:"last_checked";i:1408259653;s:15:"version_checked";s:5:"3.9.2";s:12:"translations";a:0:{}}', 'yes'),
 (104, '_site_transient_timeout_browser_376956767818a23f320b0ffbb60a9092', '1408680060', 'yes'),
 (105, '_site_transient_browser_376956767818a23f320b0ffbb60a9092', 'a:9:{s:8:"platform";s:7:"Windows";s:4:"name";s:7:"Firefox";s:7:"version";s:4:"31.0";s:10:"update_url";s:23:"http://www.firefox.com/";s:7:"img_src";s:50:"http://s.wordpress.org/images/browsers/firefox.png";s:11:"img_src_ssl";s:49:"https://wordpress.org/images/browsers/firefox.png";s:15:"current_version";s:2:"16";s:7:"upgrade";b:0;s:8:"insecure";b:0;}', 'yes'),
@@ -322,12 +323,14 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (1100, '_transient_feed_mod_b9388c83948825c1edaef0d856b7b109', '1408261264', 'no'),
 (1101, '_transient_timeout_dash_4077549d03da2e451c8b5f002294ff51', '1408304464', 'no'),
 (1102, '_transient_dash_4077549d03da2e451c8b5f002294ff51', '<div class="rss-widget"><ul><li><a class=''rsswidget'' href=''http://wordpress.org/news/2014/08/wordpress-4-0-beta-4/''>WordPress 4.0 Beta 4</a> <span class="rss-date">August 15, 2014</span><div class="rssSummary">The fourth and likely final beta for WordPress 4.0 is now available. We’ve made more than 250 changes in the past month, including: Further improvements to the editor scrolling experience, especially when it comes to the second column of boxes. Better handling of small screens in the media library modals. A separate bulk selection mode […]</div></li></ul></div><div class="rss-widget"><ul><li><a class=''rsswidget'' href=''http://ma.tt/2014/08/humans-need-not-apply/'' title=''''>Matt: Humans Need Not Apply</a></li><li><a class=''rsswidget'' href=''http://wordpress.tv/2014/08/16/austin-smith-elastic-search-on-wordpress-com-in-action/'' title=''''>WordPress.tv: Austin Smith: Elastic Search on WordPress.com in Action</a></li><li><a class=''rsswidget'' href=''http://wordpress.tv/2014/08/16/panel-discussion-working-from-home/'' title=''''>WordPress.tv: Panel Discussion: Working From Home</a></li></ul></div><div class="rss-widget"><ul><li class=''dashboard-news-plugin''><span>Popular Plugin:</span> <a href=''http://wordpress.org/plugins/jetpack/'' class=''dashboard-news-plugin-link''>Jetpack by WordPress.com</a>&nbsp;<span>(<a href=''plugin-install.php?tab=plugin-information&amp;plugin=jetpack&amp;_wpnonce=111bcd6426&amp;TB_iframe=true&amp;width=600&amp;height=800'' class=''thickbox'' title=''Jetpack by WordPress.com''>Install</a>)</span></li></ul></div>', 'no'),
-(1105, '_wp_session_expires_051f967f757e610fbba709a017f83c93', '1408263188', 'no'),
 (1110, '_wp_session_051f967f757e610fbba709a017f83c93', 'a:6:{s:8:"edd_cart";N;s:10:"edd_errors";N;s:12:"edd_purchase";s:1368:"a:14:{s:9:"downloads";a:1:{i:0;a:3:{s:2:"id";s:2:"28";s:7:"options";a:0:{}s:8:"quantity";i:1;}}s:4:"fees";a:0:{}s:8:"subtotal";d:10;s:8:"discount";d:0;s:3:"tax";d:0;s:5:"price";d:10;s:12:"purchase_key";s:32:"9893740fff0458e225449317e9ef8ee9";s:10:"user_email";s:22:"vipin.garg12@gmail.com";s:4:"date";s:19:"2014-08-17 07:33:51";s:9:"user_info";a:6:{s:2:"id";i:1;s:5:"email";s:22:"vipin.garg12@gmail.com";s:10:"first_name";s:5:"vipin";s:9:"last_name";s:4:"garg";s:8:"discount";s:4:"none";s:7:"address";b:0;}s:9:"post_data";a:8:{s:12:"payment-mode";s:6:"paypal";s:10:"edd_action";s:8:"purchase";s:7:"page_id";s:1:"5";s:9:"edd_email";s:22:"vipin.garg12@gmail.com";s:9:"edd_first";s:5:"vipin";s:8:"edd_last";s:4:"garg";s:11:"edd-user-id";s:1:"1";s:11:"edd-gateway";s:6:"paypal";}s:12:"cart_details";a:1:{i:0;a:9:{s:4:"name";s:20:"this is test product";s:2:"id";s:2:"28";s:11:"item_number";a:3:{s:2:"id";s:2:"28";s:7:"options";a:0:{}s:8:"quantity";i:1;}s:10:"item_price";d:10;s:8:"quantity";i:1;s:8:"discount";d:0;s:8:"subtotal";d:10;s:3:"tax";d:0;s:5:"price";d:10;}}s:7:"gateway";s:6:"paypal";s:9:"card_info";a:10:{s:9:"card_name";s:0:"";s:8:"card_cvc";s:0:"";s:14:"card_exp_month";s:0:"";s:13:"card_exp_year";s:0:"";s:12:"card_address";s:0:"";s:14:"card_address_2";s:0:"";s:9:"card_city";s:0:"";s:10:"card_state";s:0:"";s:12:"card_country";s:0:"";s:8:"card_zip";s:0:"";}}";s:13:"edd_cart_fees";N;s:14:"cart_discounts";N;s:15:"edd_wl_messages";N;}', 'no'),
 (1112, '_wp_session_expires_3ae7f7dbffc3667db354f84a15f2a32f', '1408262406', 'no'),
-(1114, '_transient_is_multi_author', '0', 'yes'),
 (1116, '_wp_session_3ae7f7dbffc3667db354f84a15f2a32f', 'a:1:{s:15:"edd_wl_messages";N;}', 'no'),
-(1117, '_transient_marketify_is_multi_vendor', '1', 'yes');
+(1117, '_transient_marketify_is_multi_vendor', '1', 'yes'),
+(1118, '_wp_session_expires_051f967f757e610fbba709a017f83c93', '1408264719', 'no'),
+(1121, '_wp_session_expires_b665e53c2a86cf31d63b914e8322d3ad', '1408272453', 'no'),
+(1122, '_transient_is_multi_author', '0', 'yes'),
+(1123, '_wp_session_b665e53c2a86cf31d63b914e8322d3ad', 'a:3:{s:29:"wordpress_edd_reviews_voted_4";s:3:"yes";s:8:"edd_cart";s:73:"a:1:{i:0;a:3:{s:2:"id";s:2:"37";s:7:"options";a:0:{}s:8:"quantity";i:1;}}";s:10:"edd_errors";N;}', 'no');
 
 -- --------------------------------------------------------
 
@@ -343,7 +346,7 @@ CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=154 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=156 ;
 
 --
 -- Dumping data for table `wp_postmeta`
@@ -477,7 +480,9 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (150, 44, '_edd_payment_purchase_key', '9893740fff0458e225449317e9ef8ee9'),
 (151, 44, '_edd_payment_total', '10'),
 (152, 44, '_edd_payment_mode', 'test'),
-(153, 44, '_edd_payment_gateway', 'paypal');
+(153, 44, '_edd_payment_gateway', 'paypal'),
+(154, 47, 'edd_wish_list', 'a:1:{i:0;a:3:{s:2:"id";s:2:"39";s:7:"options";a:0:{}s:8:"quantity";i:1;}}'),
+(155, 47, 'edd_wl_token', '471408270768');
 
 -- --------------------------------------------------------
 
@@ -514,7 +519,7 @@ CREATE TABLE IF NOT EXISTS `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
 
 --
 -- Dumping data for table `wp_posts`
@@ -559,7 +564,8 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (43, 1, '2014-08-17 07:31:44', '2014-08-17 07:31:44', '', 'Tulips', '', 'inherit', 'open', 'open', '', 'tulips', '', '', '2014-08-17 07:31:44', '2014-08-17 07:31:44', '', 28, 'http://localhost/Professi/wp-content/uploads/edd/2014/08/Tulips.jpg', 0, 'attachment', 'image/jpeg', 0),
 (44, 1, '2014-08-17 07:33:51', '0000-00-00 00:00:00', '', 'vipin garg', '', 'pending', 'open', 'open', '', '', '', '', '2014-08-17 07:33:51', '0000-00-00 00:00:00', '', 0, 'http://localhost/Professi/?post_type=edd_payment&p=44', 0, 'edd_payment', '', 0),
 (45, 1, '2014-08-17 07:46:12', '2014-08-17 07:46:12', 'test', 'test', '', 'publish', 'open', 'open', '', 'test', '', '', '2014-08-17 07:46:12', '2014-08-17 07:46:12', '', 0, 'http://localhost/Professi/wish-lists/view/45', 0, 'edd_wish_list', '', 0),
-(46, 3, '2014-08-17 07:47:22', '2014-08-17 07:47:22', 'test', 'test', '', 'publish', 'open', 'open', '', 'test-2', '', '', '2014-08-17 07:47:22', '2014-08-17 07:47:22', '', 0, 'http://localhost/Professi/wish-lists/view/46', 0, 'edd_wish_list', '', 0);
+(46, 3, '2014-08-17 07:47:22', '2014-08-17 07:47:22', 'test', 'test', '', 'publish', 'open', 'open', '', 'test-2', '', '', '2014-08-17 07:47:22', '2014-08-17 07:47:22', '', 0, 'http://localhost/Professi/wish-lists/view/46', 0, 'edd_wish_list', '', 0),
+(47, 0, '2014-08-17 10:19:28', '2014-08-17 10:19:28', '', 'My list', '', 'private', 'open', 'open', '', 'my-list', '', '', '2014-08-17 10:19:28', '2014-08-17 10:19:28', '', 0, 'http://localhost/Professi/wish-lists/view/47', 0, 'edd_wish_list', '', 0);
 
 -- --------------------------------------------------------
 
