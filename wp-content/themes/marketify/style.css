@@ -1845,7 +1845,7 @@ body.product-display-inline .single-project .page-header,
 }
 
 .content-grid-download .entry-image .image-placeholder {
-	min-height: 200px;
+	min-height: 160px;
 	background: #eee;
 	position: relative;
 }
@@ -1902,7 +1902,7 @@ body.product-display-inline .single-project .page-header,
 
 .content-grid-download .entry-image:hover .actions,
 .content-grid-download .entry-image.hover .actions {
-	top: 15%;
+	top: 18%;
 	bottom: auto;
 }
 
@@ -2123,6 +2123,10 @@ body.product-display-inline .single-project .page-header,
 .content-grid-download .edd-cp-container,
 .content-grid-download .edd-cp-container + .edd_purchase_submit_wrapper > .edd-add-to-cart {
 	display: none;
+}
+
+.edd_download_purchase_form .edd_purchase_submit_wrapper {
+	height: 45px;
 }
 
 .download-image-grid-preview {
@@ -3298,6 +3302,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 * */
 
+.wishlist .view-whishlist .entry-image,
 .download-single-widget,
 .download-product-details,
 .download-product-review-details {
@@ -4752,7 +4757,7 @@ input.search-field-input {
 	height: 38px; width: 350px;
 }
 
-.buy-info { width: 200px; padding-top: 15px; margin-left: 100px;}
+.buy-info { width: 230px; padding-top: 15px; margin-left: 90px;}
 .buy-info i.buy-icon{
 	width: 44px;height:44px; display: inline-block; float: left;
 	background: url('images/buy_item.png') left center no-repeat;
@@ -4889,6 +4894,150 @@ input.search-field-input {
 	box-shadow: 0px 0px 5px 0.5px rgba(13,13,13,0.27);
 	padding: 10px;
 	background-color: #fff;
+}
+
+.content-items .col-md-4 .content-grid-download {
+	margin-bottom: 20px;
+}
+
+#selected-categories .selected-cat span {
+	display: block;
+	line-height: 24px;
+}
+#selected-categories .selected-cat span.pcat {
+	text-transform:uppercase;
+}
+
+#selected-categories .selected-cat span.icon-cat {
+	cursor: pointer;font-size:99%;
+}
+#selected-categories .selected-cat span.icon-cat i.icon{
+	width: 30px; height: 11px;display: inline-block;
+	background: url('images/remove-icon.png') center right no-repeat;
+}
+.left-container .download-single-widget ul.selected-cat li.cat-item-selected {
+	padding-right: 25px;
+}
+.left-container .download-single-widget ul.selected-cat li.cat-item-selected > a {
+	width: 100%;height:10px;
+}
+
+.container .wishlist {
+	width: 850px; margin:auto;padding:10px 0px;
+}
+.container .header .page-title {
+	max-width:100%;
+	text-align:left;
+	color: #000;font-size:25px;
+	text-transform:uppercase;
+	padding: 10px;
+}
+
+.vendor hr {
+	height: 14px;
+	overflow: hidden;
+	border: none;
+	background: none;
+	margin: 0px;
+	font-size: 14px;
+	color: gray;
+	font-weight: bold;
+	padding-left:10px;
+}
+
+.vendor .teacher-author {
+	padding: 0px 10px;
+}
+
+.vendor hr:after {
+	content:"............................................................................................................";
+	letter-spacing: 4px; /* Use letter-spacing to increase space between dots*/
+}
+
+.vendor .right-container .download-product-review-details {
+	margin-top:10px;
+}
+.vendor .glyphicon {
+	font-family:'Glyphicons Halflings' !important;
+	font-size: 9px;
+	top:-1px;
+}
+.vendor .title-top-container {
+	line-height: 30px;
+	margin-top:30px;
+}
+
+.vendor .header .page-title {
+	padding: 0px 10px;
+}
+
+.vendor .content-items .teacher-autors .content-grid-download, 
+.vendor .teacher-autors .edd_download_inner,
+.vendor .teacher-autors .entry-image,
+.vendor .teacher-autors .entry-image .image-placeholder,
+.vendor .teacher-autors .entry-image img,
+.vendor .teacher-autors .overlay {
+	border-radius: 50%;
+}
+.vendor .content-items .teacher-autors .content-grid-download {
+	margin-bottom: 50px;
+}
+.vendor .content-items .teacher-autors .content-grid-download .edd_download_inner {
+	position:relative;
+}
+.vendor .content-items .teacher-autors .content-grid-download .entry-header {
+	position:absolute;
+	background: none;
+	bottom:-45px;
+}
+.vendor .content-items .teacher-autors .content-grid-download .entry-header .entry-title {
+	display: none;
+}
+
+.vendor .entry-image .image-placeholder {
+	min-height: 200px;
+}
+
+.vendor .entry-image img {
+	min-height: 200px;
+}
+
+
+
+.wishlist .view-whishlist .entry-image .image-placeholder {
+	min-height: 160px;
+	background: #eee;
+	display:block;
+	font-family:icomoon;
+}
+
+.wishlist .view-whishlist .entry-image .image-placeholder:before {
+	color: #bbb;
+	content: '\e69c';
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	margin-top: -10px;
+	margin-left: -10px;
+	position: absolute;
+}
+
+.wishlist .view-whishlist .entry-image {
+	width: 200px;
+	padding: 10px !important;
+	float: left;
+	position:relative;
+}
+.wishlist .view-whishlist .entry-header {
+	padding: 10px !important;
+	float: left;
+}
+.wishlist .entry-image img{
+	max-width: 100%;
+	height: 160px !important;
+	width: auto !important;
 }
 
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Wishlist
+ * Template Name: Likes
  *
  * @package Marketify
  */
@@ -15,13 +15,15 @@ $author = new WP_User( $author );
 
 get_header(); ?>
 
-<div class="container">
-	<div class="wishlist">
 	<?php while ( have_posts() ) : the_post(); ?>
-	<div class="header">
-		<h1 class="page-title fontsforweb_fontid_9785"><?php the_title(); ?></h1>
-	</div><!-- .page-header -->
 
+	<header class="page-header">
+		<h1 class="page-title"><?php the_title(); ?></h1>
+	</header><!-- .page-header -->
+
+	<?php do_action( 'marketify_entry_before' ); ?>
+
+	<div class="container">
 		<div id="content" class="site-content row">
 
 			<div id="secondary" class="author-widget-area col-md-3 col-sm-5 col-xs-12" role="complementary">
@@ -57,19 +59,18 @@ get_header(); ?>
 					<?php endif; ?>
 				</div>
 			</div><!-- #secondary -->
-			<div style="padding: 20px;" class="content-area download-product-details col-md-9 col-sm-7 col-xs-12">
-				<section id="primary">
-					<main id="main" class="site-main" role="main">
 
-						<?php the_content(); ?>
+			<section id="primary" class="content-area col-md-9 col-sm-7 col-xs-12">
+				<main id="main" class="site-main" role="main">
 
-					</main><!-- #main -->
-				</section><!-- #primary -->
-			</div>
+					<?php the_content(); ?>
+
+				</main><!-- #main -->
+			</section><!-- #primary -->
+
 		</div><!-- #content -->
+	</div>
 
 	<?php endwhile; ?>
-	
-	</div>
-</div>
+
 <?php get_footer(); ?>

@@ -32,9 +32,9 @@
 			<div class="top-bar clearfix">
 				<div class="right-top-bar right">
 					<ul class="none list-top clearfix">
-						<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="#">My Account</a></li>
-						<li class="left"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="#">Wishlist</a></li>
-						<li class="left"><i class="uiIcon16x16 uiIconTop arrow_top"></i><a class="actionIcon" href="#">Checkout</a></li>
+						<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wp-admin/profile.php">My Account</a></li>
+						<li class="left"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Wishlist</a></li>
+						<li class="left"><i class="uiIcon16x16 uiIconTop arrow_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>checkout/">Checkout</a></li>
 					</ul>
 				</div>
 			</div>
@@ -53,7 +53,8 @@
 					</div>
 					<div class="buy-info left">
 						<i class="buy-icon"></i>
-						<span>0 item(s) - $0.00</span>
+						<?php $cart_items = edd_get_cart_contents(); $total = ($cart_items && is_array($cart_items)) ? count($cart_items) : 0; ?>
+						<span><?php echo $total; ?> item(s) - <?php edd_cart_total(); ?></span>
 					</div>
 				</div>
 				<h1 class="site-title" style="display:none"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
