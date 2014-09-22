@@ -71,6 +71,19 @@
 				//
 				fromSearch.find('button.search-submit:first').trigger( "click" );
 			});
+			//
+			
+			var selext = $('#selext-orderby');
+			if(window.currentSelect) {
+				selext.val(window.currentSelect);
+			}
+			selext.on('change', function(evt) {
+				var fromSearch = $('#quick-search-form');
+				fromSearch.find('#search_order:first').val($(this).val());
+				//
+				fromSearch.find('button.search-submit:first').trigger( "click" );
+			});
+			
 		},
 		removeArr : function(arr, item) {
       for(var i = arr.length; i--;) {
@@ -82,6 +95,31 @@
 		}
 		
 	};
+	$()
+	//
+	
+	$('#main-add-to-card').on('click', function(evt) {
+		evt.preventDefault();
+		var old_f = $('#hidden-old-data').find('form.edd_download_purchase_form:first');
+		var a = old_f.find('.edd-add-to-cart:first');
+		if(a.css( "display" ) == "none") {
+			a = old_f.find('.edd_go_to_checkout:first');
+			window.location.href = a.attr('href');
+		} else {
+			a.trigger( "click" );
+			$(this).html('CHECKOUT CART');
+			window.setTimeout(function(){window.location.reload();}, 200);
+		}
+	}).html(
+		function() {
+				var old_f = $('#hidden-old-data').find('form.edd_download_purchase_form:first');
+				var a = old_f.find('.edd_go_to_checkout:first');
+				if(a.attr( "style" )  &&  a.attr( "style" ).indexOf('none') > 0) {
+					return "ADD ONE TO CART";
+				}
+				return 'CHECKOUT CART';
+		}
+	);
 	
 	$('#input-search-field').on('keydown', Base.enterSearch);
 	Base.widthMenu();
