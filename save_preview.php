@@ -1,0 +1,54 @@
+<?php
+
+include "./wp-load.php";
+
+//$_POST['data'] = '{\"status\":\"success\",\"payload\":{\"guid\":\"{171CC291-C893-73D8-280C-321DF399372F}\",\"reference\":\"my_internal_file_db_id\",\"image\":\"\\/9j\\/4AAQSkZJRgABAQEAUABQAAD\\/4gogSUNDX1BST0ZJTEUAAQEAAAoQAAAAAAIQAABtbnRyUkdCIFhZWiAAAAAAAAAAAAAAAABhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tUAAQAAAADTLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApkZXNjAAAA\\/AAAAHxjcHJ0AAABeAAAACh3dHB0AAABoAAAABRia3B0AAABtAAAABRyWFlaAAAByAAAABRnWFlaAAAB3AAAABRiWFlaAAAB8AAAABRyVFJDAAACBAAACAxnVFJDAAACBAAACAxiVFJDAAACBAAACAxkZXNjAAAAAAAAACJBcnRpZmV4IFNvZnR3YXJlIHNSR0IgSUNDIFByb2ZpbGUAAAAAAAAAAAAAACJBcnRpZmV4IFNvZnR3YXJlIHNSR0IgSUNDIFByb2ZpbGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdGV4dAAAAABDb3B5cmlnaHQgQXJ0aWZleCBTb2Z0d2FyZSAyMDExAFhZWiAAAAAAAADzUQABAAAAARbMWFlaIAAAAAAAAAAAAAAAAAAAAABYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9jdXJ2AAAAAAAABAAAAAAFAAoADwAUABkAHgAjACgALQAyADcAOwBAAEUASgBPAFQAWQBeAGMAaABtAHIAdwB8AIEAhgCLAJAAlQCaAJ8ApACpAK4AsgC3ALwAwQDGAMsA0ADVANsA4ADlAOsA8AD2APsBAQEHAQ0BEwEZAR8BJQErATIBOAE+AUUBTAFSAVkBYAFnAW4BdQF8AYMBiwGSAZoBoQGpAbEBuQHBAckB0QHZAeEB6QHyAfoCAwIMAhQCHQImAi8COAJBAksCVAJdAmcCcQJ6AoQCjgKYAqICrAK2AsECywLVAuAC6wL1AwADCwMWAyEDLQM4A0MDTwNaA2YDcgN+A4oDlgOiA64DugPHA9MD4APsA\\/kEBgQTBCAELQQ7BEgEVQRjBHEEfgSMBJoEqAS2BMQE0wThBPAE\\/gUNBRwFKwU6BUkFWAVnBXcFhgWWBaYFtQXFBdUF5QX2BgYGFgYnBjcGSAZZBmoGewaMBp0GrwbABtEG4wb1BwcHGQcrBz0HTwdhB3QHhgeZB6wHvwfSB+UH+AgLCB8IMghGCFoIbgiCCJYIqgi+CNII5wj7CRAJJQk6CU8JZAl5CY8JpAm6Cc8J5Qn7ChEKJwo9ClQKagqBCpgKrgrFCtwK8wsLCyILOQtRC2kLgAuYC7ALyAvhC\\/kMEgwqDEMMXAx1DI4MpwzADNkM8w0NDSYNQA1aDXQNjg2pDcMN3g34DhMOLg5JDmQOfw6bDrYO0g7uDwkPJQ9BD14Peg+WD7MPzw\\/sEAkQJhBDEGEQfhCbELkQ1xD1ERMRMRFPEW0RjBGqEckR6BIHEiYSRRJkEoQSoxLDEuMTAxMjE0MTYxODE6QTxRPlFAYUJxRJFGoUixStFM4U8BUSFTQVVhV4FZsVvRXgFgMWJhZJFmwWjxayFtYW+hcdF0EXZReJF64X0hf3GBsYQBhlGIoYrxjVGPoZIBlFGWsZkRm3Gd0aBBoqGlEadxqeGsUa7BsUGzsbYxuKG7Ib2hwCHCocUhx7HKMczBz1HR4dRx1wHZkdwx3sHhYeQB5qHpQevh7pHxMfPh9pH5Qfvx\\/qIBUgQSBsIJggxCDwIRwhSCF1IaEhziH7IiciVSKCIq8i3SMKIzgjZiOUI8Ij8CQfJE0kfCSrJNolCSU4JWgllyXHJfcmJyZXJocmtyboJxgnSSd6J6sn3CgNKD8ocSiiKNQpBik4KWspnSnQKgIqNSpoKpsqzysCKzYraSudK9EsBSw5LG4soizXLQwtQS12Last4S4WLkwugi63Lu4vJC9aL5Evxy\\/+MDUwbDCkMNsxEjFKMYIxujHyMioyYzKbMtQzDTNGM38zuDPxNCs0ZTSeNNg1EzVNNYc1wjX9Njc2cjauNuk3JDdgN5w31zgUOFA4jDjIOQU5Qjl\\/Obw5+To2OnQ6sjrvOy07azuqO+g8JzxlPKQ84z0iPWE9oT3gPiA+YD6gPuA\\/IT9hP6I\\/4kAjQGRApkDnQSlBakGsQe5CMEJyQrVC90M6Q31DwEQDREdEikTORRJFVUWaRd5GIkZnRqtG8Ec1R3tHwEgFSEtIkUjXSR1JY0mpSfBKN0p9SsRLDEtTS5pL4kwqTHJMuk0CTUpNk03cTiVObk63TwBPSU+TT91QJ1BxULtRBlFQUZtR5lIxUnxSx1MTU19TqlP2VEJUj1TbVShVdVXCVg9WXFapVvdXRFeSV+BYL1h9WMtZGllpWbhaB1pWWqZa9VtFW5Vb5Vw1XIZc1l0nXXhdyV4aXmxevV8PX2Ffs2AFYFdgqmD8YU9homH1YklinGLwY0Njl2PrZEBklGTpZT1lkmXnZj1mkmboZz1nk2fpaD9olmjsaUNpmmnxakhqn2r3a09rp2v\\/bFdsr20IbWBtuW4SbmtuxG8eb3hv0XArcIZw4HE6cZVx8HJLcqZzAXNdc7h0FHRwdMx1KHWFdeF2Pnabdvh3VnezeBF4bnjMeSp5iXnnekZ6pXsEe2N7wnwhfIF84X1BfaF+AX5ifsJ\\/I3+Ef+WAR4CogQqBa4HNgjCCkoL0g1eDuoQdhICE44VHhauGDoZyhteHO4efiASIaYjOiTOJmYn+imSKyoswi5aL\\/IxjjMqNMY2Yjf+OZo7OjzaPnpAGkG6Q1pE\\/kaiSEZJ6kuOTTZO2lCCUipT0lV+VyZY0lp+XCpd1l+CYTJi4mSSZkJn8mmia1ZtCm6+cHJyJnPedZJ3SnkCerp8dn4uf+qBpoNihR6G2oiailqMGo3aj5qRWpMelOKWpphqmi6b9p26n4KhSqMSpN6mpqhyqj6sCq3Wr6axcrNCtRK24ri2uoa8Wr4uwALB1sOqxYLHWskuywrM4s660JbSctRO1irYBtnm28Ldot+C4WbjRuUq5wro7urW7LrunvCG8m70VvY++Cr6Evv+\\/er\\/1wHDA7MFnwePCX8Lbw1jD1MRRxM7FS8XIxkbGw8dBx7\\/IPci8yTrJuco4yrfLNsu2zDXMtc01zbXONs62zzfPuNA50LrRPNG+0j\\/SwdNE08bUSdTL1U7V0dZV1tjXXNfg2GTY6Nls2fHadtr724DcBdyK3RDdlt4c3qLfKd+v4DbgveFE4cziU+Lb42Pj6+Rz5PzlhOYN5pbnH+ep6DLovOlG6dDqW+rl63Dr++yG7RHtnO4o7rTvQO\\/M8Fjw5fFy8f\\/yjPMZ86f0NPTC9VD13vZt9vv3ivgZ+Kj5OPnH+lf65\\/t3\\/Af8mP0p\\/br+S\\/7c\\/23\\/\\/\\/\\/bAEMAAwICAgICAwICAgMDAwMEBgQEBAQECAYGBQYJCAoKCQgJCQoMDwwKCw4LCQkNEQ0ODxAQERAKDBITEhATDxAQEP\\/bAEMBAwMDBAMECAQECBALCQsQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEP\\/AABEIAM0BAAMBIgACEQEDEQH\\/xAAcAAEAAgMBAQEAAAAAAAAAAAAABQcDBAYBAgj\\/xAAvEAABBAIBBAEDAwMFAQAAAAAAAQIDBAURBgcSEyEIFCIxFUFRIzJhFhczYnFC\\/8QAFwEBAQEBAAAAAAAAAAAAAAAAAAIEBf\\/EACMRAQABAwMDBQAAAAAAAAAAAAABAgMRBCFBBRMxElFhseH\\/2gAMAwEAAhEDEQA\\/AP3jzL5Q8A6ec+zPBeY1slVfjK1GaCepTmuvuPsQ25lY2GFjnp2R0pXKq+tfxojsr8xujlHk2GwdHKzXaGQisWbuZbXmZRoQxY5b6udK5nZI\\/wAPjVY2u72+Rqqn7HW8j6BdN+Vc4k6h5jH25M1LHHE6Rlt7WdrK1qs37E9f8V2dP\\/VRf2Q4+P4XdDo1bA6jm5MaypLUbin5aVaSLLQShLN49\\/8AK+u1rVfv8tRyaXaqEpj\\/AJadDsomHSlya4+XPX34qhAuLspLLea6JHVuxWbSVGzxydq6Xxqr\\/wC1qqk\\/y3r30z4Vy5vB87mLTcu5kKujgx880UT5kf8ATxSSsYscckviekbHORXKmkT2m+aofEnpLRbx9yLnpbHGL7spjLDsm9j4LjnRqs6JGjWd\\/ZE2L+3Xjc9uvvduf5R8f+n3LueR9Qcu3K\\/WpJSns1Ib746Vyamr1qyzQp6e+JZHK1fX7bRdJoI3AfIvj2T6K8e63ZfBZHFYzPwuuJUex0k9eq1ksr5XNRqK5GwwukVGovr0m\\/SrpzfMDoFGthtfl8911W4tCRlLG2bD\\/P8AURV2sa2Niq5XSzRtbpF7tqqbRFO1xHSThOF4tguF1KEz8Rx3GS4mlXmmc9EryReJyPVfbnePbdr+znfyVLe+EHSzG8ejwnTmXIcZnfdwEti9HbllsLXxdjyxtjertsldtdye1V3aqoutAWHJ8iuj7eH1ebQ8tjs1Lr4oq9SvXllyEk0kqwthSm1qz+TytcztVm0Vq7\\/CkbJ8quiMVxtOTlFpirT+rdK7F2mwxr9K60kD5FjRrLCwRvkSFypJpPxvSH0vxg6Rx8Rp8Vo4aejYoTxW4M9Wm7MwlmOd06TOua73v8r3vVHbaquX1r0R9n4kdJLt11q87kdqKWBG2KtjNTSw2bKU300uSo5VV9lIJHM8ir\\/C62iKgasvzJ6LN\\/SbEV3LrSyN6xSs2psTYrtxyRY9b\\/mnbKxr2xur6e1yIu0dv8Iqpnl+ZHQGHD1s47lV51aw6216R4e2+SslZIXTunY2NXQtY2xC9XPRE7XouzZzfxN6OcgifBkcZkVimljlmY289ElRuM\\/TfG7\\/AKrV+1UTS7+7aKY6vxJ6P18A\\/js1TK2oJcfksZLLLeVJJILzYWToqsRrUXtrRI1URNdq\\/uqqoZsf8oOn12nPkrFXK0aVXktvjM01mq5upoJo4PM1qIqujfNPAxFT8LJ71pTNkPlR0UxeWgw13ktts8088Dntxdl8MCw3loyPmkaxWxMSynj73qjdqi70uz218YumVrDchwb3ZplbkVx+QkWPIOa+nYdYisrJXdrca+avE\\/8Af23+PRyS\\/C\\/gbuW0sjJn88\\/j9bHS17OMdkZVfkrMuTXISPtS73LG6ZdqzSe0\\/OtoBO8U+WfSzPw4aHLWrWIyOYldD9O6tNYiqK65PVrpPYjZ44lmkrv8aPVFcvpNmjmfml0Ox\\/FcxyPG5fJZKzifqWfpceJtttyvhqrZVfGsXcyLxacsqp2NRyKqp+DfT4jdHW26c8NbNQ16zonz0o8pK2tefDZmswOsMRfvWKaxK5i7TW0Rdoiag6XwX6G43Ey4rHu5RVWdjoZbcGakjsSV3VfpZIFe1E\\/pvh7WuTW17Udvu9qHc9NfkJ046o5uTivHchYdnKlGG5eqrVl8ddz4opHRedWJG57Emj2iLv3\\/AIXVmFW8M+OHTfgvUH\\/cvCMyrswzHLi4PqbrpIoa6tiarWoqdypqFmkcrkb77UbtS0gAAAAAAAAAAAAAAAAAAAAAD4mdIyJ74o\\/I9rVVrN67l16Tf7HCZLlnUWvhuPZL\\/RTKd21DJPmMd5HXFqq1qL4WSwp2ucqqqI7WlVDu5o\\/LE+JJHs72q3uYunN2n5T\\/ACcDm+l2RyPHMDx2Dml+f9GjdHJdybPqbVxVZ2o+V7VZt35VdJp34VNGvQzZjUU9\\/Hp3zmJmPE8Rv+pqzjZEQ9WOok7kanSLJQo6ukqPlSb7X6XbFRIvztP5\\/CoZbnUrqBUt3lq9P72Qgib3QMSlPArl01dI5Ud3727\\/AOU0qIn+SRwvTHK4nKY6+7lck0VHvR9dY39kyOWNXKqK9dO3E1UX\\/wBTWiwjqanVdPtVx2bVNUY33rjn5nPHE8opprmN5VRH1Y5\\/JaSN3SjJRxuiRe58c6IyT3tHO8Wta0u0T+U\\/PosPjGXs5\\/AUszbxk+Oltx+R1Wdqtki2vpHIqIqLrX7EoDnarU2L1MRasxRPvEzP3K6aZjzIADCoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABwXLeP9U7nKa+V4lzClRxvhWCWnNArkTWnJJ7Re5yu+1U0mm\\/hdqpFR8R66OpI6fqZj25CPyMa5lJqwva5U0qt7E05qJpF9+9r+F7S0gBXFniPVp2csXaHUKtWpWJE743V\\/M5rEZ2orGuTsZ796RF9+1VU+0y1OOdY4nXpLnUHGzq+l46cbce1jWWVaieR69qqqIveqIn5Xt3+FRbCAFZx8Z62JXhrrz+i18NdqSzfTMctidXuc9URY\\/6bdK1qfnSIvrfsx47iPW6nk3S3OpGPvY987pnQPpIx6tXS9iORu2pvafn0mi0ABVtbjvXq1UWxY57jKNqVsmoVpRzMhXf2+0Ynf6X+U1pE+72p4\\/hXW2Pz2K\\/VKq+xNN5Gtlpt8UbUaiaa1G+k\\/uVUXfvXv1stMAVpj+NdbqePsVbHO8XamcsX08skH3Ro1Hd6Kvj+7blb+U3pqptFXZml4b1Rk+jyTeoiNyUFSGrKxsKJVkciuWWVY+3SuVVbr0nputpvaWKAKvv8F6t25sYsfUzsjgWZbitj7HTq+Ryt0jWoiIxvZpP+qou0dstAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\\/9k=\"}}';
+$_POST['data'] = str_ireplace("\\","",$_POST['data']);
+
+//Start by getting the data POSTed to the callback by the thumbifier (remember it's JSON encoded).
+$data = json_decode($_POST['data'], true);
+
+//We'll use the GUID as our filename, but you should probably do something a bit smarter
+$file = "{$data['payload']['guid']}.jpg";
+$file = str_ireplace(array("{","}"),"",$file);
+//You could use the reference you passed in to write to a more appropriate file name
+
+$guid = $data['payload']['guid'];
+$guid = str_ireplace(array("{","}"),"",$guid);
+
+//Check to see if everything has gone well
+if($data['status'] === "success") {
+	$post_preview = $wpdb->get_row("select  * from preview_requests where guid = '$guid'");
+	
+	if($post_preview){
+		$path = "wp-content/uploads/edd/2014/09/";
+		//If it has, then write the base64 decoded data to a file (which gives us our jpg file)
+		file_put_contents($path.$file, base64_decode($data['payload']['image']));
+
+		$image_url = "edd/2014/09/".$file;
+		// find our mime type for later
+		$filetype = wp_check_filetype( $image_url );
+
+		// Set up an array of args for our new attachment
+		$args = array(
+            'post_mime_type' => $filetype['type'],
+            'post_title'     => 'preview',
+            'post_content'   => '',
+            'post_status'    => 'inherit',
+			'post_author'    => '1',
+			'guid' => "http://profesi.growthlabs.ca/wp-content/uploads/".$image_url
+		);
+
+		// Insert the attachment!
+		$thumb_id = wp_insert_attachment( $args, $image_url,  $post_preview->post_id );
+		update_post_meta( $post_preview->post_id, '_thumbnail_id', $thumb_id );
+
+		$wpdb->query("Update preview_requests status = 1 where guid = '$guid'");
+	}
+}
+else {
+	//If it hasn't then, panic! Or just do something smarter
+	echo "Bad things have happened like ->" . $data['payload']['message'];
+}
+
+echo "done";

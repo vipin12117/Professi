@@ -1,0 +1,547 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Digital Downloads - Currency Converter v1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-01-01 12:24:37+0000\n"
+"Last-Translator: worldweb <phpdev5@worldwebtechnology.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED STATES\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: edd-currency-converter.php:116
+#@ eddcurrency
+msgid "Select Currency"
+msgstr ""
+
+#: includes/EDD_License_Handler.php:112
+#, php-format
+#@ eddcurrency
+msgid "%1$s License Key"
+msgstr ""
+
+#: includes/EDD_License_Handler.php:218
+#@ edd-recurring
+msgid "Deactivate License"
+msgstr ""
+
+#: includes/admin/class-edd-currency-admin.php:65
+#@ eddcurrency
+msgid "Currency Converter"
+msgstr ""
+
+#: includes/admin/class-edd-currency-admin.php:67
+#@ eddcurrency
+msgid "Add Currency"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:27
+#: includes/admin/forms/edd-currency-list.php:77
+#: includes/admin/forms/edd-currency-list.php:114
+#@ eddcurrency
+msgid "N/A"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:34
+#: includes/edd-currency-post-types.php:24
+#@ eddcurrency
+msgid "Edit Currency"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:37
+#@ eddcurrency
+msgid "Update"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:58
+#: includes/edd-currency-post-types.php:23
+#@ eddcurrency
+msgid "Add New Currency"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:61
+#: includes/class-edd-currency-shortcodes.php:58
+#: includes/edd-currency-list-popup.php:78
+#@ eddcurrency
+msgid "Save"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:82
+#@ eddcurrency
+msgid "Go Back"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:100
+#@ eddcurrency
+msgid "Click to toggle"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:115
+#@ eddcurrency
+msgid "Required fields"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:121
+#@ eddcurrency
+msgid "Code:"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:128
+#@ eddcurrency
+msgid "Enter the unique currency code, which is not already saved in list."
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:135
+#@ eddcurrency
+msgid "Label:"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:138
+#@ eddcurrency
+msgid "Enter the currency label."
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:144
+#@ eddcurrency
+msgid "Symbol:"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:147
+#@ eddcurrency
+msgid "Enter the currency symbol."
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:155
+#@ eddcurrency
+msgid "Open Exchange Rate:"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:165
+#@ eddcurrency
+msgid "Custom Rate:"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-add-edit.php:168
+#@ eddcurrency
+msgid "Enter the currency custom rate."
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:75
+#: includes/admin/forms/edd-currency-list.php:168
+#@ eddcurrency
+msgid "Drag"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:135
+#@ eddcurrency
+msgid "Edit"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:136
+#@ eddcurrency
+msgid "Delete"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:169
+#@ eddcurrency
+msgid "Code"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:170
+#@ eddcurrency
+msgid "Label"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:171
+#@ eddcurrency
+msgid "Symbol"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:175
+#@ eddcurrency
+msgid "Open Exchange Rate"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:178
+#@ eddcurrency
+msgid "Custom Rate"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:218
+#@ eddcurrency
+msgid "No currencies found."
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:243
+#@ eddcurrency
+msgid "Items deleted (or they would be if we had items to delete)!"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:368
+#: includes/edd-currency-post-types.php:20
+#: includes/edd-currency-post-types.php:32
+#@ eddcurrency
+msgid "Currencies"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:369
+#: includes/edd-currency-post-types.php:22
+#@ eddcurrency
+msgid "Add New"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:377
+#@ eddcurrency
+msgid "Currency Inserted Successfully."
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:381
+#@ eddcurrency
+msgid "Currency Updated Successfully."
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:385
+#@ eddcurrency
+msgid "Currency deleted Successfully."
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:389
+#@ eddcurrency
+msgid "Sort Order Updated Successfully."
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:393
+#@ eddcurrency
+msgid "Sort Order Reset Successfully."
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:410
+#@ eddcurrency
+msgid "Search"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:412
+#@ eddcurrency
+msgid "Save Order"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-list.php:413
+#@ eddcurrency
+msgid "Reset Order"
+msgstr ""
+
+#: includes/admin/forms/edd-currency-save.php:25
+#@ eddcurrency
+msgid "Please Enter Currency Code."
+msgstr ""
+
+#: includes/admin/forms/edd-currency-save.php:59
+#@ eddcurrency
+msgid "Currency Code already exists, please enter other code."
+msgstr ""
+
+#: includes/class-edd-currency-model.php:124
+#, php-format
+#@ eddcurrency
+msgid "%d order(s) updated."
+msgstr ""
+
+#: includes/class-edd-currency-model.php:128
+#@ eddcurrency
+msgid "--Select Currency Page--"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:139
+#@ eddcurrency
+msgid "Currency Converter Settings"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:140
+#@ eddcurrency
+msgid "Configure Currency And Rewards Settings"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:146
+#@ eddcurrency
+msgid "General Options"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:151
+#@ eddcurrency
+msgid "Exchange Rates Method"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:152
+#@ eddcurrency
+msgid "Choose exchange rates method. If you choose"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:152
+#@ eddcurrency
+msgid "both"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:152
+#@ eddcurrency
+msgid "rates then it will take custom rates, if custom rate is empty then it will consider open exchange rates. If both are empty it won't convert currency on front side."
+msgstr ""
+
+#: includes/class-edd-currency-model.php:155
+#@ eddcurrency
+msgid "Open Exchange Rates"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:155
+#@ eddcurrency
+msgid "Custom Rates"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:155
+#@ eddcurrency
+msgid "Both Rates ( Open Exchange Rates and Custom Rates )"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:159
+#@ eddcurrency
+msgid "Select Currency Page"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:160
+#@ eddcurrency
+msgid "Shortcode to place on page:"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:167
+#@ eddcurrency
+msgid "Append Currency Code"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:168
+#@ eddcurrency
+msgid "Appends currency code to prices."
+msgstr ""
+
+#: includes/class-edd-currency-model.php:173
+#@ eddcurrency
+msgid "Replace Base Currency"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:174
+#@ eddcurrency
+msgid "Replaces base prices with converted prices (alternatively the converted price will be shown beside the base price)."
+msgstr ""
+
+#: includes/class-edd-currency-model.php:179
+#@ eddcurrency
+msgid "Display Cart Notification"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:180
+#@ eddcurrency
+msgid "If the customer saved a currency that is different from the base EDD currency, notify the customer on the cart page that all orders are processed in the base EDD currency."
+msgstr ""
+
+#: includes/class-edd-currency-model.php:188
+#@ eddcurrency
+msgid "Open Exchange Rates Options"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:193
+#@ eddcurrency
+msgid "App ID"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:194
+#@ eddcurrency
+msgid "Enter open exchange rate APP ID, changing the APP ID will clear the cache."
+msgstr ""
+
+#: includes/class-edd-currency-model.php:200
+#@ eddcurrency
+msgid "Cache Length"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:201
+#@ eddcurrency
+msgid "Length of time in minutes to cache retrieved exchange rates."
+msgstr ""
+
+#: includes/class-edd-currency-model.php:223
+#@ eddcurrency
+msgid "Detection Options"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:228
+#@ eddcurrency
+msgid "Enable Currency Detection"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:229
+#@ eddcurrency
+msgid "Check this box, if you want to allow to automatic detect currency and replace it based on customer IP address."
+msgstr ""
+
+#: includes/class-edd-currency-model.php:235
+#@ eddcurrency
+msgid "Prompt User"
+msgstr ""
+
+#: includes/class-edd-currency-model.php:236
+#@ eddcurrency
+msgid "Check this box, if you want to prompt the customer if they want to save their detected currency. If unchecked, the detected currency will be automatically saved for the customer."
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:43
+#@ eddcurrency
+msgid "All orders are processed in"
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:43
+#@ eddcurrency
+msgid "Prices in"
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:43
+#@ eddcurrency
+msgid "are for reference only."
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:69
+#@ eddcurrency
+msgid "Currency successfully saved as"
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:71
+#@ eddcurrency
+msgid "Currency reset successfully."
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:83
+#: includes/class-edd-currency-renderer.php:196
+#: includes/edd-currency-list-popup.php:25
+#@ eddcurrency
+msgid "Close"
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:83
+#: includes/class-edd-currency-renderer.php:196
+#@ eddcurrency
+msgid "X"
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:109
+#@ eddcurrency
+msgid "Converted prices are for reference only - all orders are charged in"
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:142
+#@ eddcurrency
+msgid "Easy Digital Download - Currency Converter can not be activated on the front-side because you have selected Exchange Rates Method as Open Exchange Rates and not added it's APP ID."
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:149
+#@ eddcurrency
+msgid "Easy Digital Download base currency ("
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:149
+#@ eddcurrency
+msgid ") must have an exchange rate."
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:200
+#@ eddcurrency
+msgid "Hi! We have detected your currency as"
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:202
+#@ eddcurrency
+msgid "symbol label code"
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:204
+#@ eddcurrency
+msgid ". Is this correct?"
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:208
+#@ eddcurrency
+msgid "Yes"
+msgstr ""
+
+#: includes/class-edd-currency-renderer.php:209
+#@ eddcurrency
+msgid "No"
+msgstr ""
+
+#: includes/class-edd-currency-scripts.php:50
+#@ eddcurrency
+msgid "Are you sure want to delete?"
+msgstr ""
+
+#: includes/class-edd-currency-scripts.php:51
+#@ eddcurrency
+msgid "Are you sure want to reset order?"
+msgstr ""
+
+#: includes/edd-currency-list-popup.php:24
+#@ eddcurrency
+msgid "Choose your currency:"
+msgstr ""
+
+#: includes/edd-currency-list-popup.php:79
+#@ eddcurrency
+msgid "Reset"
+msgstr ""
+
+#: includes/edd-currency-misc-functions.php:142
+#@ eddcurrency
+msgid "No APP ID is Inserted"
+msgstr ""
+
+#: includes/edd-currency-post-types.php:21
+#@ eddcurrency
+msgid "Currency"
+msgstr ""
+
+#: includes/edd-currency-post-types.php:25
+#@ eddcurrency
+msgid "New Currency"
+msgstr ""
+
+#: includes/edd-currency-post-types.php:26
+#@ eddcurrency
+msgid "All Currencies"
+msgstr ""
+
+#: includes/edd-currency-post-types.php:27
+#@ eddcurrency
+msgid "View Currency"
+msgstr ""
+
+#: includes/edd-currency-post-types.php:28
+#@ eddcurrency
+msgid "Search Currency"
+msgstr ""
+
+#: includes/edd-currency-post-types.php:29
+#@ eddcurrency
+msgid "No currencies found"
+msgstr ""
+
+#: includes/edd-currency-post-types.php:30
+#@ eddcurrency
+msgid "No currencies found in Trash"
+msgstr ""
+

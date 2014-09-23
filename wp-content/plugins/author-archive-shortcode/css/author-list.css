@@ -1,0 +1,6 @@
+.author-list { margin: 0; padding: 0; }
+.author-list li { display: block; margin: 0 0 20px 0;}
+.author-list li:after { display: block; float: none; height: 0; visibility: hidden; content: "."; clear: both; }
+.author-list img { float: left; margin: 0 10px 10px 0;}
+.author-list .author-bio { margin: 0; }
+.author-list .author-archive { float: right; }

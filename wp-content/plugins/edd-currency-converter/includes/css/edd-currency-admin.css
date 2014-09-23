@@ -1,0 +1,27 @@
+.edd-currency-left {
+	float: left;
+}
+.edd-currency-right {
+	float: right;
+}
+.edd-currency-require {
+	color: red;
+}
+#edd_currency .form-table td, #edd_currency label{
+	vertical-align:top;
+}
+table.currencies tbody td{
+	cursor:move !important;
+}
+.column-post_drag {
+	width: 8%;
+}
+.edd-currency-drag {
+	margin-top: 2px;
+	margin-left: 7px;
+}
+tr.edd-currency-list-row th,
+tr.edd-currency-list-row td{
+	border-bottom:1px solid #E1E1E1 !important;
+}
+	
