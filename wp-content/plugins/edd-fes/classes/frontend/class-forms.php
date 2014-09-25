@@ -176,13 +176,16 @@ class FES_Forms {
 			echo apply_filters( 'fes_login_form_header', '<h1 class="fes-headers" id="fes-login-form-title">Login</h1>' );
 			?>
 			<p class="fes-form-error fes-error" style="display: none;"></p>
-			<?php
+                        <div class="login-form">
+                            <?php
 			do_action( 'fes_login_form_above_render_items', $form_id, $read_only, $args );
 			$this->render_items( $form_vars, $id, $type = 'login', $form_id, $read_only, $args );
 			do_action( 'fes_login_form_below_render_items', $form_id, $args );
 			$this->submit_button( $form_id, $type = 'login', $args );
 			do_action( 'fes_login_form_below_submit_buttons', $form_id, $read_only, $args );
 			?>
+                        </div>
+			
 			</div>
 			</form>
 			<?php
@@ -295,31 +298,30 @@ class FES_Forms {
 		ob_start();
 
 		if ( $count == 2 ){
-			echo '<table><tr><td id="fes_login_registration_form_row_left" class="fes_login_registration_form_row fes_login_registration_form_row_half_width" style="width: 44%; clear: none; float: left;">';
+			echo '<div class="fes-vendor-dashboard">';
 			echo $this->render_login_form( $args );
-			echo '</td><td id="fes_login_registration_form_row_right" class="fes_login_registration_form_row fes_login_registration_form_row_half_width" style="width: 44%; float: left;">';
 			echo $this->render_registration_form( $args );
-			echo '</td></tr></div></table>';
+			echo '</div>';
 		} else if ( $count === 1 ){
 			if ( EDD_FES()->vendors->can_see_login() ){
-				echo '<table><tr><td id="_login_registration_form_row_full_width_login" class="fes_login_registration_form_row" style="width: 88%; clear: none; float: left;">';
+				echo '<div id="_login_registration_form_row_full_width_login" class="fes_login_registration_form_row" >';
 				echo $this->render_login_form( $args );
-				echo '</td></tr></div></table>';
+				echo '</div>';
 			}
 			else if ( EDD_FES()->vendors->can_see_registration() ){
-				echo '<table><tr><td id="_login_registration_form_row_full_width_registration" class="fes_login_registration_form_row" style="width: 88%; clear: none; float: left;">';
+				echo '<div id="_login_registration_form_row_full_width_registration" class="fes_login_registration_form_row" >';
 				if ( EDD_FES()->helper->get_option( 'fes-allow-registrations', true ) || EDD_FES()->helper->get_option( 'fes-allow-applications', true ) ) {
 					echo $this->render_registration_form( $args );
 				}
 				else{
 					_e( 'Registration and applications are currently closed', 'edd_fes' );
 				}
-				echo '</td></tr></div></table>';
+				echo '</div>';
 			}
 			else if ( EDD_FES()->vendors->is_pending() ){
-				echo '<table><tr><td id="_login_registration_form_row_full_width_pending" class="fes_login_registration_form_row" style="width: 88%; clear: none; float: left;">';
+				echo '<div id="_login_registration_form_row_full_width_pending" class="fes_login_registration_form_row" >';
 				_e( 'Your application is currently pending', 'edd_fes' );
-				echo '</td></tr></div></table>';
+				echo '</div>';
 			}
 			else{
 				_e( 'An error occured. FES error: CFCF 1', 'edd_fes' );
@@ -405,7 +407,7 @@ class FES_Forms {
 		}
 		// is it read only? If so don't make it a form
 		if ( !$read_only ) { ?>
-			 <form class="fes-submission-form" action="" method="post">
+			 <form class="fes-submission-form addProduct" action="" method="post">
 		<?php }
 		?>
 			<div class="fes-form">
@@ -2596,7 +2598,7 @@ class FES_Forms {
 		<style> .fes-hide { display: none } </style>
 		<?php
 		if ($featured_image) {  ?>
-		<div class="fes-fields">
+		<div class="fes-fields ">
 			<?php $required = isset( $attr['required'] ) ? $attr['required'] : ''; ?>
             <div class="fes-feat-image-upload">
                 <div class="instruction-inside <?php if($id !== 0 ){ echo 'fes-hide';} ?>">

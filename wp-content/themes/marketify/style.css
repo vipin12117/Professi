@@ -438,10 +438,10 @@ input[name="edd_update_cart_submit"],
 #edd_login_submit,
 input[name="edd_register_submit"],
 #fes_login_submit,
-#fes_registration_form input[type="submit"],
+/*#fes_registration_form input[type="submit"],
 .fes-submit input[type=submit],
 .fes-form input[type="submit"],
-.edd-wish-list-save {
+*/.edd-wish-list-save {
 	font-size: 15px;
 	padding: 14px 20px;
 	width: 100%;
@@ -5002,7 +5002,7 @@ input.search-field-input {
 .vendor .content-items .teacher-autors .content-grid-download .entry-header {
 	position:absolute;
 	background: none;
-	bottom:-45px;
+	bottom:-55px;
 }
 .vendor .content-items .teacher-autors .content-grid-download .entry-header .entry-title {
 	display: none;
@@ -5733,7 +5733,7 @@ select,input[type="text"],input[type="email"], input[type="password"] {
       height: 30px;
 }
 select,input[type="text"],input[type="email"], input[type="password"] ,textarea {
-    border:1px solid #a1a1a1;    padding: 6px 12px;
+    border:1px solid #a1a1a1;    padding: 4px 12px;
     background:white;   border-radius: 0;
 }
 
@@ -5785,10 +5785,62 @@ select,input[type="text"],input[type="email"], input[type="password"] ,textarea 
     padding:0;
 }
 
-#fes_login_registration_form_row_left .fes-form-login-form input {
-	width: 80%;
+#fes_login_registration_form_row_left .fes-form-login-form input ,
+.fes-form-registration-form .fes-fields input,.fes-form-registration-form .fes-fields select{
+	width: 100%;
 }
 
 select {
 	font-family: 'gothic' !important;
+}
+body #edd-wl-modal input[type="email"], body  #edd-wl-modal input[type="text"],body  #edd-wl-modal select {
+    padding-top:4px;padding-bottom: 4px;width: 100%;
+}
+
+#fes_lost_password_link {
+    text-align: left;
+}
+.fes-vendor-dashboard {
+    margin: 0 auto;width: 70%;
+}
+.fes-vendor-dashboard .login-form{
+    width: 100%;
+}
+.fes-vendor-dashboard .login-form input[type="text"],.fes-vendor-dashboard .login-form input[type="password"] {
+    width: 100%;
+}
+.fes-submission-form {
+    margin: 0 auto;width: 50%;}
+.login-form{
+    margin: 0 auto;width: 33%;
+}
+
+.fes-el.name_of_store,
+.fes-el.email_to_use_for_contact_form,
+.fes-el.email_to_use_for_contact_form + .fes-submit{
+    display: block;
+    margin: 20px auto;
+    width: 70%;
+}
+.fes-el.name_of_store input,
+.fes-el.email_to_use_for_contact_form input{
+   
+    width: 100%;
+}
+
+#fes_login_registration_form_row_left .login-form{
+    margin: 0 auto;width: 100%;
+}
+.addProduct input[type="text"],.addProduct select,.addProduct textarea {
+    width: 100%;
+}
+.btn.btn-sm.btn-default.upload_file_button {
+    margin-right: 10px;
+    padding: 6px 10px;
+}
+.fes-delete-row {
+    vertical-align: middle;
+}
+.page-id-6  .entry-content,.fes-vendor-menu{
+    padding-top:40px;
 }
