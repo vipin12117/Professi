@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.9
+-- version 3.5.8.2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 02, 2014 at 05:36 AM
--- Server version: 5.5.8
--- PHP Version: 5.3.5
+-- Generation Time: Oct 01, 2014 at 09:33 PM
+-- Server version: 5.5.38-35.2-log
+-- PHP Version: 5.4.23
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -16,7 +17,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `professi`
+-- Database: `metrops4_professi`
 --
 
 -- --------------------------------------------------------
@@ -25,6 +26,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `nm_cimy_uef_data`
 --
 
+DROP TABLE IF EXISTS `nm_cimy_uef_data`;
 CREATE TABLE IF NOT EXISTS `nm_cimy_uef_data` (
   `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `USER_ID` bigint(20) NOT NULL,
@@ -60,6 +62,7 @@ INSERT INTO `nm_cimy_uef_data` (`ID`, `USER_ID`, `FIELD_ID`, `VALUE`) VALUES
 -- Table structure for table `nm_cimy_uef_fields`
 --
 
+DROP TABLE IF EXISTS `nm_cimy_uef_fields`;
 CREATE TABLE IF NOT EXISTS `nm_cimy_uef_fields` (
   `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `F_ORDER` bigint(20) NOT NULL,
@@ -88,6 +91,7 @@ INSERT INTO `nm_cimy_uef_fields` (`ID`, `F_ORDER`, `FIELDSET`, `NAME`, `LABEL`, 
 -- Table structure for table `nm_cimy_uef_wp_fields`
 --
 
+DROP TABLE IF EXISTS `nm_cimy_uef_wp_fields`;
 CREATE TABLE IF NOT EXISTS `nm_cimy_uef_wp_fields` (
   `ID` bigint(20) NOT NULL AUTO_INCREMENT,
   `F_ORDER` bigint(20) NOT NULL,
@@ -116,6 +120,7 @@ INSERT INTO `nm_cimy_uef_wp_fields` (`ID`, `F_ORDER`, `NAME`, `LABEL`, `DESCRIPT
 -- Table structure for table `nm_commentmeta`
 --
 
+DROP TABLE IF EXISTS `nm_commentmeta`;
 CREATE TABLE IF NOT EXISTS `nm_commentmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -139,6 +144,7 @@ INSERT INTO `nm_commentmeta` (`meta_id`, `comment_id`, `meta_key`, `meta_value`)
 -- Table structure for table `preview_requests`
 --
 
+DROP TABLE IF EXISTS `preview_requests`;
 CREATE TABLE IF NOT EXISTS `preview_requests` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `post_id` int(11) NOT NULL,
@@ -162,6 +168,7 @@ INSERT INTO `preview_requests` (`id`, `post_id`, `post_meta_id`, `guid`, `status
 -- Table structure for table `wp_commentmeta`
 --
 
+DROP TABLE IF EXISTS `wp_commentmeta`;
 CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -187,6 +194,7 @@ INSERT INTO `wp_commentmeta` (`meta_id`, `comment_id`, `meta_key`, `meta_value`)
 -- Table structure for table `wp_comments`
 --
 
+DROP TABLE IF EXISTS `wp_comments`;
 CREATE TABLE IF NOT EXISTS `wp_comments` (
   `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `comment_post_ID` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -228,6 +236,7 @@ INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `c
 -- Table structure for table `wp_edd_customers`
 --
 
+DROP TABLE IF EXISTS `wp_edd_customers`;
 CREATE TABLE IF NOT EXISTS `wp_edd_customers` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) NOT NULL,
@@ -256,6 +265,7 @@ INSERT INTO `wp_edd_customers` (`id`, `user_id`, `email`, `name`, `purchase_valu
 -- Table structure for table `wp_links`
 --
 
+DROP TABLE IF EXISTS `wp_links`;
 CREATE TABLE IF NOT EXISTS `wp_links` (
   `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `link_url` varchar(255) NOT NULL DEFAULT '',
@@ -274,17 +284,13 @@ CREATE TABLE IF NOT EXISTS `wp_links` (
   KEY `link_visible` (`link_visible`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
---
--- Dumping data for table `wp_links`
---
-
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `wp_options`
 --
 
+DROP TABLE IF EXISTS `wp_options`;
 CREATE TABLE IF NOT EXISTS `wp_options` (
   `option_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `option_name` varchar(64) NOT NULL DEFAULT '',
@@ -292,7 +298,7 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
   `autoload` varchar(20) NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1958 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1952 ;
 
 --
 -- Dumping data for table `wp_options`
@@ -494,6 +500,10 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (1883, '_transient_edd_check_protection_files', '1', 'no'),
 (1884, '_site_transient_timeout_browser_b7686c633cfe8719a4fab9e3e09c6b8e', '1412788797', 'yes'),
 (1885, '_site_transient_browser_b7686c633cfe8719a4fab9e3e09c6b8e', 'a:9:{s:8:"platform";s:7:"Windows";s:4:"name";s:7:"Firefox";s:7:"version";s:4:"32.0";s:10:"update_url";s:23:"http://www.firefox.com/";s:7:"img_src";s:50:"http://s.wordpress.org/images/browsers/firefox.png";s:11:"img_src_ssl";s:49:"https://wordpress.org/images/browsers/firefox.png";s:15:"current_version";s:2:"16";s:7:"upgrade";b:0;s:8:"insecure";b:0;}', 'yes'),
+(1886, '_transient_timeout_a5fd3f40a5f493925fd7cdec3841bd40', '1412187597', 'no'),
+(1887, '_transient_a5fd3f40a5f493925fd7cdec3841bd40', '0', 'no'),
+(1888, '_transient_timeout_e649a02a89e25798e9eed4cd116ca50e', '1412187598', 'no'),
+(1889, '_transient_e649a02a89e25798e9eed4cd116ca50e', '0', 'no'),
 (1890, '_transient_timeout_97387385d9253b4a5cab93a8aed40d9a', '1412187598', 'no'),
 (1891, '_transient_97387385d9253b4a5cab93a8aed40d9a', '0', 'no'),
 (1892, '_transient_timeout_feed_ac0b00fe65abe10e0c5b588f3ed8c7ca', '1412227204', 'no');
@@ -535,13 +545,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (1947, '_transient_feed_mod_da8c757f762dcd1ec67339593414ea85', '1412220435', 'no'),
 (1949, '_site_transient_timeout_theme_roots', '1412222236', 'yes'),
 (1950, '_site_transient_theme_roots', 'a:4:{s:9:"marketify";s:7:"/themes";s:14:"twentyfourteen";s:7:"/themes";s:14:"twentythirteen";s:7:"/themes";s:12:"twentytwelve";s:7:"/themes";}', 'yes'),
-(1951, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1412220437;s:7:"checked";a:4:{s:9:"marketify";s:5:"1.2.2";s:14:"twentyfourteen";s:3:"1.1";s:14:"twentythirteen";s:3:"1.2";s:12:"twentytwelve";s:3:"1.4";}s:8:"response";a:3:{s:14:"twentyfourteen";a:4:{s:5:"theme";s:14:"twentyfourteen";s:11:"new_version";s:3:"1.2";s:3:"url";s:43:"https://wordpress.org/themes/twentyfourteen";s:7:"package";s:60:"https://downloads.wordpress.org/theme/twentyfourteen.1.2.zip";}s:14:"twentythirteen";a:4:{s:5:"theme";s:14:"twentythirteen";s:11:"new_version";s:3:"1.3";s:3:"url";s:43:"https://wordpress.org/themes/twentythirteen";s:7:"package";s:60:"https://downloads.wordpress.org/theme/twentythirteen.1.3.zip";}s:12:"twentytwelve";a:4:{s:5:"theme";s:12:"twentytwelve";s:11:"new_version";s:3:"1.5";s:3:"url";s:41:"https://wordpress.org/themes/twentytwelve";s:7:"package";s:58:"https://downloads.wordpress.org/theme/twentytwelve.1.5.zip";}}s:12:"translations";a:0:{}}', 'yes'),
-(1952, '_transient_timeout_a5fd3f40a5f493925fd7cdec3841bd40', '1412224526', 'no'),
-(1953, '_transient_a5fd3f40a5f493925fd7cdec3841bd40', '0', 'no'),
-(1954, '_transient_timeout_3f75df46d0019c87ff0415e7f0b570ca', '1412224526', 'no'),
-(1955, '_transient_3f75df46d0019c87ff0415e7f0b570ca', '0', 'no'),
-(1956, '_transient_timeout_e649a02a89e25798e9eed4cd116ca50e', '1412224530', 'no'),
-(1957, '_transient_e649a02a89e25798e9eed4cd116ca50e', '0', 'no');
+(1951, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1412220437;s:7:"checked";a:4:{s:9:"marketify";s:5:"1.2.2";s:14:"twentyfourteen";s:3:"1.1";s:14:"twentythirteen";s:3:"1.2";s:12:"twentytwelve";s:3:"1.4";}s:8:"response";a:3:{s:14:"twentyfourteen";a:4:{s:5:"theme";s:14:"twentyfourteen";s:11:"new_version";s:3:"1.2";s:3:"url";s:43:"https://wordpress.org/themes/twentyfourteen";s:7:"package";s:60:"https://downloads.wordpress.org/theme/twentyfourteen.1.2.zip";}s:14:"twentythirteen";a:4:{s:5:"theme";s:14:"twentythirteen";s:11:"new_version";s:3:"1.3";s:3:"url";s:43:"https://wordpress.org/themes/twentythirteen";s:7:"package";s:60:"https://downloads.wordpress.org/theme/twentythirteen.1.3.zip";}s:12:"twentytwelve";a:4:{s:5:"theme";s:12:"twentytwelve";s:11:"new_version";s:3:"1.5";s:3:"url";s:41:"https://wordpress.org/themes/twentytwelve";s:7:"package";s:58:"https://downloads.wordpress.org/theme/twentytwelve.1.5.zip";}}s:12:"translations";a:0:{}}', 'yes');
 
 -- --------------------------------------------------------
 
@@ -549,6 +553,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 -- Table structure for table `wp_postmeta`
 --
 
+DROP TABLE IF EXISTS `wp_postmeta`;
 CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -807,6 +812,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 -- Table structure for table `wp_posts`
 --
 
+DROP TABLE IF EXISTS `wp_posts`;
 CREATE TABLE IF NOT EXISTS `wp_posts` (
   `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `post_author` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -941,6 +947,7 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 -- Table structure for table `wp_terms`
 --
 
+DROP TABLE IF EXISTS `wp_terms`;
 CREATE TABLE IF NOT EXISTS `wp_terms` (
   `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL DEFAULT '',
@@ -1001,6 +1008,7 @@ INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
 -- Table structure for table `wp_term_relationships`
 --
 
+DROP TABLE IF EXISTS `wp_term_relationships`;
 CREATE TABLE IF NOT EXISTS `wp_term_relationships` (
   `object_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `term_taxonomy_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1060,6 +1068,7 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 -- Table structure for table `wp_term_taxonomy`
 --
 
+DROP TABLE IF EXISTS `wp_term_taxonomy`;
 CREATE TABLE IF NOT EXISTS `wp_term_taxonomy` (
   `term_taxonomy_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1123,6 +1132,7 @@ INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `desc
 -- Table structure for table `wp_usermeta`
 --
 
+DROP TABLE IF EXISTS `wp_usermeta`;
 CREATE TABLE IF NOT EXISTS `wp_usermeta` (
   `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
@@ -1235,6 +1245,7 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 -- Table structure for table `wp_users`
 --
 
+DROP TABLE IF EXISTS `wp_users`;
 CREATE TABLE IF NOT EXISTS `wp_users` (
   `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `user_login` varchar(60) NOT NULL DEFAULT '',
@@ -1259,3 +1270,7 @@ INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_
 (1, 'admin', '$P$BXegK1hm2Myr3PcmRC45cqoX5RFaow.', 'admin', 'vipin.garg12@gmail.com', '', '2014-08-15 04:00:40', '', 0, 'admin'),
 (2, 'test', '$P$BBAYgIzfLc75uaks5Tvp9cCSRjMQyT0', 'test', 'test@gmail.com', '', '2014-08-15 07:19:43', '', 0, 'test test'),
 (3, 'friend', '$P$B8xUd2iSwDLIYoO2ubU/8P9MVLWV3F.', 'friend', 'friend.garg@gmail.com', '', '2014-08-17 06:23:34', '', 0, 'vipin garg');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
