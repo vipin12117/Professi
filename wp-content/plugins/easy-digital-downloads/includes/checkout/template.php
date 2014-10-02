@@ -29,100 +29,27 @@ function edd_checkout_form() {
 
 	ob_start();
 		echo '<div id="edd_checkout_wrap">';
-		if ( edd_get_cart_contents() || edd_get_cart_fees() ) :
+		if ( edd_get_cart_contents() || edd_cart_has_fees() ) :
 
 			edd_checkout_cart();
 ?>
-	<div class="clearfix">
-		<div class="left-post left"><!--#left-post -->
-			<header class="post-header">
-				<div class="post-title fontsforweb_fontid_9785">
-					<span>CHECKOUT</span>
-				</div>
-				<div class="note1 gray-light">Enter your payment information and submit order.</div>
-				<div class="note2 gray-light">Choose a payment method and enter your billing information below..</div>
-			</header>
-			<hr/>
-			<br/>
-			<div id="edd_checkout_form_wrap" class="edd_checkout edd_clearfix clearfix">
+			<div id="edd_checkout_form_wrap" class="edd_clearfix">
 				<?php do_action( 'edd_before_purchase_form' ); ?>
-				<form id="edd_purchase_form" class="edd_form form-horizontal fontsforweb_fontid_9785" role="form" action="<?php echo $form_action; ?>" method="POST">
+				<form id="edd_purchase_form" class="edd_form" action="<?php echo $form_action; ?>" method="POST">
 					<?php
-					//do_action( 'edd_checkout_form_top' );
-/*
+					do_action( 'edd_checkout_form_top' );
+
 					if ( edd_show_gateways() ) {
-						//do_action( 'edd_payment_mode_select'  );
+						do_action( 'edd_payment_mode_select'  );
 					} else {
 						do_action( 'edd_purchase_form' );
 					}
-*/
-/*     ADD MORE STATIC HTML       edd_checkout_cart_form      */
-?>
-					<fieldset id="edd_checkout_card_info" class="edd_checkout_card_info">
-						<div class="form-group form-group-sm clearfix">
-							<label class="control-label" style="font-size: 100%;">CARD INFORMATION</label>
-							<div class="controls">
-								<span>[All fields are required]</span>
-							</div>
-						</div>
-						<div class="form-group form-group-sm clearfix">
-							<label class="control-label" for="number1" >Card Number: </label>
-							<div class="controls">
-								<input type="number" class="form-control" id="number1" name="edd_card_number1" placeholder=""/>
-								<input type="number" class="form-control" id="number2" name="edd_card_number2" placeholder=""/>
-								<input type="number" class="form-control" id="number3" name="edd_card_number3" placeholder=""/>
-								<input type="number" class="form-control" id="number4" name="edd_card_number4" placeholder=""/>
-							</div>
-						</div>
-						<div class="form-group form-group-sm clearfix">
-							<label class="control-label" for="security-code">Security Code (CVV): </label>
-							<div class="controls">
-								<input type="number" class="form-control" id="security-code" name="edd_security_code" placeholder=""/>
-								<a href="http://en.wikipedia.org/wiki/Card_security_code" target='_blank' style="font-size: 10px;">What is this?</a>
-							</div>
-						</div>
-						<div class="form-group form-group-sm clearfix">
-							<label class="control-label" for="expiration-date1">Expiration Date: </label>
-							<div class="controls">
-								<input type="date" class="form-control date" id="expiration-date1" name="edd_expiration_date1" placeholder=""/>
-								<input type="date" class="form-control date" id="expiration-date2" name="edd_expiration_date2" placeholder=""/>
-							</div>
-						</div>
-						<div class="form-group form-group-sm clearfix">
-							<label class="control-label" for="save-credit"></label>
-							<div class="controls"  style="width:540px;">
-								<input type="checkbox" class="form-control checkbox" id="save-credit" name="edd_save_credit" placeholder=""/>
-								<span style="padding: 0px 5px 0px 0px;">Save this credit/debit card with our payment processor to use for future purchases</span>
-							</div>
-						</div>
-					</fieldset>
-					<hr/>
-<?php
-					do_action( 'edd_purchase_form' );
+
 					do_action( 'edd_checkout_form_bottom' )
 					?>
 				</form>
 				<?php do_action( 'edd_after_purchase_form' ); ?>
 			</div><!--end #edd_checkout_form_wrap-->
-			
-		</div><!--#left-post -->
-		<div class="right-post left">	
-			<div class="download-product-details download-list fontsforweb_fontid_9785"><!--#action-container -->
-				<div class="top-list"><span>ORDER SUMMARY</span></div>
-				<?php $cart_items = edd_get_cart_contents(); $total = ($cart_items && is_array($cart_items)) ? count($cart_items) : 0; ?>
-				<div class="number-item"><?php echo $total; ?> ITEM(S)</div>
-				<div class="pay-item">Total: <?php edd_cart_total(); ?></div>
-					<ul class="text-line">
-							<li class=" clearfix">Redeem as a gift certificate <i class="row-down caret right"></i></li>
-
-							<li class="clearfix">Apply a promo code <i class="row-down caret right"></i></li>
-
-							<li class="clearfix">Redeem TpT credits <i class="row-down caret right"></i></li>
-
-					</ul>
-			</div>
-		</div>
-	</div>		
 		<?php
 		else:
 			do_action( 'edd_cart_empty' );
@@ -153,17 +80,17 @@ function edd_show_purchase_form() {
 		do_action( 'edd_purchase_form_before_register_login' );
 
 		$show_register_form = edd_get_option( 'show_register_form', 'none' ) ;
-		if( ( $show_register_form == 'registration' || ( $show_register_form == 'both' && ! isset( $_GET['login'] ) ) ) && ! is_user_logged_in() ) : ?>
+		if( ( $show_register_form === 'registration' || ( $show_register_form === 'both' && ! isset( $_GET['login'] ) ) ) && ! is_user_logged_in() ) : ?>
 			<div id="edd_checkout_login_register">
 				<?php do_action( 'edd_purchase_form_register_fields' ); ?>
 			</div>
-		<?php elseif( ( $show_register_form == 'login' || ( $show_register_form == 'both' && isset( $_GET['login'] ) ) ) && ! is_user_logged_in() ) : ?>
+		<?php elseif( ( $show_register_form === 'login' || ( $show_register_form === 'both' && isset( $_GET['login'] ) ) ) && ! is_user_logged_in() ) : ?>
 			<div id="edd_checkout_login_register">
 				<?php do_action( 'edd_purchase_form_login_fields' ); ?>
 			</div>
 		<?php endif; ?>
 
-		<?php if( ( !isset( $_GET['login'] ) && is_user_logged_in() ) || ! isset( $edd_options['show_register_form'] ) || 'none' == $show_register_form ) {
+		<?php if( ( !isset( $_GET['login'] ) && is_user_logged_in() ) || ! isset( $edd_options['show_register_form'] ) || 'none' === $show_register_form ) {
 			do_action( 'edd_purchase_form_after_user_info' );
 		}
 
@@ -203,96 +130,40 @@ function edd_user_info_fields() {
 		$user_data = get_userdata( get_current_user_id() );
 	endif;
 	?>
-	<br/>
-	<fieldset id="edd_checkout_user_info" class="edd_checkout_user_info">
-		<div class="form-group form-group-sm clearfix">
-			<label class="control-label" style="font-size: 24px; width: 305px;"><?php echo apply_filters( 'edd_checkout_personal_info_text', __( 'BILLING ADDRESS', 'edd' ) ); ?></label>
-			<div class="controls" style="width: 250px;">
-				<span>[All fields are required except as noted]</span>
-			</div>
-		</div>
-		
-		
+	<fieldset id="edd_checkout_user_info">
+		<span><legend><?php echo apply_filters( 'edd_checkout_personal_info_text', __( 'Personal Info', 'edd' ) ); ?></legend></span>
 		<?php do_action( 'edd_purchase_form_before_email' ); ?>
-		<div id="edd-email-wrap" class="form-group form-group-sm clearfix">
-			<label class="control-label" for="edd-email"><?php _e( 'Email Address', 'edd' ); ?>: </label>
-			<div class="controls">
-				<input type="email" class="form-control" name="edd_email" id="edd-email" placeholder="Your email"/>
-			</div>
-		</div>
+		<p id="edd-email-wrap">
+			<label class="edd-label" for="edd-email">
+				<?php _e( 'Email Address', 'edd' ); ?>
+				<?php if( edd_field_is_required( 'edd_email' ) ) { ?>
+					<span class="edd-required-indicator">*</span>
+				<?php } ?>
+			</label>
+			<span class="edd-description"><?php _e( 'We will send the purchase receipt to this address.', 'edd' ); ?></span>
+			<input class="edd-input required" type="email" name="edd_email" placeholder="<?php _e( 'Email address', 'edd' ); ?>" id="edd-email" value="<?php echo is_user_logged_in() ? $user_data->user_email : ''; ?>"/>
+		</p>
 		<?php do_action( 'edd_purchase_form_after_email' ); ?>
-		
-		<div id="edd-first-name-wrap" class="form-group form-group-sm clearfix">
-			<label class="control-label" for="edd-first"><?php _e( 'First Name', 'edd' ); ?>: </label>
-			<div class="controls">
-				<input type="text" class="form-control" name="edd_first" id="edd-first" placeholder="<?php _e( 'First name', 'edd' ); ?>" value="<?php echo is_user_logged_in() ? $user_data->first_name : ''; ?>"/>
-			</div>
-		</div>
-
-		<div id="edd-last-name-wrap" class="form-group form-group-sm clearfix">
-			<label class="control-label" for="edd-last"><?php _e( 'Last Name', 'edd' ); ?>: </label>
-			<div class="controls">
-				<input type="text" class="form-control" name="edd_last" id="edd-last" placeholder="<?php _e( 'Last name', 'edd' ); ?>" value="<?php echo is_user_logged_in() ? $user_data->last_name : ''; ?>"/>
-			</div>
-		</div>
-
-		<div id="edd-adress-wrap" class="form-group form-group-sm clearfix">
-			<label class="control-label" for="edd-adress"><?php _e( 'Adress', 'edd' ); ?>: </label>
-			<div class="controls">
-				<input type="text" class="form-control" name="edd_adress" id="edd-adress" placeholder="<?php _e( 'Adress', 'edd' ); ?>" value=""/>
-			</div>
-		</div>
-		<div id="edd-adress-optional-wrap" class="form-group form-group-sm clearfix">
-			<label class="control-label" for="edd-adress-optional"></label>
-			<div class="controls">
-				<input type="text" class="form-control" name="edd_adress_optional" id="edd-adress-optional" placeholder="<?php _e( 'Optional', 'edd' ); ?>" value=""/>
-			</div>
-		</div>
-
-		<div id="edd-city-wrap" class="form-group form-group-sm clearfix">
-			<label class="control-label" for="edd-city"><?php _e( 'City', 'edd' ); ?>: </label>
-			<div class="controls">
-				<input type="text" class="form-control" name="edd_city" id="edd-city" placeholder="<?php _e( 'City', 'edd' ); ?>" value=""/>
-			</div>
-		</div>
-
-		<div id="edd-country-wrap" class="form-group form-group-sm clearfix">
-			<label class="control-label" for="edd-country"><?php _e( 'Country', 'edd' ); ?>: </label>
-			<div class="controls">
-				<select class="form-control" name="edd_country" id="edd-country">
-					<?php echo getOptionsSelectBoxCountry(); ?>
-				</select>
-			</div>
-		</div>
-		<div id="edd-region-wrap" class="form-group form-group-sm clearfix">
-			<label class="control-label" for="edd-region"><?php _e( 'State / Province / Region', 'edd' ); ?>: </label>
-			<div class="controls short">
-				<select class="form-control" name="edd_region" id="edd-region">
-						<option value="NY">New York</option>
-				</select>
-			</div>
-		</div>
-		<div id="edd-postal-code-wrap" class="form-group form-group-sm clearfix">
-			<label class="control-label" for="edd-postal-code"><?php _e( 'Postal Code', 'edd' ); ?>: </label>
-			<div class="controls short">
-				<input type="text" class="form-control" name="edd_postal_code" id="edd-postal-code" placeholder="<?php _e( 'Postal Code', 'edd' ); ?>" value=""/>
-			</div>
-		</div>
-		<div id="edd-phone-wrap" class="form-group form-group-sm clearfix">
-			<label class="control-label" for="edd-phone"><?php _e( 'Phone', 'edd' ); ?>: </label>
-			<div class="controls short">
-				<input type="text" class="form-control" name="edd_phone" id="edd-phone" placeholder="<?php _e( 'Phone', 'edd' ); ?>" value=""/>
-			</div>
-		</div>
-		
-		<div id="edd-save-address" class="form-group form-group-sm clearfix">
-			<label class="control-label" for="save-address"></label>
-			<div class="controls"  style="width:540px;">
-				<input type="checkbox" class="form-control checkbox" id="save-address" name="edd_save_address" placeholder=""/>
-				<span style="padding: 0px 5px 0px 0px;">Save this address to my account</span>
-			</div>
-		</div>
-		
+		<p id="edd-first-name-wrap">
+			<label class="edd-label" for="edd-first">
+				<?php _e( 'First Name', 'edd' ); ?>
+				<?php if( edd_field_is_required( 'edd_first' ) ) { ?>
+					<span class="edd-required-indicator">*</span>
+				<?php } ?>
+			</label>
+			<span class="edd-description"><?php _e( 'We will use this to personalize your account experience.', 'edd' ); ?></span>
+			<input class="edd-input required" type="text" name="edd_first" placeholder="<?php _e( 'First name', 'edd' ); ?>" id="edd-first" value="<?php echo is_user_logged_in() ? $user_data->first_name : ''; ?>"/>
+		</p>
+		<p id="edd-last-name-wrap">
+			<label class="edd-label" for="edd-last">
+				<?php _e( 'Last Name', 'edd' ); ?>
+				<?php if( edd_field_is_required( 'edd_last' ) ) { ?>
+					<span class="edd-required-indicator">*</span>
+				<?php } ?>
+			</label>
+			<span class="edd-description"><?php _e( 'We will use this as well to personalize your account experience.', 'edd' ); ?></span>
+			<input class="edd-input<?php if( edd_field_is_required( 'edd_last' ) ) { echo ' required'; } ?>" type="text" name="edd_last" id="edd-last" placeholder="<?php _e( 'Last name', 'edd' ); ?>" value="<?php echo is_user_logged_in() ? $user_data->last_name : ''; ?>"/>
+		</p>
 		<?php do_action( 'edd_purchase_form_user_info' ); ?>
 	</fieldset>
 	<?php
@@ -526,7 +397,7 @@ function edd_get_register_fields() {
 		<?php if( $show_register_form == 'both' ) { ?>
 			<p id="edd-login-account-wrap"><?php _e( 'Already have an account?', 'edd' ); ?> <a href="<?php echo add_query_arg('login', 1); ?>" class="edd_checkout_register_login" data-action="checkout_login"><?php _e( 'Login', 'edd' ); ?></a></p>
 		<?php } ?>
-		
+
 		<?php do_action('edd_register_fields_before'); ?>
 
 		<fieldset id="edd_register_account_fields">
@@ -681,40 +552,65 @@ add_action( 'edd_payment_mode_select', 'edd_payment_mode_select' );
  * then outputting the icons.
  *
  * @since 1.0
- * @global $edd_options Array of all the EDD Options
  * @return void
 */
 function edd_show_payment_icons() {
-	global $edd_options;
 
-	if( edd_show_gateways() && did_action( 'edd_payment_mode_top' ) )
+	if( edd_show_gateways() && did_action( 'edd_payment_mode_top' ) ) {
 		return;
+	}
 
-	if ( isset( $edd_options['accepted_cards'] ) ) {
-		echo '<div class="edd-payment-icons">';
-		foreach( $edd_options['accepted_cards'] as $key => $card ) {
-			if( edd_string_is_image_url( $key ) ) {
-				echo '<img class="payment-icon" src="' . esc_url( $key ) . '"/>';
+	$payment_methods = edd_get_option( 'accepted_cards', array() );
+
+	if( empty( $payment_methods ) ) {
+		return;
+	}
+
+	echo '<div class="edd-payment-icons">';
+
+	foreach( $payment_methods as $key => $card ) {
+
+		if( edd_string_is_image_url( $key ) ) {
+
+			echo '<img class="payment-icon" src="' . esc_url( $key ) . '"/>';
+
+		} else {
+
+			$card = strtolower( str_replace( ' ', '', $card ) );
+
+			if( has_filter( 'edd_accepted_payment_' . $card . '_image' ) ) {
+
+				$image = apply_filters( 'edd_accepted_payment_' . $card . '_image', '' );
+
 			} else {
-                $image = edd_locate_template( 'images' . DIRECTORY_SEPARATOR . 'icons' . DIRECTORY_SEPARATOR . strtolower( str_replace( ' ', '', $card ) ) . '.gif', false );
-                $content_dir = WP_CONTENT_DIR;
+
+				$image       = edd_locate_template( 'images' . DIRECTORY_SEPARATOR . 'icons' . DIRECTORY_SEPARATOR . $card . '.gif', false );
+				$content_dir = WP_CONTENT_DIR;
 
 				if( function_exists( 'wp_normalize_path' ) ) {
+
 					// Replaces backslashes with forward slashes for Windows systems
 					$image = wp_normalize_path( $image );
 					$content_dir = wp_normalize_path( $content_dir );
+
 				}
+
 				$image = str_replace( $content_dir, WP_CONTENT_URL, $image );
 
-				if( edd_is_ssl_enforced() || is_ssl() ) {
-					$image = edd_enforced_ssl_asset_filter( $image );
-				}
-
-				echo '<img class="payment-icon" src="' . esc_url( $image ) . '"/>';
 			}
+
+			if( edd_is_ssl_enforced() || is_ssl() ) {
+
+				$image = edd_enforced_ssl_asset_filter( $image );
+
+			}
+
+			echo '<img class="payment-icon" src="' . esc_url( $image ) . '"/>';
 		}
-		echo '</div>';
+
 	}
+
+	echo '</div>';
 }
 add_action( 'edd_payment_mode_top', 'edd_show_payment_icons' );
 add_action( 'edd_checkout_form_top', 'edd_show_payment_icons' );
@@ -801,22 +697,10 @@ add_action( 'edd_purchase_form_before_submit', 'edd_terms_agreement' );
  */
 function edd_checkout_final_total() {
 ?>
-        <div class="summary fontsforweb_fontid_9785 clearfix">
-             <div id="show-detail" class="pull-right fontsforweb_fontid_9785" style="cursor: pointer; margin-top: 24px; font-size:12px; ">Show Item details <i class="row-down caret "></i></div>
-           
-            <div class="top-list fontsforweb_fontid_9785"><span>Review Items</span></div>
-            <div id="edd_final_total_wraps">
-							<?php $cart_items = edd_get_cart_contents(); $total = ($cart_items && is_array($cart_items)) ? count($cart_items) : 0; ?>
-							<div class="number-item"><span><?php echo $total; ?> ITEM(S)  </span>
-								<?php _e( 'Total:', 'edd' ); ?> <span class="edd_cart_amount" data-subtotal="<?php echo edd_get_cart_subtotal(); ?>" data-total="<?php echo edd_get_cart_subtotal(); ?>"><?php edd_cart_total(); ?></span>
-							</div>
-            </div>
-            <hr>
-            <div class="items-list" id="items-list">
-            
-            </div>
-        </div>
-        
+<p id="edd_final_total_wrap">
+	<strong><?php _e( 'Purchase Total:', 'edd' ); ?></strong>
+	<span class="edd_cart_amount" data-subtotal="<?php echo edd_get_cart_subtotal(); ?>" data-total="<?php echo edd_get_cart_subtotal(); ?>"><?php edd_cart_total(); ?></span>
+</p>
 <?php
 }
 add_action( 'edd_purchase_form_before_submit', 'edd_checkout_final_total', 999 );
@@ -891,8 +775,8 @@ function edd_checkout_button_purchase() {
 	}
 
 	ob_start();
-        ?> <p style="text-align:center">Please review your order before clicking "submit order" All sales are final</p>
-	<input type="submit" class="edd-submit <?php echo $color; ?> <?php echo $style; ?>" id="edd-purchase-button" name="edd-purchase" value="submit order"/>
+?>
+	<input type="submit" class="edd-submit <?php echo $color; ?> <?php echo $style; ?>" id="edd-purchase-button" name="edd-purchase" value="<?php echo $complete_purchase; ?>"/>
 <?php
 	return apply_filters( 'edd_checkout_button_purchase', ob_get_clean() );
 }
@@ -971,261 +855,4 @@ add_filter( 'the_content', 'edd_filter_success_page_content' );
 */
 function edd_receipt_show_download_files( $item_id, $receipt_args ) {
 	return apply_filters( 'edd_receipt_show_download_files', true, $item_id, $receipt_args );
-}
-
-function getOptionsSelectBoxCountry() {
-ob_start();
-?>
-	<option value="AF">Afghanistan</option>
-	<option value="AX">Åland Islands</option>
-	<option value="AL">Albania</option>
-	<option value="DZ">Algeria</option>
-	<option value="AS">American Samoa</option>
-	<option value="AD">Andorra</option>
-	<option value="AO">Angola</option>
-	<option value="AI">Anguilla</option>
-	<option value="AQ">Antarctica</option>
-	<option value="AG">Antigua and Barbuda</option>
-	<option value="AR">Argentina</option>
-	<option value="AM">Armenia</option>
-	<option value="AW">Aruba</option>
-	<option value="AU">Australia</option>
-	<option value="AT">Austria</option>
-	<option value="AZ">Azerbaijan</option>
-	<option value="BS">Bahamas</option>
-	<option value="BH">Bahrain</option>
-	<option value="BD">Bangladesh</option>
-	<option value="BB">Barbados</option>
-	<option value="BY">Belarus</option>
-	<option value="BE">Belgium</option>
-	<option value="BZ">Belize</option>
-	<option value="BJ">Benin</option>
-	<option value="BM">Bermuda</option>
-	<option value="BT">Bhutan</option>
-	<option value="BO">Bolivia, Plurinational State of</option>
-	<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
-	<option value="BA">Bosnia and Herzegovina</option>
-	<option value="BW">Botswana</option>
-	<option value="BV">Bouvet Island</option>
-	<option value="BR">Brazil</option>
-	<option value="IO">British Indian Ocean Territory</option>
-	<option value="BN">Brunei Darussalam</option>
-	<option value="BG">Bulgaria</option>
-	<option value="BF">Burkina Faso</option>
-	<option value="BI">Burundi</option>
-	<option value="KH">Cambodia</option>
-	<option value="CM">Cameroon</option>
-	<option value="CA">Canada</option>
-	<option value="CV">Cape Verde</option>
-	<option value="KY">Cayman Islands</option>
-	<option value="CF">Central African Republic</option>
-	<option value="TD">Chad</option>
-	<option value="CL">Chile</option>
-	<option value="CN">China</option>
-	<option value="CX">Christmas Island</option>
-	<option value="CC">Cocos (Keeling) Islands</option>
-	<option value="CO">Colombia</option>
-	<option value="KM">Comoros</option>
-	<option value="CG">Congo</option>
-	<option value="CD">Congo, the Democratic Republic of the</option>
-	<option value="CK">Cook Islands</option>
-	<option value="CR">Costa Rica</option>
-	<option value="CI">Côte d'Ivoire</option>
-	<option value="HR">Croatia</option>
-	<option value="CU">Cuba</option>
-	<option value="CW">Curaçao</option>
-	<option value="CY">Cyprus</option>
-	<option value="CZ">Czech Republic</option>
-	<option value="DK">Denmark</option>
-	<option value="DJ">Djibouti</option>
-	<option value="DM">Dominica</option>
-	<option value="DO">Dominican Republic</option>
-	<option value="EC">Ecuador</option>
-	<option value="EG">Egypt</option>
-	<option value="SV">El Salvador</option>
-	<option value="GQ">Equatorial Guinea</option>
-	<option value="ER">Eritrea</option>
-	<option value="EE">Estonia</option>
-	<option value="ET">Ethiopia</option>
-	<option value="FK">Falkland Islands (Malvinas)</option>
-	<option value="FO">Faroe Islands</option>
-	<option value="FJ">Fiji</option>
-	<option value="FI">Finland</option>
-	<option value="FR">France</option>
-	<option value="GF">French Guiana</option>
-	<option value="PF">French Polynesia</option>
-	<option value="TF">French Southern Territories</option>
-	<option value="GA">Gabon</option>
-	<option value="GM">Gambia</option>
-	<option value="GE">Georgia</option>
-	<option value="DE">Germany</option>
-	<option value="GH">Ghana</option>
-	<option value="GI">Gibraltar</option>
-	<option value="GR">Greece</option>
-	<option value="GL">Greenland</option>
-	<option value="GD">Grenada</option>
-	<option value="GP">Guadeloupe</option>
-	<option value="GU">Guam</option>
-	<option value="GT">Guatemala</option>
-	<option value="GG">Guernsey</option>
-	<option value="GN">Guinea</option>
-	<option value="GW">Guinea-Bissau</option>
-	<option value="GY">Guyana</option>
-	<option value="HT">Haiti</option>
-	<option value="HM">Heard Island and McDonald Islands</option>
-	<option value="VA">Holy See (Vatican City State)</option>
-	<option value="HN">Honduras</option>
-	<option value="HK">Hong Kong</option>
-	<option value="HU">Hungary</option>
-	<option value="IS">Iceland</option>
-	<option value="IN">India</option>
-	<option value="ID">Indonesia</option>
-	<option value="IR">Iran, Islamic Republic of</option>
-	<option value="IQ">Iraq</option>
-	<option value="IE">Ireland</option>
-	<option value="IM">Isle of Man</option>
-	<option value="IL">Israel</option>
-	<option value="IT">Italy</option>
-	<option value="JM">Jamaica</option>
-	<option value="JP">Japan</option>
-	<option value="JE">Jersey</option>
-	<option value="JO">Jordan</option>
-	<option value="KZ">Kazakhstan</option>
-	<option value="KE">Kenya</option>
-	<option value="KI">Kiribati</option>
-	<option value="KP">Korea, Democratic People's Republic of</option>
-	<option value="KR">Korea, Republic of</option>
-	<option value="KW">Kuwait</option>
-	<option value="KG">Kyrgyzstan</option>
-	<option value="LA">Lao People's Democratic Republic</option>
-	<option value="LV">Latvia</option>
-	<option value="LB">Lebanon</option>
-	<option value="LS">Lesotho</option>
-	<option value="LR">Liberia</option>
-	<option value="LY">Libya</option>
-	<option value="LI">Liechtenstein</option>
-	<option value="LT">Lithuania</option>
-	<option value="LU">Luxembourg</option>
-	<option value="MO">Macao</option>
-	<option value="MK">Macedonia, the former Yugoslav Republic of</option>
-	<option value="MG">Madagascar</option>
-	<option value="MW">Malawi</option>
-	<option value="MY">Malaysia</option>
-	<option value="MV">Maldives</option>
-	<option value="ML">Mali</option>
-	<option value="MT">Malta</option>
-	<option value="MH">Marshall Islands</option>
-	<option value="MQ">Martinique</option>
-	<option value="MR">Mauritania</option>
-	<option value="MU">Mauritius</option>
-	<option value="YT">Mayotte</option>
-	<option value="MX">Mexico</option>
-	<option value="FM">Micronesia, Federated States of</option>
-	<option value="MD">Moldova, Republic of</option>
-	<option value="MC">Monaco</option>
-	<option value="MN">Mongolia</option>
-	<option value="ME">Montenegro</option>
-	<option value="MS">Montserrat</option>
-	<option value="MA">Morocco</option>
-	<option value="MZ">Mozambique</option>
-	<option value="MM">Myanmar</option>
-	<option value="NA">Namibia</option>
-	<option value="NR">Nauru</option>
-	<option value="NP">Nepal</option>
-	<option value="NL">Netherlands</option>
-	<option value="NC">New Caledonia</option>
-	<option value="NZ">New Zealand</option>
-	<option value="NI">Nicaragua</option>
-	<option value="NE">Niger</option>
-	<option value="NG">Nigeria</option>
-	<option value="NU">Niue</option>
-	<option value="NF">Norfolk Island</option>
-	<option value="MP">Northern Mariana Islands</option>
-	<option value="NO">Norway</option>
-	<option value="OM">Oman</option>
-	<option value="PK">Pakistan</option>
-	<option value="PW">Palau</option>
-	<option value="PS">Palestinian Territory, Occupied</option>
-	<option value="PA">Panama</option>
-	<option value="PG">Papua New Guinea</option>
-	<option value="PY">Paraguay</option>
-	<option value="PE">Peru</option>
-	<option value="PH">Philippines</option>
-	<option value="PN">Pitcairn</option>
-	<option value="PL">Poland</option>
-	<option value="PT">Portugal</option>
-	<option value="PR">Puerto Rico</option>
-	<option value="QA">Qatar</option>
-	<option value="RE">Réunion</option>
-	<option value="RO">Romania</option>
-	<option value="RU">Russian Federation</option>
-	<option value="RW">Rwanda</option>
-	<option value="BL">Saint Barthélemy</option>
-	<option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
-	<option value="KN">Saint Kitts and Nevis</option>
-	<option value="LC">Saint Lucia</option>
-	<option value="MF">Saint Martin (French part)</option>
-	<option value="PM">Saint Pierre and Miquelon</option>
-	<option value="VC">Saint Vincent and the Grenadines</option>
-	<option value="WS">Samoa</option>
-	<option value="SM">San Marino</option>
-	<option value="ST">Sao Tome and Principe</option>
-	<option value="SA">Saudi Arabia</option>
-	<option value="SN">Senegal</option>
-	<option value="RS">Serbia</option>
-	<option value="SC">Seychelles</option>
-	<option value="SL">Sierra Leone</option>
-	<option value="SG">Singapore</option>
-	<option value="SX">Sint Maarten (Dutch part)</option>
-	<option value="SK">Slovakia</option>
-	<option value="SI">Slovenia</option>
-	<option value="SB">Solomon Islands</option>
-	<option value="SO">Somalia</option>
-	<option value="ZA">South Africa</option>
-	<option value="GS">South Georgia and the South Sandwich Islands</option>
-	<option value="SS">South Sudan</option>
-	<option value="ES">Spain</option>
-	<option value="LK">Sri Lanka</option>
-	<option value="SD">Sudan</option>
-	<option value="SR">Suriname</option>
-	<option value="SJ">Svalbard and Jan Mayen</option>
-	<option value="SZ">Swaziland</option>
-	<option value="SE">Sweden</option>
-	<option value="CH">Switzerland</option>
-	<option value="SY">Syrian Arab Republic</option>
-	<option value="TW">Taiwan, Province of China</option>
-	<option value="TJ">Tajikistan</option>
-	<option value="TZ">Tanzania, United Republic of</option>
-	<option value="TH">Thailand</option>
-	<option value="TL">Timor-Leste</option>
-	<option value="TG">Togo</option>
-	<option value="TK">Tokelau</option>
-	<option value="TO">Tonga</option>
-	<option value="TT">Trinidad and Tobago</option>
-	<option value="TN">Tunisia</option>
-	<option value="TR">Turkey</option>
-	<option value="TM">Turkmenistan</option>
-	<option value="TC">Turks and Caicos Islands</option>
-	<option value="TV">Tuvalu</option>
-	<option value="UG">Uganda</option>
-	<option value="UA">Ukraine</option>
-	<option value="AE">United Arab Emirates</option>
-	<option value="GB">United Kingdom</option>
-	<option selected value="US">United States</option>
-	<option value="UM">United States Minor Outlying Islands</option>
-	<option value="UY">Uruguay</option>
-	<option value="UZ">Uzbekistan</option>
-	<option value="VU">Vanuatu</option>
-	<option value="VE">Venezuela, Bolivarian Republic of</option>
-	<option value="VN">Viet Nam</option>
-	<option value="VG">Virgin Islands, British</option>
-	<option value="VI">Virgin Islands, U.S.</option>
-	<option value="WF">Wallis and Futuna</option>
-	<option value="EH">Western Sahara</option>
-	<option value="YE">Yemen</option>
-	<option value="ZM">Zambia</option>
-	<option value="ZW">Zimbabwe</option>
-<?php	
-	$content=ob_get_clean();
-	return $content;
 }

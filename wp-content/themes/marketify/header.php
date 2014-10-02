@@ -40,6 +40,10 @@
 </head>
 <body <?php body_class(); ?>>
 
+<?php 
+    global $userdata;
+    get_currentuserinfo();
+?>
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
@@ -47,13 +51,18 @@
 			<div class="top-bar clearfix">
 				<div class="right-top-bar right">
 					<ul class="none list-top clearfix">
-						<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wp-admin/profile.php">My Account</a></li>
+					
+						<?php if ($userdata->user_level > 0):?>
+							<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><?php echo $userdata->display_name;?></li>
+							<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Logout</a></li>
+						<?php endif;?>
+						
+						<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/">My Account</a></li>		
 						<li class="left"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Wishlist</a></li>
 						<li class="left"><i class="uiIcon16x16 uiIconTop arrow_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>checkout/">Checkout</a></li>
 					</ul>
 				</div>
 			</div>
-
 
 			<table class="site-branding" style="margin:0px">
 				<tr>
