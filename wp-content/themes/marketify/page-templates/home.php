@@ -25,12 +25,33 @@ get_header(); ?>
 							<?php endif; ?>
 						</div>
 					</div>
+					
+					<br /><br />
+					<div style="width:500px;margin:0 auto;">
+						<div style="float:left; width:200px;" align="center">
+							<a href="/fes-vendor">Start browsing</a> <br />
+							Discover great resources 
+							created by teachers 
+							for teachers
+						</div>
+						
+						<div style="float:right;width:200px;" align="center">
+							<a href="/vendor-dashboard">Start selling</a><br />
+							Become parts of our first
+							group of teacher sellers.
+							Sell your products and 
+							keep up to 80%
+						</div>
+					</div>
+					<br clear="all" />
+					
 				<?php }?>
+				
 				<div class="download-product-review-details content-items clearfix">
-				<?php if ( ! is_paged() && ! get_query_var( 'orderby' ) && ! is_page_template( 'page-templates/popular.php' ) ) : ?>
-					<?php// get_template_part( 'content-grid-download', 'popular' ); ?>
-				<?php endif; ?>
-
+					<?php if ( ! is_paged() && ! get_query_var( 'orderby' ) && ! is_page_template( 'page-templates/popular.php' ) ) : ?>
+						<?php// get_template_part( 'content-grid-download', 'popular' ); ?>
+					<?php endif; ?>
+					
 					<section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-7 col-xs-12">
 						<main id="main" class="site-main" role="main">
 

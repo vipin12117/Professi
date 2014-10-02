@@ -45,11 +45,18 @@ $author = get_the_author();
 							</div>
 						</div>
 					</div>
+					<?php 
+						  $category_str = '';
+						  $categories = (array)get_the_terms( $post->ID, 'download_category' );
+						  foreach($categories as $category){
+						  	  $category_str .= $category->name.",";
+						  }
+					?>
 					<div class="teacher-info fontsforweb_fontid_9785 left">
 						<div class="form-horizontal">
 							<div class="control-group">
 								<span class="control-label">SUBJECTS </span>
-								<span class="controls gray-light">PreK, Kindergarten, 1st, 2nd, 3rd, 4th, 5th</span>
+								<span class="controls gray-light"><?php echo $category_str;?></span>
 							</div>
 							<div class="control-group">
 								<span class="control-label">GRADES </span>
@@ -94,7 +101,8 @@ $author = get_the_author();
 								<span class="controls file-comment">Be sure that you have an application to open this file type before downloading and/or purchasing.</span>
 								<br/>
 								<span class="control-label lv2 left"></span>
-								<span class="controls file-comment">9.1 MB  |  115 pages</span>
+								<?php $edd_download_files = unserialize($data_custom['edd_download_files'][0]);?>
+								<span class="controls file-comment"><?php echo @filesize($edd_download_files[0]['file'])/1024;?> MB  |  <?php echo $data_custom['add_number_of_pages_or_slides'][0]?> pages</span>
 							</div>
 						</div>
 					</div>
@@ -110,10 +118,9 @@ $author = get_the_author();
 					<span class="gray-light"><?php echo str_replace(array("\n"), '<br/>', $data_custom['add_description'][0]); ?></span>
 				</div>
 				<br/>
-				<div class="info-post">TOTAL PAGES<span class="gray-light">115</span></div>
-				<div class="info-post">ANSWER KEY<span class="gray-light">N/A</span></div>
-				<div class="info-post">TEACHING DURATION<span class="gray-light">Lifelong Tool</span></div>
-				<div class="report-post gray-light"><a href="#"><i class="report-icon"></i> Report Copyright Infringement</a></div>
+				<div class="info-post">TOTAL PAGES:<span class="gray-light"><?php echo $data_custom['add_number_of_pages_or_slides'][0]?></span></div>
+				<div class="info-post">TEACHING DURATION:<span class="gray-light"><?php echo $data_custom['add_teaching_duration'][0]?></span></div>
+				<div class="report-post gray-light"><a href="mailto:<?php echo get_the_author_meta( 'email' )?>"><i class="report-icon"></i> Report Copyright Infringement</a></div>
 			</div>
 			<hr/>
 			<div class="comment-post">
@@ -132,7 +139,7 @@ $author = get_the_author();
 									<i class="star star-no"></i>
 									<i class="star star-no"></i>
 								</div>
-								<div class="type-ratings left">Accurasy:</div>
+								<div class="type-ratings left">Accuracy:</div>
 								<div class="star-ratings left">
 								<?php for($i = $j; $i < 5; ++ $i)  {?>
 									<i class="star star-full"></i>
@@ -196,61 +203,59 @@ $author = get_the_author();
 				<?php comments_template(); ?>
 			</div>
 			
+			<div style="display:none" id="hidden-old-data"><!-- #hidden old logic -->
+				<?php
+					if (
+						'grid' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) &&
+						'1' == marketify_theme_mod( 'product-display', 'product-display-show-buy' )
+					) :
+				?>
+					<div class="download-actions">
+						<?php do_action( 'marketify_download_actions' ); ?>
+					</div>
+				<?php endif; ?>
+	
+				<?php if ( 'classic' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) ) : ?>
+					<div class="download-actions">
+						<?php do_action( 'marketify_download_actions' ); ?>
+					</div>
+	
+					<div class="download-info">
+						<?php do_action( 'marketify_download_info' ); ?>
+					</div>
+	
+					<div class="featured-image container">
+						<?php do_action( 'marketify_download_featured_area' ); ?>
+					</div>
+				<?php endif; ?>
 			
-				<div style="display:none" id="hidden-old-data"><!-- #hidden old logic -->
-					<?php
-						if (
-							'grid' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) &&
-							'1' == marketify_theme_mod( 'product-display', 'product-display-show-buy' )
-						) :
-					?>
-						<div class="download-actions">
-							<?php do_action( 'marketify_download_actions' ); ?>
-						</div>
-					<?php endif; ?>
-
-					<?php if ( 'classic' == marketify_theme_mod( 'product-display', 'product-display-single-style' ) ) : ?>
-						<div class="download-actions">
-							<?php do_action( 'marketify_download_actions' ); ?>
-						</div>
-
-						<div class="download-info">
-							<?php do_action( 'marketify_download_info' ); ?>
-						</div>
-
-						<div class="featured-image container">
-							<?php do_action( 'marketify_download_featured_area' ); ?>
-						</div>
-					<?php endif; ?>
-				
 				<?php //do_action( 'marketify_entry_before' ); ?>
-
-					<div id="content" class="site-content row">
-
-						<section id="primary" class="content-area <?php echo ! is_active_sidebar( 'sidebar-download-single' ) ? 'col-xs-12' : 'col-md-8 col-sm-7 col-xs-12'; ?>">
-							<main id="main" class="site-main" role="main">
-
-							<?php while ( have_posts() ) : the_post(); ?>
-								<?php get_template_part( 'content-single', 'download' ); ?>
-							<?php endwhile; rewind_posts(); ?>
-
-							</main><!-- #main -->
-						</section><!-- #primary -->
-
-						<?php //get_sidebar( 'single-download' ); ?>
-
-					</div><!-- #content -->
-
-					<?php do_action( 'marketify_single_download_after' ); ?>
-				</div><!-- #hidden old logic -->
-				
+	
+				<div id="content" class="site-content row">
+					<section id="primary" class="content-area <?php echo ! is_active_sidebar( 'sidebar-download-single' ) ? 'col-xs-12' : 'col-md-8 col-sm-7 col-xs-12'; ?>">
+						<main id="main" class="site-main" role="main">
+	
+						<?php while ( have_posts() ) : the_post(); ?>
+							<?php get_template_part( 'content-single', 'download' ); ?>
+						<?php endwhile; rewind_posts(); ?>
+	
+						</main><!-- #main -->
+					</section><!-- #primary -->
+	
+					<?php //get_sidebar( 'single-download' ); ?>
+	
+				</div><!-- #content -->
+	
+				<?php do_action( 'marketify_single_download_after' ); ?>
+			</div><!-- #hidden old logic -->
 		</div><!--#left-post -->
+		
 		<div class="right-post left">
 			<div class="download-product-details action-container fontsforweb_fontid_9785"><!--#action-container -->
 				<div class="price"><?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
 				<div class="type">Digital Download</div>
 				<div class="add-to-card"><a id="main-add-to-card" href="#">ADD ONE TO CART</a></div>
-				<div class="by-licence"><a href="#">BUY LICENCE TO SHARE</a></div>
+				<!-- <div class="by-licence"><a href="#">BUY LICENCE TO SHARE</a></div> -->
 				
 				<div class="add-wish-list"><a class="edd-add-to-cart-from-wish-list edd-wl-open-modal edd-has-js" href="#"
 				data-action="edd_wl_open_modal"
@@ -276,7 +281,7 @@ $author = get_the_author();
 							<img width="14px" src="<?php echo content_url();?>/themes/marketify/images/star12x11.png"/>
 							<strong>Follow me </strong><span>(675 Followers)</span>
 						</div>
-						<div style="padding: 20px 0px 0px 5px;"><a href="#">Visit my Store <i class="glyphicon glyphicon-play"></i></a></div>
+						<div style="padding: 20px 0px 0px 5px;"><a href="/fed-vendor/"<?php echo get_the_author_meta( 'display_name' ) ?>>Visit my Store <i class="glyphicon glyphicon-play"></i></a></div>
 					</div>
 				</div>
 				
@@ -297,17 +302,16 @@ $author = get_the_author();
 						<div class="teacher-local gray-light">Athens, GA </div>
 					</div>
 				</div>
-<?php
-wp_reset_query(); 
-
-$downloads = new WP_Query( array(
-	'post_type'   => 'download',
-	'post_status' => 'publish',
-	'post_author' => $author,
-	'posts_per_page' => 3
-) );
-
-?>			
+				<?php
+					wp_reset_query(); 
+					
+					$downloads = new WP_Query( array(
+						'post_type'   => 'download',
+						'post_status' => 'publish',
+						'post_author' => $author,
+						'posts_per_page' => 3
+					) );
+				?>			
 				<div class="wishlist">
 					<div class="dlcontainer">
 						<?php while ( $downloads->have_posts() ) : $downloads->the_post(); ?>
@@ -321,11 +325,9 @@ $downloads = new WP_Query( array(
 									 title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>">See all <i class="glyphicon glyphicon-play"></i></a>
 					</div>
 				</div>
-
-<?php 
-	wp_reset_query(); 
-?>		
-
+				<?php 
+					wp_reset_query(); 
+				?>		
 			</div><!--#download-list -->
 		</div>
 	</div>
