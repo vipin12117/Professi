@@ -1971,7 +1971,7 @@ body.product-display-inline .single-project .page-header,
 }
 
 .content-grid-download .entry-header {
-	padding: 5px;
+	padding: 5px 0;
 	background: #fff;
 	z-index: 10;
 	position: relative;
@@ -4753,7 +4753,14 @@ input.search-field-input {
 	width: 44px;height:44px; display: inline-block; float: left;
 	background: url('images/buy_item.png') left center no-repeat;
 }
-.buy-info span { padding:0px 10px;display: inline-block; height:44px; line-height:44px;}
+.buy-info span {display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    overflow: hidden;
+    padding: 0 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 185px;}
 
 
 .home-container {width: 1046px;margin: auto;}
@@ -4912,7 +4919,8 @@ border-radius: 4px;
 		
 	}
 	
-	.download-product-review-details p{ width:200px;
+	.round_buttons +  p{ 
+          width:200px;
 	margin-left:80px;
 	text-align: center;
 	
@@ -5090,7 +5098,7 @@ font-weight:bold;
 }
 
 .content-area .the-title-home {
-	height: 30px;
+	min-height: 30px;margin-bottom: 20px;
 }
 
 .content-items .content-grid-download {

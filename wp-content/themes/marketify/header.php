@@ -115,10 +115,10 @@ movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adip
 					<?php endif; ?>
 						<div class="site-description-header"><?php bloginfo( 'description' ); ?></div>
 					</td>
-					<td class="search-forms" style="width:350px;min-width:350px;max-width:450px;">
+					<td class="search-forms" style="width:350px;min-width:350px;">
 					<?php locate_template( array( 'searchform-header.php' ), true ); ?>
 					</td>
-					<td class="buy-info" style="width:230px;min-width:230px; max-width:250px;">
+					<td class="buy-info" style="width:230px;min-width:230px; ">
                                             <div class="cart">
                                                 <i class="buy-icon"></i>
 						<?php $cart_items = edd_get_cart_contents(); $total = ($cart_items && is_array($cart_items)) ? count($cart_items) : 0; ?>

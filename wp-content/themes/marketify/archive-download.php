@@ -55,7 +55,7 @@ global $wp_query;
 											  	  $category_str .= $category->name.",";
 											  }
 										?>
-										<div class="form-horizontal" style="border:1px solid #000;padding:5px;">
+										<div class="form-horizontal">
 											<div class="control-group">
 												<span class="control-label">SUBJECTS:</span>
 												<span class="controls gray-light"><?php echo $category_str;?></span>
