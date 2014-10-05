@@ -2025,7 +2025,19 @@ body.product-display-inline .single-project .page-header,
 	width: 25px;
 	height: 25px;
 }
-
+.entry-title,.byline {
+    margin: 0 0 10px 0;display: block;
+}
+.filter-banner  {
+     background: none repeat scroll 0 0 #333 !important;
+    display: block;
+    margin-left: -25px;
+    padding: 0 20px;
+    width: 245px !important;
+}
+.icon-house {
+    
+}
 .content-grid-download .entry-header .jp-audio {
 	float: left;
 	width: auto;
@@ -5307,7 +5319,7 @@ font-weight:bold;
 	margin: 40px 0px 20px 0px;
 }
 
-
+.icon-chart-line {}
 
 .view-icon-list {
 	vertical-align:top;

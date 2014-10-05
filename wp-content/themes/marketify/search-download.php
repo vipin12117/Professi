@@ -39,7 +39,7 @@ if($cat_ && strlen($cat_) > 0) {
 					<h1 class="download-single-widget-title"></h1>
 					<ul class="edd-taxonomy-widget">
 						<li class="cat-item cat-item-15">
-							<a style="width: 226px;">YOU SELECTED</a>
+							<a class="filter-banner">YOU SELECTED</a>
 							<ul class="children selected-cat">
 								<?php foreach($pcats as $key=>$pcat) {?>
 								<li class="cat-item cat-item-selected">
