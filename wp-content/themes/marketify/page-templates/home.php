@@ -18,16 +18,14 @@ get_header(); ?>
 
 			<div id="content" class="right-container site-content row left">
 				<?php if($isHome == true) {?>
-					<div class="download-product-review-details">
+					<!--<div class="download-product-review-details">
 						<div class="home-review-content">
-							<?php if ( is_active_sidebar( 'preview-1' ) ) : ?>
+							<?php  /** if ( is_active_sidebar( 'preview-1' ) ) :  ?>
 								<?php dynamic_sidebar( 'preview-1' ); ?>
-							<?php endif; ?>
+							<?php endif; */ ?>
 						</div>
-					</div>
-					
-					<br /><br />
-					<div style="width:500px;margin:0 auto;">
+						
+						<div style="width:500px;margin:0 auto;">
 						<div style="float:left; width:200px;" align="center">
 							<a href="/fes-vendor">Start browsing</a> <br />
 							Discover great resources 
@@ -44,6 +42,78 @@ get_header(); ?>
 						</div>
 					</div>
 					<br clear="all" />
+						
+						
+					</div> !-->
+					
+					
+					<div class="download-product-review-details">
+					<div class="video">
+			
+
+						<div class="home-review-content">
+					<!-- elegant minimal -->
+      <div class="vp1_html5" >
+            <video id="vp1_html5_EM" width="704" height="396" preload="auto" poster="<?php echo get_template_directory_uri(); ?>/images/prev.jpg">
+                <source src="<?php echo get_template_directory_uri(); ?>/images/promo_profesi_V1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                <source src="videos/big_buck_bunny_trailer.webm" type='video/webm; codecs="vp8, vorbis"' />
+            </video>
+      </div>
+
+
+						
+						</div>
+																												</div>
+							
+					<div class="row">	
+					
+					<div class="col-md-12" style="margin-left:175px; padding-top:20px; padding-bottom:5px;">
+				<img src=" <?php echo get_template_directory_uri(); ?>/images/dotted_lines.png" /> </div>
+					
+					<div class="col-md-6">
+						
+			<div class="round_buttons"
+						<ul>
+  <li ><a href="#" class="round green">Start </br> Browsing<span class="round">That is, if you already have an account.</span></a></li>
+ </div>
+
+</ul> 
+<p>Become parts of our first
+							group of teacher sellers.
+							Sell your products and 
+							keep up to 80%</p>
+
+	</div>		
+	
+	<div class="col-md-6">
+						
+			<div class="round_buttons"
+						<ul>
+
+  <li ><a href="#" class="round red">Start  </br> Selling <span class="round">But only if you really, really want to. </span></a></li> </div>
+
+</ul> 
+<p>Become parts of our first
+							group of teacher sellers.
+							Sell your products and 
+							keep up to 80%</p>
+	</div>		
+</div>			
+						
+					<br clear="all" />
+						
+						
+					</div>
+					
+			
+					
+					
+								
+			
+
+					
+			
+					
 					
 				<?php }?>
 				

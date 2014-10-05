@@ -16,10 +16,18 @@
 
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<!-- must have -->
+<link href="<?php echo get_template_directory_uri(); ?>/css/vp1_html5.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/vp1_html5.js" type="text/javascript" charset="utf-8"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/screenfull.min.js" type="text/javascript" charset="utf-8"></script> 
+<!-- must have -->
 	
 	<link rel="stylesheet" id="bootstrap-css" href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap.min.css" type="text/css" media="all">
   <link rel="stylesheet" id="bootstrap-theme-css" href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap-theme.min.css" type="text/css" media="all">
   <link rel="stylesheet" id="fonts-css" href="<?php echo get_template_directory_uri(); ?>/fonts/font.css" type="text/css" media="all">
+  <link rel="stylesheet"  href="<?php echo get_template_directory_uri(); ?>/css/vp1_html5.css" type="text/css" media="all">
   
   <?php wp_head(); ?>
   
@@ -36,6 +44,37 @@
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 	<!-- Add Media helper (this is optional) -->
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+	<!-- Pickle video player -->
+<script>
+$(function() {
+
+$('#vp1_html5_FEB').vp1_html5_Video({
+skin: 'futuristicElectricBlue',
+movieTitle: 'Profesi',
+movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non ante vitae felis vestibulum lacinia ut sed felis. Aliquam mi libero, pretium consectetur pharetra eu, auctor non diam. Pellentesque adipiscing, justo in placerat sagittis, quam enim aliquet odio, nec laoreet leo neque et felis. Aliquam leo nulla, posuere eget dapibus quis, mattis non urna. Vestibulum blandit velit id tortor hendrerit a rhoncus tellus porta. Donec hendrerit ullamcorper sodales.'
+});
+
+
+});
+</script>
+<!-- must have -->
+
+
+
+
+	<script>
+		$(function() {
+
+			$('#vp1_html5_EM').vp1_html5_Video({
+				skin: 'elegantMinimal',
+				responsive:true
+			});	
+			
+			
+		});
+	</script>
+
+
 
 </head>
 <body <?php body_class(); ?>>
