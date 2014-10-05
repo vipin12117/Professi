@@ -56,12 +56,13 @@ class EDD_Currency_Shortcodes {
 			
 			$content = '';
 			$content .= '<div class="edd-currency-wrap">';
-			$content .='	<select class="edd-currencies-select" name="edd-currency-select">';
+			$content .='<label class="selectbox-s">	<select class="edd-currencies-select" name="edd-currency-select">';
 				foreach ($currency_data as $key => $currency_value) {
 					$content .= '<option value="' . $currency_value['post_title'] . '"' . selected( $selected_currency, $currency_value['post_title'], false ) . '>' . $currency_value['post_content'] . '</option>';
 				}
-			$content .='	</select>';
-			$content .=' 	<input class="edd-currency-save-button edd-button button" type="button" value="' . __( 'Save', 'eddcurrency' ) . '" />';
+			$content .='	</select></label>';
+			$content .=' 	<button class="edd-currency-save-button edd-button button" type="button" value="' . __( 'Save', 'eddcurrency' ) . '" ><i class="fa fa-check-circle"></i>
+</button>';
 			$content .=' 	<input class="edd-currency-button-reset edd-button button edd-curr-btn-reset" type="button" value="' . __( 'Reset', 'eddcurrency' ) . '" />
 		   				</div>';
 			

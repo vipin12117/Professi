@@ -265,15 +265,14 @@ input {
 button,
 html input[type="button"]:not(.ed_button),
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],button[type="button"] {
 	font: 700 13px/normal 'Montserrat', sans-serif;
 	color: #515a63;
 	text-transform: uppercase;
 	text-decoration: none;
-	padding: 10px 20px;
-	border: 2px solid transparent;
 	background: #fff;
-	-webkit-appearance: button;
+	-webkit-appearance: button; background: linear-gradient(to bottom, #ffffff 0%, #fbfbfb 100%, #fbfbfb 100%) repeat scroll 0 0 #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 button,
@@ -2270,7 +2269,7 @@ object {
 	content: ' ';
 	position: absolute;
 	top: 32px;
-	left: -15px;
+	left: -14px;
 }
 
 .comment .comment-content:before {
@@ -2282,7 +2281,7 @@ object {
 	content: ' ';
 	position: absolute;
 	top: 32px;
-	left: -16px;
+	left: -15px;
 }
 
 .comment-list .children {
@@ -4745,7 +4744,7 @@ input.search-field-input {
 	color: #a2a2a2;
 	border: solid 1px #d8d9dc;
 	font-weight:normal;
-	height: 30px; width: 350px;
+	height: 30px; width: 300px;
 	padding: 0px 0px 0px 10px;
 }
 
@@ -6023,3 +6022,42 @@ body #edd-wl-modal input[type="email"], body  #edd-wl-modal input[type="text"],b
     padding-top:40px;
 }
 
+.vp1_html5  {
+    border:4px solid #b4d2d0;overflow:hidden;
+}.left-info {
+    vertical-align: middle;
+}
+.btn-cirlce {outline: none; -webkit-transition: all 0.4s ease-in-out 0s;-moz-transition: all 0.4s ease-in-out 0s;
+    background: none repeat scroll 0 0 rgba(133, 32, 28, 1);
+    border-radius: 50%;
+    color: white!important;
+    display: inline-block;color: white;
+    padding: 10px;
+    text-align: center;
+}
+.edd-currency-wrap .edd-currency-button-reset {
+    display: none;
+}
+.edd-currency-wrap .edd-currency-save-button,.edd-currency-wrap .edd-currency-save-button:hover{
+    background:#eeeeee;border:none;
+}
+.edd-currency-wrap .edd-currency-save-button i {
+    font-size:18px;color:#b4d2d0
+}
+.edd-currency-wrap .edd-currency-save-button:hover  i {
+     color: rgba(133, 32, 28, 0.7);
+}
+.edd-currencies-select  {
+    background: transparent ; -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    border:none;outline: none;
+    
+}
+.selectbox-s {
+     background:url(images/down.png) 105% center no-repeat;
+}
+.btn-cirlce:hover {
+    background: none repeat scroll 0 0 rgba(133, 32, 28, 0.7);
+}

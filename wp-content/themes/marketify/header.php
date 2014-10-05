@@ -23,7 +23,8 @@
 <script src="<?php echo get_template_directory_uri(); ?>/js/vp1_html5.js" type="text/javascript" charset="utf-8"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/screenfull.min.js" type="text/javascript" charset="utf-8"></script> 
 <!-- must have -->
-	
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 	<link rel="stylesheet" id="bootstrap-css" href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap.min.css" type="text/css" media="all">
   <link rel="stylesheet" id="bootstrap-theme-css" href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap-theme.min.css" type="text/css" media="all">
   <link rel="stylesheet" id="fonts-css" href="<?php echo get_template_directory_uri(); ?>/fonts/font.css" type="text/css" media="all">
@@ -114,7 +115,7 @@ movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adip
 					<?php endif; ?>
 						<div class="site-description-header"><?php bloginfo( 'description' ); ?></div>
 					</td>
-					<td class="search-forms" style="width:450px;min-width:350px;max-width:450px;">
+					<td class="search-forms" style="width:350px;min-width:350px;max-width:450px;">
 					<?php locate_template( array( 'searchform-header.php' ), true ); ?>
 					</td>
 					<td class="buy-info" style="width:230px;min-width:230px; max-width:250px;">
@@ -122,7 +123,10 @@ movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adip
 						<?php $cart_items = edd_get_cart_contents(); $total = ($cart_items && is_array($cart_items)) ? count($cart_items) : 0; ?>
 						<span><?php echo $total; ?> item(s) - <?php edd_cart_total(); ?></span>
 					</td>
-					<td class="left-info"></td>
+					<td class="left-info" valign="middle">
+                                            <a href="" class="btn-cirlce">Start<br> selling</a>
+                                            
+                                        </td>
 				</tr>
 			</table>
 			<h1 class="site-title" style="display:none"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>

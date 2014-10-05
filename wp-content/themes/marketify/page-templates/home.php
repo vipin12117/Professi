@@ -53,7 +53,7 @@ get_header(); ?>
 
 						<div class="home-review-content">
 					<!-- elegant minimal -->
-      <div class="vp1_html5" >
+      <div class="vp1_html5" style="border:4px solid #b4d2d0;overflow:hidden;" >
             <video id="vp1_html5_EM" width="704" height="396" preload="auto" poster="<?php echo get_template_directory_uri(); ?>/images/prev.jpg">
                 <source src="<?php echo get_template_directory_uri(); ?>/images/promo_profesi_V1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
                 <source src="videos/big_buck_bunny_trailer.webm" type='video/webm; codecs="vp8, vorbis"' />
@@ -67,8 +67,8 @@ get_header(); ?>
 							
 					<div class="row">	
 					
-					<div class="col-md-12" style="margin-left:175px; padding-top:20px; padding-bottom:5px;">
-				<img src=" <?php echo get_template_directory_uri(); ?>/images/dotted_lines.png" /> </div>
+					<div class="col-md-12" style=" padding-top:20px; padding-bottom:5px;">
+                                            <div style="margin-left:175px;"><img src=" <?php echo get_template_directory_uri(); ?>/images/dotted_lines.png" /> </div></div>
 					
 					<div class="col-md-6">
 						
