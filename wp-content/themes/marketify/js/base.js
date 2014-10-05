@@ -138,7 +138,7 @@
             return false;
         })
          $('.cart ').on('click',function(){
-            $(this).toggleClass('active');
+          //  $(this).toggleClass('active');
             
         })
 	$('.image-box').fancybox();

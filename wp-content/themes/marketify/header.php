@@ -89,7 +89,8 @@ movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adip
 	<header id="masthead" class="site-header" role="banner">
 		<div class="container">
 			<div class="top-bar clearfix">
-				<div class="right-top-bar right">
+                            <div class="container-ho" style="  margin: 0 auto;   max-width: 1400px;">
+                                <div class="right-top-bar right">
 					<ul class="none list-top clearfix">
 					
 						<?php if ($userdata->user_level > 0):?>
@@ -103,9 +104,11 @@ movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adip
 						<li class="left"> <?php echo do_shortcode('[edd_select_currency]');?></li>
 					</ul>
 				</div>
+                            </div>
+				
 			</div>
-
-			<table class="site-branding" style="margin:0px">
+                    <div class="site-branding">
+			<table class="" style="  margin: 0 auto;   max-width: 1400px;">
 				<tr>
 					<td class="left-bn" style="width:10%"></td>
 					<td class="log_header" style="width:425px;min-width:350px;max-width:430px;">
@@ -119,8 +122,9 @@ movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adip
 					<?php locate_template( array( 'searchform-header.php' ), true ); ?>
 					</td>
 					<td class="buy-info" style="width:230px;min-width:230px; ">
+                                            
                                             <div class="cart">
-                                                <i class="buy-icon"></i>
+                                                
 						<?php $cart_items = edd_get_cart_contents(); $total = ($cart_items && is_array($cart_items)) ? count($cart_items) : 0; ?>
 						<span><a href="<?php echo get_site_url(); ?>/checkout/"><?php echo $total; ?> item(s) - <?php edd_cart_total(); ?></a></span>
                                                 <div class="cart-drop"><a href="<?php echo get_site_url(); ?>/checkout/"><?php echo $total; ?> item(s) - <?php edd_cart_total(); ?></a></div>
@@ -132,7 +136,7 @@ movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adip
                                             
                                         </td>
 				</tr>
-			</table>
+			</table></div>
 			<h1 class="site-title" style="display:none"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'main-menu clearfix') ); ?>
