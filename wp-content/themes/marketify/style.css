@@ -4761,7 +4761,8 @@ input.search-field-input {
 }
 
 .buy-info { width: 230px;vertical-align:middle;}
-.buy-icon{
+.buy-icon{  margin-right: 10px;
+    margin-top: -5px;
 	width: 44px;height:44px; display: inline-block; float: left;
 	background: url('images/buy_item.png') left center no-repeat;
 }
@@ -6109,6 +6110,6 @@ body #edd-wl-modal input[type="email"], body  #edd-wl-modal input[type="text"],b
 .current-cart {
      position: absolute!important;
      border:none;background: none!important;
-    right: 252px;
-    top: -67px;
+    right: 184px;
+    top: -62px;
 }
