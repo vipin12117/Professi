@@ -122,8 +122,8 @@ movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adip
                                             <div class="cart">
                                                 <i class="buy-icon"></i>
 						<?php $cart_items = edd_get_cart_contents(); $total = ($cart_items && is_array($cart_items)) ? count($cart_items) : 0; ?>
-						<span><a href="<?php echo $_SERVER['PHP_SELF'] ?>/checkout/"><?php echo $total; ?> item(s) - <?php edd_cart_total(); ?></a></span>
-                                                <div class="cart-drop"><a href="<?php echo $_SERVER['PHP_SELF'] ?>/checkout/"><?php echo $total; ?> item(s) - <?php edd_cart_total(); ?></a></div>
+						<span><a href="<?php echo get_site_url(); ?>/checkout/"><?php echo $total; ?> item(s) - <?php edd_cart_total(); ?></a></span>
+                                                <div class="cart-drop"><a href="<?php echo get_site_url(); ?>/checkout/"><?php echo $total; ?> item(s) - <?php edd_cart_total(); ?></a></div>
                                             </div>
 						
 					</td>
