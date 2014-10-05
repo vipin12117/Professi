@@ -99,6 +99,7 @@ movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adip
 						<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/">My Account</a></li>		
 						<li class="left"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Wishlist</a></li>
 						<li class="left"><i class="uiIcon16x16 uiIconTop arrow_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>checkout/">Checkout</a></li>
+						<li class="left"> <?php echo do_shortcode('[edd_select_currency]');?></li>
 					</ul>
 				</div>
 			</div>
