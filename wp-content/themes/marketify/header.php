@@ -48,35 +48,22 @@
 	<!-- Pickle video player -->
 <script>
 $(function() {
-
-$('#vp1_html5_FEB').vp1_html5_Video({
-skin: 'futuristicElectricBlue',
-movieTitle: 'Profesi',
-movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non ante vitae felis vestibulum lacinia ut sed felis. Aliquam mi libero, pretium consectetur pharetra eu, auctor non diam. Pellentesque adipiscing, justo in placerat sagittis, quam enim aliquet odio, nec laoreet leo neque et felis. Aliquam leo nulla, posuere eget dapibus quis, mattis non urna. Vestibulum blandit velit id tortor hendrerit a rhoncus tellus porta. Donec hendrerit ullamcorper sodales.'
-});
-
-
+	$('#vp1_html5_FEB').vp1_html5_Video({
+		skin: 'futuristicElectricBlue',
+		movieTitle: 'Profesi',
+		movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non ante vitae felis vestibulum lacinia ut sed felis. Aliquam mi libero, pretium consectetur pharetra eu, auctor non diam. Pellentesque adipiscing, justo in placerat sagittis, quam enim aliquet odio, nec laoreet leo neque et felis. Aliquam leo nulla, posuere eget dapibus quis, mattis non urna. Vestibulum blandit velit id tortor hendrerit a rhoncus tellus porta. Donec hendrerit ullamcorper sodales.'
+	});
 });
 </script>
 <!-- must have -->
-
-
-
-
 	<script>
 		$(function() {
-
 			$('#vp1_html5_EM').vp1_html5_Video({
 				skin: 'elegantMinimal',
 				responsive:true
 			});	
-			
-			
 		});
 	</script>
-
-
-
 </head>
 <body <?php body_class(); ?>>
 
@@ -89,25 +76,29 @@ movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adip
 	<header id="masthead" class="site-header" role="banner">
 		<div class="container">
 			<div class="top-bar clearfix">
-                            <div class="container-ho" style="  margin: 0 auto;   max-width: 1400px;">
-                                <div class="right-top-bar right">
-					<ul class="none list-top clearfix">
-					
-						<?php if ($userdata->user_level > 0):?>
-							<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><?php echo $userdata->display_name;?></li>
-							<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Logout</a></li>
-						<?php endif;?>
+		        <div class="container-ho" style="  margin: 0 auto;   max-width: 1400px;">
+		           <div class="right-top-bar right">
+						<ul class="none list-top clearfix">
 						
-						<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/">My Account</a></li>		
-						<li class="left"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Wishlist</a></li>
-						<li class="left"><i class="uiIcon16x16 uiIconTop arrow_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>checkout/">Checkout</a></li>
-						<li class="left"> <?php echo do_shortcode('[edd_select_currency]');?></li>
-					</ul>
-				</div>
-                            </div>
-				
+							<?php if ($userdata->user_level > 0):?>
+								<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><?php echo $userdata->display_name;?></li>
+								<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Logout</a></li>
+								<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/">My Account</a></li>
+								
+							<?php else:?>
+								<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>login/">Login</a></li>
+								<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>register/">Register</a></li>
+							<?php endif;?>
+							
+							<li class="left"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Wishlist</a></li>
+							<li class="left"><i class="uiIcon16x16 uiIconTop arrow_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>checkout/">Checkout</a></li>
+							<li class="left"> <?php echo do_shortcode('[edd_select_currency]');?></li>
+						</ul>
+					</div>
+		        </div>
 			</div>
-                    <div class="site-branding">
+            
+            <div class="site-branding">
 			<table class="" style="  margin: 0 auto;   max-width: 1400px;">
 				<tr>
 					<td class="left-bn" style="width:10%"></td>
