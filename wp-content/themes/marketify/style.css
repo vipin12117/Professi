@@ -6072,7 +6072,7 @@ body #edd-wl-modal input[type="email"], body  #edd-wl-modal input[type="text"],b
     border-radius: 50%;
     color: white!important;border:2px solid rgba(229, 16, 0, 1);
     display: inline-block;color: white;
-    padding: 10px;
+    padding: 8px;margin-top:4px;
     text-align: center;
 }
 .edd-currency-wrap .edd-currency-button-reset {
