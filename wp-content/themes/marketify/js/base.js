@@ -137,6 +137,10 @@
         $('.left-container > .widget_edd_categories_tags_widget >  .edd-taxonomy-widget > li > a ').click(function(){
             return false;
         })
+         $('.cart ').on('click',function(){
+            $(this).toggleClass('active');
+            
+        })
 	$('.image-box').fancybox();
 	$('#input-search-field').on('keydown', Base.enterSearch);
 	

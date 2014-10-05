@@ -4765,7 +4765,24 @@ input.search-field-input {
 .main-navigation a:hover {
 	color: #69aaa6;
 }
-
+.cart {position: relative;}
+.cart-drop {  
+    background: none repeat scroll 0 0 white;
+    border: 1px solid #ddd;
+    border-radius: 0 0 5px 5px;
+    bottom: 0;
+    display: block;
+    left: 1px;
+    min-height: 50px;
+    padding: 5px;
+    position: absolute;
+    text-align: center;
+    top: 39px;
+    display: none;
+    width: 100%;
+    z-index: 3;
+}
+.active .cart-drop {display:block;}
 .main-navigation .main-menu > ul{
 	padding-left: 100px;
 	height:39px;

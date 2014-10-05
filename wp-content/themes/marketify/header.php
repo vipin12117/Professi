@@ -119,9 +119,13 @@ movieDesc: 'Your movie description. Lorem ipsum dolor sit amet, consectetur adip
 					<?php locate_template( array( 'searchform-header.php' ), true ); ?>
 					</td>
 					<td class="buy-info" style="width:230px;min-width:230px; max-width:250px;">
-						<i class="buy-icon"></i>
+                                            <div class="cart">
+                                                <i class="buy-icon"></i>
 						<?php $cart_items = edd_get_cart_contents(); $total = ($cart_items && is_array($cart_items)) ? count($cart_items) : 0; ?>
-						<span><?php echo $total; ?> item(s) - <?php edd_cart_total(); ?></span>
+						<span><a href="<?php echo $_SERVER['PHP_SELF'] ?>/checkout/"><?php echo $total; ?> item(s) - <?php edd_cart_total(); ?></a></span>
+                                                <div class="cart-drop"><a href="<?php echo $_SERVER['PHP_SELF'] ?>/checkout/"><?php echo $total; ?> item(s) - <?php edd_cart_total(); ?></a></div>
+                                            </div>
+						
 					</td>
 					<td class="left-info" valign="middle">
                                             <a href="" class="btn-cirlce">Start<br> selling</a>
