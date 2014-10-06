@@ -6,7 +6,7 @@
 get_header();
 ?>
 
-		<div class="container-non-responsive login_page">
+		<div class=" login_page">
 			<h1 class="welcome_header">Welcome to Professi</h1>
 			<div class="row"> 
 			<div class="col-xs-6" style="  border-right-style: dashed; border-width:2px; border-color:#bdc3c7;">

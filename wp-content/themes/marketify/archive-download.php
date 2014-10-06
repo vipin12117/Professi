@@ -32,9 +32,9 @@ if($cat_ && strlen($cat_) > 0) {
 	global $wp_query;
 ?>
 
-	<div class="container result-search clear">
-		<div class="home-container clearfix">
-			<div class="left-container sidebar left">
+	<div class="container result-search main-body">
+		<div class="row">
+			<div class="left-container col-xs-4 sidebar">
 				<aside id="selected-categories" class="widget download-single-widget widget_edd_categories_tags_widget">
 					<h1 class="download-single-widget-title"></h1>
 					<ul class="edd-taxonomy-widget">
@@ -70,7 +70,7 @@ if($cat_ && strlen($cat_) > 0) {
 				?>
 			</div>
 
-			<div id="content" class="right-container site-content row left">
+			<div id="content" class="right-container col-xs-8 site-content ">
 				<div class="download-product-review-details content-items clearfix">
 
 					<section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-7 col-xs-12">

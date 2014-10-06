@@ -10,13 +10,13 @@ $isHome = (strcmp($pageid, "") == 0 || strcmp($pageid, "Professi") == 0 || strcm
 $GLOBALS['is_home'] = $isHome;
 get_header(); ?>
 
-	<div class="container clear">
-		<div class="home-container clearfix">
-			<div class="left-container sidebar left">
+	<div class="container main-body">
+		<div class="row">
+			<div class="left-container col-xs-4 sidebar ">
 				<?php dynamic_sidebar( 'sidebar-download-single' ); ?>
 			</div>
 
-			<div id="content" class="right-container site-content row left">
+			<div id="content" class="right-container col-xs-8 site-content  ">
 				<?php if($isHome == true) {?>
 					<!--<div class="download-product-review-details">
 						<div class="home-review-content">

@@ -77,62 +77,55 @@ $(function() {
 ?>
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
-	<header id="masthead" class="site-header" role="banner">
-	
-		<div class="container" >
-			<div class="top-bar clearfix">
-		        <div class="container-ho" style="  margin: 0 auto;   max-width: 1400px;">
-		           <div class="right-top-bar right">
-						<ul class="none list-top clearfix">
-						
-							<?php if ($userdata->user_level > 0):?>
-								<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><?php echo $userdata->display_name;?></li>
-								<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Logout</a></li>
-								<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/">My Account</a></li>
-								
-							<?php else:?>
-								<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>login/">Login</a></li>
-						
-							<?php endif;?>
-							
-							<li class="left"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Wishlist</a></li>
-							<li class="left"><i class="uiIcon16x16 uiIconTop arrow_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>checkout/">Checkout</a></li>
-							<li class="left"> <?php echo do_shortcode('[edd_select_currency]');?></li>
-						</ul>
-					</div>
-		        </div>
-			</div>
-            
-            <div class="site-branding">
-			
-				<div class="row nav_mainstuff" >
-				<div class="col-xs-4" style="">
-					<?php $header_image = get_header_image(); ?>
-					<?php if ( ! empty( $header_image ) ) : ?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="<?php echo esc_url( $header_image ); ?>" alt=""></a>
-					<?php endif; ?>
-						<div class="site-description-header"><?php  bloginfo( 'description' ); ?></div> </div>
-					
-						<div class="col-xs-4" style="padding-left:50px;" >
-					<?php locate_template( array( 'searchform-header.php' ), true ); ?> </div>
-					
-					
-					
-					
-				
-					
-						<div class="col-xs-4 " style="padding-left:130px;">     <div id="green_button"> <a href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="action-button shadow animate blue">Start Selling</a> </div> </div>
-                                       
-                                            
-                            
-			
-			</div> </div>
-			<h1 class="site-title" style="display:none"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'main-menu clearfix') ); ?>
-			</nav>
+	<header id="masthead" class="site-header" role="banner">	
+            <div class="top-bar ">
+                <div class="container" >
+                    <div class="right-top-bar right">
+                            <ul class="none list-top clearfix">
 
-		</div>
+                                    <?php if ($userdata->user_level > 0):?>
+                                            <li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><?php echo $userdata->display_name;?></li>
+                                            <li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Logout</a></li>
+                                            <li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/">My Account</a></li>
+
+                                    <?php else:?>
+                                            <li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>login/">Login</a></li>
+
+                                    <?php endif;?>
+
+                                    <li class="pull-left"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Wishlist</a></li>
+                                    <li class="pull-left"><i class="uiIcon16x16 uiIconTop arrow_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>checkout/">Checkout</a></li>
+                                    <li class="pull-left"> <?php echo do_shortcode('[edd_select_currency]');?></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+
+             <div class="site-branding">
+                    <div class=" nav_mainstuff container" >
+                        <div class="row">
+                            <div class="col-xs-4" >
+                                    <?php $header_image = get_header_image(); ?>
+                                    <?php if ( ! empty( $header_image ) ) : ?>
+                                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="<?php echo esc_url( $header_image ); ?>" alt=""></a>
+                                    <?php endif; ?>
+                                            <div class="site-description-header"><?php  bloginfo( 'description' ); ?></div> 
+                            </div>
+
+                            <div class="col-xs-8"  >
+                                <div class="pull-left"><?php locate_template( array( 'searchform-header.php' ), true ); ?> </div> 
+                                <div id="green_button " class="pull-right"> <a href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="action-button shadow animate blue">Start Selling</a> </div> 
+                            </div>
+                        </div>
+                    </div>
+             
+             </div>
+            <h1 class="site-title" style="display:none"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+            <nav id="site-navigation" class="main-navigation" role="navigation">
+                <div class="container">  <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'main-menu clearfix') ); ?></div>
+
+            </nav>
+
 	</header><!-- #masthead -->
 
 	

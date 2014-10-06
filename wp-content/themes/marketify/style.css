@@ -385,7 +385,7 @@ a:active {
 
 
 /*navigation*/
-.nav_mainstuff .col-xs-4 { padding-top:20px; }
+.nav_mainstuff > div > div  { padding-top:20px; }
 
 /* Buttons */
 
@@ -730,7 +730,10 @@ a.insert-file-row {
 
 .site-header .search-form {
 }
-
+.site-header + .container {
+    max-width: 1045px;
+}
+.site-header + div { min-height: 600px;}
 .site-branding {
 }
 
@@ -758,7 +761,6 @@ a.insert-file-row {
 
 .site-branding .custom-header img {
 	display: block;
-	padding-left:90px;
 	margin-top:-8px;
 	padding-right:5px;
 }
@@ -1908,7 +1910,6 @@ body.product-display-inline .single-project .page-header,
 
 .content-grid-download .entry-image img {
 	min-width: 100%;
-	height: 160px;
 }
 
 .content-grid-download .entry-image .image-placeholder,
@@ -4773,7 +4774,7 @@ html[xmlns] .slides {display: block;}
 }
 
 .left {float: left;}
-.right {float: right;}
+.right {float: right;}/*
 .right-container {
 	width: 750px;
 	margin-left: 20px;
@@ -4781,7 +4782,7 @@ html[xmlns] .slides {display: block;}
 .left-container {
 	width: 260px;
 }
-
+*/
 ul.none {
 	list-style: none;
 	padding: 0px;
@@ -4806,7 +4807,6 @@ ul.none li, ul.edd-taxonomy-widget li {
 	background: #eee url('images/bg_top.png') left bottom repeat-x; 
 }
 .top-bar ul.none {
-	padding: 0px 100px;
 }
 .top-bar ul.none li {
 	padding: 0px 12px 0px 8px;
@@ -4835,11 +4835,11 @@ ul.none li, ul.edd-taxonomy-widget li {
 @media (min-width:992px){.container{width:100%;max-width:1140px;}}
 @media (min-width:1200px){.container{width:100%; max-width:1350px;}}
 @media (min-width:1360px){.container{width:1350px;}}
-*/
+
 .container {
     max-width: 100%;
     width:100%;
-}
+}*/
 .log_header {color: #797474; vertical-align:middle;}
 .log_header .site-description-header {display:inline-block; padding-left: 25px;margin-top:2px; font-size:12px;}
 .search-forms {padding-top: 0px;vertical-align:middle;}
@@ -4868,8 +4868,8 @@ input.search-field-input {
     width: 185px;}
 
 
-.home-container {width: 1046px;margin: auto;}
-
+/*.home-container {width: 1046px;margin: auto;}
+*/
 .main-navigation a {
 	color: #1a1a1a !important;
 	font-weight: normal ;
@@ -4899,9 +4899,7 @@ input.search-field-input {
 	height:39px;
 	background: #f6f6f6 url('images/bg_nav_top.png') left bottom repeat-x;
 }
-.main-navigation > div{
-    width:1046px;margin: 0 auto;
-}
+
 .main-menu > li {
 	background: url('images/border_top.png') left bottom no-repeat;
 }
@@ -5244,7 +5242,7 @@ font-weight:bold;
 }
 
 .container .wishlist {
-	width: 850px; margin:auto;padding:10px 0px;
+	padding:10px 0px;
 }
 .container .header .page-title {
 	max-width:100%;
@@ -5322,7 +5320,6 @@ font-weight:bold;
 }
 
 .vendor .entry-image img {
-	min-height: 200px;
 }
 
 .wishlist .view-whishlist .entry-image .image-placeholder {
@@ -5648,9 +5645,9 @@ i.add-wl {
 }
 
 .post-container {
-	min-width: 1000px;
+	/*min-width: 1000px;
 	max-width: 1000px;
-	margin:auto;
+*/	margin:auto;
 }
 .post-container .left-post {
 	width: 66%;
@@ -6201,7 +6198,7 @@ body #edd-wl-modal input[type="email"], body  #edd-wl-modal input[type="text"],b
 }
 .current-cart {
 top:-57px;
-left:695px;
+left:712px;
   position:absolute!important; 
      border:none;background: none!important;
  
@@ -6233,8 +6230,8 @@ width:100%;
 .login_page #edd_user_login{width:100%; padding-top:10px;}
 .login_page #edd_login_form > fieldset > span {display:inline;}
 .login_page #edd_login_form > fieldset > span > legend {width:100%; margin:0; margin-bottom:10px;}
-.login_page #edd_user_pass {width:100%; padding-top:10px;}
-.login_page #edd_login_submit {width:100%; padding-top:10px;}
+.login_page #edd_user_pass {width:100%; padding: 10px 20px;}
+.login_page #edd_login_submit {width:100%; padding: 10px 20px;}
 .login_page .welcome_header {padding-top:20px; padding-bottom:20px; font-size:30px; font-weight:700; text-align:center; width:90%; } 
 
  .login_page  a{color:#FFF;}
@@ -6245,11 +6242,9 @@ text-transform: uppercase;
 text-align: center;
 color: #FFF;
 display: inline-block;
-
+ padding: 10px 20px;
 margin-top:1px;
-padding-top:10px;
 width: 100%;
-height: 40px;
 background: #b4d2d0;
 
 
@@ -6401,10 +6396,25 @@ margin: 0;
     font-size: 0.95rem;
     text-transform: capitalize;
 }
+#edd_checkout_form_wrap{
+    width:60%;margin: 0 auto;
+}
+.page-id-121 .login_page h1{
+    display:none;
+}
+#edd_register_form label {
+    display:block;
+    font-weight: bold;
+}
+#edd_register_form input {
+    display:block;
+    font-weight: bold;    width: 100%;
+}
 /*PERSONAL*/
 .pricing_page .personal{
 -webkit-box-shadow: 1px 1px 2px 1px #B8B8B8;
 box-shadow: 1px 1px 2px 1px #B8B8B8;
+background:white;
 }
 
 .pricing_page .personal .title{        

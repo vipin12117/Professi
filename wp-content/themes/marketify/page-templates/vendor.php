@@ -17,14 +17,14 @@ if ( $author ) {
 
 get_header(); ?>
 
-<div class="container vendor clearfix">
+<div class="container vendor main-body">
     <?php while ( have_posts() ) : the_post(); ?>
-    <div class="home-container clearfix">
-        <div class="left-container sidebar left">
+    <div class="row">
+        <div class="left-container col-xs-4 sidebar">
             <?php dynamic_sidebar( 'sidebar-download-single' ); ?>
         </div>
 
-        <div id="content" class="right-container site-content row left">
+        <div id="content" class="right-container col-xs-8 site-content ">
         	<?php if(!$author):?>
 	            <div class="title-top-container header clearfix">
 	                <div class="title-top page-title fontsforweb_fontid_9785 left">O U R&nbsp; T E A C H E R&nbsp;  A U T O R S</div>

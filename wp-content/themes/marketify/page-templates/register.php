@@ -6,7 +6,7 @@
 
 get_header();
 ?>
-	<div class="container-non-responsive">
+	<div class="container-non-responsivea">
 	    <div class="pricing_page">
  <div class="pricing-table group">
             <h1 class="heading">
