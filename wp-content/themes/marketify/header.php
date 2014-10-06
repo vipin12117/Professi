@@ -13,7 +13,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
-
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<!-- must have -->
@@ -29,6 +30,9 @@
   <link rel="stylesheet" id="bootstrap-theme-css" href="<?php echo get_template_directory_uri(); ?>/bootstrap/css/bootstrap-theme.min.css" type="text/css" media="all">
   <link rel="stylesheet" id="fonts-css" href="<?php echo get_template_directory_uri(); ?>/fonts/font.css" type="text/css" media="all">
   <link rel="stylesheet"  href="<?php echo get_template_directory_uri(); ?>/css/vp1_html5.css" type="text/css" media="all">
+  <!--gooogle font-->
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+ 
   
   <?php wp_head(); ?>
   
@@ -74,7 +78,8 @@ $(function() {
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
-		<div class="container">
+	
+		<div class="container" >
 			<div class="top-bar clearfix">
 		        <div class="container-ho" style="  margin: 0 auto;   max-width: 1400px;">
 		           <div class="right-top-bar right">
@@ -87,7 +92,7 @@ $(function() {
 								
 							<?php else:?>
 								<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>login/">Login</a></li>
-								<li class="left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>register/">Register</a></li>
+						
 							<?php endif;?>
 							
 							<li class="left"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Wishlist</a></li>
@@ -99,35 +104,29 @@ $(function() {
 			</div>
             
             <div class="site-branding">
-			<table class="" style="  margin: 0 auto;   max-width: 1400px;">
-				<tr>
-					<td class="left-bn" style="width:10%"></td>
-					<td class="log_header" style="width:425px;min-width:350px;max-width:430px;">
+			
+				<div class="row nav_mainstuff" >
+				<div class="col-xs-4" style="">
 					<?php $header_image = get_header_image(); ?>
 					<?php if ( ! empty( $header_image ) ) : ?>
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="<?php echo esc_url( $header_image ); ?>" alt=""></a>
 					<?php endif; ?>
-						<div class="site-description-header"><?php bloginfo( 'description' ); ?></div>
-					</td>
-					<td class="search-forms" style="width:350px;min-width:350px;">
-					<?php locate_template( array( 'searchform-header.php' ), true ); ?>
-					</td>
-					<td class="buy-info" style="width:230px;min-width:230px; ">
+						<div class="site-description-header"><?php  bloginfo( 'description' ); ?></div> </div>
+					
+						<div class="col-xs-4" style="padding-left:50px;" >
+					<?php locate_template( array( 'searchform-header.php' ), true ); ?> </div>
+					
+					
+					
+					
+				
+					
+						<div class="col-xs-4 " style="padding-left:130px;">     <div id="green_button"> <a href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="action-button shadow animate blue">Start Selling</a> </div> </div>
+                                       
                                             
-                                            <div class="cart" style="display:none">
-                                                
-						<?php $cart_items = edd_get_cart_contents(); $total = ($cart_items && is_array($cart_items)) ? count($cart_items) : 0; ?>
-						<span><a href="<?php echo get_site_url(); ?>/checkout/"><?php echo $total; ?> item(s) - <?php edd_cart_total(); ?></a></span>
-                                                <div class="cart-drop"><a href="<?php echo get_site_url(); ?>/checkout/"><?php echo $total; ?> item(s) - <?php edd_cart_total(); ?></a></div>
-                                            </div>
-						
-					</td>
-					<td class="left-info" valign="middle">
-                                            <a href="" class="btn-cirlce">Start<br> selling</a>
-                                            
-                                        </td>
-				</tr>
-			</table></div>
+                            
+			
+			</div> </div>
 			<h1 class="site-title" style="display:none"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'main-menu clearfix') ); ?>

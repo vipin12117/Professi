@@ -5,11 +5,12 @@
  */
 get_header();
 ?>
-	<div class="container clear">
+	<div class="container login_page">	<h1>Welcome to Professi</h1>
+	<div class="row"  > <div class="col-xs-12">
 		<div class="home-container clearfix">
 			<div id="content" class="right-container site-content row left">
 				<br /><br />
-				<h3>Welcome to Professi</h3>
+			
 				<br /><br />
 				
 				<?php echo do_shortcode("[edd_register]");?>
@@ -17,5 +18,5 @@ get_header();
 				<br clear="all" />
 			</div>	
 		</div>
-	</div>
+	</div></div></div>
 <?php get_footer(); ?>

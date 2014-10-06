@@ -5,33 +5,31 @@
  */
 get_header();
 ?>
-	<div class="container clear">
-		<div class="home-container clearfix">
-			<div id="content" class="right-container site-content row left">
-				<br /><br />
-				<h3>Welcome to Professi</h3>
-				<br /><br />
-				
-				<div style="float:left;">
+
+		<div class="container-non-responsive login_page">
+			<h1 class="welcome_header">Welcome to Professi</h1>
+			<div class="row"> 
+			<div class="col-xs-6" style="  border-right-style: dashed; border-width:2px; border-color:#bdc3c7;">
+		
 					<?php echo do_shortcode("[edd_login]");?>
-				</div>
-				<div style="float:right;">
-					<div class="right">
-				        <h3>NOT YET A MEMBER?</h3>
-				        <ul>
+				
+			</div>
+								<div class="col-xs-6"  >
+				       <h1 class="custom-fes-header"> NOT YET A MEMBER? </h1>
+				         <p>Registration is free and easy</p>
+						 <ul>
 				            <li><span>Download FREE Resources</span></li>
-				            <li><span>Shop the entire TpT catalog</span></li>
+				            <li><span>Shop the entire catalogue</span></li>
 				            <li><span>Rate and comment on products</span></li>
 				        </ul>
-				        <span>Registration is free and easy</span>
-				        
-				        <br /><br />
-				        <a id="edd_login_submit" href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="edd_submit">Register Now</a>
-				    </div>
-				</div>
+				       
+					
+				        <a href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="register_submit">Register Now</a>
 				
-				<br clear="all" />
-			</div>	
-		</div>
 	</div>
+				
+			</div>
+			</div>	
+		
+	
 <?php get_footer(); ?>
