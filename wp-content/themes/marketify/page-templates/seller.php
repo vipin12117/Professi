@@ -12,7 +12,7 @@ get_header();
 			<div id="content" class="site-content ">
 				
 
-				<?php echo do_shortcode("[edd_register]");?>
+				<?php echo do_shortcode("[fes_registration_form]");?>
 								
 				<br clear="all" />
 			</div>	

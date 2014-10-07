@@ -62,7 +62,7 @@ get_header();
                     <li><span i class="fa fa-star"></span>Get Free Courses</li>
                     <li><span i class="fa-fa-dashboard"></span>Unlimited Downloads</li>
                     <li><span i class="fa fa-cloud"></span>Browse through</li>
-					<p> <a href="<?php echo esc_url( home_url( '/fes-vendor-dashboard/' ) ); ?>" class="redbut inaction-button">Join Now</a></p>
+					<p> <a href="<?php echo esc_url( home_url( '/register/register-seller/' ) ); ?>" class="redbut inaction-button">Join Now</a></p>
                 </ul>
 			
                 <!-- /FEATURES -->
