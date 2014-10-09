@@ -49,11 +49,11 @@ if(isset($_GET['action']) && $_GET['action'] == 'resetpass'){
 	if ( ( ! $error ) && $user && isset( $_POST['pass1'] ) && !empty( $_POST['pass1'] ) ) {
 		reset_password($user, $_POST['pass1']);
 		
-		$success = '<p class="message reset-pass edd_success">Your password has been reset.</p>';
+		$success = 'Your password has been reset.';
 	}		
 }
 
-if($_POST['user_login']){
+if($_POST['edd_submit'] && $_POST['user_login']){
 	$login = trim($_POST['user_login']);
 	$user_data = get_user_by('login', $login);
 
@@ -81,23 +81,32 @@ if($_POST['user_login']){
 	$message .= __('To reset your password, visit the following address:') . "\r\n\r\n";
 	$message .= '<' . network_site_url("forgot-password?action=rp&key=$key&login=" . rawurlencode($user_login), 'login') . ">\r\n";
 
+	$blogname = wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
+	$title = sprintf( __('[%s] Password Reset'), $blogname );
 	$title = apply_filters( 'retrieve_password_title', $title );
 
 	if ( $message && !wp_mail( $user_email, wp_specialchars_decode( $title ), $message ) ){
 		$error = ( __('The e-mail could not be sent.') . "<br />\n" . __('Possible reason: your host may have disabled the mail() function.') );
 	}
 	else{
-		$error = "Email is sent for reset password.";
+		$success = "Email is sent for reset password.";
 	}
+}
+elseif($_POST['edd_submit']){
+	$error = "Please enter valid email address or username";
 }
 ?>
 <div class="container seller">	
  <div class="row"  > 
     <div class="col-xs-12">
-		<div id="content" class="site-content ">
+		<div id="content" class="site-content " style="width:50%;margin:0 auto;" align="center">
 			<?php if ( ! is_user_logged_in() ) :?>
 					<?php if($error):?>
 						<p id="edd_error_password_incorrect" class="edd_error"><?php echo $error;?></p>
+					<?php endif;?>
+					
+					<?php if($success):?>
+						<p id="edd_error_password_incorrect" class="edd_success"><?php echo $success;?></p>
 					<?php endif;?>
 					
 					<?php if($_GET['action'] != 'rp' and $_GET['action'] != 'resetpass'):?>
@@ -112,16 +121,13 @@ if($_POST['user_login']){
 									<p>
 										<input type="hidden" name="edd_redirect" value="<?php echo esc_url( $edd_login_redirect ); ?>"/>
 										<input type="hidden" name="action" value="lostpassword"/>
-										<input id="edd_login_submit" type="submit" class="edd_submit" value="<?php _e( 'Submit', 'edd' ); ?>"/>
+										<input id="edd_login_submit" type="submit" name="edd_submit" class="edd_submit" value="<?php _e( 'Submit', 'edd' ); ?>"/>
 									</p>
 									<?php do_action( 'edd_login_fields_after' ); ?>
 								</fieldset>
 							</form>
 					<?php else:?>
-							<?php if($success):?>
-								<?php echo $success;?>
-							
-							<?php else:?>
+							<?php if(!$success):?>
 								<form name="resetpassform" id="resetpassform" action="<?php echo esc_url( site_url( 'forgot-password?action=resetpass', 'login_post' ) ); ?>" method="post" autocomplete="off">
 									<input type="hidden" name="key" value="<?php echo esc_attr( $rp_key ); ?>" autocomplete="off" />
 									<input type="hidden" name="login" value="<?php echo esc_attr( $rp_login ); ?>" autocomplete="off" />

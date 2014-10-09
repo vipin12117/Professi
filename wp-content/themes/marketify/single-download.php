@@ -38,7 +38,7 @@ $author = get_the_author();
 									<span class="image-placeholder"></span>
 								<?php endif; ?>
 							</div>
-							<div class="more-images">
+							<div class="more-images" style="display:none;">
 								<img src="<?php echo content_url();?>/uploads/edd/2014/08/Tulips-640x520.jpg"/>
 								<img src="<?php echo content_url();?>/uploads/edd/2014/08/Tulips-640x520.jpg"/>
 								<img src="<?php echo content_url();?>/uploads/edd/2014/08/Tulips-640x520.jpg"/>
