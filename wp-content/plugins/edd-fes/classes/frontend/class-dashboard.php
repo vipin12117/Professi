@@ -134,6 +134,8 @@ class FES_Dashboard {
 				'view' => 'login',
 				'task' => false 
 			), $base_url );
+			
+			$base_url = home_url();
 			wp_redirect( $base_url );
 			exit;
 		}

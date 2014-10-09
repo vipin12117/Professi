@@ -23,7 +23,7 @@ if ( ! is_user_logged_in() ) :
 				<input id="edd_login_submit" type="submit" class="edd_submit" value="<?php _e( 'Log In', 'edd' ); ?>"/>
 			</p>
 			<p class="edd-lost-password">
-				<a href="<?php echo wp_lostpassword_url(); ?>" title="<?php _e( 'Lost Password', 'edd' ); ?>">
+				<a href="<?php echo home_url("/forgot-password/"); ?>" title="<?php _e( 'Lost Password', 'edd' ); ?>">
 					<?php _e( 'Lost Password?', 'edd' ); ?>
 				</a>
 			</p>
