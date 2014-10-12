@@ -205,9 +205,7 @@ function follow_wp_authors() {
         if (is_email($subscriberEmail)) {
 
             $emailResult = $wpdb->get_results($wpdb->prepare("select * from wp_author_subscribe where
-                email='$subscriberEmail' and status=1 "));
-
-
+                email='$subscriberEmail' and status=1",""));
 
             if (count($emailResult) == '1') {
 

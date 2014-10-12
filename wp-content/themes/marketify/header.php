@@ -114,7 +114,13 @@ $(function() {
 
                             <div class="col-xs-8"  >
                                 <div class="pull-left"><?php locate_template( array( 'searchform-header.php' ), true ); ?> </div> 
-                                <div id="green_button " class="pull-right"> <a href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="action-button shadow animate blue">Start Selling</a> </div> 
+                                
+                                <?php if ($userdata->user_level > 0):?>
+                               		 <div id="green_button " class="pull-right"> <a href="<?php echo esc_url( home_url( '/fes-vendor-dashboard/?task=new-product' ) ); ?>" class="action-button shadow animate blue">Start Selling</a> </div>
+                                <?php else:?>
+                                
+                                	<div id="green_button " class="pull-right"> <a href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="action-button shadow animate blue">Start Selling</a> </div>
+                                <?php endif;?>		  
                             </div>
                         </div>
                     </div>

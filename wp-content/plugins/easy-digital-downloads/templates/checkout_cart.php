@@ -1,5 +1,4 @@
 <?php global $post; ?>
-	<div class="row"> <div class="col-xs-12">
 <table id="edd_checkout_cart" <?php if ( ! edd_is_ajax_disabled() ) { echo 'class="ajaxed"'; } ?>>
 	<thead>
 		<tr class="edd_cart_header_row">
@@ -11,7 +10,6 @@
 		</tr>
 	</thead>
 	<tbody>
-
 		<?php $cart_items = edd_get_cart_contents(); ?>
 		<?php do_action( 'edd_cart_items_before' ); ?>
 		<?php if ( $cart_items ) : ?>
@@ -109,5 +107,3 @@
 		</tr>
 	</tfoot>
 </table>
-
-</div> </div>
