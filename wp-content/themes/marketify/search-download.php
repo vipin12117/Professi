@@ -17,6 +17,8 @@ $pcats = array();
 $ccats = array();
 if($cat_ && strlen($cat_) > 0) {
 	$cats = explode(',', $cat_);
+	$cats = array_unique($cats);
+	
 	foreach($cats as $slug) {
 		$iccat = get_term_by( 'slug', $slug, 'download_category' );
 		$ipcat = get_term_by( 'term_id', $iccat->parent, 'download_category' );
@@ -25,6 +27,7 @@ if($cat_ && strlen($cat_) > 0) {
 		if(!isset($ccats[$key])) {
 			$ccats[$key] = array();
 		}
+		
 		array_push($ccats[$key], $iccat);
 	}
 }
@@ -37,7 +40,8 @@ $wp_query = new WP_Query( array(
 	'post_status' => 'publish',
 	'download_category'    => $cat_,
 	's'    => $_GET['s'],
-	'posts_per_page' => 10
+	'posts_per_page' => 10,
+	'search_order' => 'rating'
 ));
 
 $GLOBALS['view'] = "viewWhishlist";
@@ -112,10 +116,7 @@ $GLOBALS['view'] = "viewWhishlist";
 								
 								<div style="float:left;width:300px;margin-left:20px;">
 									<p>
-										BOOK NAME:
-										<h3 itemprop="name" class="edd_download_title">
-											<a title="<?php the_title_attribute(); ?>" itemprop="url" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-										</h3>
+										<?php edd_get_template_part( 'shortcode', 'content-title' ); ?>
 									</p>
 									
 									<p><?php echo ($data_custom['add_description'][0]); ?></p>
@@ -184,7 +185,12 @@ $GLOBALS['view'] = "viewWhishlist";
 										<div class="control-group clearfix">
 											<span class="control-label lv2"></span>
 											<span class="controls gray-light">
-												<span class="file-type"><strong>PDF (<?php echo @filesize($edd_download_files[0]['file'])/1024;?> MB)</strong></span>
+												<?php if(!$edd_download_files[0]['file']):?>
+													<?php $edd_download_files[0]['file'] = $edd_download_files[0];?>
+												<?php endif;?>
+												<?php $file_parts = explode(".",$edd_download_files[0]['file']);?>
+												
+												<span class="file-type"><strong><?php echo ucfirst(end($file_parts));?> (<?php echo getSizeFile($edd_download_files[0]['file']);?> MB)</strong></span>
 											</span>
 										</div>
 										<br />

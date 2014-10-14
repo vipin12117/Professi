@@ -62,32 +62,32 @@ get_header(); ?>
                             </div>
                             <div class="left fontsforweb_MyriadPro">
                                 <div class="teacher-name fontsforweb_fontid_9785"><?php echo $author->display_name;?></div>
-                                <div class="teacher-local gray-light">Athens, GA </div>
+                                <br />
+                                
+								<div class="teacher-local gray-light"> 
+                               		<?php echo get_user_meta($author->ID, 'country' , 1);  ?> ,
+                               		<?php echo get_user_meta($author->ID, 'location' , 1);  ?> 
+                               	</div>
+                                
                                 <div class="teacher-ratings gray-light">Overall User Rating: <span>4.0 /4.0</span></div>
+                                
+                                <br />
                                 <div class="teacher-store gray-light">Products in my store: <span><?php echo marketify_count_user_downloads( $author->ID ); ?></span></div>
-                                <div class="teacher-follow gray-light">
-                                    <img width="14px" src="<?php echo content_url();?>/themes/marketify/images/star12x11.png"/>
-                                    <strong>Follow me </strong><span>(675 Followers)</span>
-                               </div>
+                                
+                                <br />
+                                <div class="title-right right" style="padding-right: 50px;"><a href="<?php echo esc_url( home_url( '/fes-vendor/'.$author->display_name ) ); ?>">See all my <?php echo $products;?> products <i class="glyphicon glyphicon-play"></i></a></div>
                             </div>
                         </div>
                         <div class="form-horizontal">
                             <div class="control-group">
-                                <span class="control-label">GRADES </span>
-                                <span class="controls gray-light">PreK, Kindergarten, 1st, 2nd, 3rd, 4th, 5th</span>
+                                <span class="control-label"><b>GRADES: </b></span>
+                                <span class="controls gray-light"><?php echo get_user_meta($author->ID, 'what_level_do_you_teach?' , 1);  ?></span>
                             </div>
                             <div class="control-group">
-                                <span class="control-label">SUBJECTS </span>
-                                <span class="controls gray-light">English Language Arts, Math, Science, For All Subject Areas</span>
-                            </div>
-                            <div class="control-quote">
-                                <span class="gray-light p-quote"><i class="quote start-qt"></i> Click here to visit my teaching blog <a href="<?php str_replace( 'vendor', 'fes-vendor', marketify_edd_fes_author_url( $author->ID ) );?>">{<?php echo $author->display_name;?>}</a><i class="quote end-qt"></i></span>
+                                <span class="control-label"><b>SUBJECTS: </b></span>
+                                <span class="controls gray-light"><?php echo get_user_meta($author->ID, 'what_subject_do_you_teach?' , 1);  ?></span>
                             </div>
                         </div>
-                        
-                        <div class="download-author-message">
-							<?php //echo do_shortcode( '[fes_vendor_contact_form id="' . $author->ID . '"]' ); ?>
-						</div>
                     </div>
                     <div class="teacher-dl content-items left">
 	                    <?php
@@ -100,33 +100,7 @@ get_header(); ?>
 		                    ));
 	                   		$products = marketify_count_user_downloads( $author->ID );
 	                    ?>
-	                    <?php $i = 0; while ( $download_->have_posts() ) : $download_->the_post(); /*if($i > 2){break;}*/ ?>
-	                        <div itemscope="" itemtype="http://schema.org/Product" class="edd_download content-grid-download"
-	                             id="edd_download_<?php echo $post->ID; ?>" style="">
-	                            <div class="edd_download_inner">
-	                                <div class="entry-image">
-	                                    <?php if ( class_exists( 'MultiPostThumbnails' ) && MultiPostThumbnails::get_the_post_thumbnail( 'download', 'grid-image' ) ) : ?>
-	                                   		  <?php MultiPostThumbnails::the_post_thumbnail( 'download', 'grid-image', null, 'content-grid-download' ); ?>
-	                                    <?php elseif ( has_post_thumbnail() ) : ?>
-	                                    	 <?php the_post_thumbnail( 'content-grid-download' ); ?>
-	                                    <?php else : ?>
-	                                   		 <span class="image-placeholder"></span>
-	                                    <?php endif; ?>
-	                                </div>
-	                                <header class="entry-header">
-	                                    <div class="entry-title">
-	                                        <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-	                                    </div>
-	                                </header>
-	                            </div>
-	                        </div>
-                        <?php $i++; endwhile; ?>
-                        <?php
-                       		 //wp_reset_query();
-                        ?>
                     </div>
-                    <div class="title-right left" style="padding-left: 50px;"><a href="<?php echo esc_url( home_url( '/fes-vendor/'.$author->display_name ) ); ?>">See all my <?php echo $products;?> products <i class="glyphicon glyphicon-play"></i></a></div>
-                    <div class="title-right right" style="padding-right: 50px;"><a href="<?php echo esc_url( home_url( '/fes-vendor/'.$author->display_name ) ); ?>">See all my <?php echo $products;?> products <i class="glyphicon glyphicon-play"></i></a></div>
                 </div>
                 <hr/>
               </div>
@@ -134,7 +108,7 @@ get_header(); ?>
 	        <?php endif;?>    
             
             <div class="title-top-container header clearfix">
-                <div class="title-top page-title fontsforweb_fontid_9785 left">C R E A T E D&nbsp;  B Y&nbsp;  T E A C H E R S</div>
+                <div class="title-top page-title fontsforweb_fontid_9785 left">C R E A T E D&nbsp;  B Y&nbsp;  <?php echo $author->display_name;?></div>
                 <div class="title-right right"><a href="<?php echo esc_url( home_url( '/fes-vendor' ) ); ?>">See all <i class="glyphicon glyphicon-play"></i></a></div>
             </div>
             

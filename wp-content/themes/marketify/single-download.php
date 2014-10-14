@@ -93,16 +93,24 @@ $author = get_the_author();
 							</div>
 							<div class="control-group clearfix">
 								<span class="control-label lv2"></span>
-								<span class="controls gray-light">
-									<span class="file-type"><strong>PDF (Acrobat) Document File</strong></span>
-								</span>
 								<br/>
 								<span class="control-label lv2 left"></span>
 								<span class="controls file-comment">Be sure that you have an application to open this file type before downloading and/or purchasing.</span>
 								<br/>
 								<span class="control-label lv2 left"></span>
+								
 								<?php $edd_download_files = unserialize($data_custom['edd_download_files'][0]);?>
-								<span class="controls file-comment"><?php echo @filesize($edd_download_files[0]['file'])/1024;?> MB  |  <?php echo $data_custom['add_number_of_pages_or_slides'][0]?> pages</span>
+								
+								<?php if(!$edd_download_files[0]['file']):?>
+									<?php $edd_download_files[0]['file'] = $edd_download_files[0];?>
+								<?php endif;?>
+								<?php $file_parts = explode(".",$edd_download_files[0]['file']);?>
+								
+								<span class="controls file-comment">
+									<?php echo ucfirst(end($file_parts));?> (<?php echo getSizeFile($edd_download_files[0]['file']);?> MB)  |  
+									
+									<?php echo $data_custom['add_number_of_pages_or_slides'][0]?> pages
+								</span>
 							</div>
 						</div>
 					</div>
