@@ -83,7 +83,7 @@ $(function() {
                     <div class="right-top-bar right">
                             <ul class="none list-top clearfix">
 
-                                    <?php if ($userdata->user_level > 0):?>
+                                    <?php if (  is_user_logged_in() ):?>
                                             <li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><?php echo $userdata->display_name;?></li>
                                             <li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Logout</a></li>
                                             <li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/">My Account</a></li>
@@ -115,7 +115,7 @@ $(function() {
                             <div class="col-xs-8"  >
                                 <div class="pull-left"><?php locate_template( array( 'searchform-header.php' ), true ); ?> </div> 
                                 
-                                <?php if ($userdata->user_level > 0):?>
+                                <?php if ( is_user_logged_in() ):?>
                                		 <div id="green_button " class="pull-right"> <a href="<?php echo esc_url( home_url( '/fes-vendor-dashboard/?task=new-product' ) ); ?>" class="action-button shadow animate blue">Start Selling</a> </div>
                                 <?php else:?>
                                 
