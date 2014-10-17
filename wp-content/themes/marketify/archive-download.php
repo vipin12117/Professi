@@ -119,6 +119,7 @@ $GLOBALS['view'] = "viewWhishlist";
 										<?php edd_get_template_part( 'shortcode', 'content-title' ); ?>
 									</p>
 									
+									<?php $data_custom = get_post_custom($post->ID);?>
 									<p><?php echo ($data_custom['add_description'][0]); ?></p>
 									
 									<?php $data_custom = get_post_custom($post->ID);?>
