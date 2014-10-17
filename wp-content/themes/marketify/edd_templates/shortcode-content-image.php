@@ -21,6 +21,16 @@ if(isset($GLOBALS['view']) && $GLOBALS['view'] === 'viewWhishlist' ) {
 } 
 if($viewWhishlist === false) {
 ?>
+
+<?php if(!stristr($_SERVER['REQUEST_URI'],"downloads")):?>
+	<style type="text/css">
+	   .attachment-content-grid-download{
+	      width:130px !important;
+	      height: 150px !important;
+	   }
+	</style>
+<?php endif;?>
+
 <div class="entry-image">
 	<div class="overlay">
 		<?php do_action( 'marketify_download_content_image_overlay_before' ); ?>
@@ -45,7 +55,6 @@ if($viewWhishlist === false) {
 </div>
 
 <?php locate_template( array( 'modal-download-purchase.php' ), true, false ); ?>
-
 
 <?php } else { ?>
 <div class="entry-image">

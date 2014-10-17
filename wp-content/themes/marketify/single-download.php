@@ -16,7 +16,7 @@ $full = intval($rating);
 $ratingCount = edd_reviews()->count_reviews();
 $author = get_the_author();
 ?>
-	<div class="container post-container clearfix">
+<div class="container post-container clearfix">
 		<div class="left-post left"><!--#left-post -->
 			<header class="post-header">
 				<?php the_post(); ?>
@@ -38,10 +38,23 @@ $author = get_the_author();
 									<span class="image-placeholder"></span>
 								<?php endif; ?>
 							</div>
-							<div class="more-images" style="display:none;">
-								<img src="<?php echo content_url();?>/uploads/edd/2014/08/Tulips-640x520.jpg"/>
-								<img src="<?php echo content_url();?>/uploads/edd/2014/08/Tulips-640x520.jpg"/>
-								<img src="<?php echo content_url();?>/uploads/edd/2014/08/Tulips-640x520.jpg"/>
+							<div class="more-images">
+								<img width="70" src="<?php echo $full_img[0]; ?>"/>
+								<?php $preview_file_2 = unserialize($data_custom['upload_preview_file_2'][0]);?>
+								<?php 
+									if($preview_file_2[0]){
+										$preview_file2_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_2[0]."'");
+									}
+								?>
+								<img width="70" src="<?php echo $preview_file2_url[0];?>"/>
+								
+								<?php $preview_file_3 = unserialize($data_custom['upload_preview_file_3'][0]);?>
+								<?php 
+									if($preview_file_3[0]){
+										$preview_file3_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_2[0]."'");
+									}
+								?>
+								<img width="70" src="<?php echo $preview_file3_url[0];?>"/>
 							</div>
 						</div>
 					</div>
@@ -281,15 +294,11 @@ $author = get_the_author();
 					<div class="info left">
 						<div class="madeby-lb gray-light"><i>Made by</i></div>
 						<div class="teacher-name fontsforweb_fontid_9785">
-							<a href="<?php echo marketify_edd_fes_author_url( get_the_author_meta( 'ID' ) );?>"
+							<a href="/fes-vendor/<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>"
 								 title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) );?></a>
 						</div>
 						<div class="user-rating gray-light"> User Rating: 4.0 /4.0</div>
-						<div class="teacher-follow gray-light">
-							<img width="14px" src="<?php echo content_url();?>/themes/marketify/images/star12x11.png"/>
-							<strong>Follow me </strong><span>(675 Followers)</span>
-						</div>
-						<div style="padding: 20px 0px 0px 5px;"><a href="/fed-vendor/"<?php echo get_the_author_meta( 'display_name' ) ?>>Visit my Store <i class="glyphicon glyphicon-play"></i></a></div>
+						<div style="padding: 20px 0px 0px 5px;"><a href="/fes-vendor/<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>">Visit my Store <i class="glyphicon glyphicon-play"></i></a></div>
 					</div>
 				</div>
 				
@@ -307,7 +316,10 @@ $author = get_the_author();
 						<div class="teacher-name fontsforweb_fontid_9785">
 							<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>
 						</div>
-						<div class="teacher-local gray-light">Athens, GA </div>
+						<div class="teacher-local gray-light">
+							<?php echo get_user_meta(get_the_author_ID() , 'country' , 1);  ?> ,
+                            <?php echo get_user_meta(get_the_author_ID() , 'location' , 1);  ?> 
+						</div>
 					</div>
 				</div>
 				<?php
@@ -330,7 +342,7 @@ $author = get_the_author();
 					</div>
 					<div style="">
 						<a href="<?php echo marketify_edd_fes_author_url( get_the_author_meta( 'ID' ) );?>"
-									 title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>">See all <i class="glyphicon glyphicon-play"></i></a>
+							title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>">See all <i class="glyphicon glyphicon-play"></i></a>
 					</div>
 				</div>
 				<?php 

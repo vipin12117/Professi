@@ -1389,6 +1389,29 @@ class FES_Forms {
 					}
 				}
 			}
+			
+			//quick fix by vipin to search in pick resource type category
+			if(isset($_POST['pick_resource_type']) and is_array($_POST['pick_resource_type'])){
+				global $wpdb;
+				$pick_resource_types = array();
+				foreach($_POST['pick_resource_type'] as $pick_resource_type){
+					$term_id = $wpdb->get_col("select term_id from wp_terms where name = '$pick_resource_type'");
+					$pick_resource_types[] = $term_id[0];
+				}
+				
+				if($pick_resource_types){
+					$_POST['download_category'] = array_merge($_POST['download_category'] , $pick_resource_types);
+				}
+			}
+			
+			/*$response = array(
+				'success' => false,
+				'message' => print_r($_POST['download_category'],1),
+				'is_post' => true
+			);
+			echo json_encode( $response );
+			exit;*/
+			
 			foreach ( $taxonomy_vars as $taxonomy ) {
 				if ( isset( $_POST[ $taxonomy[ 'name' ] ] ) ) {
 					if ( is_object_in_taxonomy( 'download', $taxonomy[ 'name' ] ) ) {
