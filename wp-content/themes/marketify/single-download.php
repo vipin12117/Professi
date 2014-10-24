@@ -16,13 +16,6 @@ $full = intval($rating);
 $ratingCount = edd_reviews()->count_reviews();
 $author = get_the_author();
 ?>
-<link type="text/css" rel="stylesheet" href="<?php echo get_template_directory_uri();?>/css/bootstrap-lightbox.min.css" />
-<script type="text/javascript" src="<?php echo get_template_directory_uri();?>/js/bootstrap-lightbox.min.js"></script>
-<script>
-  jQuery(document).ready(function(){
-	  //jQuery('.lightbox-content').lightbox();
-  });
-</script>
 <div class="container post-container clearfix">
 		<div class="left-post left"><!--#left-post -->
 			<header class="post-header">
@@ -46,37 +39,35 @@ $author = get_the_author();
 								<?php endif; ?>
 							</div>
 							<div class="more-images">
-								<div id="demoLightbox" class="lightbox fade"  tabindex="-1" role="dialog" aria-hidden="true">
-									<div class='lightbox-dialog'>
-										<div class='lightbox-content'>
-											<?php $preview_file_1 = unserialize($data_custom['upload_preview_file_1'][0]);?>
-											<?php 
-												if($preview_file_1[0]){
-													$preview_file1_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_1[0]."'");
-												}
-											?>
-											<img width="70" src="<?php echo $preview_file1_url[0]; ?>"/>
-										</div>	
-										<div class='lightbox-content'>	
-											<?php $preview_file_2 = unserialize($data_custom['upload_preview_file_2'][0]);?>
-											<?php 
-												if($preview_file_2[0]){
-													$preview_file2_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_2[0]."'");
-												}
-											?>
-											<img width="70" src="<?php echo $preview_file2_url[0];?>"/>
-									    </div> 	
-									    <div class='lightbox-content'>		
-											<?php $preview_file_3 = unserialize($data_custom['upload_preview_file_3'][0]);?>
-											<?php 
-												if($preview_file_3[0]){
-													$preview_file3_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_2[0]."'");
-												}
-											?>
-											<img width="70" src="<?php echo $preview_file3_url[0];?>"/>
-										</div>	
-									</div>	
-								</div>		
+								<?php $preview_file_1 = unserialize($data_custom['upload_preview_file_1'][0]);?>
+								<?php 
+									if($preview_file_1[0]){
+										$preview_file1_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_1[0]."'");
+									}
+								?>
+								<a href="<?php echo $preview_file1_url[0]; ?>" rel="lightbox">
+									<img width="70" src="<?php echo $preview_file1_url[0]; ?>"/>
+								</a>
+								
+								<?php $preview_file_2 = unserialize($data_custom['upload_preview_file_2'][0]);?>
+								<?php 
+									if($preview_file_2[0]){
+										$preview_file2_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_2[0]."'");
+									}
+								?>
+								<a href="<?php echo $preview_file2_url[0]; ?>" rel="lightbox">
+									<img width="70" src="<?php echo $preview_file2_url[0]; ?>"/>
+								</a>
+								
+								<?php $preview_file_3 = unserialize($data_custom['upload_preview_file_3'][0]);?>
+								<?php 
+									if($preview_file_3[0]){
+										$preview_file3_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_2[0]."'");
+									}
+								?>
+								<a href="<?php echo $preview_file3_url[0]; ?>" rel="lightbox">
+									<img width="70" src="<?php echo $preview_file3_url[0]; ?>"/>
+								</a>
 							</div>
 						</div>
 					</div>
