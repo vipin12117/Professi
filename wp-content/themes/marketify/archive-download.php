@@ -13,6 +13,11 @@ get_header();
 //$Cats = (isset($GLOBALS['cat_search'])) ? $GLOBALS['cat_search'] : '';
 $cat_ = $_GET['absc_search_cat'];
 
+$obj = get_queried_object();
+if($obj->slug){
+	$cat_ = $obj->slug;
+}
+
 $pcats = array();
 $ccats = array();
 if($cat_ && strlen($cat_) > 0) {
@@ -178,6 +183,8 @@ $GLOBALS['view'] = "viewWhishlist";
 													}
 													echo $rating; 
 													?></span>
+													
+													<?php //echo edd_reviews()->microdata();?>
 												</div>
 												<div class="ratings"><?php echo $ratingCount; ?> ratings</div>
 											</span>

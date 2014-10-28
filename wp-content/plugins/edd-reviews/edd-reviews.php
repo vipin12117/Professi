@@ -210,7 +210,7 @@ final class EDD_Reviews {
 	 */
 	public function __unset( $key ) {
 		if ( isset( $this->data[ $key ] ) )
-			unset( $this->data[ $key ] );
+		unset( $this->data[ $key ] );
 	}
 
 	/**
@@ -446,7 +446,7 @@ final class EDD_Reviews {
 		global $post;
 
 		if ( 'download' != get_post_type() )
-			return $status;
+		return $status;
 
 		return $this->maybe_restrict_form();
 	}
@@ -461,14 +461,14 @@ final class EDD_Reviews {
 	public function comments_closed() {
 
 		if( ! is_singular( 'download' ) )
-			return;
+		return;
 
 		$output  = '<div id="respond" class="comment-respond">';
 		$output .= '<div class="edd-reviews-must-log-in  comment-form" id="commentform">';
 		$output .= '<p class="edd-reviews-not-logged-in">' . apply_filters( 'edd_reviews_user_logged_out_message', sprintf( __( 'You must log in and be a buyer of this %s to submit a review.' ), strtolower( edd_get_label_singular() ) ) ) . '</p>';
 
 		if ( ! is_user_logged_in() )
-			$output .= wp_login_form( array( 'echo' => false ) );
+		$output .= wp_login_form( array( 'echo' => false ) );
 
 		$output .= '</div><!-- /.edd-reviews-must-log-in -->';
 		$output .= '</div><!-- /#respond -->';
@@ -491,7 +491,7 @@ final class EDD_Reviews {
 		global $post;
 
 		if ( 'download' != get_post_type() )
-			return $args;
+		return $args;
 
 		$commenter = wp_get_current_commenter();
 
@@ -506,7 +506,7 @@ final class EDD_Reviews {
 						          	'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" aria-required="true" /></p>',
 				'email'            => '<p class="comment-form-email"><label for="email">' . __( 'Email', 'edd-reviews' ) . '<span class="required">*</span></label>' .
 						          	'<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" aria-required="true" /></p>',
-			),
+		),
 			'label_submit'         => __( 'Submit Review', 'edd-reviews' ),
 			'logged_in_as'         => '',
 			'comment_field'        => '',
@@ -514,9 +514,9 @@ final class EDD_Reviews {
 			'id_form'              => 'commentform',
 			'id_submit'            => 'submit',
 			'format'               => 'html5'
-		);
+			);
 
-		$form['comment_field'] = apply_filters( 'edd_reviews_review_form_template', '
+			$form['comment_field'] = apply_filters( 'edd_reviews_review_form_template', '
 			<p class="comment_form_review_title">
 				<label for="edd_review_title">' . __( 'Review Title', 'edd-reviews' ) . '<span class="required">*</span></label>
 				<input type="text" name="edd_review_title" id="edd_review_title" value="" size="30" aria-required="true" />
@@ -556,7 +556,7 @@ final class EDD_Reviews {
 			<input type="hidden" name="edd_review" value="true" />
 		' );
 
-		return wp_parse_args( $form, $args );
+			return wp_parse_args( $form, $args );
 	}
 
 	/**
@@ -580,19 +580,19 @@ final class EDD_Reviews {
 				'author_email' => $commentdata['comment_author_email'],
 				'post_id'      => $commentdata['comment_post_ID'],
 				'meta_key'     => 'edd_review_title'
-			);
+				);
 
-			$comments = get_comments( $args );
+				$comments = get_comments( $args );
 
-			if ( $comments ) {
-				wp_die(
+				if ( $comments ) {
+					wp_die(
 					sprintf( __( 'You are only allowed to post one review for this %s. Multiple reviews have been disabled.', 'edd-reviews' ), strtolower( edd_get_label_singular() ) ),
 					__( 'Multiple Reviews Not Allowed', 'edd-reviews' ),
 					array( 'back_link' => true )
-				);
-			} else {
-				return $commentdata;
-			}
+					);
+				} else {
+					return $commentdata;
+				}
 		} else {
 			return $commentdata;
 		}
@@ -682,14 +682,15 @@ final class EDD_Reviews {
 
 		// Bail if we're not on a download page
 		if ( ! is_singular( 'download' ) )
-			return $content;
+		return $content;
 
 		do_action( 'edd_reviews_microdata_before' );
 		?>
-		<div style="display:none" class="edd-review-microdata" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-			<span itemprop="ratingValue"><?php echo $this->average_rating(); ?></span>
-			<span itemprop="reviewCount"><?php echo $this->count_reviews(); ?></span>
-		</div>
+<div style="display: none" class="edd-review-microdata"
+	itemprop="aggregateRating" itemscope
+	itemtype="http://schema.org/AggregateRating"><span
+	itemprop="ratingValue"><?php echo $this->average_rating(); ?></span> <span
+	itemprop="reviewCount"><?php echo $this->count_reviews(); ?></span></div>
 		<?php
 		do_action( 'edd_reviews_microdata_after' );
 		return $content;
@@ -716,17 +717,18 @@ final class EDD_Reviews {
 		$total_ratings = 0;
 
 		foreach ( $reviews as $review ) {
-
-			$rating = get_comment_meta( $review->comment_ID, 'edd_rating', true );
-			if ( $rating == '' ) {
-				continue; // Skip comments that aren't reviews
+			if($review -> comment_approved == 1){
+				$rating = get_comment_meta( $review->comment_ID, 'edd_rating', true );
+				if ( $rating == '' ) {
+					continue; // Skip comments that aren't reviews
+				}
+				$total++;
+				$total_ratings += $rating;
 			}
-			$total++;
-			$total_ratings += $rating;
 		}
 
 		if ( 0 == $total )
-			$total = 1;
+		$total = 1;
 		$average = round( $total_ratings / $total, 1 );
 
 		if ( $echo ) {
@@ -804,13 +806,13 @@ final class EDD_Reviews {
 	 */
 	public function post_comment_status_meta_box( $post ) {
 		?>
-		<input name="advanced_view" type="hidden" value="1" />
-		<p class="meta-options">
-			<label for="comment_status" class="selectit">
-				<input name="comment_status" type="checkbox" id="comment_status" value="open" <?php checked( $post->comment_status, 'open' ); ?> /> <?php _e( 'Allow reviews.', 'edd-reviews' ) ?>
-			</label>
-		</p>
-		<?php
+<input
+	name="advanced_view" type="hidden" value="1" />
+<p class="meta-options"><label for="comment_status" class="selectit"> <input
+	name="comment_status" type="checkbox" id="comment_status" value="open"
+	<?php checked( $post->comment_status, 'open' ); ?> /> <?php _e( 'Allow reviews.', 'edd-reviews' ) ?>
+</label></p>
+	<?php
 	}
 
 	/**
@@ -838,12 +840,14 @@ final class EDD_Reviews {
 			$hidden = get_hidden_meta_boxes( get_current_screen() );
 			if ( ! in_array( 'commentsdiv', $hidden ) ) {
 				?>
-				<script type="text/javascript">jQuery(document).ready(function(){commentsBox.get(<?php echo $total; ?>, 10);});</script>
+<script type="text/javascript">jQuery(document).ready(function(){commentsBox.get(<?php echo $total; ?>, 10);});</script>
 				<?php
 			}
 
 			?>
-			<p class="hide-if-no-js" id="show-comments"><a href="#commentstatusdiv" onclick="commentsBox.get(<?php echo $total; ?>);return false;"><?php _e('Show comments'); ?></a> <span class="spinner"></span></p>
+<p class="hide-if-no-js" id="show-comments"><a href="#commentstatusdiv"
+	onclick="commentsBox.get(<?php echo $total; ?>);return false;"><?php _e('Show comments'); ?></a>
+<span class="spinner"></span></p>
 			<?php
 		}
 
@@ -864,10 +868,10 @@ final class EDD_Reviews {
 		wp_register_style( 'edd-reviews-admin', $this->assets_url . 'css/edd-reviews-admin.css', array( ), $this->version );
 
 		if ( is_admin() )
-			wp_enqueue_style( 'edd-reviews-admin' );
+		wp_enqueue_style( 'edd-reviews-admin' );
 
 		if ( isset( $edd_options['edd_reviews_disable_css'] ) )
-			return;
+		return;
 
 		wp_register_style( 'edd-reviews', $this->assets_url . 'css/edd-reviews.css', array( ), $this->version );
 		wp_enqueue_style( 'edd-reviews' );
@@ -944,16 +948,16 @@ final class EDD_Reviews {
 	public function custom_column_data( $column, $comment_ID ) {
 		if ( 'title' == $column ) {
 			if ( get_comment_meta( $comment_ID, 'edd_review_title', true ) )
-				echo get_comment_meta( $comment_ID, 'edd_review_title', true );
+			echo get_comment_meta( $comment_ID, 'edd_review_title', true );
 			else
-				echo '-';
+			echo '-';
 		}
 
 		if ( 'rating' == $column ) {
 			if ( get_comment_meta( $comment_ID, 'edd_rating', true ) )
-				echo get_comment_meta( $comment_ID, 'edd_rating', true ) . ' / 5';
+			echo get_comment_meta( $comment_ID, 'edd_rating', true ) . ' / 5';
 			else
-				echo '-';
+			echo '-';
 		}
 	}
 
@@ -971,7 +975,7 @@ final class EDD_Reviews {
 		$post_type = get_post_type( $post_id );
 
 		if ( 'download' == $post_type )
-			$open = true;
+		$open = true;
 
 		return $open;
 	}
@@ -988,36 +992,36 @@ final class EDD_Reviews {
 	 */
 	public function misc_settings( $settings ) {
 		$new = array(
-			array(
+		array(
 				'id'   => 'edd_review_settings',
 				'name' => '<strong>' . __( 'Product Reviews', 'edd-reviews' ) . '</strong>',
 				'desc' => '',
 				'type' => 'header'
-			),
-			array(
+				),
+				array(
 				'id'   => 'edd_reviews_enable_breakdown',
 				'name' => __( 'Enable review breakdown', 'edd-reviews' ),
 				'desc' => __( 'This will show how many people have rated the download for each star rating.', 'edd-reviews' ),
 				'type' => 'checkbox',
 				'size' => 'regular'
-			),
-			array(
+				),
+				array(
 				'id'   => 'edd_reviews_disable_multiple_reviews',
 				'name' => __( 'Disable multiple reviews by same author', 'edd-reviews' ),
 				'desc' => __( 'This will disallow authors to post multiple reviews on the same download', 'edd-reviews' ),
 				'type' => 'checkbox',
 				'size' => 'regular'
-			),
-			array(
+				),
+				array(
 				'id'   => 'edd_reviews_only_allow_reviews_by_buyer',
 				'name' => __( 'Only allow reviews by buyers', 'edd-reviews' ),
 				'desc' => __( 'This will only allow people who have purchased your product to review it. It will require them to login.', 'edd-reviews' ),
 				'type' => 'checkbox',
 				'size' => 'regular'
-			)
-		);
+				)
+				);
 
-		return array_merge( $settings, $new );
+				return array_merge( $settings, $new );
 	}
 
 	/**
@@ -1032,22 +1036,22 @@ final class EDD_Reviews {
 	 */
 	public function styles_settings( $settings ) {
 		$new = array(
-			array(
+		array(
 				'id'   => 'edd_reviews_styling_options',
 				'name' => '<strong>' . __( 'Reviews', 'edd-reviews' ) . '</strong>',
 				'desc' => '',
 				'type' => 'header'
-			),
-			array(
+				),
+				array(
 				'id'   => 'edd_reviews_disable_css',
 				'name' => __( 'Disable EDD Reviews CSS', 'edd-reviews' ),
 				'desc' => __( 'Check this to disable styling for the reviews provided by the EDD Reviews plugin', 'edd-reviews' ),
 				'type' => 'checkbox',
 				'size' => 'regular'
-			)
-		);
+				)
+				);
 
-		return array_merge( $settings, $new );
+				return array_merge( $settings, $new );
 	}
 
 	/**
@@ -1110,7 +1114,7 @@ final class EDD_Reviews {
 		global $wpdb, $post;
 
 		$count = $wpdb->get_var(
-			$wpdb->prepare(
+		$wpdb->prepare(
 				"
 				SELECT COUNT(meta_value)
 				FROM {$wpdb->commentmeta}
@@ -1120,8 +1124,8 @@ final class EDD_Reviews {
 				AND comment_approved = '1'
 				AND meta_value > 0
 				",
-				$post->ID
-			)
+		$post->ID
+		)
 		);
 
 		return $count;
@@ -1141,7 +1145,7 @@ final class EDD_Reviews {
 		global $wpdb, $post;
 
 		$count = $wpdb->get_var(
-			$wpdb->prepare(
+		$wpdb->prepare(
 				"
 				SELECT SUM(meta_value)
 				FROM {$wpdb->commentmeta}
@@ -1150,8 +1154,8 @@ final class EDD_Reviews {
 				AND comment_post_ID = %d
 				AND comment_approved = '1'
 				",
-				$post->ID
-			)
+		$post->ID
+		)
 		);
 
 		return $count;
@@ -1173,10 +1177,10 @@ final class EDD_Reviews {
 		$rating = (int) $rating;
 
 		if ( $rating < 1 && $rating > 5 )
-			return;
+		return;
 
 		$count = $wpdb->get_var(
-			$wpdb->prepare(
+		$wpdb->prepare(
 				"
 				SELECT COUNT(meta_value)
 				FROM {$wpdb->commentmeta}
@@ -1187,8 +1191,8 @@ final class EDD_Reviews {
 				AND meta_value > 0
 				AND {$wpdb->comments}.comment_post_ID = %s
 				",
-				$post->ID
-			)
+		$post->ID
+		)
 		);
 
 		return $count;
@@ -1213,14 +1217,15 @@ final class EDD_Reviews {
 
 		do_action( 'edd_reviews_title_before' );
 		?>
-		<div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-			<span itemprop="ratingValue" style="display:none"><?php echo $average; ?></span>
-			<h2 class="comments-title" id="comments-title"><?php echo sprintf( apply_filters( 'edd_reviews_reviews_title', __( '%s Reviews for %s', 'edd-reviews' ) ), '<span itemprop="reviewCount" class="edd-review-count">' . $this->count_reviews() . '</span>', get_the_title( $post->ID ) ); ?></h2>
-		</div>
+<div itemprop="aggregateRating" itemscope
+	itemtype="http://schema.org/AggregateRating"><span
+	itemprop="ratingValue" style="display: none"><?php echo $average; ?></span>
+<h2 class="comments-title" id="comments-title"><?php echo sprintf( apply_filters( 'edd_reviews_reviews_title', __( '%s Reviews for %s', 'edd-reviews' ) ), '<span itemprop="reviewCount" class="edd-review-count">' . $this->count_reviews() . '</span>', get_the_title( $post->ID ) ); ?></h2>
+</div>
 		<?php
 		else :
 		?>
-		<h2 class="comments-title" id="comments-title"><?php apply_filters( 'edd_reviews_review_title_default',  _e( 'Reviews', 'edd-reviews' ) ); ?></h2>
+<h2 class="comments-title" id="comments-title"><?php apply_filters( 'edd_reviews_review_title_default',  _e( 'Reviews', 'edd-reviews' ) ); ?></h2>
 		<?php
 		do_action( 'edd_reviews_title_after' );
 		endif;
@@ -1241,7 +1246,7 @@ final class EDD_Reviews {
 		$user_email = $user_email['comment_author_email'];
 
 		if ( edd_has_user_purchased( $user_email, $post->ID ) )
-			return true;
+		return true;
 
 		return false;
 	}
@@ -1271,24 +1276,26 @@ final class EDD_Reviews {
 		global $comment;
 
 		if( ! empty( $comment->comment_parent ) )
-			return;
+		return;
 
 		$rating = get_comment_meta( $comment->comment_ID, 'edd_rating', true );
 
 		ob_start();
 		?>
-			<span itemprop="name" class="review-title-text"><?php echo get_comment_meta( $comment->comment_ID, 'edd_review_title', true ); ?></span>
+<span itemprop="name" class="review-title-text"><?php echo get_comment_meta( $comment->comment_ID, 'edd_review_title', true ); ?></span>
 
-			<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating">
-				<div class="edd_reviews_rating_box" role="img" aria-label="<?php echo $rating . ' ' . __( 'stars', 'edd-reviews' ); ?>">
-					<div class="edd_star_rating" style="width: <?php echo ( 19 * $rating ); ?>px"></div>
-				</div>
-				<div style="display:none" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-					<meta itemprop="worstRating" content="1" />
-					<span itemprop="ratingValue"><?php echo $rating; ?></span>
-					<span itemprop="bestRating">5</span>
-				</div>
-			</div>
+<div itemprop="reviewRating" itemscope
+	itemtype="http://schema.org/Rating" class="star-rating">
+<div class="edd_reviews_rating_box" role="img"
+	aria-label="<?php echo $rating . ' ' . __( 'stars', 'edd-reviews' ); ?>">
+<div class="edd_star_rating" style="width: <?php echo ( 19 * $rating ); ?>px"></div>
+</div>
+<div style="display: none" itemprop="reviewRating" itemscope
+	itemtype="http://schema.org/Rating">
+<meta itemprop="worstRating" content="1" />
+<span itemprop="ratingValue"><?php echo $rating; ?></span> <span
+	itemprop="bestRating">5</span></div>
+</div>
 		<?php
 		$rating_html = ob_get_clean();
 
@@ -1309,33 +1316,34 @@ final class EDD_Reviews {
 		ob_start();
 		?>
 
-			<?php if ( ! $this->is_review_poster() ) : ?>
+		<?php if ( ! $this->is_review_poster() ) : ?>
 
-				<?php if ( ( isset( $_GET['edd_reviews_vote'] ) && $_GET['edd_reviews_vote'] == 'success' && isset( $_GET['edd_c'] ) && is_numeric( $_GET['edd_c'] ) && $_GET['edd_c'] == get_comment_ID() ) || EDD()->session->get( 'wordpress_edd_reviews_voted_' . get_comment_ID() ) ) : ?>
+		<?php if ( ( isset( $_GET['edd_reviews_vote'] ) && $_GET['edd_reviews_vote'] == 'success' && isset( $_GET['edd_c'] ) && is_numeric( $_GET['edd_c'] ) && $_GET['edd_c'] == get_comment_ID() ) || EDD()->session->get( 'wordpress_edd_reviews_voted_' . get_comment_ID() ) ) : ?>
 
-					<div class="edd-review-vote edd-yellowfade">
-						<p style="margin:0;padding:0;"><?php echo apply_filters( 'edd_reviews_thank_you_for_voting_message', __( 'Thank you for your feedback.', 'edd-reviews' ) ); ?></p>
-						<?php $this->voting_info(); ?>
-					</div>
+<div class="edd-review-vote edd-yellowfade">
+<p style="margin: 0; padding: 0;"><?php echo apply_filters( 'edd_reviews_thank_you_for_voting_message', __( 'Thank you for your feedback.', 'edd-reviews' ) ); ?></p>
+		<?php $this->voting_info(); ?></div>
 
-				<?php else: ?>
+		<?php else: ?>
 
-					<div class="edd-review-vote">
-						<?php do_action( 'edd_reviews_voting_box_before' ); ?>
-						<?php $this->voting_info(); ?>
-						<p><?php echo apply_filters( 'edd_reviews_voting_intro_text', _e( 'Help other customers find the most helpful reviews', 'edd-reviews' ) ); ?></p>
-						<p>
-							<?php echo apply_filters( 'edd_reviews_review_helpful_text', __( 'Did you find this review helpful?', 'edd-reviews' ) ); ?>
-							<span class="edd-reviews-voting-buttons">
-								<a class="vote-yes" data-edd-reviews-comment-id="<?php echo get_comment_ID(); ?>" data-edd-reviews-vote="yes" rel="nofollow" href="<?php echo add_query_arg( array( 'edd_review_vote' => 'yes', 'edd_c' => get_comment_ID() ) ); ?>"><?php _e( 'Yes', 'edd-reviews' ); ?></a>&nbsp;<a class="vote-no" data-edd-reviews-comment-id="<?php echo get_comment_ID(); ?>" data-edd-reviews-vote="no" rel="nofollow" href="<?php echo add_query_arg( array( 'edd_review_vote' => 'no', 'edd_c' => get_comment_ID() ) ); ?>"><?php _e( 'No', 'edd-reviews' ); ?></a>
-							</span>
-						</p>
-						<?php do_action( 'edd_reviews_voting_box_after' ); ?>
-					</div>
+<div class="edd-review-vote"><?php do_action( 'edd_reviews_voting_box_before' ); ?>
+		<?php $this->voting_info(); ?>
+<p><?php echo apply_filters( 'edd_reviews_voting_intro_text', _e( 'Help other customers find the most helpful reviews', 'edd-reviews' ) ); ?></p>
+<p><?php echo apply_filters( 'edd_reviews_review_helpful_text', __( 'Did you find this review helpful?', 'edd-reviews' ) ); ?>
+<span class="edd-reviews-voting-buttons"> <a class="vote-yes"
+	data-edd-reviews-comment-id="<?php echo get_comment_ID(); ?>"
+	data-edd-reviews-vote="yes" rel="nofollow"
+	href="<?php echo add_query_arg( array( 'edd_review_vote' => 'yes', 'edd_c' => get_comment_ID() ) ); ?>"><?php _e( 'Yes', 'edd-reviews' ); ?></a>&nbsp;<a
+	class="vote-no"
+	data-edd-reviews-comment-id="<?php echo get_comment_ID(); ?>"
+	data-edd-reviews-vote="no" rel="nofollow"
+	href="<?php echo add_query_arg( array( 'edd_review_vote' => 'no', 'edd_c' => get_comment_ID() ) ); ?>"><?php _e( 'No', 'edd-reviews' ); ?></a>
+</span></p>
+		<?php do_action( 'edd_reviews_voting_box_after' ); ?></div>
 
-				<?php endif; ?>
+		<?php endif; ?>
 
-			<?php endif; ?>
+		<?php endif; ?>
 
 		<?php
 		$output = ob_get_clean();
@@ -1358,10 +1366,10 @@ final class EDD_Reviews {
 
 		// When submitting a comment as a guest don't try to append anything.
 		if ( ! $comment )
-			return $comment_text;
+		return $comment_text;
 
 		if ( 'download' != get_post_type() )
-			return $comment_text;
+		return $comment_text;
 
 		$rating  = $this->get_comment_rating_output();
 		$output  = $rating . $comment_text;
@@ -1471,7 +1479,7 @@ final class EDD_Reviews {
 		global $post, $edd_options;
 
 		if ( ! isset( $edd_options[ 'edd_reviews_only_allow_reviews_by_buyer' ] ) )
-			return true;
+		return true;
 
 		$user = wp_get_current_user();
 		$user_id = ( isset( $user->ID ) ? (int) $user->ID : 0 );
@@ -1584,11 +1592,12 @@ final class EDD_Reviews {
 	public function display_aggregate_rating() {
 		$average = $this->average_rating( false );
 		?>
-		<div class="edd_reviews_aggregate_rating_display">
-			<div class="edd_reviews_rating_box" role="img" aria-label="<?php echo $average . ' ' . __( 'stars', 'edd-reviews' ); ?>">
-				<div class="edd_star_rating" style="width: <?php echo ( 19 * $average ); ?>px"></div>
-			</div>
-		</div>
+<div class="edd_reviews_aggregate_rating_display">
+<div class="edd_reviews_rating_box" role="img"
+	aria-label="<?php echo $average . ' ' . __( 'stars', 'edd-reviews' ); ?>">
+<div class="edd_star_rating" style="width: <?php echo ( 19 * $average ); ?>px"></div>
+</div>
+</div>
 		<?php
 	}
 
@@ -1675,12 +1684,12 @@ final class EDD_Reviews {
 	public function process_ajax_vote() {
 		// Bail if an AJAX request isn't sent
 		if ( ! $this->is_ajax_request() )
-			return;
+		return;
 
 		check_ajax_referer( 'edd_reviews_voting_nonce', 'security', true );
 
 		if ( ! isset( $_POST['review_vote'] ) )
-			return;
+		return;
 
 		if ( isset( $_POST['review_vote'] ) && isset( $_POST['comment_id'] ) && is_numeric( $_POST['comment_id'] ) ) {
 			$this->add_comment_vote_meta( $_POST['comment_id'], $_POST['review_vote'] );
@@ -1707,8 +1716,8 @@ final class EDD_Reviews {
 			$recent_reviews_title = apply_filters( 'edd_reviews_recent_reviews_dashboard_widget_title', __( 'Easy Digital Downloads Recent Reviews', 'edd-reviews' ) );
 			wp_add_dashboard_widget(
 				'edd_reviews_dashboard_recent_reviews',
-				$recent_reviews_title,
-				array( 'EDD_Reviews', 'render_dashboard_widget' )
+			$recent_reviews_title,
+			array( 'EDD_Reviews', 'render_dashboard_widget' )
 			);
 		}
 	}
@@ -1815,18 +1824,22 @@ final class EDD_Reviews {
 	public function review_meta_box( $comment ) {
 		if ( $this->has_review_meta( $comment ) ) :
 		?>
-		<table class="form-table editcomment">
-			<tbody>
-				<tr valign="top">
-					<td class="first"><?php _e( 'Review Title:', 'edd-reviews' ); ?></td>
-					<td><input type="text" class="widefat" id="edd_reviews_review_title" name="edd_reviews_review_title" value="<?php echo get_comment_meta( $comment->comment_ID, 'edd_review_title', true ); ?>" /></td>
-				</tr>
-				<tr valign="top">
-					<td class="first"><?php _e( 'Rating:', 'edd-reviews' ); ?></td>
-					<td><input type="text" class="widefat" id="edd_reviews_rating" name="edd_reviews_rating" value="<?php echo get_comment_meta( $comment->comment_ID, 'edd_rating', true ); ?>" /></td>
-				</tr>
-			</tbody>
-		</table>
+<table class="form-table editcomment">
+	<tbody>
+		<tr valign="top">
+			<td class="first"><?php _e( 'Review Title:', 'edd-reviews' ); ?></td>
+			<td><input type="text" class="widefat" id="edd_reviews_review_title"
+				name="edd_reviews_review_title"
+				value="<?php echo get_comment_meta( $comment->comment_ID, 'edd_review_title', true ); ?>" /></td>
+		</tr>
+		<tr valign="top">
+			<td class="first"><?php _e( 'Rating:', 'edd-reviews' ); ?></td>
+			<td><input type="text" class="widefat" id="edd_reviews_rating"
+				name="edd_reviews_rating"
+				value="<?php echo get_comment_meta( $comment->comment_ID, 'edd_rating', true ); ?>" /></td>
+		</tr>
+	</tbody>
+</table>
 		<?php
 		endif;
 	}
@@ -1904,7 +1917,7 @@ final class EDD_Reviews {
 
 		// Bail if the query mode isn't reviews
 		if ( 'reviews' !== $query_mode )
-			return $data;
+		return $data;
 
 		// Get the review_id query var
 		$review_id = isset( $wp_query->query_vars['review_id'] ) ? $wp_query->query_vars['review_id'] : null;
@@ -1912,7 +1925,7 @@ final class EDD_Reviews {
 		if ( $review_id ) {
 			// Get the review from the database
 			$review = $wpdb->get_results(
-				$wpdb->prepare(
+			$wpdb->prepare(
 					"
 					SELECT *
 					FROM {$wpdb->comments}
@@ -1920,32 +1933,32 @@ final class EDD_Reviews {
 					WHERE comment_ID = '%d'
 					LIMIT 1
 					",
-					$review_id
-				)
+			$review_id
+			)
 			);
 
 			if ( $review ) :
-				$data['reviews']['id']             = $review[0]->comment_ID;
-				$data['reviews']['title']          = get_comment_meta( $review[0]->comment_ID, 'edd_review_title', true );
-				$data['reviews']['download_id']    = $review[0]->comment_post_ID;
-				$data['reviews']['download_title'] = $review[0]->post_title;
-				$data['reviews']['rating']         = get_comment_meta( $review[0]->comment_ID, 'edd_rating', true );
-				$data['reviews']['author']         = $review[0]->comment_author;
-				$data['reviews']['email']          = $review[0]->comment_author_email;
-				$data['reviews']['IP']             = $review[0]->comment_author_IP;
-				$data['reviews']['date']           = $review[0]->comment_date;
-				$data['reviews']['date_gmt']       = $review[0]->comment_date_gmt;
-				$data['reviews']['content']        = $review[0]->comment_content;
-				$data['reviews']['status']         = $review[0]->comment_approved;
-				$data['reviews']['user_id']        = $review[0]->user_id;
+			$data['reviews']['id']             = $review[0]->comment_ID;
+			$data['reviews']['title']          = get_comment_meta( $review[0]->comment_ID, 'edd_review_title', true );
+			$data['reviews']['download_id']    = $review[0]->comment_post_ID;
+			$data['reviews']['download_title'] = $review[0]->post_title;
+			$data['reviews']['rating']         = get_comment_meta( $review[0]->comment_ID, 'edd_rating', true );
+			$data['reviews']['author']         = $review[0]->comment_author;
+			$data['reviews']['email']          = $review[0]->comment_author_email;
+			$data['reviews']['IP']             = $review[0]->comment_author_IP;
+			$data['reviews']['date']           = $review[0]->comment_date;
+			$data['reviews']['date_gmt']       = $review[0]->comment_date_gmt;
+			$data['reviews']['content']        = $review[0]->comment_content;
+			$data['reviews']['status']         = $review[0]->comment_approved;
+			$data['reviews']['user_id']        = $review[0]->user_id;
 			else :
-				$error['error'] = sprintf( __( 'Review %s not found!', 'edd-reviews' ), $review_id );
-				return $error;
+			$error['error'] = sprintf( __( 'Review %s not found!', 'edd-reviews' ), $review_id );
+			return $error;
 			endif;
 		} else {
 			// Get total reviews count from the database
 			$total_reviews = $wpdb->get_var(
-				$wpdb->prepare(
+			$wpdb->prepare(
 					"
 					SELECT COUNT(meta_value)
 					FROM {$wpdb->commentmeta}
@@ -1954,7 +1967,7 @@ final class EDD_Reviews {
 					AND comment_approved = '1'
 					AND meta_value > 0
 					"
-				)
+			)
 			);
 
 			/** Total Reviews */
@@ -2056,13 +2069,14 @@ final class EDD_Reviews {
 
 			$reviews = $wpdb->get_results( $wpdb->prepare( "SELECT meta_value, comment_id FROM {$wpdb->commentmeta} WHERE meta_key = %s", 'edd_review_title' ) );
 			?>
-			<!DOCTYPE html>
-			<html <?php language_attributes(); ?>>
-			<head>
-				<meta charset="utf-8" />
-				<title><?php _e( 'Embed Review', 'edd-reviews' ); ?></title>
-				<script type="text/javascript" src="<?php echo includes_url(); ?>/js/tinymce/tiny_mce_popup.js"></script>
-				<script type="text/javascript">
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="utf-8" />
+<title><?php _e( 'Embed Review', 'edd-reviews' ); ?></title>
+<script type="text/javascript"
+	src="<?php echo includes_url(); ?>/js/tinymce/tiny_mce_popup.js"></script>
+<script type="text/javascript">
 				var edd_reviews_dialog = {
 					local_ed: 'ed',
 
@@ -2086,8 +2100,8 @@ final class EDD_Reviews {
 
 				tinyMCEPopup.onInit.add(edd_reviews_dialog.init, edd_reviews_dialog);
 				</script>
-			</head>
-			<body>
+</head>
+<body>
 			<?php
 			if ( $reviews ) {
 				echo '<h2>' . __( 'Select a Review to Embed', 'edd-reviews' ) . '</h2>';
@@ -2104,8 +2118,8 @@ final class EDD_Reviews {
 				echo '<h2>' . __( 'No Reviews Have Been Created Yet', 'edd-reviews' ) . '</h2>';
 			}
 			?>
-			</body>
-			</html>
+</body>
+</html>
 			<?php
 			die();
 		}

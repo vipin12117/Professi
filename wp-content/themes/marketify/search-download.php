@@ -13,6 +13,11 @@ get_header();
 //$Cats = (isset($GLOBALS['cat_search'])) ? $GLOBALS['cat_search'] : '';
 $cat_ = $_GET['absc_search_cat'];
 
+$obj = get_queried_object();
+if($obj->slug){
+	$cat_ = $obj->slug;
+}
+
 $pcats = array();
 $ccats = array();
 if($cat_ && strlen($cat_) > 0) {
@@ -127,6 +132,8 @@ $GLOBALS['view'] = "viewWhishlist";
 									
 									<?php $data_custom = get_post_custom($post->ID);?>
 									<?php 
+										  $full = 0;
+										  $rating = 0;
 										  $rating = edd_reviews()->average_rating( false );
 										  $full = intval($rating);
 										  $ratingCount = edd_reviews()->count_reviews();
@@ -137,6 +144,8 @@ $GLOBALS['view'] = "viewWhishlist";
 										  foreach($categories as $category){
 										  	  $category_str .= $category->name.",";
 										  }
+										  
+										  //print $rating . " -- " . $post->ID . " -- " . $ratingCount . "<br />";
 									?>
 									<div class="form-horizontal">
 										<div class="control-group">
@@ -173,12 +182,15 @@ $GLOBALS['view'] = "viewWhishlist";
 													?>
 														<i class="star star-no"></i>
 													<?php } ?>
+													
 													<span><?php 
 													if(strlen($rating) === 1) {
 														$rating = $rating.'.0';
 													}
 													echo $rating; 
 													?></span>
+													
+													<?php //echo edd_reviews()->microdata();?>
 												</div>
 												<div class="ratings"><?php echo $ratingCount; ?> ratings</div>
 											</span>
