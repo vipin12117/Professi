@@ -47,41 +47,41 @@ class FES_Forms {
 	function render_form( $type = 'submission', $id = false, $read_only = false, $args = array() ) {
 		EDD_FES()->setup->enqueue_form_assets();
 		switch ( $type ) {
-		case 'submission':
-			do_action( 'fes_render_form_above_submission_form', $id, $read_only, $args );
-			echo $this->render_submission_form( $id, $read_only, $args );
-			do_action( 'fes_render_form_below_submission_form', $id, $read_only, $args );
-			break;
-		case 'profile':
-			do_action( 'fes_render_form_above_profile_form', $id, $read_only, $args );
-			echo $this->render_profile_form( $id, $read_only, $args );
-			do_action( 'fes_render_form_below_profile_form', $id, $read_only, $args );
-			break;
-		case 'login':
-			do_action( 'fes_render_form_above_login_form', $id, $read_only, $args );
-			echo $this->render_login_form( $args );
-			do_action( 'fes_render_form_below_login_form', $id, $read_only, $args );
-			break;
-		case 'registration':
-			do_action( 'fes_render_form_above_registration_form', $id, $read_only, $args );
-			echo $this->render_registration_form( $id, $read_only, $args );
-			do_action( 'fes_render_form_below_registration_form', $id, $read_only, $args );
-			break;
-		case 'login-registration':
-			do_action( 'fes_render_form_above_login_registration_form', $id, $read_only, $args );
-			echo $this->render_login_registration_form ( $args );
-			do_action( 'fes_render_form_below_login_registration_form', $id, $read_only, $args );
-			break;
-		case 'vendor-contact-form':
-			do_action( 'fes_render_form_above_vendor_contact_form', $id, $read_only, $args );
-			echo $this->render_vendor_contact_form( $id, $read_only, $args );
-			do_action( 'fes_render_form_below_vendor_contact_form', $id, $read_only, $args );
-			break;
-		default:
-			do_action( 'fes_render_form_above_submission_form', $id, $read_only, $args );
-			echo $this->render_submission_form( $id, $read_only, $args );
-			do_action( 'fes_render_form_below_submission_form', $id, $read_only, $args );
-			break;
+			case 'submission':
+				do_action( 'fes_render_form_above_submission_form', $id, $read_only, $args );
+				echo $this->render_submission_form( $id, $read_only, $args );
+				do_action( 'fes_render_form_below_submission_form', $id, $read_only, $args );
+				break;
+			case 'profile':
+				do_action( 'fes_render_form_above_profile_form', $id, $read_only, $args );
+				echo $this->render_profile_form( $id, $read_only, $args );
+				do_action( 'fes_render_form_below_profile_form', $id, $read_only, $args );
+				break;
+			case 'login':
+				do_action( 'fes_render_form_above_login_form', $id, $read_only, $args );
+				echo $this->render_login_form( $args );
+				do_action( 'fes_render_form_below_login_form', $id, $read_only, $args );
+				break;
+			case 'registration':
+				do_action( 'fes_render_form_above_registration_form', $id, $read_only, $args );
+				echo $this->render_registration_form( $id, $read_only, $args );
+				do_action( 'fes_render_form_below_registration_form', $id, $read_only, $args );
+				break;
+			case 'login-registration':
+				do_action( 'fes_render_form_above_login_registration_form', $id, $read_only, $args );
+				echo $this->render_login_registration_form ( $args );
+				do_action( 'fes_render_form_below_login_registration_form', $id, $read_only, $args );
+				break;
+			case 'vendor-contact-form':
+				do_action( 'fes_render_form_above_vendor_contact_form', $id, $read_only, $args );
+				echo $this->render_vendor_contact_form( $id, $read_only, $args );
+				do_action( 'fes_render_form_below_vendor_contact_form', $id, $read_only, $args );
+				break;
+			default:
+				do_action( 'fes_render_form_above_submission_form', $id, $read_only, $args );
+				echo $this->render_submission_form( $id, $read_only, $args );
+				do_action( 'fes_render_form_below_submission_form', $id, $read_only, $args );
+				break;
 		}
 	}
 
@@ -97,7 +97,7 @@ class FES_Forms {
 	function render_vendor_contact_form( $id = false, $read_only = false, $args = array() ) {
 
 		EDD_FES()->setup->enqueue_form_assets();
-	
+
 		if ( ! $id ){
 			// still no id? One last try. Let's return
 			return sprintf( __('No %s ID set!', 'edd_fes'), EDD_FES()->vendors->get_vendor_constant_name( $plural = true, $uppercase = false ) );
@@ -109,7 +109,7 @@ class FES_Forms {
 		}
 
 		$form_id = EDD_FES()->helper->get_option( 'fes-vendor-contact-form', false );
-		
+
 		if ( ! $form_id ){
 			return __( 'Vendor Contact Form not set in the FES settings', 'edd_fes' );
 		}
@@ -117,41 +117,39 @@ class FES_Forms {
 		$args['vendor'] = $id;
 
 		ob_start();
-		
+
 		$form_vars = get_post_meta( $form_id, 'fes-form', true );
 		do_action( 'fes_vendor_contact_form_before_form', $form_id, $read_only, $args ); ?>
-		<form class="fes-form-vendor-contact-form" action="" method="post">
-			<div class="fes-form">
-				<?php
-				do_action( 'fes_vendor_contact_above_render_items', $form_id, $read_only, $args );
-				
-				echo apply_filters( 'fes_vendor_contact_form_header', '<h1 class="fes-headers" id="fes-contact-form-title"> Contact Form </h1>' );
-				
-				$this->render_items( $form_vars, $id, $type = 'vendor-contact', $form_id, $read_only, $args );
-				
-				do_action( 'fes_vendor_contact_below_render_items', $form_id, $args );
-				
-				$this->submit_button( $form_id, $type = 'vendor-contact', false, $args );
-				
-				do_action( 'fes_vendor_contact_below_submit_buttons', $form_id, $read_only, $args );
-				?>
-			</div>
-		</form>
-		<?php
-		do_action( 'fes_vendor_contact_after_form', $form_id, $read_only, $args );
+<form class="fes-form-vendor-contact-form" action="" method="post">
+<div class="fes-form"><?php
+do_action( 'fes_vendor_contact_above_render_items', $form_id, $read_only, $args );
 
-		$form = ob_get_contents();
-		ob_end_clean();
-		return $form;
+echo apply_filters( 'fes_vendor_contact_form_header', '<h1 class="fes-headers" id="fes-contact-form-title"> Contact Form </h1>' );
+
+$this->render_items( $form_vars, $id, $type = 'vendor-contact', $form_id, $read_only, $args );
+
+do_action( 'fes_vendor_contact_below_render_items', $form_id, $args );
+
+$this->submit_button( $form_id, $type = 'vendor-contact', false, $args );
+
+do_action( 'fes_vendor_contact_below_submit_buttons', $form_id, $read_only, $args );
+?></div>
+</form>
+<?php
+do_action( 'fes_vendor_contact_after_form', $form_id, $read_only, $args );
+
+$form = ob_get_contents();
+ob_end_clean();
+return $form;
 
 	}
 
 	function render_login_form( $id = false, $read_only = false, $args = array() ) {
-		
+
 		EDD_FES()->setup->enqueue_form_assets();
-		
+
 		ob_start();
-		
+
 		if ( !is_user_logged_in() ) {
 
 			$form_id = EDD_FES()->helper->get_option( 'fes-login-form', false );
@@ -162,7 +160,7 @@ class FES_Forms {
 			}
 
 			$form_vars = get_post_meta( $form_id, 'fes-form', true );
-			
+				
 			if ( ! $form_vars ) {
 				_e( 'Login form has no fields!', 'edd_fes' );
 				return;
@@ -170,26 +168,23 @@ class FES_Forms {
 
 			do_action( 'fes_login_form_before_form', $form_id, $read_only, $args );
 			?>
-			<form class="fes-form-login-form" action="" method="post">
-			<div class="fes-form">
-			<?php
-			echo apply_filters( 'fes_login_form_header', '<h1 class="fes-headers" id="fes-login-form-title">Login</h1>' );
-			?>
-			<p class="fes-form-error fes-error" style="display: none;"></p>
-                        <div class="login-form">
-                            <?php
-			do_action( 'fes_login_form_above_render_items', $form_id, $read_only, $args );
-			$this->render_items( $form_vars, $id, $type = 'login', $form_id, $read_only, $args );
-			do_action( 'fes_login_form_below_render_items', $form_id, $args );
-			$this->submit_button( $form_id, $type = 'login', $args );
-			do_action( 'fes_login_form_below_submit_buttons', $form_id, $read_only, $args );
-			?>
-                        </div>
-			
-			</div>
-			</form>
-			<?php
-			do_action( 'fes_login_form_after_form', $form_id, $read_only, $args );
+<form class="fes-form-login-form" action="" method="post">
+<div class="fes-form"><?php
+echo apply_filters( 'fes_login_form_header', '<h1 class="fes-headers" id="fes-login-form-title">Login</h1>' );
+?>
+<p class="fes-form-error fes-error" style="display: none;"></p>
+<div class="login-form"><?php
+do_action( 'fes_login_form_above_render_items', $form_id, $read_only, $args );
+$this->render_items( $form_vars, $id, $type = 'login', $form_id, $read_only, $args );
+do_action( 'fes_login_form_below_render_items', $form_id, $args );
+$this->submit_button( $form_id, $type = 'login', $args );
+do_action( 'fes_login_form_below_submit_buttons', $form_id, $read_only, $args );
+?></div>
+
+</div>
+</form>
+<?php
+do_action( 'fes_login_form_after_form', $form_id, $read_only, $args );
 		}
 
 		$form = ob_get_contents();
@@ -198,7 +193,7 @@ class FES_Forms {
 	}
 
 	function render_registration_form( $id = false, $read_only = false, $args = array()  ) {
-		
+
 		EDD_FES()->setup->enqueue_form_assets();
 
 		$allow_registrations = (bool) EDD_FES()->helper->get_option( 'fes-allow-registrations', true ); // allow new users to become vendors
@@ -216,30 +211,26 @@ class FES_Forms {
 		} else if ( $is_pending && !$is_backend ) {
 			// if we are pending vendor but not in the backend
 			?>
-			<div class="fes-vendor-pending fes-info">
-			<?php _e( 'Your application is pending', 'edd_fes' ); ?>
-			</div>
+<div class="fes-vendor-pending fes-info"><?php _e( 'Your application is pending', 'edd_fes' ); ?>
+</div>
 			<?php
 		} else if ( $logged_in && !$allow_applications && !$is_backend ){
 			// if existing user wants to become a vendor, and applications are off, and not in backend
 			?>
-			<div class="fes-info">
-			<?php _e( 'Vendor applications are currently closed', 'edd_fes' ); ?>
-			</div>
+<div class="fes-info"><?php _e( 'Vendor applications are currently closed', 'edd_fes' ); ?>
+</div>
 			<?php
 		} else if ( !$logged_in && !$allow_registrations && $allow_applications && !$is_backend ){
 			// if user is logged out and we allow applications, tell them they can login and apply
 			?>
-			<div class="fes-info">
-			<?php _e( 'Vendor registration is currently closed. If you have an existing account, you may login and apply to become a vendor.', 'edd_fes' ); ?>
-			</div>
+<div class="fes-info"><?php _e( 'Vendor registration is currently closed. If you have an existing account, you may login and apply to become a vendor.', 'edd_fes' ); ?>
+</div>
 			<?php
 		} else if ( !$logged_in && !$allow_registrations && !$allow_applications && !$is_backend ){
 			// if user is logged out and we allow applications, tell them they can login and apply
 			?>
-			<div class="fes-info">
-			<?php _e( 'Vendor registration is currently closed.', 'edd_fes' ); ?>
-			</div>
+<div class="fes-info"><?php _e( 'Vendor registration is currently closed.', 'edd_fes' ); ?>
+</div>
 			<?php
 		} else {
 			// One of these cases:
@@ -259,30 +250,28 @@ class FES_Forms {
 
 			do_action( 'fes_registration_form_before_form', $form_id, $read_only, $args );
 			?>
-			<form class="fes-form-registration-form" action="" method="post">
-				<div class="fes-form">
-					<?php
+<form class="fes-form-registration-form" action="" method="post">
+<div class="fes-form"><?php
 
-					do_action( 'fes_registration_form_above_title', $form_id, $read_only, $args );
+do_action( 'fes_registration_form_above_title', $form_id, $read_only, $args );
 
-					if ( !is_admin() ){
-						echo apply_filters( 'fes_registration_form_header', '<h1 class="fes-headers" id="fes-registration-form-title">Register</h1>' );
-					}
+if ( !is_admin() ){
+	echo apply_filters( 'fes_registration_form_header', '<h1 class="fes-headers" id="fes-registration-form-title">Register</h1>' );
+}
 
-					do_action( 'fes_registration_form_above_render_items', $form_id, $read_only, $args );
+do_action( 'fes_registration_form_above_render_items', $form_id, $read_only, $args );
 
-					$this->render_items( $form_vars, $id, 'registration', $form_id, $read_only, $args );
+$this->render_items( $form_vars, $id, 'registration', $form_id, $read_only, $args );
 
-					do_action( 'fes_registration_form_below_render_items', $form_id, $args );
+do_action( 'fes_registration_form_below_render_items', $form_id, $args );
 
-					$this->submit_button( $form_id, 'registration', $id, $args );
+$this->submit_button( $form_id, 'registration', $id, $args );
 
-					do_action( 'fes_registration_form_below_submit_buttons', $form_id, $read_only, $args );
-					?>
-				</div>
-			</form>
-			<?php
-			do_action( 'fes_registration_form_after_form', $form_id, $read_only, $args );
+do_action( 'fes_registration_form_below_submit_buttons', $form_id, $read_only, $args );
+?></div>
+</form>
+<?php
+do_action( 'fes_registration_form_after_form', $form_id, $read_only, $args );
 
 		}
 
@@ -342,16 +331,16 @@ class FES_Forms {
 	}
 
 	function render_submission_form( $id = false, $read_only = false, $args = array() ) {
-		
+
 		EDD_FES()->setup->enqueue_form_assets();
-		
+
 		ob_start();
 
 		$form_id = EDD_FES()->helper->get_option( 'fes-submission-form', false );
 		if ( ! $form_id ){
 			_e( 'Submission Form not set in the FES settings', 'edd_fes' );
 		}
-		
+
 		$form_vars = get_post_meta( $form_id, 'fes-form', true );
 
 		if ( !$form_vars ) {
@@ -368,7 +357,7 @@ class FES_Forms {
 		$is_vendor = EDD_FES()->vendors->vendor_is_vendor( $user_id );
 		$is_admin = EDD_FES()->vendors->vendor_is_admin( $user_id );
 		$post = get_post( $id );
-		
+
 		// if they are not a vendor, admin, or in the backend
 		if ( ! $post ) {
 			_e( 'Access Denied', 'edd_fes' );
@@ -407,55 +396,51 @@ class FES_Forms {
 		}
 		// is it read only? If so don't make it a form
 		if ( !$read_only ) { ?>
-			 <form class="fes-submission-form addProduct" action="" method="post">
-		<?php }
-		?>
-			<div class="fes-form">
-		<?php
+<form class="fes-submission-form addProduct" action="" method="post"><?php }
+?>
+<div class="fes-form"><?php
 
-		if ( !$id ) {
-			do_action( 'fes_submission_form_new_top', $form_id, $user_id, $args );
-		} else {
-			do_action( 'fes_submission_form_existing_top', $form_id, $id, $user_id, $args );
-		}
+if ( !$id ) {
+	do_action( 'fes_submission_form_new_top', $form_id, $user_id, $args );
+} else {
+	do_action( 'fes_submission_form_existing_top', $form_id, $id, $user_id, $args );
+}
 
-		$this->render_items( $form_vars, $id, $type = 'submission', $form_id, $read_only, $args );
+$this->render_items( $form_vars, $id, $type = 'submission', $form_id, $read_only, $args );
 
-		if ( !$id ) {
-			do_action( 'fes_submission_form_new_bottom', $form_id, $user_id, $args );
-		} else {
-			do_action( 'fes_submission_form_existing_bottom', $form_id, $id, $user_id, $args );
-		}
+if ( !$id ) {
+	do_action( 'fes_submission_form_new_bottom', $form_id, $user_id, $args );
+} else {
+	do_action( 'fes_submission_form_existing_bottom', $form_id, $id, $user_id, $args );
+}
 
-		if ( !$read_only ) {
-			$this->submit_button( $form_id, $type = 'submission', $id, $args );
-		}
+if ( !$read_only ) {
+	$this->submit_button( $form_id, $type = 'submission', $id, $args );
+}
 
-		?>
-		</div>
-		<?php
+?></div>
+<?php
 
-		// is it read only? If so don't make it a form
-		if ( !$read_only ) { ?>
-			</form>
-		<?php }
+// is it read only? If so don't make it a form
+if ( !$read_only ) { ?></form>
+<?php }
 
-		$form = ob_get_contents();
-		ob_end_clean();
+$form = ob_get_contents();
+ob_end_clean();
 
-		return $form;
+return $form;
 	}
 
 	function render_profile_form( $id = -2, $read_only = false, $args = array() ) {
-		
+
 		EDD_FES()->setup->enqueue_form_assets();
-		
+
 		ob_start();
 
 		if ( $id === -2 ) {
 			$id = get_current_user_id();
 		}
-		
+
 		$form_id = EDD_FES()->helper->get_option( 'fes-profile-form', false );
 
 		if ( !$form_id ){
@@ -490,56 +475,52 @@ class FES_Forms {
 
 		// is it read only? If so don't make it a form
 		if ( !$read_only ) { ?>
-			 <form class="fes-profile-form" action="" method="post">
-		<?php }
-		?>
-			<div class="fes-form">
-		<?php
+<form class="fes-profile-form" action="" method="post"><?php }
+?>
+<div class="fes-form"><?php
 
-		do_action( 'fes_profile_form_top', $form_id, $id, $args );
+do_action( 'fes_profile_form_top', $form_id, $id, $args );
 
-		$this->render_items( $form_vars, $id, $type = 'profile' , $form_id, $read_only, $args );
+$this->render_items( $form_vars, $id, $type = 'profile' , $form_id, $read_only, $args );
 
-		do_action( 'fes_profile_form_bottom', $form_id, $id, $args );
+do_action( 'fes_profile_form_bottom', $form_id, $id, $args );
 
-		if ( !$read_only ) {
-			$this->submit_button( $form_id, $type = 'profile', $id, $args );
-		}
-		?>
-			</div>
-		<?php
-		// is it read only? If so don't make it a form
-		if ( !$read_only ) { ?>
-			</form>
-		<?php }
+if ( !$read_only ) {
+	$this->submit_button( $form_id, $type = 'profile', $id, $args );
+}
+?></div>
+<?php
+// is it read only? If so don't make it a form
+if ( !$read_only ) { ?></form>
+<?php }
 
-		$form = ob_get_contents();
-		ob_end_clean();
+$form = ob_get_contents();
+ob_end_clean();
 
-		return $form;
+return $form;
 	}
 
 	// submit form
 	function submit_form( $type = 'submission', $id = false, $values = array(), $args = array() ) {
 		switch ( $type ) {
-		case 'submission':
-			$this->submit_submission_form( $id, $values, $args );
-			break;
-		case 'profile':
-			$this->submit_profile_form( $id, $values, $args );
-			break;
-		case 'login':
-			$this->submit_login_form( $id, $values, $args );
-			break;
-		case 'registration':
-			$this->submit_registration_form( $id, $values, $args );
-			break;
-		case 'vendor_contact':
-			$this->submit_vendor_contact_form( $id, $values, $args );
-			break;
-		default:
-			$this->submit_submission_form( $id, $read_only, $args );
-			break;
+			case 'submission':
+				$this->submit_submission_form( $id, $values, $args );
+				break;
+			case 'profile':
+				$this->submit_profile_form( $id, $values, $args );
+				break;
+			case 'login':
+				$this->submit_login_form( $id, $values, $args );
+				break;
+			case 'registration':
+				$this->submit_registration_form( $id, $values, $args );
+				break;
+			case 'vendor_contact':
+				$this->submit_vendor_contact_form( $id, $values, $args );
+				break;
+			default:
+				$this->submit_submission_form( $id, $read_only, $args );
+				break;
 		}
 
 	}
@@ -556,7 +537,7 @@ class FES_Forms {
 		$form_vars     = $this->get_input_fields( $form_id );
 		$form_settings = get_post_meta( $form_id, 'fes-form_settings', true );
 		list( $user_vars, $taxonomy_vars, $meta_vars ) = $form_vars;
-		
+
 		do_action( 'fes_pre_process_contact_form', $this, $form_id, $form_vars );
 
 		if ( EDD_FES()->helper->get_option( 'fes-vendor-contact-captcha', false ) ) {
@@ -1298,247 +1279,269 @@ class FES_Forms {
 			'post_title' => isset( $_POST[ 'post_title' ] ) ? sanitize_text_field( trim( $_POST[ 'post_title' ] ) ) : '',
 			'post_content' => isset( $_POST[ 'post_content' ] ) ? wp_kses( $_POST[ 'post_content' ], fes_allowed_html_tags() ) : '',
 			'post_excerpt' => isset( $_POST[ 'post_excerpt' ] ) ? wp_kses( $_POST[ 'post_excerpt' ], fes_allowed_html_tags() ) : ''
-		);
-		if ( isset( $_POST[ 'category' ] ) ) {
-			$category                   = $_POST[ 'category' ];
-			$postarr[ 'post_category' ] = is_array( $category ) ? $category : array(
-				$category
 			);
-		}
-		if ( isset( $_POST[ 'tags' ] ) ) {
-			$postarr[ 'tags_input' ] = explode( ',', $_POST[ 'tags' ] );
-		}
-		$postarr = apply_filters( 'fes_add_post_args', $postarr, $form_id, $form_settings, $form_vars );
-
-		if ( $new ) {
-			$post_id = wp_insert_post( $postarr );
-
-			if ( $pending ){
-				// email admin
-				$to = apply_filters('fes_submission_form_pending_to_admin', edd_get_admin_notice_emails(), $post_id );
-				$from_name = isset( $edd_options[ 'from_name' ] ) ? $edd_options[ 'from_name' ] : get_bloginfo( 'name' );
-				$from_email = isset( $edd_options[ 'from_email' ] ) ? $edd_options[ 'from_email' ] : get_option( 'admin_email' );
-				$subject = apply_filters('fes_submission_form_to_admin_subject', __('New Submission Received', 'edd_fes' ) );
-				$message = EDD_FES()->helper->get_option( 'fes-admin-new-submission-email', '' );
-				$type = "post";
-				$id = $post_id;
-				$args = array( 'permissions' => 'fes-admin-new-submission-email-toggle');
-				EDD_FES()->emails->send_email( $to , $from_name, $from_email, $subject, $message, $type, $id, $args );
-
-				// email user
-				$user = new WP_User( $user_id );
-				$to = $user->user_email;
-				$from_name = isset( $edd_options[ 'from_name' ] ) ? $edd_options[ 'from_name' ] : get_bloginfo( 'name' );
-				$from_email = isset( $edd_options[ 'from_email' ] ) ? $edd_options[ 'from_email' ] : get_option( 'admin_email' );
-				$subject = apply_filters('fes_submission_new_form_to_vendor_subject', __('Submission Received', 'edd_fes' ) );
-				$message = EDD_FES()->helper->get_option( 'fes-vendor-new-submission-email', '' );
-				$type = "post";
-				$id = $post_id;
-				$args = array( 'permissions' => 'fes-vendor-new-submission-email-toggle');
-				EDD_FES()->emails->send_email( $to , $from_name, $from_email, $subject, $message, $type, $id, $args );
-				do_action('fes_submission_form_new_pending', $post_id );
+			if ( isset( $_POST[ 'category' ] ) ) {
+				$category                   = $_POST[ 'category' ];
+				$postarr[ 'post_category' ] = is_array( $category ) ? $category : array(
+				$category
+				);
 			}
-			else{
-				do_action('fes_submission_form_new_published', $post_id );
+			if ( isset( $_POST[ 'tags' ] ) ) {
+				$postarr[ 'tags_input' ] = explode( ',', $_POST[ 'tags' ] );
 			}
+			$postarr = apply_filters( 'fes_add_post_args', $postarr, $form_id, $form_settings, $form_vars );
 
-		}
-		else {
-			$postarr['ID'] = $post_id;
-			wp_update_post( $postarr );
+			if ( $new ) {
+				$post_id = wp_insert_post( $postarr );
 
-			// submission heading to pending
-			if ( $pending ){
-				// email admin
-				$to = apply_filters('fes_submission_form_published_to_admin', edd_get_admin_notice_emails(), $post_id );
-				$from_name = isset( $edd_options[ 'from_name' ] ) ? $edd_options[ 'from_name' ] : get_bloginfo( 'name' );
-				$from_email = isset( $edd_options[ 'from_email' ] ) ? $edd_options[ 'from_email' ] : get_option( 'admin_email' );
-				$subject = apply_filters('fes_submission_form_edit_to_admin_subject', __('New Submission Edit Received', 'edd_fes' ) );
-				$message = EDD_FES()->helper->get_option( 'fes-admin-new-submission-edit-email', '' );
-				$type = "post";
-				$id = $post_id;
-				$args = array( 'permissions' => 'fes-admin-new-submission-edit-email-toggle');
-				EDD_FES()->emails->send_email( $to , $from_name, $from_email, $subject, $message, $type, $id, $args );
-				do_action('fes_submission_form_edit_pending', $post_id );
+				if ( $pending ){
+					// email admin
+					$to = apply_filters('fes_submission_form_pending_to_admin', edd_get_admin_notice_emails(), $post_id );
+					$from_name = isset( $edd_options[ 'from_name' ] ) ? $edd_options[ 'from_name' ] : get_bloginfo( 'name' );
+					$from_email = isset( $edd_options[ 'from_email' ] ) ? $edd_options[ 'from_email' ] : get_option( 'admin_email' );
+					$subject = apply_filters('fes_submission_form_to_admin_subject', __('New Submission Received', 'edd_fes' ) );
+					$message = EDD_FES()->helper->get_option( 'fes-admin-new-submission-email', '' );
+					$type = "post";
+					$id = $post_id;
+					$args = array( 'permissions' => 'fes-admin-new-submission-email-toggle');
+					EDD_FES()->emails->send_email( $to , $from_name, $from_email, $subject, $message, $type, $id, $args );
+
+					// email user
+					$user = new WP_User( $user_id );
+					$to = $user->user_email;
+					$from_name = isset( $edd_options[ 'from_name' ] ) ? $edd_options[ 'from_name' ] : get_bloginfo( 'name' );
+					$from_email = isset( $edd_options[ 'from_email' ] ) ? $edd_options[ 'from_email' ] : get_option( 'admin_email' );
+					$subject = apply_filters('fes_submission_new_form_to_vendor_subject', __('Submission Received', 'edd_fes' ) );
+					$message = EDD_FES()->helper->get_option( 'fes-vendor-new-submission-email', '' );
+					$type = "post";
+					$id = $post_id;
+					$args = array( 'permissions' => 'fes-vendor-new-submission-email-toggle');
+					EDD_FES()->emails->send_email( $to , $from_name, $from_email, $subject, $message, $type, $id, $args );
+					do_action('fes_submission_form_new_pending', $post_id );
+				}
+				else{
+					do_action('fes_submission_form_new_published', $post_id );
+				}
+
 			}
-			else{
-				do_action('fes_submission_form_edit_published', $post_id );
+			else {
+				$postarr['ID'] = $post_id;
+				wp_update_post( $postarr );
+
+				// submission heading to pending
+				if ( $pending ){
+					// email admin
+					$to = apply_filters('fes_submission_form_published_to_admin', edd_get_admin_notice_emails(), $post_id );
+					$from_name = isset( $edd_options[ 'from_name' ] ) ? $edd_options[ 'from_name' ] : get_bloginfo( 'name' );
+					$from_email = isset( $edd_options[ 'from_email' ] ) ? $edd_options[ 'from_email' ] : get_option( 'admin_email' );
+					$subject = apply_filters('fes_submission_form_edit_to_admin_subject', __('New Submission Edit Received', 'edd_fes' ) );
+					$message = EDD_FES()->helper->get_option( 'fes-admin-new-submission-edit-email', '' );
+					$type = "post";
+					$id = $post_id;
+					$args = array( 'permissions' => 'fes-admin-new-submission-edit-email-toggle');
+					EDD_FES()->emails->send_email( $to , $from_name, $from_email, $subject, $message, $type, $id, $args );
+					do_action('fes_submission_form_edit_pending', $post_id );
+				}
+				else{
+					do_action('fes_submission_form_edit_published', $post_id );
+				}
 			}
-		}
-		if ( $post_id ) {
-			self::update_post_meta( $meta_vars, $post_id );
-			// set the post form_id for later usage
-			update_post_meta( $post_id, '_fes-form_id', $form_id );
-			// find our if any images in post content and associate them
-			if ( !empty( $postarr[ 'post_content' ] ) ) {
-				$dom = new DOMDocument();
-				$dom->loadHTML( $postarr[ 'post_content' ] );
-				$images = $dom->getElementsByTagName( 'img' );
-				if ( $images->length ) {
-					foreach ( $images as $img ) {
-						$url           = $img->getAttribute( 'src' );
-						$url           = str_replace( array(
+			if ( $post_id ) {
+				self::update_post_meta( $meta_vars, $post_id );
+				// set the post form_id for later usage
+				update_post_meta( $post_id, '_fes-form_id', $form_id );
+				// find our if any images in post content and associate them
+				if ( !empty( $postarr[ 'post_content' ] ) ) {
+					$dom = new DOMDocument();
+					$dom->loadHTML( $postarr[ 'post_content' ] );
+					$images = $dom->getElementsByTagName( 'img' );
+					if ( $images->length ) {
+						foreach ( $images as $img ) {
+							$url           = $img->getAttribute( 'src' );
+							$url           = str_replace( array(
 								'"',
 								"'",
 								"\\"
-							), '', $url );
-						$attachment_id = fes_get_attachment_id_from_url( $url, $post_author );
-						if ( $attachment_id ) {
-							fes_associate_attachment( $attachment_id, $post_id );
+								), '', $url );
+								$attachment_id = fes_get_attachment_id_from_url( $url, $post_author );
+								if ( $attachment_id ) {
+									fes_associate_attachment( $attachment_id, $post_id );
+								}
 						}
 					}
 				}
-			}
-			
-			//quick fix by vipin to search in pick resource type category
-			if(isset($_POST['pick_resource_type']) and is_array($_POST['pick_resource_type'])){
+					
 				global $wpdb;
-				$pick_resource_types = array();
-				foreach($_POST['pick_resource_type'] as $pick_resource_type){
-					$term_id = $wpdb->get_col("select term_id from wp_terms where name = '$pick_resource_type'");
-					$pick_resource_types[] = $term_id[0];
-				}
-				
-				if($pick_resource_types){
-					$_POST['download_category'] = array_merge($_POST['download_category'] , $pick_resource_types);
-				}
-			}
-			
-			/*$response = array(
-				'success' => false,
-				'message' => print_r($_POST['download_category'],1),
-				'is_post' => true
-			);
-			echo json_encode( $response );
-			exit;*/
-			
-			foreach ( $taxonomy_vars as $taxonomy ) {
-				if ( isset( $_POST[ $taxonomy[ 'name' ] ] ) ) {
-					if ( is_object_in_taxonomy( 'download', $taxonomy[ 'name' ] ) ) {
-						$tax = $_POST[ $taxonomy[ 'name' ] ];
-						// if it's not an array, make it one
-						if ( !is_array( $tax ) ) {
-							$tax = array(
-								$tax
-							);
-						}
-						if ( $taxonomy[ 'type' ] == 'text' ) {
-							$hierarchical = array_map( 'trim', array_map( 'strip_tags', explode( ',', $_POST[ $taxonomy[ 'name' ] ] ) ) );
-							wp_set_object_terms( $post_id, $hierarchical, $taxonomy[ 'name' ] );
-						} else {
-							if ( is_taxonomy_hierarchical( $taxonomy[ 'name' ] ) ) {
-								wp_set_post_terms( $post_id, $_POST[ $taxonomy[ 'name' ] ], $taxonomy[ 'name' ] );
-							} else {
-								if ( $tax ) {
-									$non_hierarchical = array();
-									foreach ( $tax as $value ) {
-										$term = get_term_by( 'id', $value, $taxonomy[ 'name' ] );
-										if ( $term && !is_wp_error( $term ) ) {
-											$non_hierarchical[] = $term->name;
-										}
-									}
-									wp_set_post_terms( $post_id, $non_hierarchical, $taxonomy[ 'name' ] );
-								}
-							} // hierarchical
-						} // is text
-					} // is object tax
-				} // isset tax
-			}
-			$options   = isset( $_POST[ 'option' ] ) ? $_POST[ 'option' ] : '';
+					
+				//quick fix by vipin to search in pick resource type category
+				if(isset($_POST['pick_resource_type']) and is_array($_POST['pick_resource_type'])){
+					$pick_resource_types = array();
+					foreach($_POST['pick_resource_type'] as $pick_resource_type){
+						$term_id = $wpdb->get_col("select term_id from wp_terms where name = '$pick_resource_type'");
+						$pick_resource_types[] = $term_id[0];
+					}
 
-			$files     = isset( $_POST[ 'files' ] ) ? $_POST[ 'files' ] : '';
-			$prices    = array();
-			$edd_files = array();
-			if ( isset( $options ) && $options != '' ) {
-				foreach ( $options as $key => $option ) {
-					$prices[] = array(
+					if($pick_resource_types){
+						$_POST['download_category'] = array_merge($_POST['download_category'] , $pick_resource_types);
+					}
+				}
+					
+				if(isset($_POST['pick_price_range']) and is_array($_POST['pick_price_range'])){
+					$pick_price_range = $_POST['pick_price_range'][0];
+					$term_id = $wpdb->get_col("select term_id from wp_terms where name = '$pick_price_range'");
+
+					if($term_id){
+						$_POST['download_category'] = array_merge($_POST['download_category'] , $term_id);
+					}
+				}
+					
+				if(isset($_POST['pick_grade_level(s)']) and is_array($_POST['pick_grade_level(s)'])){
+					$pick_grade_levels = array();
+					foreach($_POST['pick_grade_level(s)'] as $pick_grade_level){
+						$term_id = $wpdb->get_col("select term_id from wp_terms where name = '$pick_grade_level'");
+						$pick_grade_levels[] = $term_id[0];
+					}
+
+					if($pick_grade_levels){
+						$_POST['download_category'] = array_merge($_POST['download_category'] , $pick_grade_levels);
+					}
+				}
+					
+				/*$response = array(
+				 'success' => false,
+				 'message' => print_r($_POST['download_category'],1),
+				 'is_post' => true
+				 );
+				 echo json_encode( $response );
+				 exit;*/
+					
+				foreach ( $taxonomy_vars as $taxonomy ) {
+					if ( isset( $_POST[ $taxonomy[ 'name' ] ] ) ) {
+						if ( is_object_in_taxonomy( 'download', $taxonomy[ 'name' ] ) ) {
+							$tax = $_POST[ $taxonomy[ 'name' ] ];
+							// if it's not an array, make it one
+							if ( !is_array( $tax ) ) {
+								$tax = array(
+								$tax
+								);
+							}
+							if ( $taxonomy[ 'type' ] == 'text' ) {
+								$hierarchical = array_map( 'trim', array_map( 'strip_tags', explode( ',', $_POST[ $taxonomy[ 'name' ] ] ) ) );
+								wp_set_object_terms( $post_id, $hierarchical, $taxonomy[ 'name' ] );
+							} else {
+								if ( is_taxonomy_hierarchical( $taxonomy[ 'name' ] ) ) {
+									wp_set_post_terms( $post_id, $_POST[ $taxonomy[ 'name' ] ], $taxonomy[ 'name' ] );
+								} else {
+									if ( $tax ) {
+										$non_hierarchical = array();
+										foreach ( $tax as $value ) {
+											$term = get_term_by( 'id', $value, $taxonomy[ 'name' ] );
+											if ( $term && !is_wp_error( $term ) ) {
+												$non_hierarchical[] = $term->name;
+											}
+										}
+										wp_set_post_terms( $post_id, $non_hierarchical, $taxonomy[ 'name' ] );
+									}
+								} // hierarchical
+							} // is text
+						} // is object tax
+					} // isset tax
+				}
+				$options   = isset( $_POST[ 'option' ] ) ? $_POST[ 'option' ] : '';
+
+				$files     = isset( $_POST[ 'files' ] ) ? $_POST[ 'files' ] : '';
+				$prices    = array();
+				$edd_files = array();
+				if ( isset( $options ) && $options != '' ) {
+					foreach ( $options as $key => $option ) {
+						$prices[] = array(
 						'name' => isset( $option[ 'description' ] ) ? sanitize_text_field( $option[ 'description' ] ) : '',
 						'amount' => isset( $option[ 'price' ] ) ? $option[ 'price' ] : '',
-					);
-				}
-				if ( !empty( $files ) ) {
-					foreach ( $files as $key => $url ) {
-						$edd_files[ $key ] = array(
+						);
+					}
+					if ( !empty( $files ) ) {
+						foreach ( $files as $key => $url ) {
+							$edd_files[ $key ] = array(
 							'name' => basename( $url ),
 							'file' => $url,
 							'condition' => $key
-						);
+							);
+						}
 					}
-				}
-			} elseif( !empty( $files ) ) {
+				} elseif( !empty( $files ) ) {
 
-				// For when there are no prices or option names allowed, https://github.com/chriscct7/edd-fes/issues/417
+					// For when there are no prices or option names allowed, https://github.com/chriscct7/edd-fes/issues/417
 
-				foreach ( $files as $key => $url ) {
-					$edd_files[ $key ] = array(
+					foreach ( $files as $key => $url ) {
+						$edd_files[ $key ] = array(
 						'name' => basename( $url ),
 						'file' => $url,
 						'condition' => $key
-					);
+						);
+					}
+
 				}
 
-			}
-
-			do_action( 'fes_submission_form_save_custom_fields', $post_id );
-			if ( count( $prices ) === 1 || count( $prices ) === 0 ) {
-				if (!isset( $prices[ 0 ][ 'amount' ] ) ){
+				do_action( 'fes_submission_form_save_custom_fields', $post_id );
+				if ( count( $prices ) === 1 || count( $prices ) === 0 ) {
+					if (!isset( $prices[ 0 ][ 'amount' ] ) ){
 					 $prices[ 0 ][ 'amount' ] = "";
-				}
-				update_post_meta( $post_id, '_variable_pricing', 0 );
-				update_post_meta( $post_id, 'edd_price', $prices[ 0 ][ 'amount' ] );
-				update_post_meta( $post_id, 'edd_variable_prices', $prices ); // Save variable prices anyway so that price options are saved
-			} else {
-				update_post_meta( $post_id, '_variable_pricing', 1 );
-				update_post_meta( $post_id, 'edd_variable_prices', $prices );
+					}
+					update_post_meta( $post_id, '_variable_pricing', 0 );
+					update_post_meta( $post_id, 'edd_price', $prices[ 0 ][ 'amount' ] );
+					update_post_meta( $post_id, 'edd_variable_prices', $prices ); // Save variable prices anyway so that price options are saved
+				} else {
+					update_post_meta( $post_id, '_variable_pricing', 1 );
+					update_post_meta( $post_id, 'edd_variable_prices', $prices );
 
-				if ( EDD_FES()->helper->get_option( 'fes-allow-multiple-purchase-mode', false ) ){
-					update_post_meta( $post_id, '_edd_price_options_mode', '1' );
+					if ( EDD_FES()->helper->get_option( 'fes-allow-multiple-purchase-mode', false ) ){
+						update_post_meta( $post_id, '_edd_price_options_mode', '1' );
+					}
 				}
-			}
-			if ( !empty( $files ) ) {
-				$edd_files = apply_filters( 'fes_pre_files_save', $edd_files, $post_id );
-				update_post_meta( $post_id, 'edd_download_files', $edd_files );
-			}
-			if ( EDD_FES()->integrations->is_commissions_active() && $new === true ) {
-				$commission = array(
+				if ( !empty( $files ) ) {
+					$edd_files = apply_filters( 'fes_pre_files_save', $edd_files, $post_id );
+					update_post_meta( $post_id, 'edd_download_files', $edd_files );
+				}
+				if ( EDD_FES()->integrations->is_commissions_active() && $new === true ) {
+					$commission = array(
 					'amount' => eddc_get_recipient_rate( 0, $post_author ),
 					'user_id' => $post_author,
 					'type' => 'percentage'
-				);
-				update_post_meta( $post_id, '_edd_commission_settings', $commission );
-				update_post_meta( $post_id, '_edd_commisions_enabled', '1' );
-			}
-			do_action( 'fes_submit_submission_form_bottom', $post_id );
+					);
+					update_post_meta( $post_id, '_edd_commission_settings', $commission );
+					update_post_meta( $post_id, '_edd_commisions_enabled', '1' );
+				}
+				do_action( 'fes_submit_submission_form_bottom', $post_id );
 
-			$redirect_to = get_permalink( EDD_FES()->helper->get_option( 'fes-vendor-dashboard-page', false ) );
-			if ( EDD_FES()->vendors->vendor_can_edit_product( $post_id ) ){
-				$redirect_to = add_query_arg( array(
+				$redirect_to = get_permalink( EDD_FES()->helper->get_option( 'fes-vendor-dashboard-page', false ) );
+				if ( EDD_FES()->vendors->vendor_can_edit_product( $post_id ) ){
+					$redirect_to = add_query_arg( array(
 					'task' => 'edit-product'
-				), $redirect_to );
+					), $redirect_to );
 
-				$redirect_to = add_query_arg( array(
+					$redirect_to = add_query_arg( array(
 					'post_id' => $post_id
-				), $redirect_to );
-			}
-			else{
-				$redirect_to = add_query_arg( array(
+					), $redirect_to );
+				}
+				else{
+					$redirect_to = add_query_arg( array(
 					'task' => 'dashboard'
-				), $redirect_to );
-			}
+					), $redirect_to );
+				}
 
-			$response = array(
+				$response = array(
 				'success' => true,
 				'redirect_to' => $redirect_to,
 				'message' => __( 'Success!', 'edd_fes' ),
 				'is_post' => true
-			);
-			$response = apply_filters( 'fes_add_post_redirect', $response, $post_id, $form_id );
-			echo json_encode( $response );
-			exit;
-		}
-		else {
-			$this->signal_error( __( 'Something went wrong! Error 1049: Post ID not set. Possibly Database lock in place.', 'edd_fes' ) );
-		}
+				);
+				$response = apply_filters( 'fes_add_post_redirect', $response, $post_id, $form_id );
+				echo json_encode( $response );
+				exit;
+			}
+			else {
+				$this->signal_error( __( 'Something went wrong! Error 1049: Post ID not set. Possibly Database lock in place.', 'edd_fes' ) );
+			}
 
 	}
 
@@ -1556,7 +1559,7 @@ class FES_Forms {
 
 		$merged_user_meta = array_merge( $user_vars, $meta_vars );
 
-//		echo json_encode( $user_vars ); exit;
+		//		echo json_encode( $user_vars ); exit;
 
 		// if admin side lets get them out of the way
 		if ( is_admin() && ! empty( $_REQUEST['is_admin'] ) && '1' == $_REQUEST['is_admin'] ) {
@@ -1733,18 +1736,18 @@ class FES_Forms {
 		$redirect_to = get_permalink( $_POST[ 'page_id' ] );
 		$redirect_to = add_query_arg( array(
 				'task' => 'profile'
-			), $redirect_to );
-		// send the response
-		$response    = array(
+				), $redirect_to );
+				// send the response
+				$response    = array(
 			'success' => true,
 			'redirect_to' => $redirect_to,
 			'message' => __( 'Profile Successfully Updated' , 'edd_fes' ),
 			'is_post' => false
-		);
-		$response    = apply_filters( 'fes_profile_form_redirect', $response, $user_id, $form_id );
-		do_action('fes_profile_form_success', $user_id );
-		echo json_encode( $response );
-		exit;
+				);
+				$response    = apply_filters( 'fes_profile_form_redirect', $response, $user_id, $form_id );
+				do_action('fes_profile_form_success', $user_id );
+				echo json_encode( $response );
+				exit;
 	}
 
 	// types of forms:
@@ -1843,7 +1846,7 @@ class FES_Forms {
 		$meta_key_value = array();
 		$multi_repeated = array(); //multi repeated fields will in sotre duplicated meta key
 
-	//	echo json_encode( $meta_vars ); exit;
+		//	echo json_encode( $meta_vars ); exit;
 
 		foreach ( $meta_vars as $key => $value ) {
 
@@ -2254,19 +2257,24 @@ class FES_Forms {
 
 		ob_start(); ?>
 
-        <div class="fes-fields">
-            <input class="textfield<?php echo $this->required_class( $attr ); ?>" id="<?php echo $attr['name']; ?>" type="text" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="<?php echo esc_attr( $attr['name'] ); ?>" placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" value="<?php echo esc_attr( $value ) ?>" size="<?php echo esc_attr( $attr['size'] ) ?>" <?php echo $username ? 'disabled' : ''; ?> />
-            <?php if ( $taxonomy ) { ?>
-            <script type="text/javascript">
+<div class="fes-fields"><input
+	class="textfield<?php echo $this->required_class( $attr ); ?>"
+	id="<?php echo $attr['name']; ?>" type="text"
+	data-required="<?php echo $attr['required'] ?>" data-type="text"
+	<?php $this->required_html5( $attr ); ?>
+	name="<?php echo esc_attr( $attr['name'] ); ?>"
+	placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>"
+	value="<?php echo esc_attr( $value ) ?>"
+	size="<?php echo esc_attr( $attr['size'] ) ?>"
+	<?php echo $username ? 'disabled' : ''; ?> /> <?php if ( $taxonomy ) { ?>
+<script type="text/javascript">
                 jQuery(function($) {
                     $('fieldset.tags input[name=tags]').suggest( fes_form.ajaxurl + '?action=ajax-tag-search_array&tax=post_tag', { delay: 500, minchars: 2, multiple: true, multipleSep: ', ' } );
                 });
-            </script>
-            <?php } ?>
-        </div>
+            </script> <?php } ?></div>
 
-        <?php
-        return ob_get_clean();
+	<?php
+	return ob_get_clean();
 	}
 
 	/**
@@ -2298,36 +2306,40 @@ class FES_Forms {
 			$attr['rows'] = 8;
 		}
 		ob_start();
-?>
+		?>
 
-        <div class="fes-fields">
-        <?php
+<div class="fes-fields"><?php
 
-		$rich = isset( $attr['rich'] ) ? $attr['rich'] : '';
+$rich = isset( $attr['rich'] ) ? $attr['rich'] : '';
 
-		if ( $rich == 'yes' ) {
-			$options = array( 'editor_height' => $attr['rows'], 'quicktags' => false, 'editor_class' => $req_class );
-			if (isset($attr['insert_image']) && $attr['insert_image']){
-				$options['media_buttons'] = true;
-			}
-			printf( '<span class="fes-rich-validation" data-required="%s" data-type="rich" data-id="%s"></span>', $attr['required'], $attr['name'] );
-			wp_editor( $value, $attr['name'], $options );
+if ( $rich == 'yes' ) {
+	$options = array( 'editor_height' => $attr['rows'], 'quicktags' => false, 'editor_class' => $req_class );
+	if (isset($attr['insert_image']) && $attr['insert_image']){
+		$options['media_buttons'] = true;
+	}
+	printf( '<span class="fes-rich-validation" data-required="%s" data-type="rich" data-id="%s"></span>', $attr['required'], $attr['name'] );
+	wp_editor( $value, $attr['name'], $options );
 
-		} elseif ( $rich == 'teeny' ) {
-			$options = array( 'editor_height' => $attr['rows'], 'quicktags' => false, 'teeny' => true, 'editor_class' => $req_class);
-			if ($attr['insert_image']){
-				$options['media_buttons'] = true;
-			}
-			printf( '<span class="fes-rich-validation" data-required="%s" data-type="rich" data-id="%s"></span>', $attr['required'], $attr['name'] );
-			wp_editor( $value, $attr['name'], $options );
-		} else {
-?>
-                <textarea class="textareafield<?php echo $this->required_class( $attr ); ?>" id="<?php echo $attr['name']; ?>" name="<?php echo $attr['name']; ?>" data-required="<?php echo $attr['required'] ?>" data-type="textarea"<?php $this->required_html5( $attr ); ?> placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" rows="<?php echo esc_attr( $attr['rows'] ); ?>" cols="<?php echo esc_attr( $attr['cols'] ); ?>"><?php echo esc_textarea( $value ) ?></textarea>
-            <?php } ?>
-        </div>
+} elseif ( $rich == 'teeny' ) {
+	$options = array( 'editor_height' => $attr['rows'], 'quicktags' => false, 'teeny' => true, 'editor_class' => $req_class);
+	if ($attr['insert_image']){
+		$options['media_buttons'] = true;
+	}
+	printf( '<span class="fes-rich-validation" data-required="%s" data-type="rich" data-id="%s"></span>', $attr['required'], $attr['name'] );
+	wp_editor( $value, $attr['name'], $options );
+} else {
+	?> <textarea
+	class="textareafield<?php echo $this->required_class( $attr ); ?>"
+	id="<?php echo $attr['name']; ?>" name="<?php echo $attr['name']; ?>"
+	data-required="<?php echo $attr['required'] ?>" data-type="textarea"
+	<?php $this->required_html5( $attr ); ?>
+	placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>"
+	rows="<?php echo esc_attr( $attr['rows'] ); ?>"
+	cols="<?php echo esc_attr( $attr['cols'] ); ?>"><?php echo esc_textarea( $value ) ?></textarea>
+	<?php } ?></div>
 
-        <?php
-        return ob_get_clean();
+	<?php
+	return ob_get_clean();
 	}
 
 	/**
@@ -2341,11 +2353,11 @@ class FES_Forms {
 		$attr['names'] = $attr && isset($attr['names']) ? strtolower( $attr['names'] ) : '';
 		$names_disabled = $attr && isset($attr['names']) && $attr['names'] !== 'no' ? false : true;
 		$attr['prices'] = $attr && isset($attr['prices']) ? strtolower( $attr['prices'] ) : '';
-    	$prices_disabled = $attr && isset($attr['prices']) && $attr['prices'] !== 'no' ? false : true;
-    	$attr['files'] = $attr && isset($attr['files']) ? strtolower( $attr['files'] ) : '';
-    	$files_disabled = $attr && isset($attr['files']) && $attr['files'] !== 'no' ? false : true;
+		$prices_disabled = $attr && isset($attr['prices']) && $attr['prices'] !== 'no' ? false : true;
+		$attr['files'] = $attr && isset($attr['files']) ? strtolower( $attr['files'] ) : '';
+		$files_disabled = $attr && isset($attr['files']) && $attr['files'] !== 'no' ? false : true;
 
-    	$predefined_on = $attr && isset($attr['multiple']) && $attr['multiple'] !== 'false' ? true : false;
+		$predefined_on = $attr && isset($attr['multiple']) && $attr['multiple'] !== 'false' ? true : false;
 
 		$predefined_options = $attr && isset($attr['files']) ? esc_attr( $attr['files'] ) : false;
 
@@ -2372,127 +2384,144 @@ class FES_Forms {
 		} else {
 			if ( $predefined_on && isset( $attr['columns'] ) && $attr['columns'] > 0 ){
 				$keys = count( $attr['columns'] );
-	            $new_values = array();
-	            $key = 0;
-	            foreach ( $attr['columns'] as $old_key => $value ){
-	                if ( $old_key === 0 || $old_key % 2 == 0 ){
-	                    $new_values[$key]['description'] = $value['name'];
-	                    $new_values[$key]['files'] = '';
-	                }
-	                else{
-	                     $new_values[$key]['price'] = $value['price'];
-	                     $key++;
-	                }
-	                unset( $attr[$old_key] );
-	            }
-	            $combos = $new_values;
-	        }
-            else{
+				$new_values = array();
+				$key = 0;
+				foreach ( $attr['columns'] as $old_key => $value ){
+					if ( $old_key === 0 || $old_key % 2 == 0 ){
+						$new_values[$key]['description'] = $value['name'];
+						$new_values[$key]['files'] = '';
+					}
+					else{
+						$new_values[$key]['price'] = $value['price'];
+						$key++;
+					}
+					unset( $attr[$old_key] );
+				}
+				$combos = $new_values;
+			}
+			else{
 				$combos = array( 0 => array( 'description' => '', 'price' => '', 'files' => '' ) );
-            }
+			}
 		}
 
 		$files = $combos;
 		ob_start();
 		?>
-		<div class="fes-fields">
-			<table class="<?php echo sanitize_key($attr['name']); ?>">
-				<thead>
-					<tr>
-						<?php if ( $attr[ 'single' ] !== 'yes' && (!$names_disabled || $predefined_on)  ) { ?>
-							<td class="fes-name-column"><?php _e( 'Name of Price Option', 'edd_fes' ); ?></td>
-						<?php } ?>
-						<?php if ( !$prices_disabled || $predefined_on ) { ?>
-							<td class="fes-price-column"><?php printf( __( 'Amount (%s)', 'edd_fes' ), edd_currency_filter( '' ) ); ?></td>
-						<?php } ?>
-						<?php if ( !$files_disabled ) { ?>
-							<td class="fes-file-column" colspan="2"><?php _e( 'File URL', 'edd_fes' ); ?></td>
-						<?php } ?>
-						<?php do_action("fes-add-multiple-pricing-column"); ?>
-						<?php if ( $attr[ 'single' ] === 'yes' || $predefined_on ) { ?>
-							<td class="fes-remove-column">&nbsp;</td>
-						<?php } ?>
-					</tr>
-				</thead>
-				<tbody  class="fes-variations-list-<?php echo sanitize_key($attr['name']); ?>">
-				<?php
-				foreach ( $files as $index => $file ){
-					if ( ! is_array( $file ) ) {
-						$file = array(
+<div class="fes-fields">
+<table class="<?php echo sanitize_key($attr['name']); ?>">
+	<thead>
+		<tr>
+		<?php if ( $attr[ 'single' ] !== 'yes' && (!$names_disabled || $predefined_on)  ) { ?>
+			<td class="fes-name-column"><?php _e( 'Name of Price Option', 'edd_fes' ); ?></td>
+			<?php } ?>
+			<?php if ( !$prices_disabled || $predefined_on ) { ?>
+			<td class="fes-price-column"><?php printf( __( 'Amount (%s)', 'edd_fes' ), edd_currency_filter( '' ) ); ?></td>
+			<?php } ?>
+			<?php if ( !$files_disabled ) { ?>
+			<td class="fes-file-column" colspan="2"><?php _e( 'File URL', 'edd_fes' ); ?></td>
+			<?php } ?>
+			<?php do_action("fes-add-multiple-pricing-column"); ?>
+			<?php if ( $attr[ 'single' ] === 'yes' || $predefined_on ) { ?>
+			<td class="fes-remove-column">&nbsp;</td>
+			<?php } ?>
+		</tr>
+	</thead>
+	<tbody
+		class="fes-variations-list-<?php echo sanitize_key($attr['name']); ?>">
+		<?php
+		foreach ( $files as $index => $file ){
+			if ( ! is_array( $file ) ) {
+				$file = array(
 							'file' => '',
 							'description' => '',
 							'price' => ''
-						);
-						$file = apply_filters('fes_default_new_multiple_price_row_values', $file );
-					}
-					$price = isset( $file['price'] ) && $file['price'] != '' ? $file['price'] : '';
-					$description = isset( $file['description'] ) && $file['description'] != '' ? $file['description'] : '';
-					$download = isset( $file['files'] ) && $file['files'] != '' ? $file['files'] : '';
+							);
+							$file = apply_filters('fes_default_new_multiple_price_row_values', $file );
+			}
+			$price = isset( $file['price'] ) && $file['price'] != '' ? $file['price'] : '';
+			$description = isset( $file['description'] ) && $file['description'] != '' ? $file['description'] : '';
+			$download = isset( $file['files'] ) && $file['files'] != '' ? $file['files'] : '';
 
-					$price = apply_filters('fes_multiple_price_row_price_value', $price, $file );
-					$description = apply_filters('fes_multiple_price_row_description_value', $description, $file );
-					$download = apply_filters('fes_multiple_price_row_download_value', $download, $file );
+			$price = apply_filters('fes_multiple_price_row_price_value', $price, $file );
+			$description = apply_filters('fes_multiple_price_row_description_value', $description, $file );
+			$download = apply_filters('fes_multiple_price_row_download_value', $download, $file );
 
-					$required = ! empty( $attr['required'] ) && 'yes' == $attr['required'] ? 'data-required="yes" data-type="multiple"' : '';
+			$required = ! empty( $attr['required'] ) && 'yes' == $attr['required'] ? 'data-required="yes" data-type="multiple"' : '';
 
-					?>
-					<tr class="fes-single-variation" id="fes-multiple-validation-pointer">
-						<?php if ( $attr[ 'single' ] !== 'yes' && (!$names_disabled || $predefined_on) ) { ?>
-						<td class="fes-name-row">
-							<?php if( $names_disabled ) : ?>
-								<span class="fes-name-value"><?php echo esc_attr( $description ); ?></span>
-								<input type="hidden" class="fes-name-value" name="option[<?php echo esc_attr( $index ); ?>][description]" id="options[<?php echo esc_attr( $index ); ?>][description]" rows="3" placeholder="<?php esc_attr_e( 'Option Name', 'edd_fes' ); ?>" value="<?php echo esc_attr( $description ); ?>" <?php echo $required; ?>/>
-							<?php else : ?>
-								<input type="text" class="fes-name-value" name="option[<?php echo esc_attr( $index ); ?>][description]" id="options[<?php echo esc_attr( $index ); ?>][description]" rows="3" placeholder="<?php esc_attr_e( 'Option Name', 'edd_fes' ); ?>" value="<?php echo esc_attr( $description ); ?>" <?php echo $required; ?>/>
-							<?php endif; ?>
-							<input type="hidden" id="fes-name-row-js" name="fes-name-row-js" value="1" />
-						</td>
-						<?php }
-						if ( !$prices_disabled || $predefined_on ) { ?>
-						<td class="fes-price-row">
-							<?php if( $prices_disabled ) : ?>
-								<span class="fes-price-value"><?php echo esc_attr( $price ); ?></span>
-								<input type="hidden" class="fes-price-value" placeholder="<?php echo edd_currency_filter( '0.00' ); ?>" name="option[<?php echo esc_attr( $index ); ?>][price]" id="options[<?php echo esc_attr( $index ); ?>][price]" placeholder="20" value="<?php echo esc_attr( $price ); ?>" <?php echo $required; ?>/>
-							<?php else : ?>
-								<input type="text" class="fes-price-value" placeholder="<?php echo edd_currency_filter( '0.00' ); ?>" name="option[<?php echo esc_attr( $index ); ?>][price]" id="options[<?php echo esc_attr( $index ); ?>][price]" placeholder="20" value="<?php echo esc_attr( $price ); ?>" <?php echo $required; ?>/>
-							<?php endif; ?>
-							<input type="hidden" id="fes-price-row-js" name="fes-price-row-js" value="1"/>
-						</td>
-						<?php }
-						if ( !$files_disabled ) { ?>
-						<td class="fes-url-row">
-							<input type="text" class="fes-file-value" placeholder="<?php _e( "http://", 'edd_fes' ); ?>" name="files[<?php echo esc_attr( $index ); ?>]" value="<?php echo esc_attr( $download ); ?>" <?php echo $required; ?>/>
-							<input type="hidden" id="fes-file-row-js" name="fes-file-row-js" value="1" />
-						</td>
-						<td class="fes-url-choose-row">
-							<a href="#" class="btn btn-sm btn-default upload_file_button" data-choose="<?php _e( 'Choose file', 'edd_fes' ); ?>" data-update="<?php _e( 'Insert file URL', 'edd_fes' ); ?>">
-							<?php echo str_replace( ' ', '&nbsp;', __( 'Upload', 'edd_fes' ) ); ?></a>
-						</td>
-						<?php }
-						do_action("fes-add-multiple-pricing-row-value", $file); ?>
-						<?php if ( $attr[ 'single' ] !== 'yes' && !$predefined_on ) { ?>
-						<td class="fes-delete-row">
-							<a href="#" class="btn btn-sm btn-danger delete">
-							<?php _e( 'x', 'edd_fes' ); ?></a>
-						</td>
-						<?php } ?>
-					</tr>
-					<?php } ?>
-					<tr class="add_new" style="display:none !important;" id="<?php echo sanitize_key($attr['name']); ?>"></tr>
-				</tbody>
-				<tfoot>
-					<tr>
-						<th colspan="5">
-							<?php if ( $attr[ 'single' ] !== 'yes' && !$predefined_on ) { ?>
-							<a href="#" class="insert-file-row" id="<?php echo sanitize_key($attr['name']); ?>"><?php _e( 'Add File', 'edd_fes' ); ?></a>
-							<?php } ?>
-						</th>
-					</tr>
-				</tfoot>
-			</table>
-	</div>
-	<?php
-	return ob_get_clean();
+			?>
+		<tr class="fes-single-variation" id="fes-multiple-validation-pointer">
+		<?php if ( $attr[ 'single' ] !== 'yes' && (!$names_disabled || $predefined_on) ) { ?>
+			<td class="fes-name-row"><?php if( $names_disabled ) : ?> <span
+				class="fes-name-value"><?php echo esc_attr( $description ); ?></span>
+			<input type="hidden" class="fes-name-value"
+				name="option[<?php echo esc_attr( $index ); ?>][description]"
+				id="options[<?php echo esc_attr( $index ); ?>][description]"
+				rows="3"
+				placeholder="<?php esc_attr_e( 'Option Name', 'edd_fes' ); ?>"
+				value="<?php echo esc_attr( $description ); ?>"
+				<?php echo $required; ?> /> <?php else : ?> <input type="text"
+				class="fes-name-value"
+				name="option[<?php echo esc_attr( $index ); ?>][description]"
+				id="options[<?php echo esc_attr( $index ); ?>][description]"
+				rows="3"
+				placeholder="<?php esc_attr_e( 'Option Name', 'edd_fes' ); ?>"
+				value="<?php echo esc_attr( $description ); ?>"
+				<?php echo $required; ?> /> <?php endif; ?> <input type="hidden"
+				id="fes-name-row-js" name="fes-name-row-js" value="1" /></td>
+				<?php }
+				if ( !$prices_disabled || $predefined_on ) { ?>
+			<td class="fes-price-row"><?php if( $prices_disabled ) : ?> <span
+				class="fes-price-value"><?php echo esc_attr( $price ); ?></span> <input
+				type="hidden" class="fes-price-value"
+				placeholder="<?php echo edd_currency_filter( '0.00' ); ?>"
+				name="option[<?php echo esc_attr( $index ); ?>][price]"
+				id="options[<?php echo esc_attr( $index ); ?>][price]"
+				placeholder="20" value="<?php echo esc_attr( $price ); ?>"
+				<?php echo $required; ?> /> <?php else : ?> <input type="text"
+				class="fes-price-value"
+				placeholder="<?php echo edd_currency_filter( '0.00' ); ?>"
+				name="option[<?php echo esc_attr( $index ); ?>][price]"
+				id="options[<?php echo esc_attr( $index ); ?>][price]"
+				placeholder="20" value="<?php echo esc_attr( $price ); ?>"
+				<?php echo $required; ?> /> <?php endif; ?> <input type="hidden"
+				id="fes-price-row-js" name="fes-price-row-js" value="1" /></td>
+				<?php }
+				if ( !$files_disabled ) { ?>
+			<td class="fes-url-row"><input type="text" class="fes-file-value"
+				placeholder="<?php _e( "http://", 'edd_fes' ); ?>"
+				name="files[<?php echo esc_attr( $index ); ?>]"
+				value="<?php echo esc_attr( $download ); ?>"
+				<?php echo $required; ?> /> <input type="hidden"
+				id="fes-file-row-js" name="fes-file-row-js" value="1" /></td>
+			<td class="fes-url-choose-row"><a href="#"
+				class="btn btn-sm btn-default upload_file_button"
+				data-choose="<?php _e( 'Choose file', 'edd_fes' ); ?>"
+				data-update="<?php _e( 'Insert file URL', 'edd_fes' ); ?>"> <?php echo str_replace( ' ', '&nbsp;', __( 'Upload', 'edd_fes' ) ); ?></a>
+			</td>
+			<?php }
+			do_action("fes-add-multiple-pricing-row-value", $file); ?>
+			<?php if ( $attr[ 'single' ] !== 'yes' && !$predefined_on ) { ?>
+			<td class="fes-delete-row"><a href="#"
+				class="btn btn-sm btn-danger delete"> <?php _e( 'x', 'edd_fes' ); ?></a>
+			</td>
+			<?php } ?>
+		</tr>
+		<?php } ?>
+		<tr class="add_new" style="display: none !important;"
+			id="<?php echo sanitize_key($attr['name']); ?>"></tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th colspan="5"><?php if ( $attr[ 'single' ] !== 'yes' && !$predefined_on ) { ?>
+			<a href="#" class="insert-file-row"
+				id="<?php echo sanitize_key($attr['name']); ?>"><?php _e( 'Add File', 'edd_fes' ); ?></a>
+				<?php } ?></th>
+		</tr>
+	</tfoot>
+</table>
+</div>
+				<?php
+				return ob_get_clean();
 	}
 
 	function file_upload( $attr, $post_id, $type ) {
@@ -2516,67 +2545,71 @@ class FES_Forms {
 			$max_files = $attr['count'];
 		}
 		ob_start();
-?>
-        <div class="fes-fields">
-			<table class="<?php echo sanitize_key($attr['name']); ?>">
-				<thead>
-					<tr>
-						<td class="fes-file-column" colspan="2"><?php _e( 'File URL', 'edd_fes' ); ?></td>
-						<?php if ( is_admin() ) { ?>
-						<td class="fes-download-file">
-							<?php _e( 'Download File', 'edd_fes' ); ?>
-						</td>
-						<?php } ?>
-						<?php if ( $attr[ 'single' ] !== 'yes' ) { ?>
-							<td class="fes-remove-column">&nbsp;</td>
-						<?php } ?>
-					</tr>
-				</thead>
-				<tbody class="fes-variations-list-<?php echo sanitize_key($attr['name']); ?>">
-					<input type="hidden" id="fes-upload-max-files-<?php echo sanitize_key($attr['name']); ?>" value="<?php echo $max_files; ?>" />
-            <?php
+		?>
+<div class="fes-fields">
+<table class="<?php echo sanitize_key($attr['name']); ?>">
+	<thead>
+		<tr>
+			<td class="fes-file-column" colspan="2"><?php _e( 'File URL', 'edd_fes' ); ?></td>
+			<?php if ( is_admin() ) { ?>
+			<td class="fes-download-file"><?php _e( 'Download File', 'edd_fes' ); ?>
+			</td>
+			<?php } ?>
+			<?php if ( $attr[ 'single' ] !== 'yes' ) { ?>
+			<td class="fes-remove-column">&nbsp;</td>
+			<?php } ?>
+		</tr>
+	</thead>
+	<tbody
+		class="fes-variations-list-<?php echo sanitize_key($attr['name']); ?>">
+		<input type="hidden"
+			id="fes-upload-max-files-<?php echo sanitize_key($attr['name']); ?>"
+			value="<?php echo $max_files; ?>" />
+			<?php
 			foreach ( $uploaded_items as $index => $attach_id ) {
 				$download = wp_get_attachment_url($attach_id);
 				?>
-				<tr class="fes-single-variation">
-					<td class="fes-url-row">
-						<?php printf( '<span class="fes-file-validation" data-required="%s" data-type="file"></span>', $attr['required'] ); ?>
-						<input type="text" class="fes-file-value" placeholder="<?php _e( "http://", 'edd_fes' ); ?>" name="<?php echo $attr['name']; ?>[<?php echo esc_attr( $index ); ?>]" value="<?php echo esc_attr( $download ); ?>" />
-					</td>
-					<td class="fes-url-choose-row" width="1%">
-						<a href="#" class="btn btn-sm btn-default upload_file_button" data-choose="<?php _e( 'Choose file', 'edd_fes' ); ?>" data-update="<?php _e( 'Insert file URL', 'edd_fes' ); ?>">
-						<?php echo str_replace( ' ', '&nbsp;', __( 'Choose file', 'edd_fes' ) ); ?></a>
-					</td>
-					<?php if ( is_admin() ) { ?>
-					<td class="fes-download-file">
-						<?php printf( '<a href="%s">%s</a>', wp_get_attachment_url( $attach_id ), __( 'Download File', 'edd_fes' ) ); ?>
-					</td>
-					<?php } ?>
-					<?php if ( $attr[ 'single' ] !== 'yes' ) { ?>
-					<td width="1%" class="fes-delete-row">
-						<a href="#" class="btn btn-sm btn-danger delete">
-						<?php _e( 'x', 'edd_fes' ); ?></a>
-					</td>
-					<?php } ?>
-				</tr>
-				<?php
+		<tr class="fes-single-variation">
+			<td class="fes-url-row"><?php printf( '<span class="fes-file-validation" data-required="%s" data-type="file"></span>', $attr['required'] ); ?>
+			<input type="text" class="fes-file-value"
+				placeholder="<?php _e( "http://", 'edd_fes' ); ?>"
+				name="<?php echo $attr['name']; ?>[<?php echo esc_attr( $index ); ?>]"
+				value="<?php echo esc_attr( $download ); ?>" /></td>
+			<td class="fes-url-choose-row" width="1%"><a href="#"
+				class="btn btn-sm btn-default upload_file_button"
+				data-choose="<?php _e( 'Choose file', 'edd_fes' ); ?>"
+				data-update="<?php _e( 'Insert file URL', 'edd_fes' ); ?>"> <?php echo str_replace( ' ', '&nbsp;', __( 'Choose file', 'edd_fes' ) ); ?></a>
+			</td>
+			<?php if ( is_admin() ) { ?>
+			<td class="fes-download-file"><?php printf( '<a href="%s">%s</a>', wp_get_attachment_url( $attach_id ), __( 'Download File', 'edd_fes' ) ); ?>
+			</td>
+			<?php } ?>
+			<?php if ( $attr[ 'single' ] !== 'yes' ) { ?>
+			<td width="1%" class="fes-delete-row"><a href="#"
+				class="btn btn-sm btn-danger delete"> <?php _e( 'x', 'edd_fes' ); ?></a>
+			</td>
+			<?php } ?>
+		</tr>
+		<?php
 			}
 			?>
-					<tr class="add_new" style="display:none !important;" id="<?php echo sanitize_key($attr['name']); ?>"></tr>
-				</tbody>
-				<?php if( ! empty( $attr['count'] ) && $attr['count'] > 1 ) : ?>
-				<tfoot>
-					<tr>
-						<th colspan="5">
-							<a href="#" class="insert-file-row" id="<?php echo sanitize_key($attr['name']); ?>"><?php _e( 'Add File', 'edd_fes' ); ?></a>
-						</th>
-					</tr>
-				</tfoot>
-				<?php endif; ?>
-		</table>
-       </div> <!-- .fes-fields -->
-        <?php
-        return ob_get_clean();
+		<tr class="add_new" style="display: none !important;"
+			id="<?php echo sanitize_key($attr['name']); ?>"></tr>
+	</tbody>
+	<?php if( ! empty( $attr['count'] ) && $attr['count'] > 1 ) : ?>
+	<tfoot>
+		<tr>
+			<th colspan="5"><a href="#" class="insert-file-row"
+				id="<?php echo sanitize_key($attr['name']); ?>"><?php _e( 'Add File', 'edd_fes' ); ?></a>
+			</th>
+		</tr>
+	</tfoot>
+	<?php endif; ?>
+</table>
+</div>
+<!-- .fes-fields -->
+	<?php
+	return ob_get_clean();
 	}
 
 	/**
@@ -2618,65 +2651,74 @@ class FES_Forms {
 		}
 		ob_start();
 		?>
-		<style> .fes-hide { display: none } </style>
+<style>
+.fes-hide {
+	display: none
+}
+</style>
 		<?php
 		if ($featured_image) {  ?>
-		<div class="fes-fields ">
-			<?php $required = isset( $attr['required'] ) ? $attr['required'] : ''; ?>
-            <div class="fes-feat-image-upload">
-                <div class="instruction-inside <?php if($id !== 0 ){ echo 'fes-hide';} ?>">
-                	<?php printf( '<span class="fes-image-validation" data-required="%s" data-type="image"></span>', $required ); ?>
-                    <input type="hidden" name="feat-image-id" class="fes-feat-image-id" value="<?php echo $id; ?>">
-                    <a href="#" class="fes-feat-image-btn btn btn-sm"><?php _e( 'Upload Featured Image', 'edd_fes' ); ?></a>
-                </div>
+<div class="fes-fields "><?php $required = isset( $attr['required'] ) ? $attr['required'] : ''; ?>
+<div class="fes-feat-image-upload">
+<div
+	class="instruction-inside <?php if($id !== 0 ){ echo 'fes-hide';} ?>">
+		<?php printf( '<span class="fes-image-validation" data-required="%s" data-type="image"></span>', $required ); ?>
+<input type="hidden" name="feat-image-id" class="fes-feat-image-id"
+	value="<?php echo $id; ?>"> <a href="#"
+	class="fes-feat-image-btn btn btn-sm"><?php _e( 'Upload Featured Image', 'edd_fes' ); ?></a>
+</div>
 
-             	<div class="image-wrap <?php if ($id === 0 ){ echo 'fes-hide';} ?>">
-                    <a class="close fes-remove-feat-image">&times;</a>
-                    <img src="<?php echo $url; ?>" alt="">
-                </div>
-            </div>
-        </div> <!-- .fes-fields -->
+<div class="image-wrap <?php if ($id === 0 ){ echo 'fes-hide';} ?>"><a
+	class="close fes-remove-feat-image">&times;</a> <img
+	src="<?php echo $url; ?>" alt=""></div>
+</div>
+</div>
+<!-- .fes-fields -->
 
 		<?php }
 		else if ($gallery){ ?>
-		<div class="fes-fields">
-			<?php $required = isset( $attr['required'] ) ? $attr['required'] : ''; ?>
-            <div class="fes-gallery-image-upload">
-                <div class="instruction-inside <?php if($id !== 0 ){ echo 'fes-hide';} ?>">
-                	<?php printf( '<span class="fes-image-validation" data-required="%s" data-type="image"></span>', $required ); ?>
-                    <input type="hidden" name="gallery_image_id" class="fes-gallery-image-id" value="<?php echo $id; ?>">
-                    <a href="#" class="fes-gallery-image-btn btn btn-sm"><?php _e( 'Upload Gallery', 'edd_fes' ); ?></a>
-                </div>
+<div class="fes-fields"><?php $required = isset( $attr['required'] ) ? $attr['required'] : ''; ?>
+<div class="fes-gallery-image-upload">
+<div
+	class="instruction-inside <?php if($id !== 0 ){ echo 'fes-hide';} ?>">
+		<?php printf( '<span class="fes-image-validation" data-required="%s" data-type="image"></span>', $required ); ?>
+<input type="hidden" name="gallery_image_id"
+	class="fes-gallery-image-id" value="<?php echo $id; ?>"> <a href="#"
+	class="fes-gallery-image-btn btn btn-sm"><?php _e( 'Upload Gallery', 'edd_fes' ); ?></a>
+</div>
 
-             	<div class="image-wrap <?php if ($id === 0 ){ echo 'fes-hide';} ?>">
-                    <a class="close fes-remove-gallery-image">&times;</a>
-                    <img src="<?php echo $url; ?>" alt="">
-                </div>
-            </div>
-        </div> <!-- .fes-fields -->
+<div class="image-wrap <?php if ($id === 0 ){ echo 'fes-hide';} ?>"><a
+	class="close fes-remove-gallery-image">&times;</a> <img
+	src="<?php echo $url; ?>" alt=""></div>
+</div>
+</div>
+<!-- .fes-fields -->
 		<?php
 		}
 		// avatar
 		else{
-		?>
-		<div class="fes-fields">
-			<?php $required = isset( $attr['required'] ) ? $attr['required'] : ''; ?>
-            <div class="fes-avatar-image-upload">
-                <div class="instruction-inside <?php if( ! empty( $avatar_id ) ) { echo 'fes-hide'; } ?>">
-                	<?php printf( '<span class="fes-image-validation" data-required="%s" data-type="image"></span>', $required ); ?>
-                    <input type="hidden" name="avatar_id" class="fes-avatar-image-id" value="<?php echo esc_attr( $avatar_id ); ?>">
-                    <a href="#" class="fes-avatar-image-btn btn btn-sm"><?php _e( 'Upload Avatar', 'edd_fes' ); ?></a>
-                </div>
+			?>
+<div class="fes-fields"><?php $required = isset( $attr['required'] ) ? $attr['required'] : ''; ?>
+<div class="fes-avatar-image-upload">
+<div
+	class="instruction-inside <?php if( ! empty( $avatar_id ) ) { echo 'fes-hide'; } ?>">
+			<?php printf( '<span class="fes-image-validation" data-required="%s" data-type="image"></span>', $required ); ?>
+<input type="hidden" name="avatar_id" class="fes-avatar-image-id"
+	value="<?php echo esc_attr( $avatar_id ); ?>"> <a href="#"
+	class="fes-avatar-image-btn btn btn-sm"><?php _e( 'Upload Avatar', 'edd_fes' ); ?></a>
+</div>
 
-             	<div class="image-wrap <?php if( empty( $avatar_id ) ) { echo 'fes-hide'; } ?>">
-                    <a class="close fes-remove-avatar-image">&times;</a>
-                    <img src="<?php echo esc_attr( $url ); ?>" alt="" class="fes-avatar-image">
-                </div>
-            </div>
-        </div> <!-- .fes-fields -->
-        <?php
-    }
-    return ob_get_clean();
+<div
+	class="image-wrap <?php if( empty( $avatar_id ) ) { echo 'fes-hide'; } ?>">
+<a class="close fes-remove-avatar-image">&times;</a> <img
+	src="<?php echo esc_attr( $url ); ?>" alt="" class="fes-avatar-image">
+</div>
+</div>
+</div>
+<!-- .fes-fields -->
+			<?php
+		}
+		return ob_get_clean();
 	}
 
 	/**
@@ -2700,30 +2742,32 @@ class FES_Forms {
 		$css  = $multiselect ? ' class="multiselect"' : '';
 		$size = $multiselect ? ' size="10"' : '';
 		ob_start();
-?>
+		?>
 
-        <div class="fes-fields">
+<div class="fes-fields"><select <?php echo $css; echo $size; ?>
+	name="<?php echo $attr['name'] ?>[]" <?php echo $multi; ?>
+	data-required="<?php echo $attr['required'] ?>"
+	data-type="<?php echo $data_type; ?>"
+	<?php $this->required_html5( $attr ); ?>>
 
-            <select<?php echo $css; echo $size; ?> name="<?php echo $attr['name'] ?>[]" <?php echo $multi; ?> data-required="<?php echo $attr['required'] ?>" data-type="<?php echo $data_type; ?>"<?php $this->required_html5( $attr ); ?>>
+	<?php if ( !empty( $attr['first'] ) ) { ?>
+	<option value=""><?php echo $attr['first']; ?></option>
+	<?php } ?>
 
-                <?php if ( !empty( $attr['first'] ) ) { ?>
-                    <option value=""><?php echo $attr['first']; ?></option>
-                <?php } ?>
-
-                <?php
-		if ( $attr['options'] && count( $attr['options'] ) > 0 ) {
-			foreach ( $attr['options'] as $option ) {
-				$current_select = $multiselect ? selected( in_array( $option, $selected ), true, false ) : selected( $selected, $option, false );
-?>
-                        <option value="<?php echo esc_attr( $option ); ?>"<?php echo $current_select; ?>><?php echo $option; ?></option>
-                        <?php
-			}
+	<?php
+	if ( $attr['options'] && count( $attr['options'] ) > 0 ) {
+		foreach ( $attr['options'] as $option ) {
+			$current_select = $multiselect ? selected( in_array( $option, $selected ), true, false ) : selected( $selected, $option, false );
+			?>
+	<option value="<?php echo esc_attr( $option ); ?>"
+	<?php echo $current_select; ?>><?php echo $option; ?></option>
+	<?php
 		}
-?>
-            </select>
-        </div>
-        <?php
-        return ob_get_clean();
+	}
+	?>
+</select></div>
+	<?php
+	return ob_get_clean();
 	}
 
 	/**
@@ -2739,31 +2783,26 @@ class FES_Forms {
 			$selected = $this->get_meta( $post_id, $attr['name'], $type, true );
 		}
 		ob_start();
-?>
+		?>
 
-        <div class="fes-fields">
+<div class="fes-fields"><span
+	data-required="<?php echo $attr['required'] ?>" data-type="radio"></span>
 
-            <span data-required="<?php echo $attr['required'] ?>" data-type="radio"></span>
-
-            <?php
+		<?php
 		if ( $attr['options'] && count( $attr['options'] ) > 0 ) {
 			foreach ( $attr['options'] as $option ) {
-			if ( isset( $attr['name'] ) && $attr['name'] == 'fes_login_radio_button' && $option == 'Vendor' && EDD_FES()->vendors->get_vendor_constant_name( $plural = false, $uppercase = true ) !== 'Vendor' ){
-				$option = EDD_FES()->vendors->get_vendor_constant_name( $plural = false, $uppercase = true );
-			}
-?>
-
-                    <label>
-                        <input name="<?php echo $attr['name']; ?>" type="radio" value="<?php echo esc_attr( $option ); ?>"<?php checked( $selected, $option ); ?> />
-                        <?php echo $option; ?>
-                    </label>
-                    <?php
+				if ( isset( $attr['name'] ) && $attr['name'] == 'fes_login_radio_button' && $option == 'Vendor' && EDD_FES()->vendors->get_vendor_constant_name( $plural = false, $uppercase = true ) !== 'Vendor' ){
+					$option = EDD_FES()->vendors->get_vendor_constant_name( $plural = false, $uppercase = true );
+				}
+				?> <label> <input name="<?php echo $attr['name']; ?>" type="radio"
+	value="<?php echo esc_attr( $option ); ?>"
+	<?php checked( $selected, $option ); ?> /> <?php echo $option; ?> </label>
+	<?php
 			}
 		}
-?>
-        </div>
-        <?php
-        return ob_get_clean();
+		?></div>
+		<?php
+		return ob_get_clean();
 	}
 
 	/**
@@ -2779,27 +2818,24 @@ class FES_Forms {
 			$selected = explode( '| ', $this->get_meta( $post_id, $attr['name'], $type, true ) );
 		}
 		ob_start();
-?>
+		?>
 
-        <div class="fes-fields">
-            <span data-required="<?php echo $attr['required'] ?>" data-type="radio"></span>
+<div class="fes-fields"><span
+	data-required="<?php echo $attr['required'] ?>" data-type="radio"></span>
 
-            <?php
+		<?php
 		if ( $attr['options'] && count( $attr['options'] ) > 0 ) {
 			foreach ( $attr['options'] as $option ) {
-?>
-
-                    <label>
-                        <input type="checkbox" name="<?php echo $attr['name']; ?>[]" value="<?php echo esc_attr( $option ); ?>"<?php echo in_array( $option, $selected ) ? ' checked="checked"' : ''; ?> />
-                        <?php echo $option; ?>
-                    </label>
-                    <?php
+				?> <label> <input type="checkbox"
+	name="<?php echo $attr['name']; ?>[]"
+	value="<?php echo esc_attr( $option ); ?>"
+	<?php echo in_array( $option, $selected ) ? ' checked="checked"' : ''; ?> />
+	<?php echo $option; ?> </label> <?php
 			}
 		}
-?>
-        </div>
-        <?php
-        return ob_get_clean();
+		?></div>
+		<?php
+		return ob_get_clean();
 	}
 
 	/**
@@ -2821,14 +2857,18 @@ class FES_Forms {
 			$value = $attr['default'];
 		}
 		ob_start();
-?>
+		?>
 
-        <div class="fes-fields">
-            <input id="fes-<?php echo $attr['name']; ?>" type="url" class="url" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="<?php echo esc_attr( $attr['name'] ); ?>" placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" value="<?php echo esc_attr( $value ) ?>" size="<?php echo esc_attr( $attr['size'] ) ?>" />
-        </div>
+<div class="fes-fields"><input id="fes-<?php echo $attr['name']; ?>"
+	type="url" class="url" data-required="<?php echo $attr['required'] ?>"
+	data-type="text" <?php $this->required_html5( $attr ); ?>
+	name="<?php echo esc_attr( $attr['name'] ); ?>"
+	placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>"
+	value="<?php echo esc_attr( $value ) ?>"
+	size="<?php echo esc_attr( $attr['size'] ) ?>" /></div>
 
-        <?php
-        return ob_get_clean();
+		<?php
+		return ob_get_clean();
 	}
 
 	/**
@@ -2851,14 +2891,19 @@ class FES_Forms {
 		$attr['placeholder'] = ! empty( $attr['placeholder'] ) ? $attr['placeholder'] : '';
 
 		ob_start();
-?>
+		?>
 
-        <div class="fes-fields">
-            <input id="fes-<?php echo $attr['name']; ?>" type="email" class="email" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="<?php echo esc_attr( $attr['name'] ); ?>" placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" value="<?php echo esc_attr( $value ) ?>" size="<?php echo esc_attr( $attr['size'] ) ?>" />
-        </div>
+<div class="fes-fields"><input id="fes-<?php echo $attr['name']; ?>"
+	type="email" class="email"
+	data-required="<?php echo $attr['required'] ?>" data-type="text"
+	<?php $this->required_html5( $attr ); ?>
+	name="<?php echo esc_attr( $attr['name'] ); ?>"
+	placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>"
+	value="<?php echo esc_attr( $value ) ?>"
+	size="<?php echo esc_attr( $attr['size'] ) ?>" /></div>
 
-        <?php
-        return ob_get_clean();
+	<?php
+	return ob_get_clean();
 	}
 
 	/**
@@ -2874,22 +2919,25 @@ class FES_Forms {
 			$attr['placeholder'] = '';
 		}
 		ob_start();
-?>
+		?>
 
-        <div class="fes-fields">
-            <input id="pass1" type="password" class="password" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="pass1" placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" value="" size="<?php echo esc_attr( $attr['size'] ) ?>" />
-        </div>
+<div class="fes-fields"><input id="pass1" type="password"
+	class="password" data-required="<?php echo $attr['required'] ?>"
+	data-type="text" <?php $this->required_html5( $attr ); ?> name="pass1"
+	placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" value=""
+	size="<?php echo esc_attr( $attr['size'] ) ?>" /></div>
 
-        <?php
+		<?php
 		if ( $attr['repeat_pass'] == 'yes' ) {
 			echo $this->label( array( 'name' => 'pass2', 'label' => $attr['re_pass_label'], 'required' => $post_id ? 'no' : 'yes' ) );
-?>
+			?>
 
-            <div class="fes-fields">
-                <input id="pass2" type="password" class="password" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="pass2" value="" size="<?php echo esc_attr( $attr['size'] ) ?>" />
-            </div>
+<div class="fes-fields"><input id="pass2" type="password"
+	class="password" data-required="<?php echo $attr['required'] ?>"
+	data-type="text" <?php $this->required_html5( $attr ); ?> name="pass2"
+	value="" size="<?php echo esc_attr( $attr['size'] ) ?>" /></div>
 
-            <?php
+			<?php
 		}
 		return ob_get_clean();
 	}
@@ -2904,113 +2952,131 @@ class FES_Forms {
 		$add = fes_assets_url .'img/add.png';
 		$remove = fes_assets_url. 'img/remove.png';
 		ob_start();
-?>
+		?>
 
-        <div class="fes-fields">
+<div class="fes-fields"><?php if ( isset( $attr['multiple'] ) ) { ?>
+<table>
+	<thead>
+		<tr>
+		<?php
+		$num_columns = count( $attr['columns'] );
+		foreach ( $attr['columns'] as $column ) {
+			?>
+			<th><?php echo $column; ?></th>
+			<?php } ?>
 
-            <?php if ( isset( $attr['multiple'] ) ) { ?>
-                <table>
-                    <thead>
-                        <tr>
-                            <?php
-			$num_columns = count( $attr['columns'] );
-			foreach ( $attr['columns'] as $column ) {
-?>
-                                <th>
-                                    <?php echo $column; ?>
-                                </th>
-                            <?php } ?>
+			<th style="visibility: hidden;">Actions</th>
+		</tr>
 
-                            <th style="visibility: hidden;">
-                                Actions
-                            </th>
-                        </tr>
+	</thead>
+	<tbody>
 
-                    </thead>
-                    <tbody>
+	<?php
+	$items = $post_id ? $this->get_meta( $post_id, $attr['name'], $type, false ) : array();
 
-                        <?php
-			$items = $post_id ? $this->get_meta( $post_id, $attr['name'], $type, false ) : array();
+	if ( $items ) {
+		foreach ( $items as $item_val ) {
+			$column_vals = explode( '| ', $item_val );
+			?>
 
-			if ( $items ) {
-				foreach ( $items as $item_val ) {
-					$column_vals = explode( '| ', $item_val );
-?>
+		<tr>
+		<?php for ( $count = 0; $count < $num_columns; $count++ ) { ?>
+			<td class="fes-repeat-field"><input type="text"
+				name="<?php echo $attr['name'] . '[' . $count . ']'; ?>[]"
+				value="<?php echo esc_attr( $column_vals[$count] ); ?>"
+				size="<?php echo esc_attr( $attr['size'] ) ?>"
+				data-required="<?php echo $attr['required'] ?>" data-type="text"
+				<?php $this->required_html5( $attr ); ?> /></td>
+				<?php } ?>
+			<td class="fes-repeat-field"><img class="fes-clone-field"
+				alt="<?php esc_attr_e( 'Add another', 'edd_fes' ); ?>"
+				title="<?php esc_attr_e( 'Add another', 'edd_fes' ); ?>"
+				src="<?php echo $add; ?>"> <img class="fes-remove-field"
+				alt="<?php esc_attr_e( 'Remove this choice', 'edd_fes' ); ?>"
+				title="<?php esc_attr_e( 'Remove this choice', 'edd_fes' ); ?>"
+				src="<?php echo $remove; ?>"></td>
+		</tr>
 
-                                <tr>
-                                    <?php for ( $count = 0; $count < $num_columns; $count++ ) { ?>
-                                        <td class="fes-repeat-field">
-                                            <input type="text" name="<?php echo $attr['name'] . '[' . $count . ']'; ?>[]" value="<?php echo esc_attr( $column_vals[$count] ); ?>" size="<?php echo esc_attr( $attr['size'] ) ?>" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> />
-                                        </td>
-                                    <?php } ?>
-                                    <td class="fes-repeat-field">
-                                        <img class="fes-clone-field" alt="<?php esc_attr_e( 'Add another', 'edd_fes' ); ?>" title="<?php esc_attr_e( 'Add another', 'edd_fes' ); ?>" src="<?php echo $add; ?>">
-                                        <img class="fes-remove-field" alt="<?php esc_attr_e( 'Remove this choice', 'edd_fes' ); ?>" title="<?php esc_attr_e( 'Remove this choice', 'edd_fes' ); ?>" src="<?php echo $remove; ?>">
-                                    </td>
-                                </tr>
+		<?php } //endforeach   ?>
 
-                            <?php } //endforeach   ?>
+		<?php } else { ?>
 
-                        <?php } else { ?>
+		<tr>
+		<?php for ( $count = 0; $count < $num_columns; $count++ ) { ?>
+			<td class="fes-repeat-field"><input type="text"
+				name="<?php echo $attr['name'] . '[' . $count . ']'; ?>[]"
+				size="<?php echo esc_attr( $attr['size'] ) ?>"
+				data-required="<?php echo $attr['required'] ?>" data-type="text"
+				<?php $this->required_html5( $attr ); ?> /></td>
+				<?php } ?>
+			<td class="fes-repeat-field"><img class="fes-clone-field"
+				alt="<?php esc_attr_e( 'Add another', 'edd_fes' ); ?>"
+				title="<?php esc_attr_e( 'Add another', 'edd_fes' ); ?>"
+				src="<?php echo $add; ?>"> <img class="fes-remove-field"
+				alt="<?php esc_attr_e( 'Remove this choice', 'edd_fes' ); ?>"
+				title="<?php esc_attr_e( 'Remove this choice', 'edd_fes' ); ?>"
+				src="<?php echo $remove; ?>"></td>
+		</tr>
 
-                            <tr>
-                                <?php for ( $count = 0; $count < $num_columns; $count++ ) { ?>
-                                    <td class="fes-repeat-field">
-                                        <input type="text" name="<?php echo $attr['name'] . '[' . $count . ']'; ?>[]" size="<?php echo esc_attr( $attr['size'] ) ?>" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> />
-                                    </td>
-                                <?php } ?>
-                                <td class="fes-repeat-field">
-                                    <img class="fes-clone-field" alt="<?php esc_attr_e( 'Add another', 'edd_fes' ); ?>" title="<?php esc_attr_e( 'Add another', 'edd_fes' ); ?>" src="<?php echo $add; ?>">
-                                    <img class="fes-remove-field" alt="<?php esc_attr_e( 'Remove this choice', 'edd_fes' ); ?>" title="<?php esc_attr_e( 'Remove this choice', 'edd_fes' ); ?>" src="<?php echo $remove; ?>">
-                                </td>
-                            </tr>
+		<?php } ?>
 
-                        <?php } ?>
+	</tbody>
+</table>
 
-                    </tbody>
-                </table>
-
-            <?php } else { ?>
+		<?php } else { ?>
 
 
-                <table>
-                    <?php
-			$items = $post_id ? explode( '| ', $this->get_meta( $post_id, $attr['name'], $type, true ) ) : array();
+<table>
+<?php
+$items = $post_id ? explode( '| ', $this->get_meta( $post_id, $attr['name'], $type, true ) ) : array();
 
-			if ( $items ) {
-				foreach ( $items as $item ) {
-?>
-                            <tr>
-                                <td class="fes-repeat-field">
-                                    <input id="fes-<?php echo $attr['name']; ?>" type="text" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="<?php echo esc_attr( $attr['name'] ); ?>[]" placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" value="<?php echo esc_attr( $item ) ?>" size="<?php echo esc_attr( $attr['size'] ) ?>" />
-                                </td>
-                                <td class="fes-repeat-field">
-                                    <img style="cursor:pointer; margin:0 3px;" alt="add another choice" title="add another choice" class="fes-clone-field" src="<?php echo $add; ?>">
-                                    <img style="cursor:pointer;" class="fes-remove-field" alt="remove this choice" title="remove this choice" src="<?php echo $remove; ?>">
-                                </td>
-                            </tr>
-                        <?php } //endforeach    ?>
-                    <?php } else { ?>
+if ( $items ) {
+	foreach ( $items as $item ) {
+		?>
+	<tr>
+		<td class="fes-repeat-field"><input
+			id="fes-<?php echo $attr['name']; ?>" type="text"
+			data-required="<?php echo $attr['required'] ?>" data-type="text"
+			<?php $this->required_html5( $attr ); ?>
+			name="<?php echo esc_attr( $attr['name'] ); ?>[]"
+			placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>"
+			value="<?php echo esc_attr( $item ) ?>"
+			size="<?php echo esc_attr( $attr['size'] ) ?>" /></td>
+		<td class="fes-repeat-field"><img
+			style="cursor: pointer; margin: 0 3px;" alt="add another choice"
+			title="add another choice" class="fes-clone-field"
+			src="<?php echo $add; ?>"> <img style="cursor: pointer;"
+			class="fes-remove-field" alt="remove this choice"
+			title="remove this choice" src="<?php echo $remove; ?>"></td>
+	</tr>
+	<?php } //endforeach    ?>
+	<?php } else { ?>
 
-                        <tr>
-                            <td class="fes-repeat-field">
-                                <input id="fes-<?php echo $attr['name']; ?>" type="text" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="<?php echo esc_attr( $attr['name'] ); ?>[]" placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>" value="<?php echo esc_attr( $attr['default'] ) ?>" size="<?php echo esc_attr( $attr['size'] ) ?>" />
-                            </td>
-                            <td class="fes-repeat-field">
-                                <img style="cursor:pointer; margin:0 3px;" alt="add another choice" title="add another choice" class="fes-clone-field" src="<?php echo $add; ?>">
-                                <img style="cursor:pointer;" class="fes-remove-field" alt="remove this choice" title="remove this choice" src="<?php echo $remove; ?>">
-                            </td>
-                        </tr>
+	<tr>
+		<td class="fes-repeat-field"><input
+			id="fes-<?php echo $attr['name']; ?>" type="text"
+			data-required="<?php echo $attr['required'] ?>" data-type="text"
+			<?php $this->required_html5( $attr ); ?>
+			name="<?php echo esc_attr( $attr['name'] ); ?>[]"
+			placeholder="<?php echo esc_attr( $attr['placeholder'] ); ?>"
+			value="<?php echo esc_attr( $attr['default'] ) ?>"
+			size="<?php echo esc_attr( $attr['size'] ) ?>" /></td>
+		<td class="fes-repeat-field"><img
+			style="cursor: pointer; margin: 0 3px;" alt="add another choice"
+			title="add another choice" class="fes-clone-field"
+			src="<?php echo $add; ?>"> <img style="cursor: pointer;"
+			class="fes-remove-field" alt="remove this choice"
+			title="remove this choice" src="<?php echo $remove; ?>"></td>
+	</tr>
 
-                    <?php } ?>
+	<?php } ?>
 
-                </table>
-            <?php }
-?>
-        </div>
+</table>
+	<?php }
+	?></div>
 
-        <?php
-        return ob_get_clean();
+	<?php
+	return ob_get_clean();
 	}
 
 	/**
@@ -3032,18 +3098,17 @@ class FES_Forms {
 		}
 		ob_start();
 
-?>
+		?>
 
-        <div class="fes-fields">
-            <?php
-		switch ( $attr['type'] ) {
-		case 'select':
+<div class="fes-fields"><?php
+switch ( $attr['type'] ) {
+	case 'select':
 
-			$selected = $terms ? $terms[0] : '';
-			$required = isset( $attr['required'] ) ? $attr['required'] : '';
-			$required = sprintf( 'data-required="%s" data-type="select"', $required );
+		$selected = $terms ? $terms[0] : '';
+		$required = isset( $attr['required'] ) ? $attr['required'] : '';
+		$required = sprintf( 'data-required="%s" data-type="select"', $required );
 
-			$select = wp_dropdown_categories( array(
+		$select = wp_dropdown_categories( array(
 					'show_option_none' => __( '-- Select --', 'edd_fes' ),
 					'hierarchical' => 1,
 					'hide_empty' => 0,
@@ -3055,19 +3120,19 @@ class FES_Forms {
 					'echo' => 0,
 					'title_li' => '',
 					'class' => $taxonomy,
-					$exclude_type => $exclude,
+		$exclude_type => $exclude,
 					'selected' => $selected,
-				) );
-			echo str_replace( '<select', '<select ' . $required, $select );
-			break;
+		) );
+		echo str_replace( '<select', '<select ' . $required, $select );
+		break;
 
-		case 'multiselect':
-			$selected_multiple = $terms ? $terms : array();
-			$selected = is_array( $selected_multiple ) && !empty( $selected_multiple ) ? $selected_multiple[0] : '';
-			$required = sprintf( 'data-required="%s" data-type="multiselect"', $attr['required'] );
-			$walker = new FES_Walker_Category_Multi();
+	case 'multiselect':
+		$selected_multiple = $terms ? $terms : array();
+		$selected = is_array( $selected_multiple ) && !empty( $selected_multiple ) ? $selected_multiple[0] : '';
+		$required = sprintf( 'data-required="%s" data-type="multiselect"', $attr['required'] );
+		$walker = new FES_Walker_Category_Multi();
 
-			$select = wp_dropdown_categories( array(
+		$select = wp_dropdown_categories( array(
 					'show_option_none' => __( '-- Select --', 'edd_fes' ),
 					'hierarchical' => 1,
 					'hide_empty' => 0,
@@ -3079,43 +3144,44 @@ class FES_Forms {
 					'echo' => 0,
 					'title_li' => '',
 					'class' => $taxonomy . ' multiselect',
-					$exclude_type => $exclude,
+		$exclude_type => $exclude,
 					'selected' => $selected,
 					'selected_multiple' => $selected_multiple,
 					'walker' => $walker
-				) );
+		) );
 
-			echo str_replace( '<select', '<select size="10" multiple="multiple" ' . $required, $select );
-			break;
+		echo str_replace( '<select', '<select size="10" multiple="multiple" ' . $required, $select );
+		break;
 
-		case 'checkbox':
-			printf( '<span data-required="%s" data-type="tax-checkbox" />', $attr['required'] );
-			fes_category_checklist( $post_id, false, $attr );
-			break;
+	case 'checkbox':
+		printf( '<span data-required="%s" data-type="tax-checkbox" />', $attr['required'] );
+		fes_category_checklist( $post_id, false, $attr );
+		break;
 
-		case 'text':
-?>
+	case 'text':
+		?> <input
+	class="textfield<?php echo $this->required_class( $attr ); ?>"
+	id="<?php echo $attr['name']; ?>" type="text"
+	data-required="<?php echo $attr['required'] ?>" data-type="text"
+	<?php $this->required_html5( $attr ); ?>
+	name="<?php echo esc_attr( $attr['name'] ); ?>"
+	value="<?php echo esc_attr( implode( ', ', $terms ) ); ?>" size="40" />
 
-                    <input class="textfield<?php echo $this->required_class( $attr ); ?>" id="<?php echo $attr['name']; ?>" type="text" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="<?php echo esc_attr( $attr['name'] ); ?>" value="<?php echo esc_attr( implode( ', ', $terms ) ); ?>" size="40" />
-
-                    <script type="text/javascript">
+<script type="text/javascript">
                         jQuery(function($) {
                             $('#<?php echo $attr['name']; ?>').suggest( fes_form.ajaxurl + '?action=ajax-tag-search_array&tax=<?php echo $attr['name']; ?>', { delay: 500, minchars: 2, multiple: true, multipleSep: ', ' } );
                         });
-                    </script>
+                    </script> <?php
+                    break;
 
-                    <?php
-			break;
+default:
+	// code...
+	break;
+}
+?></div>
 
-		default:
-			// code...
-			break;
-		}
-?>
-        </div>
-
-        <?php
-        return ob_get_clean();
+<?php
+return ob_get_clean();
 	}
 
 	/**
@@ -3125,12 +3191,10 @@ class FES_Forms {
 	 */
 	function html( $attr ) {
 		ob_start();
-?>
-        <div class="fes-fields">
-            <?php echo do_shortcode( $attr['html'] ); ?>
-        </div>
-        <?php
-        return ob_get_clean();
+		?>
+<div class="fes-fields"><?php echo do_shortcode( $attr['html'] ); ?></div>
+		<?php
+		return ob_get_clean();
 	}
 
 	/**
@@ -3141,21 +3205,16 @@ class FES_Forms {
 	function toc( $attr, $post_id ) {
 
 		ob_start();
-?>
-        <div class="fes-label">
-            &nbsp;
-        </div>
+		?>
+<div class="fes-label">&nbsp;</div>
 
-        <div class="fes-fields">
-            <span data-required="yes" data-type="radio"></span>
+<div class="fes-fields"><span data-required="yes" data-type="radio"></span>
 
-            <textarea rows="10" cols="40" disabled="disabled" name="toc"><?php echo $attr['description']; ?></textarea>
-            <label>
-                <input type="checkbox" name="fes_accept_toc" required="required" /> <?php echo $attr['label']; ?>
-            </label>
-        </div>
-        <?php
-        return ob_get_clean();
+<textarea rows="10" cols="40" disabled="disabled" name="toc"><?php echo $attr['description']; ?></textarea>
+<label> <input type="checkbox" name="fes_accept_toc" required="required" />
+		<?php echo $attr['label']; ?> </label></div>
+		<?php
+		return ob_get_clean();
 	}
 
 	/**
@@ -3166,12 +3225,11 @@ class FES_Forms {
 	function recaptcha( $attr, $post_id ) {
 		ob_start();
 		?>
-        <div class="fes-fields">
-        	<script type="text/javascript"> var RecaptchaOptions = { theme : 'clean' };</script>
-            <?php echo recaptcha_get_html( EDD_FES()->helper->get_option( 'fes-recaptcha-public-key', '' ) ); ?>
-        </div>
-        <?php
-        return ob_get_clean();
+<div class="fes-fields"><script type="text/javascript"> var RecaptchaOptions = { theme : 'clean' };</script>
+		<?php echo recaptcha_get_html( EDD_FES()->helper->get_option( 'fes-recaptcha-public-key', '' ) ); ?>
+</div>
+		<?php
+		return ob_get_clean();
 	}
 
 	/**
@@ -3182,13 +3240,13 @@ class FES_Forms {
 	 */
 	function section_break( $attr ) {
 		ob_start();
-?>
-        <div class="fes-section-wrap">
-            <h2 class="fes-section-title"><?php echo $attr['label']; ?></h2>
-            <div class="fes-section-details"><?php echo $attr['description']; ?></div>
-        </div>
-        <?php
-        return ob_get_clean();
+		?>
+<div class="fes-section-wrap">
+<h2 class="fes-section-title"><?php echo $attr['label']; ?></h2>
+<div class="fes-section-details"><?php echo $attr['description']; ?></div>
+</div>
+		<?php
+		return ob_get_clean();
 	}
 
 	/**
@@ -3216,12 +3274,15 @@ class FES_Forms {
 
 		$value = $post_id ? $this->get_meta( $post_id, $attr['name'], $type, true ) : '';
 		ob_start();
-?>
+		?>
 
-        <div class="fes-fields">
-            <input id="fes-date-<?php echo $attr['name']; ?>" type="text" class="datepicker" data-required="<?php echo $attr['required'] ?>" data-type="text"<?php $this->required_html5( $attr ); ?> name="<?php echo esc_attr( $attr['name'] ); ?>" value="<?php echo esc_attr( $value ) ?>" size="30" />
-        </div>
-        <script type="text/javascript">
+<div class="fes-fields"><input
+	id="fes-date-<?php echo $attr['name']; ?>" type="text"
+	class="datepicker" data-required="<?php echo $attr['required'] ?>"
+	data-type="text" <?php $this->required_html5( $attr ); ?>
+	name="<?php echo esc_attr( $attr['name'] ); ?>"
+	value="<?php echo esc_attr( $value ) ?>" size="30" /></div>
+<script type="text/javascript">
             jQuery(function($) {
         <?php if ( $attr['time'] == 'yes' ) { ?>
                                 $("#fes-date-<?php echo $attr['name']; ?>").datetimepicker({ dateFormat: '<?php echo $attr["format"]; ?>' });
@@ -3245,108 +3306,101 @@ class FES_Forms {
 		$color = ( $color == 'inherit' ) ? '' : $color;
 		$style = isset( $edd_options[ 'button_style' ] ) ? $edd_options[ 'button_style' ] : 'button';
 		switch ( $type ) {
-		case 'vendor-contact':
-?>
-				<fieldset class="fes-submit">
-					<div class="fes-label">
-						&nbsp;
-					</div>
-					<?php wp_nonce_field( 'fes-form-vendor-contact-form' ); ?>
-					<input type="hidden" name="form_id" value="<?php echo $form_id; ?>">
-					<input type="hidden" name="action" value="fes_submit_vendor_contact_form">
-					<input type="hidden" name="user_id" value="<?php echo get_current_user_id(); ?>">
-					<input type="hidden" name="vendor_id" value="<?php echo isset($args['vendor']) ? absint($args['vendor']) : '0'; ?>">
-					<input type="submit" class="edd-submit <?php echo $color; ?> <?php echo $style; ?>" name="submit" value="<?php echo __( 'Send Message', 'edd_fes' ); ?>" />
-				</fieldset>
+			case 'vendor-contact':
+				?>
+<fieldset class="fes-submit">
+<div class="fes-label">&nbsp;</div>
+				<?php wp_nonce_field( 'fes-form-vendor-contact-form' ); ?> <input
+	type="hidden" name="form_id" value="<?php echo $form_id; ?>"> <input
+	type="hidden" name="action" value="fes_submit_vendor_contact_form"> <input
+	type="hidden" name="user_id"
+	value="<?php echo get_current_user_id(); ?>"> <input type="hidden"
+	name="vendor_id"
+	value="<?php echo isset($args['vendor']) ? absint($args['vendor']) : '0'; ?>">
+<input type="submit"
+	class="edd-submit <?php echo $color; ?> <?php echo $style; ?>"
+	name="submit" value="<?php echo __( 'Send Message', 'edd_fes' ); ?>" />
+</fieldset>
 				<?php
-			break;
-		case 'submission':
-?>
-				<fieldset class="fes-submit">
-					<div class="fes-label">
-						&nbsp;
-					</div>
+				break;
+case 'submission':
+	?>
+<fieldset class="fes-submit">
+<div class="fes-label">&nbsp;</div>
 
-					<?php wp_nonce_field( 'fes-form-submission-form' ); ?>
-					<input type="hidden" name="form_id" value="<?php echo $form_id; ?>">
-					<input type="hidden" name="user_id" value="<?php echo get_current_user_id(); ?>">
-					<input type="hidden" name="page_id" value="<?php echo get_post() ? get_the_ID() : '0'; ?>">
-					<input type="hidden" name="action" value="fes_submit_post">
+	<?php wp_nonce_field( 'fes-form-submission-form' ); ?> <input
+	type="hidden" name="form_id" value="<?php echo $form_id; ?>"> <input
+	type="hidden" name="user_id"
+	value="<?php echo get_current_user_id(); ?>"> <input type="hidden"
+	name="page_id" value="<?php echo get_post() ? get_the_ID() : '0'; ?>">
+<input type="hidden" name="action" value="fes_submit_post"> <?php
+if ( $id ) {
+	$cur_post = get_post( $id );
+	?> <input type="hidden" name="post_id" value="<?php echo $id; ?>"> <input
+	type="hidden" name="post_author"
+	value="<?php echo esc_attr( $cur_post->post_author ); ?>"> <input
+	type="hidden" name="submission_status" value="edit"> <input
+	type="submit"
+	class="edd-submit <?php echo $color; ?> <?php echo $style; ?>"
+	name="submit" value="<?php echo __( 'Update', 'edd_fes' ); ?>" /> <?php } else { ?>
+<input type="hidden" name="submission_status" value="new"> <input
+	type="submit"
+	class="edd-submit <?php echo $color; ?> <?php echo $style; ?>"
+	name="submit" value="<?php echo __( 'Submit', 'edd_fes' ); ?>" /> <?php }
+	break;
+case 'profile':
+	?>
+<fieldset class="fes-submit">
+<div class="fes-label">&nbsp;</div>
+	<?php wp_nonce_field( 'fes-form-update-profile' ); ?> <input
+	type="hidden" name="form_id" value="<?php echo $form_id; ?>"> <input
+	type="hidden" name="action" value="fes_update_profile"> <input
+	type="hidden" name="user_id" value="<?php echo $id; ?>"> <input
+	type="hidden" name="page_id"
+	value="<?php echo get_post() ? get_the_ID() : '0'; ?>"> <?php if( is_admin() ) : ?>
+<input type="hidden" name="is_admin" value="1"> <?php endif; ?> <input
+	type="submit"
+	class="edd-submit <?php echo $color; ?> <?php echo $style; ?>"
+	name="submit" value="<?php echo __( 'Update Profile', 'edd_fes' ); ?>" />
+</fieldset>
+	<?php
+	break;
+case 'login':
+	?>
+<fieldset class="fes-submit">
+<div class="fes-label">&nbsp;</div>
+	<?php wp_nonce_field( 'fes-form-login' ); ?> <input type="hidden"
+	name="action" value="fes_submit_login"> <input type="hidden"
+	name="form_id" value="<?php echo $form_id; ?>"> <input type="submit"
+	class="edd-submit <?php echo $color; ?> <?php echo $style; ?>"
+	name="submit" value="<?php echo __( 'Login', 'edd_fes' ); ?>" /> <a
+	href="<?php echo wp_lostpassword_url(); ?>" id="fes_lost_password_link"
+	title="<?php _e( 'Lost Password?', 'edd_fes' ); ?>"><?php _e( 'Lost Password?', 'edd_fes' ); ?></a>
+</fieldset>
+	<?php
+	break;
+case 'registration':
+	$wording = sprintf( __( 'Become A %s', 'edd_fes' ),  EDD_FES()->vendors->get_vendor_constant_name( $plural = false, $uppercase = true ) );
+	if ( $id ) {
+		$wording =  __( 'Submit Changes', 'edd_fes' );
+	}
 
-					<?php
-					if ( $id ) {
-						$cur_post = get_post( $id );
-?>
-						<input type="hidden" name="post_id" value="<?php echo $id; ?>">
-						<input type="hidden" name="post_author" value="<?php echo esc_attr( $cur_post->post_author ); ?>">
-						<input type="hidden" name="submission_status" value="edit">
-						<input type="submit" class="edd-submit <?php echo $color; ?> <?php echo $style; ?>" name="submit" value="<?php echo __( 'Update', 'edd_fes' ); ?>" />
-					<?php } else { ?>
-						<input type="hidden" name="submission_status" value="new">
-						<input type="submit" class="edd-submit <?php echo $color; ?> <?php echo $style; ?>" name="submit" value="<?php echo __( 'Submit', 'edd_fes' ); ?>" />
-					<?php }
-			break;
-		case 'profile':
-?>
-				<fieldset class="fes-submit">
-					<div class="fes-label">
-						&nbsp;
-					</div>
-					<?php wp_nonce_field( 'fes-form-update-profile' ); ?>
-					<input type="hidden" name="form_id" value="<?php echo $form_id; ?>">
-					<input type="hidden" name="action" value="fes_update_profile">
-					<input type="hidden" name="user_id" value="<?php echo $id; ?>">
-					<input type="hidden" name="page_id" value="<?php echo get_post() ? get_the_ID() : '0'; ?>">
-					<?php if( is_admin() ) : ?>
-						<input type="hidden" name="is_admin" value="1">
-					<?php endif; ?>
-					<input type="submit" class="edd-submit <?php echo $color; ?> <?php echo $style; ?>" name="submit" value="<?php echo __( 'Update Profile', 'edd_fes' ); ?>" />
-				</fieldset>
-				<?php
-			break;
-		case 'login':
-?>
-				<fieldset class="fes-submit">
-					<div class="fes-label">
-						&nbsp;
-					</div>
-					<?php wp_nonce_field( 'fes-form-login' ); ?>
-					<input type="hidden" name="action" value="fes_submit_login">
-					<input type="hidden" name="form_id" value="<?php echo $form_id; ?>">
-					<input type="submit" class="edd-submit <?php echo $color; ?> <?php echo $style; ?>" name="submit" value="<?php echo __( 'Login', 'edd_fes' ); ?>" />
-					<a href="<?php echo wp_lostpassword_url(); ?>" id="fes_lost_password_link" title="<?php _e( 'Lost Password?', 'edd_fes' ); ?>"><?php _e( 'Lost Password?', 'edd_fes' ); ?></a>
-				</fieldset>
-				<?php
-			break;
-		case 'registration':
-			$wording = sprintf( __( 'Become A %s', 'edd_fes' ),  EDD_FES()->vendors->get_vendor_constant_name( $plural = false, $uppercase = true ) );
-			if ( $id ) {
-				$wording =  __( 'Submit Changes', 'edd_fes' );
-			}
-
-?>
-			<fieldset class="fes-submit">
-				<div class="fes-label">
-					&nbsp;
-				</div>
-				<?php wp_nonce_field( 'fes-form-registration' ); ?>
-				<input type="hidden" name="action" value="fes_submit_registration">
-				<input type="hidden" name="form_id" value="<?php echo $form_id; ?>">
-				<?php if( $id ) : ?>
-					<input type="hidden" name="user_id" value="<?php echo $id; ?>">
-				<?php endif; ?>
-				<?php if( is_admin() ) : ?>
-					<input type="hidden" name="is_admin" value="1">
-				<?php endif; ?>
-				<input type="submit" class="edd-submit <?php echo $color; ?> <?php echo $style; ?>" name="submit" value="<?php echo $wording; ?>" />
-			</fieldset>
-			<?php
-			break;
-		default:
-?>
-
-				<?php
-			break;
+	?>
+<fieldset class="fes-submit">
+<div class="fes-label">&nbsp;</div>
+	<?php wp_nonce_field( 'fes-form-registration' ); ?> <input
+	type="hidden" name="action" value="fes_submit_registration"> <input
+	type="hidden" name="form_id" value="<?php echo $form_id; ?>"> <?php if( $id ) : ?>
+<input type="hidden" name="user_id" value="<?php echo $id; ?>"> <?php endif; ?>
+	<?php if( is_admin() ) : ?> <input type="hidden" name="is_admin"
+	value="1"> <?php endif; ?> <input type="submit"
+	class="edd-submit <?php echo $color; ?> <?php echo $style; ?>"
+	name="submit" value="<?php echo $wording; ?>" /></fieldset>
+	<?php
+	break;
+default:
+	?> <?php
+	break;
 		}
 	}
 
@@ -3375,10 +3429,10 @@ class FES_Forms {
 
 		if ( is_array( $array ) ) {
 			if ( isset( $array[$key] ) && $array[$key] == $value )
-				$results[] = $array;
+			$results[] = $array;
 
 			foreach ( $array as $subarray )
-				$results = array_merge( $results, $this->search_array( $subarray, $key, $value ) );
+			$results = array_merge( $results, $this->search_array( $subarray, $key, $value ) );
 		}
 
 		return $results;
@@ -3433,8 +3487,8 @@ class FES_Forms {
 		// set featured image if there's any
 		if ( isset( $_POST[ 'feat-image-id' ] ) ) {
 			$attachment_id = $_POST[ 'feat-image-id' ];
- 			fes_associate_attachment( $attachment_id, $post_id );
- 			set_post_thumbnail( $post_id, $attachment_id );
+			fes_associate_attachment( $attachment_id, $post_id );
+			set_post_thumbnail( $post_id, $attachment_id );
 		}
 		// save all custom fields
 		foreach ( $meta_key_value as $meta_key => $meta_value ) {
@@ -3498,16 +3552,14 @@ class FES_Forms {
 			$attr['required'] = 'no';
 		}
 		ob_start();
-?>
-        <div class="fes-label">
-            <label for="fes-<?php echo isset( $attr['name'] ) ? $attr['name'] : 'cls'; ?>"><?php echo $attr['label'] . $this->required_mark( $attr ); ?></label>
-			<br />
-            <?php if ( ! empty( $attr['help'] ) ) : ?>
-		  	<span class="fes-help"><?php echo $attr['help']; ?></span>
-		  <?php endif; ?>
-        </div>
-        <?php
-        return ob_get_clean();
+		?>
+<div class="fes-label"><label
+	for="fes-<?php echo isset( $attr['name'] ) ? $attr['name'] : 'cls'; ?>"><?php echo $attr['label'] . $this->required_mark( $attr ); ?></label>
+<br />
+<?php if ( ! empty( $attr['help'] ) ) : ?> <span class="fes-help"><?php echo $attr['help']; ?></span>
+<?php endif; ?></div>
+<?php
+return ob_get_clean();
 	}
 	function is_meta( $attr ) {
 		if ( isset( $attr['is_meta'] ) && $attr['is_meta'] == 'yes' ) {

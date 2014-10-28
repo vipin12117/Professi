@@ -16,13 +16,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'imnxlsoj_wp860');
+define('DB_NAME', 'metrops4_professi');
 
 /** MySQL database username */
-define('DB_USER', 'imnxlsoj_wp860');
+define('DB_USER', 'metrops4_dbuser');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'E0S6o9--3P');
+define('DB_PASSWORD', 'Vipin@123#');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
@@ -42,14 +42,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'qb9vlhimvzrkmp9n8pnmlrr8ezpgpsfzg5mfvxtjrppgipfv5dkicigkbnlj7eqk');
-define('SECURE_AUTH_KEY',  'z9oiea8kfdjuy8eojgwsosobvqxaw9gwliboedr8qvjgbzfnwkpjl9qkbsicqc3c');
-define('LOGGED_IN_KEY',    'u3e6fhftyilsfihtlf6oshluhmul45x9e3yad4f2gbkobwou2wqoympg68opb5li');
-define('NONCE_KEY',        'zaahbxxzsxed2g8rhoidipob10rmvm7kc85fwsuhujnpzx9r59dhfowiqqzipy7c');
-define('AUTH_SALT',        'aeyshpxyvrgssu0w4tpxl3ewtq9b2l8jyzsuvvycqtcnid2wtz9dqo083jmxj8bx');
-define('SECURE_AUTH_SALT', '8svk03h6d06xxrmordzx9voz3vcvukwbrbbiavalm6ggyrwq37v1mr7woetfmyii');
-define('LOGGED_IN_SALT',   'papyjwbq2hgsihwlihgjbkfzzwkr2bon3hqvza7rh9ui9eiriwnpysgrkrsggc0i');
-define('NONCE_SALT',       'lrm0tibcl4uxyr6ykyskzxv4agnhdmhqlswuiuramippyj3vnveshqh5mqql9ew6');
+define('AUTH_KEY',         ';MK=|Sm-sVIfmM{`W+)..w5[e@K.HdA4E;J>-)[L&V`.,x$,2AQ7~c3W!w unQz*');
+define('SECURE_AUTH_KEY',  't1K?a[ul(8siZl^!WT&pmbs8Itn+#X*v_BAaY*Z63W3`@b)XVpcE71}l|?*rih%R');
+define('LOGGED_IN_KEY',    '4*XW+e!qxg:/2J|p@,|@$KVensn:H,f}S?0.eXSR[19ppT+RCvZ(|<(mso[HA9nf');
+define('NONCE_KEY',        'K+T$*jG{yQ&+dI3Q+?D%N O{Ly~hn+J|$~=Lsu=_D6*&Fw,i&>sO(C23h&`]`S#+');
+define('AUTH_SALT',        ',3q6f8U#gK^Tp39xnl$}5#QoZlxtJ&6qmAwyZohbk/-w!3.-:Qa:-G!^w_t}-S([');
+define('SECURE_AUTH_SALT', '1ya}wsHTLxG gZRzYW[I-0iLrXOWPUm-Ybg?<U[c*4|3wCri%Tgi^yXARwqtffXh');
+define('LOGGED_IN_SALT',   'j>J1Q.=b][ogTYU}J`,IxLWDq#TE9Tc,;juD&rfrwoV#i9>!!-ds;Q.^}W)lI=tc');
+define('NONCE_SALT',       '#|+|4^5]vXY:_+qd1K5Y.b7}2|6mXwH=pV>Q~ekyI8tb7VT6#+Y%M)WG^CT=Pi+^');
 
 /**#@-*/
 
@@ -70,8 +70,8 @@ $table_prefix  = 'wp_';
  * language support.
  */
 
-define('WP_SITEURL','http://techgroupjaipur.com/wordpress');
-define('WP_HOME','http://techgroupjaipur.com/wordpress');
+define('WP_SITEURL','http://profesi.growthlabs.ca');
+define('WP_HOME','http://profesi.growthlabs.ca');
 define('WPLANG', '');
 
 /**

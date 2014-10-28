@@ -41,8 +41,11 @@ $wp_query = new WP_Query( array(
 	'download_category'    => $cat_,
 	's'    => $_GET['s'],
 	'posts_per_page' => 10,
-	'search_order' => 'rating'
+	'orderby' => 'average_rating',
+	'order' => 'DESC'
 ));
+
+//print_R($wp_query); exit;
 
 $GLOBALS['view'] = "viewWhishlist";
 ?>

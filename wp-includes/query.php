@@ -2625,7 +2625,7 @@ class WP_Query {
 			$orderby = "FIELD( {$wpdb->posts}.post_parent, $post_parent__in )";
 		} else {
 			// Used to filter values
-			$allowed_keys = array('name', 'author', 'date', 'title', 'modified', 'menu_order', 'parent', 'ID', 'rand', 'comment_count');
+			$allowed_keys = array('name', 'author', 'date', 'title', 'modified', 'menu_order', 'parent', 'ID', 'rand', 'comment_count','average_rating');
 			if ( !empty($q['meta_key']) ) {
 				$allowed_keys[] = $q['meta_key'];
 				$allowed_keys[] = 'meta_value';
@@ -2665,6 +2665,9 @@ class WP_Query {
 					case 'comment_count':
 						$orderby = "$wpdb->posts.comment_count";
 						break;
+					case 'average_rating':
+						$orderby = "$wpdb->posts.average_rating";
+						break;	
 					default:
 						$orderby = "$wpdb->posts.post_" . $orderby;
 				}
