@@ -1,17 +1,17 @@
-1) Did you get the email I sent you about resource type appearing on subject line?  Fixed
+1) Did you get the email I sent you about resource type appearing on subject line? - Fixed
 
-2) have you checked that age group and price categories in the filter are linked to submission form? They got screwed up when I added 0s   Fixed
+2) have you checked that age group and price categories in the filter are linked to submission form? They got screwed up when I added 0s   -  Fixed
 
-3) Profile is still showing Azerbaijan send screenshot
+3) Profile is still showing Azerbaijan  - send screenshot
 
-4) size of search results should all be the same, shouldn't depend on length of description not a issue
+4) size of search results should all be the same, shouldn't depend on length of description -  Fixed
 
-5) search results should be automatically ordered by "highest rated"  searching a way to fix
+5) search results should be automatically ordered by "highest rated"  Fixed
 
-6) vendor registration process needs to be centred and teacherspaytrachers fields within taken out.  design issue
+6) vendor registration process needs to be centred and teacherspaytrachers fields within taken out. - design issue
 
-7) the orders tab is not working on the dashboard not a issue
+7) the orders tab is not working on the dashboard  - not a issue
 
-8) I am not receiving an email for forgot password not a issue
+8) I am not receiving an email for forgot password -  not a issue check email for user
 
-9) filter has a glitch where you need to click a category twice in order to see products within the category being clicked. First click always displays all available products. checking and seaching way
+9) filter has a glitch where you need to click a category twice in order to see products within the category being clicked. First click always displays all available products. Fixed

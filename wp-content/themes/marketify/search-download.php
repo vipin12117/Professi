@@ -100,7 +100,7 @@ $GLOBALS['view'] = "viewWhishlist";
 				<!--  <div class="the-title-home"><?php //marketify_downloads_section_title();?></div> -->
 				<div class="result-info clearfix">
 					<div class="result fontsforweb_fontid_9785 left"><?php echo $wp_query->found_posts;?> results</div>
-					<div class="result-selectbox right">
+					<div class="result-selectbox right" style="display:none;">
 						<span>sort by:</span>
 						<select id="selext-orderby" class="form-control">
 							<option value="title">Name</option>
@@ -142,7 +142,9 @@ $GLOBALS['view'] = "viewWhishlist";
 										  $category_str = '';
 										  $categories = (array)get_the_terms( $post->ID, 'download_category' );
 										  foreach($categories as $category){
-										  	  $category_str .= $category->name.",";
+										  	  if(in_array($category->parent , array(52,53,63,72,81,85,92))){
+										  	  	$category_str .= $category->name.",";
+										  	  }
 										  }
 										  
 										  //print $rating . " -- " . $post->ID . " -- " . $ratingCount . "<br />";

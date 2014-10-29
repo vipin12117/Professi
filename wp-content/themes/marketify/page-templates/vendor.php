@@ -65,7 +65,6 @@ get_header(); ?>
                                 <br />
                                 
 								<div class="teacher-local gray-light"> 
-                               		<?php echo get_user_meta($author->ID, 'country' , 1);  ?> ,
                                		<?php echo get_user_meta($author->ID, 'location' , 1);  ?> 
                                	</div>
                                 
