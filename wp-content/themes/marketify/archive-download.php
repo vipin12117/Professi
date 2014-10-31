@@ -27,7 +27,7 @@ if($cat_ && strlen($cat_) > 0) {
 	foreach($cats as $slug) {
 		$iccat = get_term_by( 'slug', $slug, 'download_category' );
 		$ipcat = get_term_by( 'term_id', $iccat->parent, 'download_category' );
-		$key =$ipcat->term_id;
+		$key   = $ipcat->term_id;
 		$pcats[$key] = $ipcat;
 		if(!isset($ccats[$key])) {
 			$ccats[$key] = array();
@@ -38,19 +38,39 @@ if($cat_ && strlen($cat_) > 0) {
 }
 
 global $wp_query;
-
 wp_reset_query(); 
+
+$cat_array = array();
+$term_ids  = array();
+foreach($ccats as $cat_ids){
+	foreach($cat_ids as $cat_id){
+		$cat_array[] = array(
+	        'taxonomy' => 'download_category',
+	        'terms' => array($cat_id->term_id),
+	        'field' => 'term_id',
+			'include_children' => true,
+			'operator' => 'IN',
+	    );
+	    
+	    $term_ids[] = $cat_id->term_id;
+	}
+}
+
+$tax_query = array('relation' => 'AND',$cat_array);
+//print_r($tax_query); exit;
+
 $wp_query = new WP_Query( array(
 	'post_type'   => 'download',
 	'post_status' => 'publish',
-	'download_category'    => $cat_,
+	'download_category' => $cat_,
+	//'tax_query'     => $tax_query,
 	's'    => $_GET['s'],
 	'posts_per_page' => 10,
 	'orderby' => 'average_rating',
-	'order' => 'DESC'
+	'order' => 'DESC',
 ));
 
-
+//print_R($wp_query->request); //exit;
 $GLOBALS['view'] = "viewWhishlist";
 ?>
 <style>
