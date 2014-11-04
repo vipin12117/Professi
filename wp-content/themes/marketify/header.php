@@ -106,7 +106,7 @@ $(function() {
              <div class="site-branding">
                     <div class=" nav_mainstuff container" >
                         <div class="row">
-                            <div class="col-xs-4" >
+                            <div class="col-xs-12 col-sm-4 col-md-4" >
                                     <?php $header_image = get_header_image(); ?>
                                     <?php if ( ! empty( $header_image ) ) : ?>
                                             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="<?php echo esc_url( $header_image ); ?>" alt=""></a>
@@ -114,7 +114,7 @@ $(function() {
                                             <div class="site-description-header"><?php  bloginfo( 'description' ); ?></div> 
                             </div>
 
-                            <div class="col-xs-8"  >
+                            <div class="col-xs-12 col-sm-8 col-md-8 right-header"  >
                                 <div class="pull-left"><?php locate_template( array( 'searchform-header.php' ), true ); ?> </div> 
                                 
                                 <?php if ( is_user_logged_in() ):?>

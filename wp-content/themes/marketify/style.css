@@ -1909,7 +1909,7 @@ body.product-display-inline .single-project .page-header,
 }
 
 .content-grid-download .entry-image img {
-	min-width: 100%;
+	min-width: 90px;margin: 0 auto;
 }
 
 .content-grid-download .entry-image .image-placeholder,
@@ -4164,9 +4164,9 @@ NOTE
 		padding-top: 0;
 	}
 
-	.site-header .site-branding {
+	/*.site-header .site-branding {
 		margin-left: 15px;
-	}
+	}*/
 
 	.site-header .container {
 		max-width: 100%;
@@ -4174,7 +4174,7 @@ NOTE
 		position: inherit;
 	}
 
-	.main-navigation .menu,
+	/*.main-navigation .menu,
 	.main-navigation .search-form,
 	.main-navigation .main-menu {
 		float: none;
@@ -4321,7 +4321,7 @@ NOTE
 		display: none;
 	}
 
-	.main-navigation ul,
+	/*.main-navigation ul,*/
 	.main-navigation .search-form,
 	.header-search-icon {
 		display: none;
@@ -6198,11 +6198,17 @@ body #edd-wl-modal input[type="email"], body  #edd-wl-modal input[type="text"],b
 }
 .current-cart {
 top:-57px;
-left:712px;
+left: auto;
+    right: 173px;
   position:absolute!important; 
      border:none;background: none!important;
  
 }
+.current-cart {
+  
+    
+}
+
 
 /*Login Page and Resgistration Pages*/
 
@@ -6472,6 +6478,65 @@ background: #E3536C;
 
 
 }
-	
-	
-	.personal a {color:white;}
+.personal a {color:white;}
+        
+/* responsive here */
+@media(max-width: 981px) {
+    input.search-field-input {
+           width: 160px;
+    }
+    .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9 {
+        margin-top:10px;
+    }
+        .edd_download_inner {
+        text-align: center;
+    }
+    .content-grid-download .entry-image img{
+        min-width: 90px;margin: 0 auto;
+    }
+}
+
+
+@media(max-width: 767px) {
+    .top-bar ul.none li {border: none;}
+    .top-bar {
+      height: auto;
+  }  
+  .site-branding .custom-header, .site-branding .site-title {
+      float: none;
+      display: block; margin:10px 0;
+      text-align: center;
+  }.site-branding .custom-header img {
+      display: inline;
+      margin:0;
+  }
+  .right-header {
+      margin:10px 0;
+    
+  }
+  .current-cart {display: none}
+    .site-branding {
+        height: auto;
+    }
+     input.search-field-input {
+        width: 200px;
+        margin-left: 10px;
+    }
+    .edd_download {
+        margin-bottom: 10px;
+    }
+    .left-container .download-single-widget > ul.edd-taxonomy-widget > li > a {
+        width:98%!important;
+    }
+
+    .left-container .download-single-widget ul.children ul.children {
+        display: block!important;position:static;
+        border: none;
+    }
+}
+
+@media(max-width: 320px) {
+    input.search-field-input {
+        width: 146px;
+    }
+}

@@ -54,12 +54,9 @@ $wp_query = new WP_Query( array(
 
 $GLOBALS['view'] = "viewWhishlist";
 ?>
-<style>
- .col-md-4{width:100% !important;}
-</style>
 <div class="container result-search main-body">
   <div class="row">
-	 <div class="left-container col-xs-4 sidebar">
+	 <div class="left-container col-xs-12 col-sm-4 col-md-4 sidebar">
 		<aside id="selected-categories" class="widget download-single-widget widget_edd_categories_tags_widget">
 			<h1 class="download-single-widget-title"></h1>
 			<ul class="edd-taxonomy-widget">
@@ -92,7 +89,7 @@ $GLOBALS['view'] = "viewWhishlist";
 		<?php dynamic_sidebar( 'sidebar-download-single' ); ?>
 	</div>
 
-	<div id="content" class="right-container col-xs-8 site-content ">
+	<div id="content" class="right-container col-xs-12 col-sm-8 col-md-8 site-content ">
 	  <div class="download-product-review-details content-items clearfix">
 		 <section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-7 col-xs-12">
 			<main id="main" class="site-main" role="main">
@@ -117,12 +114,12 @@ $GLOBALS['view'] = "viewWhishlist";
 						<?php while ( have_posts() ) : the_post(); ?>
 							<?php //get_template_part( 'content-grid', 'download' ); ?>
 							
-							<div style="width:700px;" id="post-<?php the_ID(); ?>" class="content-grid-download">
-								<div style="float:left;width:150px;">
+							<div  id="post-<?php the_ID(); ?>" class="content-grid-download">
+								<div >
 									<?php edd_get_template_part( 'shortcode', 'content-image' ); ?>
 								</div>
 								
-								<div style="float:left;width:300px;margin-left:20px;">
+								<div>
 									<p>
 										<?php edd_get_template_part( 'shortcode', 'content-title' ); ?>
 									</p>
@@ -165,7 +162,7 @@ $GLOBALS['view'] = "viewWhishlist";
 									</div>	
 								</div>
 								
-								<div style="float:right;width:200px;padding:5px 0 5px 10px;">
+								<div >
 									<div class="download-product-details action-container" style="padding:5px 0 5px 10px;"><!--#action-container -->
 										<div class="price">Price: <?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
 										<br />
