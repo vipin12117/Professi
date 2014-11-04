@@ -268,7 +268,7 @@ $author = get_the_author();
 				<?php //do_action( 'marketify_entry_before' ); ?>
 	
 				<div id="content" class="site-content row">
-					<section id="primary" class="content-area <?php echo ! is_active_sidebar( 'sidebar-download-single' ) ? 'col-xs-12' : 'col-md-8 col-sm-7 col-xs-12'; ?>">
+					<section id="primary" class="content-area <?php echo ! is_active_sidebar( 'sidebar-download-single' ) ? 'col-xs-12' : 'col-md-8 col-sm-8 col-xs-12'; ?>">
 						<main id="main" class="site-main" role="main">
 	
 						<?php while ( have_posts() ) : the_post(); ?>

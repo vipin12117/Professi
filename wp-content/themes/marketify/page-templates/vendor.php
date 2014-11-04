@@ -20,18 +20,18 @@ get_header(); ?>
 <div class="container vendor main-body">
     <?php while ( have_posts() ) : the_post(); ?>
     <div class="row">
-        <div class="left-container col-xs-4 sidebar">
+        <div class="left-container col-xs-12 col-sm-4 col-md-4 sidebar">
             <?php dynamic_sidebar( 'sidebar-download-single' ); ?>
         </div>
 
-        <div id="content" class="right-container col-xs-8 site-content ">
+        <div id="content" class="right-container col-xs-12 col-sm-8 col-md-8 site-content ">
         	<?php if(!$author):?>
 	            <div class="title-top-container header clearfix">
 	                <div class="title-top page-title fontsforweb_fontid_9785 left">O U R&nbsp; T E A C H E R&nbsp;  A U T O R S</div>
 	                <div class="title-right right"><a href="<?php echo esc_url( home_url( '/fes-vendor' ) ); ?>">See all <i class="glyphicon glyphicon-play"></i></a></div>
 	            </div>
 	            <div class="download-product-review-details content-items clearfix">
-	                <section id="primary" class="content-area col-md-12 col-sm-7 col-xs-12">
+	                <section id="primary" class="content-area col-md-12 col-sm-12 col-xs-12">
 	                    <main id="main" class="site-main" role="main">
 	
 	                        <div class="the-title-home">OUR TEACHER AUTORS</div>
@@ -112,7 +112,7 @@ get_header(); ?>
             </div>
             
             <div class="download-product-review-details content-items clearfix">
-                <section id="primary" class="content-area col-md-12 col-sm-7 col-xs-12">
+                <section id="primary" class="content-area col-md-12 col-sm-12 col-xs-12">
                     <main id="main" class="site-main" role="main">
                         <div class="the-title-home">FEATURED LESSONS</div>
                         <div class="clearfix">
