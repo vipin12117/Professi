@@ -7,10 +7,9 @@
  * @package Marketify
  */
 
-//
+include_once get_template_directory().'/split_page_results.php';
 
 get_header();
-//$Cats = (isset($GLOBALS['cat_search'])) ? $GLOBALS['cat_search'] : '';
 $cat_ = $_GET['absc_search_cat'];
 
 $obj = get_queried_object();
@@ -39,39 +38,73 @@ if($cat_ && strlen($cat_) > 0) {
 
 global $wp_query;
 wp_reset_query(); 
-
-$cat_array = array();
-$term_ids  = array();
-foreach($ccats as $cat_ids){
-	foreach($cat_ids as $cat_id){
-		$cat_array[] = array(
-	        'taxonomy' => 'download_category',
-	        'terms' => array($cat_id->term_id),
-	        'field' => 'term_id',
-			'include_children' => true,
-			'operator' => 'IN',
-	    );
-	    
-	    $term_ids[] = $cat_id->term_id;
-	}
-}
-
-$tax_query = array('relation' => 'AND',$cat_array);
-//print_r($tax_query); exit;
-
-$wp_query = new WP_Query( array(
+/*$wp_query = new WP_Query( array(
 	'post_type'   => 'download',
 	'post_status' => 'publish',
 	'download_category' => $cat_,
-	//'tax_query'     => $tax_query,
 	's'    => $_GET['s'],
 	'posts_per_page' => 10,
 	'orderby' => 'average_rating',
 	'order' => 'DESC',
-));
+));*/
 
-//print_R($wp_query->request); //exit;
-$GLOBALS['view'] = "viewWhishlist";
+$where = array();
+if(strlen($s) > 1){
+	$s_parts = explode(" ",$s);
+	$string  = array();
+	foreach((array)$s_parts as $word){
+		$string[] = " post_title LIKE '%".mysql_real_escape_string($word)."%' ";
+	}
+	
+	
+	if(sizeof($string) > 0){
+		$where[] = "(( " . implode(" AND ", $string) . " ) OR post_title LIKE '%".mysql_real_escape_string($s)."%')";
+	}
+	else{
+		$where[] = "post_title LIKE '%$search%'";
+	}
+}
+
+$cat_condition = array();
+foreach($ccats as $cat_ids){
+	foreach($cat_ids as $cat_id){
+		$term_ids = get_term_children($cat_id->term_id,'download_category');
+		$term_ids[] = $cat_id->term_id;
+		$term_ids  = array_unique($term_ids);
+		$term_ids_str = implode(",",$term_ids);
+		
+	    $cat_condition[] = " t.term_id IN($term_ids_str) ";
+	}
+}
+if($cat_condition){
+	$where[] = implode(" AND ", $cat_condition);
+}
+
+$where[] = " post_type = 'download' ";
+if($where){
+	$whereCondition = "where ".implode(" AND ",$where);
+}
+else{
+	$whereCondition = "";
+}
+
+$search_query = "select ID , post_title , post_name , (sum(meta_value) / 5) average_rating , count(cm.comment_ID) count_rating  from wp_posts p 
+				 left join wp_term_relationships tr on (p.ID = tr.object_id) 
+				 left join wp_term_taxonomy tt on (tr.term_taxonomy_id = tt.term_taxonomy_id) 
+				 left join wp_terms t on (t.term_id = tt.term_id) 
+				 left join wp_comments c on (p.ID = c.comment_post_ID) 
+				 left join wp_commentmeta cm on (c.comment_ID = cm.comment_id and meta_key = 'edd_rating' AND comment_approved = '1')
+				 $whereCondition group by ID order by count_rating DESC , average_rating DESC";
+$page = (int)$_GET['page'];		
+if(!$page){
+	$page = 1;
+}		 
+
+$splitPage = new splitPageResults($search_query , 5 , "", $page);			
+$downloads = $wpdb->get_results($splitPage->sql_query);
+
+$wp_query->found_posts = $splitPage->number_of_rows;
+//print_R($search_query); exit;
 ?>
 <style>
  .col-md-4{width:100% !important;}
@@ -118,7 +151,7 @@ $GLOBALS['view'] = "viewWhishlist";
 				
 				<!--  <div class="the-title-home"><?php //marketify_downloads_section_title();?></div> -->
 				<div class="result-info clearfix">
-					<div class="result fontsforweb_fontid_9785 left"><?php echo $wp_query->found_posts;?> results</div>
+					<div class="result fontsforweb_fontid_9785 left"><?php echo $splitPage->number_of_rows?> results</div>
 					<div class="result-selectbox right" style="display:none;">
 						<span>sort by:</span>
 						<select id="selext-orderby" class="form-control">
@@ -131,12 +164,10 @@ $GLOBALS['view'] = "viewWhishlist";
 				</div>
 				<br />
 
-				<?php if ( have_posts() ) : ?>
+				<?php if ( $downloads ) : ?>
 					<div class="download-grid-wrapper columns-<?php echo marketify_theme_mod( 'product-display', 'product-display-columns' ); ?> row clearfix" data-columns="1">
-						<?php while ( have_posts() ) : the_post(); ?>
-							<?php //get_template_part( 'content-grid', 'download' ); ?>
-							
-							<div style="width:700px;" id="post-<?php the_ID(); ?>" class="content-grid-download">
+						<?php foreach($downloads as $post):?>
+							<div style="width:700px;" id="post-<?php $post->ID; ?>" class="content-grid-download">
 								<div style="float:left;width:150px;">
 									<?php edd_get_template_part( 'shortcode', 'content-image' ); ?>
 								</div>
@@ -205,8 +236,6 @@ $GLOBALS['view'] = "viewWhishlist";
 													}
 													echo $rating; 
 													?></span>
-													
-													<?php //echo edd_reviews()->microdata();?>
 												</div>
 												<div class="ratings"><?php echo $ratingCount; ?> ratings</div>
 											</span>
@@ -238,10 +267,18 @@ $GLOBALS['view'] = "viewWhishlist";
 								</div>
 								<br clear="all" />
 							</div><!-- #post-## -->
-						<?php endwhile; ?>
+							<br clear="all" />
+						<?php endforeach; ?>
 					</div>
+					
+					<?php if($splitPage->number_of_rows > 5):?>
+						<div id="edd_download_pagination" class="navigation">
+							<?php $_SERVER['QUERY_STRING'] = preg_replace("/page=[0-9+]/is","",$_SERVER['QUERY_STRING']);?>
+							<?php echo $splitPage->display_links("3",$_SERVER['QUERY_STRING']);?>
+						</div>
+					<?php endif;?>						
 
-					<?php marketify_content_nav( 'nav-below' ); ?>
+					<?php //marketify_content_nav( 'nav-below' ); ?>
 			<?php else : ?>
 
 				<?php get_template_part( 'no-results', 'download' ); ?>

@@ -62,7 +62,7 @@ $author = get_the_author();
 								<?php $preview_file_3 = unserialize($data_custom['upload_preview_file_3'][0]);?>
 								<?php 
 									if($preview_file_3[0]){
-										$preview_file3_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_2[0]."'");
+										$preview_file3_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_3[0]."'");
 									}
 								?>
 								<a href="<?php echo $preview_file3_url[0]; ?>" rel="lightbox">
