@@ -2054,7 +2054,16 @@ body.product-display-inline .single-project .page-header,
 	padding-bottom: 10px;
 	border-bottom: 2px solid #fff;
 }
-
+.right-post .content-grid-download .entry-image .item-price span {
+	
+	border-bottom: 0px solid #fff;
+}
+.right-post .content-grid-download .entry-image .button {
+    padding: 5px 10px;
+}
+.right-post .content-grid-download .star-rating{
+    display: none;
+}
 .content-grid-download .entry-image .star-rating {
 	display: block;
 	width: 100%;
