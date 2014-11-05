@@ -17,7 +17,7 @@ get_header(); ?>
 			</div>
 
 			<div id="content" class="right-container col-xs-12 col-sm-8 col-md-8 site-content  ">
-				<?php if($isHome == true) {?>
+				<?php if($isHome == true) ?>
 					<!--<div class="download-product-review-details">
 						<div class="home-review-content">
 							<?php  /** if ( is_active_sidebar( 'preview-1' ) ) :  ?>
@@ -115,7 +115,7 @@ get_header(); ?>
 			
 					
 					
-				<?php }?>
+				<?php ?>
 				
 				<div class="download-product-review-details content-items clearfix">
 					<?php if ( ! is_paged() && ! get_query_var( 'orderby' ) && ! is_page_template( 'page-templates/popular.php' ) ) : ?>
