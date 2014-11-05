@@ -91,7 +91,7 @@ $GLOBALS['view'] = "viewWhishlist";
 
 	<div id="content" class="right-container col-xs-12 col-sm-8 col-md-8 site-content ">
 	  <div class="download-product-review-details content-items clearfix">
-		 <section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-7 col-xs-12">
+		 <section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-12 col-xs-12">
 			<main id="main" class="site-main" role="main">
 				
 				<!--  <div class="the-title-home"><?php //marketify_downloads_section_title();?></div> -->
@@ -110,22 +110,26 @@ $GLOBALS['view'] = "viewWhishlist";
 				<br />
 
 				<?php if ( have_posts() ) : ?>
-					<div class="download-grid-wrapper columns-<?php echo marketify_theme_mod( 'product-display', 'product-display-columns' ); ?> row clearfix" data-columns="1">
+					<div class="download-grid-wrapper  search-result clearfix" d>
 						<?php while ( have_posts() ) : the_post(); ?>
 							<?php //get_template_part( 'content-grid', 'download' ); ?>
 							
-							<div  id="post-<?php the_ID(); ?>" class="content-grid-download">
-								<div >
+							<div  id="post-<?php the_ID(); ?>" class="content-grid-download row">
+								<div class="col-md-3">
 									<?php edd_get_template_part( 'shortcode', 'content-image' ); ?>
 								</div>
 								
-								<div>
-									<p>
+								<div class="col-md-5">
+									<div>
 										<?php edd_get_template_part( 'shortcode', 'content-title' ); ?>
-									</p>
+									</div>
 									
 									<?php $data_custom = get_post_custom($post->ID);?>
-									<p><?php echo ($data_custom['add_description'][0]); ?></p>
+									<div class="des">
+                                                                            <?php $text=$data_custom['add_description'][0];  ?>
+                                                                          <?php $text=  substr($text, 0 ,60); echo $text; ?>
+									
+                                                                        </div>
 									
 									<?php $data_custom = get_post_custom($post->ID);?>
 									<?php 
@@ -146,23 +150,23 @@ $GLOBALS['view'] = "viewWhishlist";
 										  
 										  //print $rating . " -- " . $post->ID . " -- " . $ratingCount . "<br />";
 									?>
-									<div class="form-horizontal">
+									<div class="form-horizontal ">
 										<div class="control-group">
 											<span class="control-label">SUBJECTS:</span>
-											<span class="controls gray-light"><?php echo $category_str;?></span>
+											<span class="controls gray-light sub"><?php echo $category_str;?></span>
 										</div>
 										<div class="control-group">
 											<span class="control-label">GRADES:</span>
-											<span class="controls gray-light"><?php echo ($data_custom['pick_grade_level(s)'][0]); ?></span>
+											<span class="controls gray-light grades"><?php echo ($data_custom['pick_grade_level(s)'][0]); ?></span>
 										</div>
 										<div class="control-group">
 											<span class="control-label lv2">RESOURCE TYPES:</span>
-											<span class="controls gray-light"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
+											<span class="controls gray-light resource-type"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
 										</div>
 									</div>	
 								</div>
 								
-								<div >
+								<div class="col-md-4" >
 									<div class="download-product-details action-container" style="padding:5px 0 5px 10px;"><!--#action-container -->
 										<div class="price">Price: <?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
 										<br />

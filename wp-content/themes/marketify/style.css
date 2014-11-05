@@ -1135,7 +1135,28 @@ body:not(.minimal) .edd_form fieldset > span:first-child,
 body:not(.minimal) .edd_form legend {
 	margin-top: 0;
 }
-
+body div.fes-form fieldset .fes-section-wrap {
+    border:none;
+}
+#fes-registration-form-title {
+    background: none;
+    margin:20px 0;
+    font-size: 24px;
+    border: none;
+    display: none;
+}
+.fes-form-registration-form {
+    width: 60%;
+    margin: 10px auto;
+}
+.fes-form-login-form + .fes-form-registration-form {
+    width: 100%;
+    margin: 10px auto;
+}
+.fes-form-login-form + .fes-form-registration-form  .fes-headers {
+    background: none!important;;
+    border: none!important;
+}
 /* =Homepage 1
 ----------------------------------------------- */
 
@@ -4799,14 +4820,37 @@ ul.none li, ul.edd-taxonomy-widget li {
 .uiIcon16x16{width: 16px; height:16px; display:inline-block;}
 .uiIcon16x16:hover {
 	opacity: 0.9;
-	filter: alpha(opacity=90););
+	filter: alpha(opacity=90);
 }
-
-
+#input-search-field {height:30px;}
+.list-top .actionIcon{
+	display: inline-block;
+}
+.des {
+    height: 70px;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+.edd_download_title ,.sub,.grades,.resource-type{
+     display: block;
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap !important;
+}
+.search-result .content-grid-download{
+    margin: 20px 0;
+}
 .top-bar ul.none li {
+        border:none;
+        border-radius: 0;
 	padding: 0px 12px 0px 8px;
 	border-right: 1px solid #d6d6d6;
 	line-height: 34px;
+	display: block;
+}
+.post-description ,.search-results  .content-grid-download p,.search-results  .content-grid-download .controls {
+    word-wrap: break-word;
 }
 .top-bar ul.none li:first-child {
 	border-left: 1px solid #d6d6d6;
@@ -4910,7 +4954,6 @@ input.search-field-input {
 	font: 700 16px 'GothamBook', sans-serif;
 	color: #515a63;
 	letter-spacing: 0.10em;
-	margin: 2em 0;
 	font-weight:normal ;
 }
 
@@ -4955,9 +4998,8 @@ input.search-field-input {
 	margin-bottom: 5px;
 }
 
-
+.site-header {margin-bottom: 30px;}
 .right-container .download-product-review-details {
-	margin-top: 32px;
 	padding: 25px 0px;
 	background: #fff;
 }
@@ -6470,8 +6512,22 @@ background: #E3536C;
 
 
 }
+.abc {width: 50%;margin: 0 auto;}
+#edd_login_submit {width: 50%!important}
+#lostpasswordform legend{
+    display: none;
+}
 .personal a {color:white;}
-        
+.i_agree_with_the_terms_of_service_and_privacy_policy > div,
+.i_agree_with_the_terms_of_service_and_privacy_policy + .fes-el > div{
+    float: left!important;
+    margin: 0 10px!important;
+    clear: none!important;
+    width: 90%;
+}  
+.i_agree_with_the_terms_of_service_and_privacy_policy > div {
+    
+}
 /* responsive here */
 @media(max-width: 981px) {
     input.search-field-input {
@@ -6560,6 +6616,11 @@ background: #E3536C;
     .post-container .right-post .content-grid-download {
     width: auto;
 }
+.fes-form-registration-form {
+    width: 80%;
+    margin: 10px auto;
+}
+.abc {width: 90%;margin: 0 auto;}
 }
 
 @media(max-width: 320px) {
