@@ -104,7 +104,7 @@ select,
 textarea,
 .whistles {
 	color: #404040;
-	font-family: 'GothamBook', 'Source Sans Pro', sans-serif;
+	font-family: sans-serif;
 	font-size: 15px;
 	line-height: 1.5;
 	-webkit-box-sizing: border-box;
@@ -173,7 +173,7 @@ address {
 
 pre {
 	background: #eee;
-	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-family: sans-serif;
 	font-size: 15px;
 	font-size: 1.5rem;
 	line-height: 1.6;
@@ -405,7 +405,7 @@ a:active {
   margin: 0px 20px 10px 0px;
   float: left;
 	border-radius: 8px;
-	font-family: 'Pacifico', cursive;
+	font-family: sans-serif;
 	font-size: 12px;
 	color: #FFF;
 	text-decoration: none;	
@@ -743,7 +743,7 @@ a.insert-file-row {
 }
 
 .site-title {
-	font-family: 'Montserrat', sans-serif;
+	font-family: sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
 	font-size: 26px;
@@ -3390,7 +3390,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 .download-sorting label {
 	font-size: 15px;
-	font-family: 'Source Sans Pro';
+	font-family: sans-serif;
 	font-weight: normal;
 	text-transform: none;
 	letter-spacing: 0;
@@ -5127,7 +5127,7 @@ color:white;
 font-weight:bold; 		
  rgba(255,255,255,.7);
 		letter-spacing: -.065em;
-		font-family: "Hammersmith One", sans-serif;		
+		font-family: sans-serif;		
 		-webkit-transition: all .25s ease-in-out;
 		-o-transition: all .25s ease-in-out;
 		-moz-transition: all .25s ease-in-out;
@@ -5309,7 +5309,7 @@ font-weight:bold;
 	font-weight: bold;
 	padding-left:10px;
 	line-height:20px;
-	font-family:'GothamBook', 'Source Sans Pro', sans-serif !important;
+	font-family:sans-serif !important;
 }
 
 .vendor .teacher-author {
@@ -5519,7 +5519,7 @@ font-weight:bold;
 	display: inline-block;
 	line-height: 18px;
 	padding: 0px 12px;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: sans-serif;
 	font-size: 16px;
 	height: 30px;
 }
@@ -5917,7 +5917,7 @@ i.add-wl {
 	bottom: -30px;
 	font-size: 20px;
 	word-break: break-word;
-	font-family:'gothic' !important;
+	font-family:sans-serif!important;
 	text-align: center;
 	min-width: 190px;
 	left: -50px;
@@ -6140,7 +6140,7 @@ select,input[type="text"],input[type="email"], input[type="password"] ,textarea 
 }
 
 select {
-	font-family: 'gothic' !important;
+	font-family: sans-serif !important;
 }
 body #edd-wl-modal input[type="email"], body  #edd-wl-modal input[type="text"],body  #edd-wl-modal select {
     padding-top:4px;padding-bottom: 4px;width: 100%;
@@ -6337,7 +6337,7 @@ background: #b4d2d0;
 
 .pricing_page body {
     background: #F2F2F2;
-    font-family: 'Droid Sans', sans-serif;
+    font-family:  sans-serif;
     line-height: 1;
     font-size: 16px;    
 }
