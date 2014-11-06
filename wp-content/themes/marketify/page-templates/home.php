@@ -12,12 +12,12 @@ get_header(); ?>
 
 	<div class="container main-body">
 		<div class="row">
-			<div class="left-container col-xs-4 sidebar ">
+			<div class="left-container col-xs-12 col-sm-4 col-md-4 sidebar ">
 				<?php dynamic_sidebar( 'sidebar-download-single' ); ?>
 			</div>
 
-			<div id="content" class="right-container col-xs-8 site-content  ">
-				<?php if($isHome == true) {?>
+			<div id="content" class="right-container col-xs-12 col-sm-8 col-md-8 site-content  ">
+				<?php if($isHome == true) ?>
 					<!--<div class="download-product-review-details">
 						<div class="home-review-content">
 							<?php  /** if ( is_active_sidebar( 'preview-1' ) ) :  ?>
@@ -115,14 +115,14 @@ get_header(); ?>
 			
 					
 					
-				<?php }?>
+				<?php ?>
 				
 				<div class="download-product-review-details content-items clearfix">
 					<?php if ( ! is_paged() && ! get_query_var( 'orderby' ) && ! is_page_template( 'page-templates/popular.php' ) ) : ?>
 						<?php// get_template_part( 'content-grid-download', 'popular' ); ?>
 					<?php endif; ?>
 					
-					<section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-7 col-xs-12">
+					<section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-12 col-xs-12">
 						<main id="main" class="site-main" role="main">
 
 							<div class="the-title-home"><?php marketify_downloads_section_title();?></div>

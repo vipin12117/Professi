@@ -256,7 +256,7 @@ do_action( 'fes_login_form_after_form', $form_id, $read_only, $args );
 do_action( 'fes_registration_form_above_title', $form_id, $read_only, $args );
 
 if ( !is_admin() ){
-	echo apply_filters( 'fes_registration_form_header', '<h1 class="fes-headers" id="fes-registration-form-title">Register</h1>' );
+	echo apply_filters( 'fes_registration_form_header', '<h1 class="fes-headers " id="fes-registration-form-title">Register</h1>' );
 }
 
 do_action( 'fes_registration_form_above_render_items', $form_id, $read_only, $args );
@@ -3242,7 +3242,7 @@ return ob_get_clean();
 		ob_start();
 		?>
 <div class="fes-section-wrap">
-<h2 class="fes-section-title"><?php echo $attr['label']; ?></h2>
+<h2 class="fes-section-title fes-headers"><?php echo $attr['label']; ?></h2>
 <div class="fes-section-details"><?php echo $attr['description']; ?></div>
 </div>
 		<?php

@@ -84,20 +84,20 @@ $(function() {
                             <ul class="none list-top clearfix">
 
                                     <?php if (  is_user_logged_in() ):?>
-                                            <li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><?php echo $userdata->display_name;?></li>
-                                            <li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Logout</a></li>
-                                            <li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/">My Account</a></li>
+                                            <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><?php echo $userdata->display_name;?></li>
+                                            <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Logout</a></li>
+                                            <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/">My Account</a></li>
 											<li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/checkout/purchase-history/' ) ); ?>">Orders</a></li>
 
                                     <?php else:?>
-                                            <li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>login/">Login</a></li>
+                                            <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>login/">Login</a></li>
 
                                     <?php endif;?>
 
-                                    <li class="pull-left"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Wishlist</a></li>
-                                    <li class="pull-left"><i class="uiIcon16x16 uiIconTop arrow_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>checkout/">Checkout</a></li>
+                                    <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Wishlist</a></li>
+                                    <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop arrow_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>checkout/">Checkout</a></li>
                                     
-                                    <li class="pull-left"> <?php echo do_shortcode('[edd_select_currency]');?></li>
+                                    <li class="pull-left btn"> <?php echo do_shortcode('[edd_select_currency]');?></li>
                             </ul>
                     </div>
                 </div>
@@ -106,7 +106,7 @@ $(function() {
              <div class="site-branding">
                     <div class=" nav_mainstuff container" >
                         <div class="row">
-                            <div class="col-xs-4" >
+                            <div class="col-xs-12 col-sm-4 col-md-4" >
                                     <?php $header_image = get_header_image(); ?>
                                     <?php if ( ! empty( $header_image ) ) : ?>
                                             <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home" class="custom-header"><img src="<?php echo esc_url( $header_image ); ?>" alt=""></a>
@@ -114,7 +114,7 @@ $(function() {
                                             <div class="site-description-header"><?php  bloginfo( 'description' ); ?></div> 
                             </div>
 
-                            <div class="col-xs-8"  >
+                            <div class="col-xs-12 col-sm-8 col-md-8 right-header"  >
                                 <div class="pull-left"><?php locate_template( array( 'searchform-header.php' ), true ); ?> </div> 
                                 
                                 <?php if ( is_user_logged_in() ):?>
