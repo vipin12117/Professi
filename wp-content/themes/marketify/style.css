@@ -1680,7 +1680,14 @@ body div.fes-form fieldset .fes-section-wrap {
 	float: left;
 	margin: 27px 0 0 -15px;
 }
+.logged-in .list-top  li:first-child {
+    cursor: default;
+    
+}
 
+.logged-in .list-top  li:first-child:active {
+    box-shadow: none;
+}
 .nav-previous i,
 .nav-next i {
 	color: #bdc3c7;
@@ -4858,9 +4865,10 @@ ul.none li, ul.edd-taxonomy-widget li {
 	line-height: 34px;
 	display: block;
 }
+/*
 .post-description ,.search-results  .content-grid-download p,.search-results  .content-grid-download .controls {
     word-wrap: break-word;
-}
+}*/
 .top-bar ul.none li:first-child {
 	border-left: 1px solid #d6d6d6;
 }
@@ -6538,7 +6546,24 @@ background: #E3536C;
     
 }
 /* responsive here */
+@media(max-width: 1024px) {
+    .vp1_html5  ,video,.video{
+        width:99%!important;
+        margin: 20px auto;
+        float:none;
+    }
+    .video + div .col-md-12 > div{
+        display: none;
+    }
+    .video + div  > div p{
+        margin: 10px auto!important;
+        text-align: center;
+        display:block;
+        float:none;
+    }
+}
 @media(max-width: 981px) {
+    
     input.search-field-input {
            width: 160px;
     }
