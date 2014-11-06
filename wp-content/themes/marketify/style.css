@@ -424,7 +424,7 @@ text-shadow: 0px -2px #9B3636;
 	background-color: #8dc5c1;
 	border-bottom: 5px solid #669f9b;
 	text-shadow: 0px -2px #669f9b;
-	
+	color: #fff!important;
 }
 
 .action-button:active
@@ -1135,7 +1135,28 @@ body:not(.minimal) .edd_form fieldset > span:first-child,
 body:not(.minimal) .edd_form legend {
 	margin-top: 0;
 }
-
+body div.fes-form fieldset .fes-section-wrap {
+    border:none;
+}
+#fes-registration-form-title {
+    background: none;
+    margin:20px 0;
+    font-size: 24px;
+    border: none;
+    display: none;
+}
+.fes-form-registration-form {
+    width: 60%;
+    margin: 10px auto;
+}
+.fes-form-login-form + .fes-form-registration-form {
+    width: 100%;
+    margin: 10px auto;
+}
+.fes-form-login-form + .fes-form-registration-form  .fes-headers {
+    background: none!important;;
+    border: none!important;
+}
 /* =Homepage 1
 ----------------------------------------------- */
 
@@ -1909,7 +1930,7 @@ body.product-display-inline .single-project .page-header,
 }
 
 .content-grid-download .entry-image img {
-	min-width: 100%;
+	min-width: 90px;margin: 0 auto;
 }
 
 .content-grid-download .entry-image .image-placeholder,
@@ -2033,7 +2054,16 @@ body.product-display-inline .single-project .page-header,
 	padding-bottom: 10px;
 	border-bottom: 2px solid #fff;
 }
-
+.right-post .content-grid-download .entry-image .item-price span {
+	
+	border-bottom: 0px solid #fff;
+}
+.right-post .content-grid-download .entry-image .button {
+    padding: 5px 10px;
+}
+.right-post .content-grid-download .star-rating{
+    display: none;
+}
 .content-grid-download .entry-image .star-rating {
 	display: block;
 	width: 100%;
@@ -4164,9 +4194,9 @@ NOTE
 		padding-top: 0;
 	}
 
-	.site-header .site-branding {
+	/*.site-header .site-branding {
 		margin-left: 15px;
-	}
+	}*/
 
 	.site-header .container {
 		max-width: 100%;
@@ -4174,7 +4204,7 @@ NOTE
 		position: inherit;
 	}
 
-	.main-navigation .menu,
+	/*.main-navigation .menu,
 	.main-navigation .search-form,
 	.main-navigation .main-menu {
 		float: none;
@@ -4321,7 +4351,7 @@ NOTE
 		display: none;
 	}
 
-	.main-navigation ul,
+	/*.main-navigation ul,*/
 	.main-navigation .search-form,
 	.header-search-icon {
 		display: none;
@@ -4792,26 +4822,44 @@ ul.none li, ul.edd-taxonomy-widget li {
 	list-style: none;
 }
 .top-bar {
-	height: 34px;
+	min-height: 34px;
 	width: 100%;
 	background: #eee url('images/bg_top.png') left bottom repeat-x; 
 }
 .uiIcon16x16{width: 16px; height:16px; display:inline-block;}
 .uiIcon16x16:hover {
 	opacity: 0.9;
-	filter: alpha(opacity=90););
+	filter: alpha(opacity=90);
 }
-.top-bar {
-	height: 34px;
-	width: 100%;
-	background: #eee url('images/bg_top.png') left bottom repeat-x; 
+#input-search-field {height:30px;}
+.list-top .actionIcon{
+	display: inline-block;
 }
-.top-bar ul.none {
+.des {
+    height: 70px;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+.edd_download_title ,.sub,.grades,.resource-type{
+     display: block;
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap !important;
+}
+.search-result .content-grid-download{
+    margin: 20px 0;
 }
 .top-bar ul.none li {
+        border:none;
+        border-radius: 0;
 	padding: 0px 12px 0px 8px;
 	border-right: 1px solid #d6d6d6;
 	line-height: 34px;
+	display: block;
+}
+.post-description ,.search-results  .content-grid-download p,.search-results  .content-grid-download .controls {
+    word-wrap: break-word;
 }
 .top-bar ul.none li:first-child {
 	border-left: 1px solid #d6d6d6;
@@ -4915,7 +4963,6 @@ input.search-field-input {
 	font: 700 16px 'GothamBook', sans-serif;
 	color: #515a63;
 	letter-spacing: 0.10em;
-	margin: 2em 0;
 	font-weight:normal ;
 }
 
@@ -4960,9 +5007,8 @@ input.search-field-input {
 	margin-bottom: 5px;
 }
 
-
+.site-header {margin-bottom: 30px;}
 .right-container .download-product-review-details {
-	margin-top: 32px;
 	padding: 25px 0px;
 	background: #fff;
 }
@@ -5650,12 +5696,9 @@ i.add-wl {
 */	margin:auto;
 }
 .post-container .left-post {
-	width: 66%;
+	width: 65%;
 }
 
-.post-container .left-post .more-images {
-	
-}
 .post-container .left-post .more-images img {
 	width: 48px; height:48px;
 	margin: 10px 5px 0px 5px;
@@ -6198,11 +6241,17 @@ body #edd-wl-modal input[type="email"], body  #edd-wl-modal input[type="text"],b
 }
 .current-cart {
 top:-57px;
-left:712px;
+left: auto;
+    right: 173px;
   position:absolute!important; 
      border:none;background: none!important;
  
 }
+.current-cart {
+  
+    
+}
+
 
 /*Login Page and Resgistration Pages*/
 
@@ -6309,7 +6358,7 @@ background: #b4d2d0;
     margin-bottom: 4rem;
 }
 .pricing_page .block{
-    width: 30%;    
+    width: 29%;    
     margin: 0 15px;
     overflow: hidden;
     -webkit-border-radius: 5px;
@@ -6472,6 +6521,119 @@ background: #E3536C;
 
 
 }
-	
-	
-	.personal a {color:white;}
+.abc {width: 50%;margin: 0 auto;}
+#edd_login_submit {width: 50%!important}
+#lostpasswordform legend{
+    display: none;
+}
+.personal a {color:white;}
+.i_agree_with_the_terms_of_service_and_privacy_policy > div,
+.i_agree_with_the_terms_of_service_and_privacy_policy + .fes-el > div{
+    float: left!important;
+    margin: 0 10px!important;
+    clear: none!important;
+    width: 90%;
+}  
+.i_agree_with_the_terms_of_service_and_privacy_policy > div {
+    
+}
+/* responsive here */
+@media(max-width: 981px) {
+    input.search-field-input {
+           width: 160px;
+    }
+    .col-sm-1, .col-sm-10, .col-sm-11, .content-grid-download,.col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9 {
+        margin-bottom:10px;
+    }
+        .edd_download_inner {
+        text-align: center;
+    }
+    .content-grid-download .entry-image img{
+        min-width: 90px;margin: 0 auto;
+    }
+    .post-container .left-post {
+    width: 64%;
+}
+    .pricing_page .block{
+        float:none;
+        width: auto;
+        padding:10px; margin:10px 0;
+    }
+}
+
+
+@media(max-width: 767px) {
+    #edd_checkout_cart {
+    margin: 18px auto;
+    width: 95%;
+}
+    .post-container .right-post,.post-container .left-post,
+    .pricing_page .block{
+        float:none;
+        width: auto;
+        padding:10px; margin:10px 0;
+    }
+    .left-container .download-single-widget ul.children > li > a {
+        border-bottom: 2px dotted #bdc3c7;
+        display: block;
+        height: auto;
+        padding: 3px;
+        white-space: normal;
+    }
+    .top-bar ul.none li {border: none;}
+    .top-bar {
+      height: auto;
+  }  
+  .site-branding .custom-header, .site-branding .site-title {
+      float: none;
+      display: block; margin:10px 0;
+      text-align: center;
+  }.site-branding .custom-header img {
+      display: inline;
+      margin:0;
+  }
+  .right-header {
+      margin:10px 0;
+    
+  }
+  .current-cart {display: none}
+    .site-branding {
+        height: auto;
+    }
+     input.search-field-input {
+        width: 200px;
+        margin-left: 10px;
+    }
+    .edd_download {
+        margin-bottom: 10px;
+    }
+    .left-container .download-single-widget > ul.edd-taxonomy-widget > li > a {
+         display: block;
+        margin: 0 !important;
+        padding-left: 10px;
+        width: auto !important;
+    }
+
+    .left-container .download-single-widget ul.children ul.children {
+        display: block!important;position:static;
+        border: none;
+    }
+    .page-template-page-templatesvendor-php .content-items .teacher-autors .content-grid-download{
+        margin:40px auto;
+        max-width:250px;
+    }
+    .post-container .right-post .content-grid-download {
+    width: auto;
+}
+.fes-form-registration-form {
+    width: 80%;
+    margin: 10px auto;
+}
+.abc {width: 90%;margin: 0 auto;}
+}
+
+@media(max-width: 320px) {
+    input.search-field-input {
+        width: 146px;
+    }
+}

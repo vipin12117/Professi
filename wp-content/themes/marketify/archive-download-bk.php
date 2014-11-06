@@ -11,9 +11,6 @@ get_header();
 
 global $wp_query;
 ?>
-<style>
- .col-md-4{width:100% !important;}
-</style>
 <div class="container">
 	<div class="home-container clearfix">
 		<div class="left-container sidebar left">
@@ -32,12 +29,12 @@ global $wp_query;
 							<?php while ( have_posts() ) : the_post(); ?>
 								<?php //get_template_part( 'content-grid', 'download' ); ?>
 								
-								<div style="width:700px;" id="post-<?php the_ID(); ?>" class="content-grid-download">
-									<div style="float:left;width:150px;">
+								<div  id="post-<?php the_ID(); ?>" class="content-grid-download">
+									<div >
 										<?php edd_get_template_part( 'shortcode', 'content-image' ); ?>
 									</div>
 									
-									<div style="float:left;width:300px;margin-left:20px;">
+									<div >
 										<p>BOOK NAME:<?php edd_get_template_part( 'shortcode', 'content-title' ); ?></p>
 										
 										<?php edd_get_template_part( 'shortcode', 'content-full' ); ?>
@@ -71,7 +68,7 @@ global $wp_query;
 										</div>	
 									</div>
 									
-									<div style="float:right;width:200px;padding:5px 0 5px 10px;">
+									<div >
 										<div class="download-product-details action-container" style="padding:5px 0 5px 10px;"><!--#action-container -->
 											<div class="price">Price: <?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
 											<br />

@@ -99,7 +99,7 @@ elseif($_POST['edd_submit']){
 <div class="container seller">	
  <div class="row"  > 
     <div class="col-xs-12">
-		<div id="content" class="site-content " style="width:50%;margin:0 auto;" align="center">
+		<div id="content" class="site-content abc " align="center">
 			<?php if ( ! is_user_logged_in() ) :?>
 					<?php if($error):?>
 						<p id="edd_error_password_incorrect" class="edd_error"><?php echo $error;?></p>
@@ -112,8 +112,7 @@ elseif($_POST['edd_submit']){
 					<?php if($_GET['action'] != 'rp' and $_GET['action'] != 'resetpass'):?>
 							<form id="lostpasswordform" class="edd_form" action="" method="post">
 								<fieldset>
-									<span><legend><?php _e( 'Forgot Password', 'edd' ); ?></legend></span>
-									<?php do_action( 'edd_login_fields_before' ); ?>
+                                                                   	<?php do_action( 'edd_login_fields_before' ); ?>
 									<p>
 										<label for="edd_user_Login"><?php _e( 'Enter Username or E-mail:', 'edd' ); ?></label>
 										<input name="user_login" id="edd_user_login" class="required edd-input" type="text" title="<?php _e( 'Username', 'edd' ); ?>"/>

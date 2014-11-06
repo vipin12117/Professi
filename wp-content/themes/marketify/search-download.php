@@ -106,12 +106,9 @@ $downloads = $wpdb->get_results($splitPage->sql_query);
 $wp_query->found_posts = $splitPage->number_of_rows;
 //print_R($search_query); exit;
 ?>
-<style>
- .col-md-4{width:100% !important;}
-</style>
 <div class="container result-search main-body">
   <div class="row">
-	 <div class="left-container col-xs-4 sidebar">
+	 <div class="left-container col-xs-12 col-sm-4 col-md-4 sidebar">
 		<aside id="selected-categories" class="widget download-single-widget widget_edd_categories_tags_widget">
 			<h1 class="download-single-widget-title"></h1>
 			<ul class="edd-taxonomy-widget">
@@ -144,9 +141,9 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 		<?php dynamic_sidebar( 'sidebar-download-single' ); ?>
 	</div>
 
-	<div id="content" class="right-container col-xs-8 site-content ">
+	<div id="content" class="right-container col-xs-12 col-sm-8 col-md-8 site-content ">
 	  <div class="download-product-review-details content-items clearfix">
-		 <section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-7 col-xs-12">
+		 <section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-12 col-xs-12">
 			<main id="main" class="site-main" role="main">
 				
 				<!--  <div class="the-title-home"><?php //marketify_downloads_section_title();?></div> -->
@@ -165,23 +162,30 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 				<br />
 
 				<?php if ( $downloads ) : ?>
-					<div class="download-grid-wrapper columns-<?php echo marketify_theme_mod( 'product-display', 'product-display-columns' ); ?> row clearfix" data-columns="1">
+					<div class="download-grid-wrapper  search-result clearfix" d>
 						<?php foreach($downloads as $post):?>
-							<div style="width:700px;" id="post-<?php $post->ID; ?>" class="content-grid-download">
-								<div style="float:left;width:150px;">
+							<?php //get_template_part( 'content-grid', 'download' ); ?>
+							
+							<div  id="post-<?php the_ID(); ?>" class="content-grid-download row">
+								<div class="col-md-3">
 									<?php edd_get_template_part( 'shortcode', 'content-image' ); ?>
 								</div>
 								
-								<div style="float:left;width:300px;margin-left:20px;">
-									<p>
+								<div class="col-md-5">
+									<div>
 										<?php edd_get_template_part( 'shortcode', 'content-title' ); ?>
-									</p>
+									</div>
 									
 									<?php $data_custom = get_post_custom($post->ID);?>
-									<p><?php echo ($data_custom['add_description'][0]); ?></p>
+									<div class="des">
+                                         <?php $text=$data_custom['add_description'][0];  ?>
+                                         <?php $text=  substr($text, 0 ,60); echo $text; ?>
+				                    </div>
 									
 									<?php $data_custom = get_post_custom($post->ID);?>
 									<?php 
+										  $full = 0;
+										  $rating = 0;
 										  $rating = edd_reviews()->average_rating( false );
 										  $full = intval($rating);
 										  $ratingCount = edd_reviews()->count_reviews();
@@ -194,24 +198,26 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 										  	  	$category_str .= $category->name.",";
 										  	  }
 										  }
+										  
+										  //print $rating . " -- " . $post->ID . " -- " . $ratingCount . "<br />";
 									?>
-									<div class="form-horizontal">
+									<div class="form-horizontal ">
 										<div class="control-group">
 											<span class="control-label">SUBJECTS:</span>
-											<span class="controls gray-light"><?php echo $category_str;?></span>
+											<span class="controls gray-light sub"><?php echo $category_str;?></span>
 										</div>
 										<div class="control-group">
 											<span class="control-label">GRADES:</span>
-											<span class="controls gray-light"><?php echo ($data_custom['pick_grade_level(s)'][0]); ?></span>
+											<span class="controls gray-light grades"><?php echo ($data_custom['pick_grade_level(s)'][0]); ?></span>
 										</div>
 										<div class="control-group">
 											<span class="control-label lv2">RESOURCE TYPES:</span>
-											<span class="controls gray-light"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
+											<span class="controls gray-light resource-type"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
 										</div>
 									</div>	
 								</div>
 								
-								<div style="float:right;width:200px;padding:5px 0 5px 10px;">
+								<div class="col-md-4" >
 									<div class="download-product-details action-container" style="padding:5px 0 5px 10px;"><!--#action-container -->
 										<div class="price">Price: <?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
 										<br />
@@ -230,12 +236,15 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 													?>
 														<i class="star star-no"></i>
 													<?php } ?>
+													
 													<span><?php 
 													if(strlen($rating) === 1) {
 														$rating = $rating.'.0';
 													}
 													echo $rating; 
 													?></span>
+													
+													<?php //echo edd_reviews()->microdata();?>
 												</div>
 												<div class="ratings"><?php echo $ratingCount; ?> ratings</div>
 											</span>
@@ -267,17 +276,16 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 								</div>
 								<br clear="all" />
 							</div><!-- #post-## -->
-							<br clear="all" />
 						<?php endforeach; ?>
 					</div>
-					
+
 					<?php if($splitPage->number_of_rows > 5):?>
 						<div id="edd_download_pagination" class="navigation">
 							<?php $_SERVER['QUERY_STRING'] = preg_replace("/page=[0-9+]/is","",$_SERVER['QUERY_STRING']);?>
 							<?php echo $splitPage->display_links("3",$_SERVER['QUERY_STRING']);?>
 						</div>
-					<?php endif;?>						
-
+					<?php endif;?>	
+					
 					<?php //marketify_content_nav( 'nav-below' ); ?>
 			<?php else : ?>
 
