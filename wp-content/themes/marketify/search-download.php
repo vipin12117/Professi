@@ -73,7 +73,7 @@ foreach($ccats as $cat_ids){
 		$term_ids  = array_unique($term_ids);
 		$term_ids_str = implode(",",$term_ids);
 		
-	    $cat_condition[] = " t.term_id IN($term_ids_str) ";
+	    $cat_condition[] = "p.ID IN ( select object_id from wp_term_relationships where term_taxonomy_id IN($term_ids_str) ) ";
 	}
 }
 if($cat_condition){
@@ -88,13 +88,15 @@ else{
 	$whereCondition = "";
 }
 
-$search_query = "select ID , post_title , post_name , (sum(meta_value) / 5) average_rating , count(cm.comment_ID) count_rating  from wp_posts p 
-				 left join wp_term_relationships tr on (p.ID = tr.object_id) 
-				 left join wp_term_taxonomy tt on (tr.term_taxonomy_id = tt.term_taxonomy_id) 
-				 left join wp_terms t on (t.term_id = tt.term_id) 
-				 left join wp_comments c on (p.ID = c.comment_post_ID) 
-				 left join wp_commentmeta cm on (c.comment_ID = cm.comment_id and meta_key = 'edd_rating' AND comment_approved = '1')
-				 $whereCondition group by ID order by count_rating DESC , average_rating DESC";
+$search_query = "select p.ID , post_title , post_name , (sum(meta_value) / 5) as average_rating , count(comment_ID) as count_rating  from wp_posts p 
+				 left join
+				 (
+				    select c.comment_ID , comment_post_ID , meta_value from wp_comments c 
+				    inner join wp_commentmeta cm on (c.comment_ID = cm.comment_id and cm.meta_key = 'edd_rating')
+				    where c.comment_approved = 1 and meta_value != '' order by meta_value DESC
+				 )
+				 as wm on (p.ID = wm.comment_post_ID)
+				 $whereCondition group by p.ID order by count_rating DESC , average_rating DESC";
 $page = (int)$_GET['page'];		
 if(!$page){
 	$page = 1;
