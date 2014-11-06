@@ -266,7 +266,7 @@ button,
 html input[type="button"]:not(.ed_button),
 input[type="reset"],
 input[type="submit"],button[type="button"] {
-	font: 700 13px/normal 'Montserrat', sans-serif;
+	font: 700 13px/normal  sans-serif;
 	color: #515a63;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -477,7 +477,7 @@ a.edd-wl-action,
 .insert-file-row,
 body:not(.minimal) .fes-headers span,
 body:not(.minimal) .edd_form legend {
-	font: 700 13px/normal  'GothamBook', 'Montserrat', sans-serif;
+	font: 700 13px/normal  sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
 	text-shadow: none;
@@ -985,7 +985,7 @@ a.insert-file-row {
 }
 
 .main-navigation .edd-cart .edd-cart-item-title {
-	font: 700 13px/normal 'Montserrat', sans-serif;
+	font: 700 13px/normal  sans-serif;
 	text-transform: uppercase;
 }
 
@@ -1041,7 +1041,7 @@ a.insert-file-row {
 
 .page-title,
 .entry-page-title h1 {
-	font: 300 40px 'Roboto Slab', serif;
+	font: 300 40px  serif;
 	color: #fff;
 	text-align: center;
 }
@@ -1173,7 +1173,7 @@ body div.fes-form fieldset .fes-section-wrap {
 }
 
 .home-1 .page-header p {
-	font: 300 20px 'Roboto Slab', serif;
+	font: 300 20px  serif;
 	color: #fff;
 }
 
@@ -1301,7 +1301,7 @@ body div.fes-form fieldset .fes-section-wrap {
 
 .hentry.row .entry-title,
 .edd_download_title {
-	font: 700 20px 'Montserrat', sans-serif;
+	font: 700 20px sans-serif;
 	text-transform: uppercase;
 	margin: 0 0 1em;
 }
@@ -1384,7 +1384,7 @@ body div.fes-form fieldset .fes-section-wrap {
 .entry-content th,
 .comment-content th,
 .edd_download_title {
-	font: 400 14px 'Montserrat', sans-serif;
+	font: 400 14px  sans-serif;
 	color: #bdc3c7;
 	text-transform: uppercase;
 	padding: 6px 10px 6px 0;
@@ -1403,7 +1403,7 @@ body div.fes-form fieldset .fes-section-wrap {
 .minimal .edd_form legend,
 .page-template-page-templatesteam-php .byline,
 .fes_header {
-	font: 700 16px 'Montserrat', sans-serif;
+	font: 700 16px  sans-serif;
 	color: #515a63;
 	letter-spacing: 0.10em;
 	text-transform: uppercase;
@@ -1491,7 +1491,7 @@ body div.fes-form fieldset .fes-section-wrap {
 
 .entry-page-title .byline,
 .entry-page-title .entry-date {
-	font: 700 18px 'Montserrat', sans-serif;
+	font: 700 18px  sans-serif;
 	letter-spacing: 0.10em;
 	text-transform: uppercase;
 }
@@ -1673,7 +1673,7 @@ body div.fes-form fieldset .fes-section-wrap {
 
 .nav-previous .nav-title,
 .nav-next .nav-title {
-	font: 400 14px 'Montserrat', sans-serif;
+	font: 400 14px  sans-serif;
 	text-transform: uppercase;
 	display: inline-block;
 	vertical-align: middle;
@@ -1814,7 +1814,7 @@ body.product-display-inline .single-project .page-header,
 }
 
 .download-info .edd_price {
-	font: 400 18px 'Montserrat', sans-serif;
+	font: 400 18px  sans-serif;
 	color: #fff;
 	text-transform: uppercase;
 }
@@ -2048,7 +2048,7 @@ body.product-display-inline .single-project .page-header,
 }
 
 .content-grid-download .entry-image .item-price span {
-	font: 400 13px 'Montserrat', sans-serif;
+	font: 400 13px  sans-serif;
 	color: #fff;
 	text-transform: uppercase;
 	padding-bottom: 10px;
@@ -2465,7 +2465,7 @@ object {
 
 .comment-author .fn,
 .comment-metadata .fn {
-	font: 400 10px 'Montserrat', sans-serif;
+	font: 400 10px  sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.10em;
 	margin-top: 8px;
@@ -2527,7 +2527,7 @@ object {
 }
 
 .marketify-edd-rating .review-title-text {
-	font: 700 15px 'Montserrat', sans-serif;
+	font: 700 15px  sans-serif;
 	text-transform: uppercase;
 }
 
@@ -2590,7 +2590,7 @@ object {
 
 .edd-review-vote {
 	color: #bdc3c7;
-	font: 400 10px 'Montserrat', sans-serif;
+	font: 400 10px  sans-serif;
 	text-transform: uppercase;
 	margin-bottom: 0;
 	background: none;
@@ -2689,7 +2689,7 @@ object {
 }
 
 .widget .edd-cart-item .edd-cart-item-price {
-	font: 400 16px 'Montserrat', sans-serif;
+	font: 400 16px  sans-serif;
 	text-transform: uppercase;
 	margin-left: -4px;
 }
@@ -2803,7 +2803,7 @@ object {
 
 .search-form .search-field,
 .main-navigation .search-form .search-field {
-	font: 400 16px 'Montserrat', sans-serif;
+	font: 400 16px  sans-serif;
 	text-transform: uppercase;
 	color: #fff;
 	padding: 10px;
@@ -2897,7 +2897,7 @@ object {
 	}
 
 .marketify_widget_taxonomy_stylized a {
-	font: 700 14px 'Montserrat', sans-serif;
+	font: 700 14px  sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
 	color: #fff;
@@ -2966,7 +2966,7 @@ object {
 
 .feature-title,
 .individual-testimonial .author span:first-child {
-	font: 700 16px 'Montserrat', sans-serif;
+	font: 700 16px  sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.10em;
 	margin-top: 1.25em;
@@ -3119,7 +3119,7 @@ object {
 
 .pricing-table-widget-description h2,
 .pricing-table-widget-description h3 {
-	font: 700 50px 'Montserrat', sans-serif;
+	font: 700 50px  sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.10em;
 	margin: 0;
@@ -3186,7 +3186,7 @@ body .marketify_widget_slider_hero .soliloquy-container .soliloquy-caption .soli
 }
 
 body .marketify_widget_slider_hero h2.soliloquy-caption-title {
-	font: 700 58px 'Montserrat', sans-serif;
+	font: 700 58px  sans-serif;
 	text-transform: uppercase;
 	color: #fff;
 }
@@ -3262,7 +3262,7 @@ body .marketify_widget_slider_hero .soliloquy-theme-classic .soliloquy-pager {
 
 .download-archive-widget-title,
 .error-404 .widgettitle {
-	font: 700 16px 'Montserrat', sans-serif;
+	font: 700 16px  sans-serif;
 	text-transform: uppercase;
 	color: #515a63;
 	margin: 0 0 18px;
@@ -3566,7 +3566,7 @@ NOTE
 .download-product-details .download-ratings strong,
 .download-product-details .download-author-sales strong,
 .download-product-details .edd_price {
-	font: 700 21px/normal 'Montserrat', sans-serif;
+	font: 700 21px/normal  sans-serif;
 	color: #505965;
 	text-transform: uppercase;
 	display: block;
@@ -3693,7 +3693,7 @@ NOTE
 }
 
 .edd-fpd th {
-	font: 700 14px/normal 'Montserrat', sans-serif;
+	font: 700 14px/normal  sans-serif;
 	text-transform: uppercase;
 	width: 45%;
 	border-right: 1px solid #ccc;
@@ -3730,7 +3730,7 @@ NOTE
 }
 
 .footer-widget-title {
-	font: 700 16px 'Montserrat', sans-serif;
+	font: 700 16px  sans-serif;
 	color: #fff;
 	letter-spacing: 0.10em;
 	text-transform: uppercase;
@@ -4108,7 +4108,7 @@ NOTE
 
 .whistles-toggle .whistle-title,
 .whistles-accordion .whistle-title {
-	font: 700 13px/normal 'Montserrat', sans-serif;
+	font: 700 13px/normal  sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
 	padding: 10px 20px;
@@ -4395,7 +4395,7 @@ NOTE
 
 	.main-navigation .edd-cart .cart_item.empty {
 		color: #7D8892;
-		font: 700 13px/normal 'Montserrat', sans-serif;
+		font: 700 13px/normal  sans-serif;
 		text-transform: uppercase;
 	}
 
@@ -4960,7 +4960,7 @@ input.search-field-input {
 }
 
 .left-container .download-single-widget {
-	font: 700 16px 'GothamBook', sans-serif;
+	font: 700 16px  sans-serif;
 	color: #515a63;
 	letter-spacing: 0.10em;
 	font-weight:normal ;
@@ -6259,7 +6259,7 @@ left: auto;
 .login_page .edd-lost-password a {color:#333}
 
 .custom-fes-header {
-font: 700 15px/normal  'GothamBook', 'Montserrat', sans-serif;
+font: 700 15px/normal   sans-serif;
 	text-transform: uppercase;
 
 	text-align: center;
@@ -6286,7 +6286,7 @@ width:100%;
  .login_page  a{color:#FFF;}
  
 
-  .register_submit{font: 700 15px/normal 'GothamBook', 'Montserrat', sans-serif;
+  .register_submit{font: 700 15px/normal  sans-serif;
 text-transform: uppercase;
 text-align: center;
 color: #FFF;
@@ -6507,7 +6507,7 @@ background:white;
 	border-top-color: #FFFFFF;	
 }
 
-.subscribe_now{font: 700 15px/normal 'GothamBook', 'Montserrat', sans-serif;
+.subscribe_now{font: 700 15px/normal  sans-serif;
 text-transform: uppercase;
 text-align: center;
 color: #FFF;
