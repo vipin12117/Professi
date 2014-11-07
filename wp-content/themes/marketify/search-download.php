@@ -56,7 +56,6 @@ if(strlen($s) > 1){
 		$string[] = " post_title LIKE '%".mysql_real_escape_string($word)."%' ";
 	}
 	
-	
 	if(sizeof($string) > 0){
 		$where[] = "(( " . implode(" AND ", $string) . " ) OR post_title LIKE '%".mysql_real_escape_string($s)."%')";
 	}
@@ -67,15 +66,20 @@ if(strlen($s) > 1){
 
 $cat_condition = array();
 foreach($ccats as $cat_ids){
+	$orArr = array();
+	
 	foreach($cat_ids as $cat_id){
 		$term_ids = get_term_children($cat_id->term_id,'download_category');
 		$term_ids[] = $cat_id->term_id;
 		$term_ids  = array_unique($term_ids);
 		$term_ids_str = implode(",",$term_ids);
 		
-	    $cat_condition[] = "p.ID IN ( select object_id from wp_term_relationships where term_taxonomy_id IN($term_ids_str) ) ";
+		$orArr[] = "p.ID IN ( select object_id from wp_term_relationships where term_taxonomy_id IN($term_ids_str) ) ";
 	}
+	
+	$cat_condition[] = "(". implode(" OR ", $orArr). ")";
 }
+
 if($cat_condition){
 	$where[] = implode(" AND ", $cat_condition);
 }
