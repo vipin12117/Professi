@@ -85,15 +85,15 @@ $(function() {
 
                                     <?php if (  is_user_logged_in() ):?>
                                             <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo $userdata->display_name;?></a></li>
-											<li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/checkout/purchase-history/' ) ); ?>">Orders</a></li>
-											<li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Logout</a></li>
+											<li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/checkout/purchase-history/' ) ); ?>">Compras</a></li>
+											<li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Cerrar sesión</a></li>
 
                                     <?php else:?>
-                                            <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>login/">Login</a></li>
+                                            <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>login/">Iniciar Sesión</a></li>
 
                                     <?php endif;?>
 
-                                    <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Wishlist</a></li>
+                                    <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Favoritos</a></li>
                                     <li class="pull-left btn"> <?php echo do_shortcode('[edd_select_currency]');?></li>
                             </ul>
                     </div>
@@ -115,10 +115,10 @@ $(function() {
                                 <div class="pull-left"><?php locate_template( array( 'searchform-header.php' ), true ); ?> </div> 
                                 
                                 <?php if ( is_user_logged_in() ):?>
-                               		 <div id="green_button " class="pull-right"> <a href="<?php echo esc_url( home_url( '/fes-vendor-dashboard/?task=new-product' ) ); ?>" class="action-button shadow animate blue">Start Selling</a> </div>
+                               		 <div id="green_button " class="pull-right"> <a href="<?php echo esc_url( home_url( '/fes-vendor-dashboard/?task=new-product' ) ); ?>" class="action-button shadow animate blue">Comienza a vender!</a> </div>
                                 <?php else:?>
                                 
-                                	<div id="green_button " class="pull-right"> <a href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="action-button shadow animate blue">Start Selling</a> </div>
+                                	<div id="green_button " class="pull-right"> <a href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="action-button shadow animate blue">Comienza a vender!</a> </div>
                                 <?php endif;?>		  
                             </div>
                         </div>

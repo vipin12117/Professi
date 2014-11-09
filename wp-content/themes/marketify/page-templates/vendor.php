@@ -114,7 +114,7 @@ get_header(); ?>
             <div class="download-product-review-details content-items clearfix">
                 <section id="primary" class="content-area col-md-12 col-sm-12 col-xs-12">
                     <main id="main" class="site-main" role="main">
-                        <div class="the-title-home">FEATURED LESSONS</div>
+                        <div class="the-title-home">PRODUCTOS DESTACADOS</div>
                         <div class="clearfix">
                             <?php echo do_shortcode( sprintf( '[downloads number="%s"]', get_option( 'posts_per_page' ) ) ); ?>
                         </div>
