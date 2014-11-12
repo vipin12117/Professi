@@ -175,43 +175,43 @@ class FES_Dashboard {
 		$menu_items['home'] = array(
 			"icon" => "home",
 			"task" => array( 'dashboard', '' ),
-			"name" => __( 'Dashboard', 'edd_fes' ),
+			"name" => __( 'Tablero', 'edd_fes' ),
 		);
 		$menu_items['my_products'] = array(
 			"icon" => "list",
 			"task" => array( 'products' ),
-			"name" => EDD_FES()->vendors->get_product_constant_name( $plural = true, $uppercase = true ),
+			"name" => 'PRODUCTOS' , //EDD_FES()->vendors->get_product_constant_name( $plural = true, $uppercase = true ),
 		);
 		if ( EDD_FES()->vendors->vendor_can_create_product() ) {
 			$menu_items['new_product'] = array(
 				"icon" => "pencil",
 				"task" => array( 'new-product' ),
-				"name" => __( 'Add', 'edd_fes' ) . ' ' . EDD_FES()->vendors->get_product_constant_name( $plural = false, $uppercase = true ),
+				"name" => 'AGREGAR PRODUCTO', //__( 'Add', 'edd_fes' ) . ' ' . EDD_FES()->vendors->get_product_constant_name( $plural = false, $uppercase = true ),
 			);
 		}
 		if ( EDD_FES()->integrations->is_commissions_active() ) {
 			$menu_items['earnings'] = array(
 				"icon" => "earnings",
 				"task" => array( 'earnings' ),
-				"name" => __( 'Earnings', 'edd_fes' ),
+				"name" => __( 'GANANCIAS', 'edd_fes' ),
 			);
 		}
 		if ( EDD_FES()->vendors->vendor_can_view_orders() ){
 			$menu_items['orders'] = array(
 				"icon" => "gift",
 				"task" => array( 'orders' ),
-				"name" => __( 'Orders', 'edd_fes' ),
+				"name" => __( 'PEDIDOS', 'edd_fes' ),
 			);
 		}
 		$menu_items['profile'] = array(
 			"icon" => "user",
 			"task" => array( 'profile' ),
-			"name" => __( 'Profile', 'edd_fes' ),
+			"name" => __( 'MI PERFIL', 'edd_fes' ),
 		);
 		$menu_items['logout'] = array(
 			"icon" => "off",
 			"task" => array( 'logout' ),
-			"name" => __( 'Logout', 'edd_fes' ),
+			"name" => __( 'CERRAR SESIÓN', 'edd_fes' ),
 		);
 		$menu_items = apply_filters( "fes_vendor_dashboard_menu", $menu_items );
 		return $menu_items;

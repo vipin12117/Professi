@@ -10,8 +10,8 @@
 	<div class="fes-comments-wrap">
 		<table id="fes-comments-table">
 			<tr>
-				<th class="col-author"><?php  _e( 'Author', 'edd_fes' ); ?></th>
-				<th class="col-content"><?php  _e( 'Comment', 'edd_fes' ); ?></th>
+				<th class="col-author"><?php  _e( 'USUARIO', 'edd_fes' ); ?></th>
+				<th class="col-content"><?php  _e( 'COMENTARIO', 'edd_fes' ); ?></th>
 			</tr>
 			<?php echo EDD_FES()->dashboard->render_comments_table( 10 ); ?>
 		</table>

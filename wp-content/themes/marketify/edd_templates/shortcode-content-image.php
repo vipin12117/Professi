@@ -37,9 +37,9 @@ if($viewWhishlist === false) {
 
 		<div class="actions">
 			<?php marketify_purchase_link( get_the_ID() ); ?>
-			<a href="<?php the_permalink(); ?>" rel="bookmark" class="button"><?php _e( 'Details', 'marketify' ); ?></a>
+			<a href="<?php the_permalink(); ?>" rel="bookmark" class="button"><?php _e( 'DETALLES', 'marketify' ); ?></a>
 
-			<strong class="item-price"><span><?php printf( __( 'Item Price: %s', 'marketify' ), edd_price( get_the_ID(), false ) ); ?></span></strong>
+			<strong class="item-price"><span><?php printf( __( 'PRECIO: %s', 'marketify' ), edd_price( get_the_ID(), false ) ); ?></span></strong>
 
 			<?php do_action( 'marketify_download_content_image_overlay_after' ); ?>
 		</div>

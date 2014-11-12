@@ -9,8 +9,7 @@ if ( ! is_user_logged_in() ) :
 			<span><legend><?php _e( 'Ingrese a su Cuenta', 'edd' ); ?></legend></span>
 			<?php do_action( 'edd_login_fields_before' ); ?>
 			<p>
-				<label for="edd_user_Login"><?php _e( 'Nombre de usuario
-', 'edd' ); ?></label>
+				<label for="edd_user_Login"><?php _e( "Nombre de usuario", 'edd' ); ?></label>
 				<input name="edd_user_login" id="edd_user_login" class="required edd-input" type="text" title="<?php _e( 'Username', 'edd' ); ?>"/>
 			</p>
 			<p>
@@ -21,14 +20,11 @@ if ( ! is_user_logged_in() ) :
 				<input type="hidden" name="edd_redirect" value="<?php echo esc_url( $edd_login_redirect ); ?>"/>
 				<input type="hidden" name="edd_login_nonce" value="<?php echo wp_create_nonce( 'edd-login-nonce' ); ?>"/>
 				<input type="hidden" name="edd_action" value="user_login"/>
-				<input id="edd_login_submit" type="submit" class="edd_submit" value="<?php _e( 'Iniciar Sesión
-', 'edd' ); ?>"/>
+				<input id="edd_login_submit" type="submit" class="edd_submit" value="<?php _e( "Iniciar Sesión", 'edd' ); ?>"/>
 			</p>
 			<p class="edd-lost-password">
-				<a href="<?php echo home_url("/forgot-password");?>" title="<?php _e( '¿Olvidó su contraseña?
-', 'edd' ); ?>">
-					<?php _e( '¿Olvidó su contraseña?
-', 'edd' ); ?>
+				<a href="<?php echo home_url("/forgot-password");?>" title="<?php _e( "¿Olvidó su contraseña?", 'edd' ); ?>">
+					<?php _e( "¿Olvidó su contraseña?", 'edd' ); ?>
 				</a>
 			</p>
 			<?php do_action( 'edd_login_fields_after' ); ?>
