@@ -21,7 +21,7 @@ $author = get_the_author();
 			<header class="post-header">
 				<?php the_post(); ?>
 				<div class="post-title fontsforweb_fontid_9785">
-					<span>BOOK NAME: </span><span><?php the_title();?></span>
+					<span><!--BOOK NAME:--> </span><span><?php the_title();?></span>
 				</div>
 				<div class="header-container clearfix">
 					<div class="left">
@@ -83,15 +83,15 @@ $author = get_the_author();
 					<div class="teacher-info fontsforweb_fontid_9785 left">
 						<div class="form-horizontal">
 							<div class="control-group">
-								<span class="control-label">SUBJECTS </span>
+								<span class="control-label">MATERIA </span>
 								<span class="controls gray-light"><?php echo $category_str;?></span>
 							</div>
 							<div class="control-group">
-								<span class="control-label">GRADES </span>
+								<span class="control-label">NIVEL (EDAD)</span>
 								<span class="controls gray-light"><?php echo ($data_custom['pick_grade_level(s)'][0]); ?></span>
 							</div>
 							<div class="control-group">
-								<span class="control-label lv2">RESOURCE TYPES </span>
+								<span class="control-label lv2">TIPO DE RECURSO </span>
 								<span class="controls gray-light"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
 							</div>
 							<div class="control-group">
@@ -123,7 +123,7 @@ $author = get_the_author();
 								<span class="control-label lv2"></span>
 								<br/>
 								<span class="control-label lv2 left"></span>
-								<span class="controls file-comment">Be sure that you have an application to open this file type before downloading and/or purchasing.</span>
+								<span class="controls file-comment">Asegúrese de que usted tenga un programa para abrir este tipo de archivo antes de descargar y / o comprar.</span>
 								<br/>
 								<span class="control-label lv2 left"></span>
 								
@@ -148,20 +148,21 @@ $author = get_the_author();
 			<hr/>
 			<div class="description-post">
 				<div class="post-title fontsforweb_fontid_9785">
-					<span>PRODUCT DESCRIPTION</span>
+					<span>DESCRIPCIÓN DEL PRODUCTO
+</span>
 				</div>
 				<div class="post-description fontsforweb_fontid_9785">
 					<span class="gray-light"><?php echo str_replace(array("\n"), '<br/>', $data_custom['add_description'][0]); ?></span>
 				</div>
 				<br/>
-				<div class="info-post">TOTAL PAGES:<span class="gray-light"><?php echo $data_custom['add_number_of_pages_or_slides'][0]?></span></div>
-				<div class="info-post">TEACHING DURATION:<span class="gray-light"><?php echo $data_custom['add_teaching_duration'][0]?></span></div>
-				<div class="report-post gray-light"><a href="mailto:<?php echo get_the_author_meta( 'email' )?>"><i class="report-icon"></i> Report Copyright Infringement</a></div>
+				<div class="info-post">NÚMEROS DE PÁGINAS:<span class="gray-light"><?php echo $data_custom['add_number_of_pages_or_slides'][0]?></span></div>
+				<div class="info-post">DURACIÓN DE LA ENSEÑANZA:<span class="gray-light"><?php echo $data_custom['add_teaching_duration'][0]?></span></div>
+				<div class="report-post gray-light"><a href="mailto:<?php echo get_the_author_meta( 'email' )?>"><i class="report-icon"></i> Infórmenos de cualquier  violación de derechos del autor </a></div>
 			</div>
 			<hr/>
 			<div class="comment-post">
 				<div class="post-title fontsforweb_fontid_9785">
-					<span>COMMENTS AND RATINGS</span>
+					<span>COMENTARIOS Y RATINGS</span>
 				</div>
 				<div style="padding-left:20px"><!-- #comment-content -->
 					<div class="info-post">AVERAGE RATINGS</div>
@@ -289,8 +290,8 @@ $author = get_the_author();
 		<div class="right-post left">
 			<div class="download-product-details action-container fontsforweb_fontid_9785"><!--#action-container -->
 				<div class="price"><?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
-				<div class="type">Digital Download</div>
-				<div class="add-to-card"><a id="main-add-to-card" href="#">ADD ONE TO CART</a></div>
+				<!--<div class="type">Digital Download</div>-->
+				<div class="add-to-card"><a id="main-add-to-card" href="#">AÑADIR AL CARRITO</a></div>
 				<!-- <div class="by-licence"><a href="#">BUY LICENCE TO SHARE</a></div> -->
 				
 				<div class="add-wish-list"><a class="edd-add-to-cart-from-wish-list edd-wl-open-modal edd-has-js" href="#"
@@ -307,13 +308,13 @@ $author = get_the_author();
 						</div>
 					</div>
 					<div class="info left">
-						<div class="madeby-lb gray-light"><i>Made by</i></div>
+						<div class="madeby-lb gray-light"><i>Hecho por</i></div>
 						<div class="teacher-name fontsforweb_fontid_9785">
 							<a href="/fes-vendor/<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>"
 								 title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) );?></a>
 						</div>
-						<div class="user-rating gray-light"> User Rating: 4.0 /4.0</div>
-						<div style="padding: 20px 0px 0px 5px;"><a href="/fes-vendor/<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>">Visit my Store <i class="glyphicon glyphicon-play"></i></a></div>
+						<div class="user-rating gray-light"> Rating</div>
+						<div style="padding: 20px 0px 0px 5px;"><a href="/fes-vendor/<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>">Visite mi tienda <i class="glyphicon glyphicon-play"></i></a></div>
 					</div>
 				</div>
 				
@@ -357,7 +358,7 @@ $author = get_the_author();
 					</div>
 					<div style="">
 						<a href="<?php echo marketify_edd_fes_author_url( get_the_author_meta( 'ID' ) );?>"
-							title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>">See all <i class="glyphicon glyphicon-play"></i></a>
+							title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>">Ver todos <i class="glyphicon glyphicon-play"></i></a>
 					</div>
 				</div>
 				<?php 
