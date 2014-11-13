@@ -120,7 +120,7 @@
 			window.location.href = a.attr('href');
 		} else {
 			a.trigger( "click" );
-			$(this).html('CHECKOUT CART');
+			$(this).html('PAGAR');
 			window.setTimeout(function(){window.location.reload();}, 200);
 		}
 	}).html(
@@ -128,9 +128,9 @@
 				var old_f = $('#hidden-old-data').find('form.edd_download_purchase_form:first');
 				var a = old_f.find('.edd_go_to_checkout:first');
 				if(a.attr( "style" )  &&  a.attr( "style" ).indexOf('none') > 0) {
-					return "ADD ONE TO CART";
+					return "AÑADIR AL CARRITO";
 				}
-				return 'CHECKOUT CART';
+				return 'PAGAR';
 		}
 	);
 	//

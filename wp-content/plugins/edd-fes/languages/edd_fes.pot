@@ -547,7 +547,7 @@ msgstr ""
 #: ../classes/frontend/class-dashboard.php:375
 #: ../classes/frontend/class-dashboard.php:435
 msgid "Pending Review"
-msgstr ""
+msgstr "En trámite de aprobación"
 
 #: ../classes/admin/class-list-table.php:1015
 #: ../classes/admin/downloads/class-download-table.php:240
@@ -2315,7 +2315,7 @@ msgstr ""
 #: ../classes/redux/ReduxCore/inc/fields/border/field_border.php:112
 #: ../classes/redux/ReduxCore/inc/fields/spacing/field_spacing.php:172
 msgid "All"
-msgstr ""
+msgstr "Todos"
 
 #: ../classes/admin/vendors/class-vendor-table.php:235
 msgid "Application Approved"

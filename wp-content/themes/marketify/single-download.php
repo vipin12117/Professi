@@ -299,7 +299,7 @@ $author = get_the_author();
 				data-download-id="<?php echo $post->ID; ?>"
 				data-variable-price="no"
 				data-price-mode="single"
-				><i class="add-wl"></i>W I S H&nbsp;&nbsp;L I S T</a></div>
+				><i class="add-wl"></i>FAVORITO</a></div>
 				<hr/>
 				<div class="user-info clearfix">
 					<div class="avatar-info left">

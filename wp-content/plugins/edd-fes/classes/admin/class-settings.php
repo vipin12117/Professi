@@ -61,7 +61,7 @@ if ( !class_exists( "FES_Settings" ) ) {
                         'title' => __( 'Vendor Announcement', 'edd_fes' ),
                         'subtitle' => __( 'Use this to announce things to your vendors. Appears on the Vendor Dashboard Page once logged in.', 'edd_fes' ),
                         'validate' => 'html',
-                        'default' => 'This is the vendor dashboard. Add welcome text or any other information that is applicable to your vendors.'
+                        'default' => 'La dirección de su tienda es:'
                     ),
                     array(
                         'id' => 'fes-plugin-constants',

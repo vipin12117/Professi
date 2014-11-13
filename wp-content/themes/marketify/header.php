@@ -84,7 +84,7 @@ $(function() {
                             <ul class="none list-top clearfix">
 
                                     <?php if (  is_user_logged_in() ):?>
-                                            <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo $userdata->display_name;?></a></li>
+                                            <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/fes-vendor-dashboard/' ) ); ?>"><?php echo $userdata->display_name;?></a></li>
 											<li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/checkout/purchase-history/' ) ); ?>">Compras</a></li>
 											<li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Cerrar sesión</a></li>
 

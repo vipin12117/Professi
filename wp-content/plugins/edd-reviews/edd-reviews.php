@@ -496,7 +496,7 @@ final class EDD_Reviews {
 		$commenter = wp_get_current_commenter();
 
 		$form = array(
-			'title_reply'          => apply_filters( 'edd_reviews_leave_a_review_text',  __( 'Leave a Review', 'edd-reviews' ) ),
+			'title_reply'          => apply_filters( 'edd_reviews_leave_a_review_text',  __( 'DEJA UN COMENTARIO', 'edd-reviews' ) ),
 			'title_reply_to'       => '',
 			'must_log_in'          => $this->display_login_form(),
 			'comment_notes_before' => $this->maybe_show_review_breakdown( $post->ID ),
@@ -507,7 +507,7 @@ final class EDD_Reviews {
 				'email'            => '<p class="comment-form-email"><label for="email">' . __( 'Email', 'edd-reviews' ) . '<span class="required">*</span></label>' .
 						          	'<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" aria-required="true" /></p>',
 		),
-			'label_submit'         => __( 'Submit Review', 'edd-reviews' ),
+			'label_submit'         => __( 'ENVIAR', 'edd-reviews' ),
 			'logged_in_as'         => '',
 			'comment_field'        => '',
 			'cancel_reply_link'    => '',
@@ -518,7 +518,7 @@ final class EDD_Reviews {
 
 			$form['comment_field'] = apply_filters( 'edd_reviews_review_form_template', '
 			<p class="comment_form_review_title">
-				<label for="edd_review_title">' . __( 'Review Title', 'edd-reviews' ) . '<span class="required">*</span></label>
+				<label for="edd_review_title">' . __( 'Título de su comentario', 'edd-reviews' ) . '<span class="required">*</span></label>
 				<input type="text" name="edd_review_title" id="edd_review_title" value="" size="30" aria-required="true" />
 			</p>
 
@@ -548,7 +548,7 @@ final class EDD_Reviews {
 			</p>
 
 			<p class="comment-form-comment">
-				<label for="comment">' . __( 'Review', 'edd-reviews' ) . '<span class="required">*</span></label>
+				<label for="comment">' . __( 'Su comentario', 'edd-reviews' ) . '<span class="required">*</span></label>
 				<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
 			</p>
 

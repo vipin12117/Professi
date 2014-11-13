@@ -638,7 +638,7 @@ class FES_Dashboard {
 	}
 	
 	function render_comments_table_row( $comment ) {
-		$comment_date = get_comment_date( 'Y/m/d \a\t g:i a', $comment->comment_ID );
+		$comment_date = get_comment_date( 'Y/m/d \A \L\A\S g:i a', $comment->comment_ID );
 		$comment_author_img = get_avatar( $comment->comment_author_email, 32 );
 		$purchased = edd_has_user_purchased( $comment->user_id, $comment->comment_post_ID );
 		?>
@@ -649,9 +649,9 @@ class FES_Dashboard {
 			<br /><br />
 			<?php
 			if ($purchased){
-				echo '<div class="fes-light-green">'.__('Has Purchased','edd_fes').'</div>';
+				echo '<div class="fes-light-green">'.__('HA COMPRADO','edd_fes').'</div>';
 			} else {
-				echo '<div class="fes-light-red">'.__('Has Not Purchased','edd_fes').'</div>';
+				echo '<div class="fes-light-red">'.__('NO HA COMPRADO','edd_fes').'</div>';
 			}
 
 			?>
@@ -661,14 +661,14 @@ class FES_Dashboard {
 				<a href="<?php echo esc_url( get_permalink( $comment->comment_post_ID ) ); ?>"><?php echo get_the_title( $comment->comment_post_ID ); ?></a>&nbsp;&nbsp;&nbsp;
 			</span><br />
 			<span id="fes-view-comment">
-				<a href="<?php echo esc_url( get_permalink( $comment->comment_post_ID ) . '#comment-' . $comment->comment_ID ); ?>"><?php _e( 'View Comment','edd_fes' ); ?></a>
+				<a href="<?php echo esc_url( get_permalink( $comment->comment_post_ID ) . '#comment-' . $comment->comment_ID ); ?>"><?php _e( 'VER COMENTARIO','edd_fes' ); ?></a>
 			</span>
 		</td>
 		<td class="col-content" style="width:70%;">
 			<div class="fes-comments-content"><?php echo $comment->comment_content; ?></div>
 			<hr/>
 			<div id="<?php echo $comment->comment_post_ID; ?>" class="fes-vendor-comment-respond-form">
-				<span><?php _e( 'Respond:', 'edd_fes' ); ?></span><br/>
+				<span><?php _e( 'Responder:', 'edd_fes' ); ?></span><br/>
 				<table>
 					<tr>
 						<form id="fes_comments-form" action="" method="post">
@@ -677,12 +677,12 @@ class FES_Dashboard {
 							<input type="hidden" name="aid" value="<?php echo get_current_user_id(); ?>">
 							<?php wp_nonce_field('fes_comment_nonce', 'fes_nonce'); ?>
 							<textarea class="fes-cmt-body" name="newcomment_body" cols="50" rows="8"></textarea>
-							<button class="fes-cmt-submit-form button" type="submit"><?php  _e( 'Post Response', 'edd_fes' ); ?></button>
+							<button class="fes-cmt-submit-form button" type="submit"><?php  _e( 'ENVIAR RESPUESTA', 'edd_fes' ); ?></button>
 						</form>				
 						<form id="fes_ignore-form" action="" method="post">
 							<input type="hidden" name="cid" value="<?php echo $comment->comment_ID; ?>">
 							<?php wp_nonce_field('fes_ignore_nonce', 'fes_nonce'); ?>
-							<button class="fes-ignore button" type="submit"><?php _e( 'Mark as Read', 'edd_fes' ); ?></button>
+							<button class="fes-ignore button" type="submit"><?php _e( 'DESCARTAR', 'edd_fes' ); ?></button>
 						</form>
 					</tr>
 				</table>
