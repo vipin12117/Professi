@@ -50,17 +50,26 @@ wp_reset_query();
 
 $where = array();
 if(strlen($s) > 1){
+	$s = mysql_real_escape_string($s);
 	$s_parts = explode(" ",$s);
 	$string  = array();
 	foreach((array)$s_parts as $word){
 		$string[] = " post_title LIKE '%".mysql_real_escape_string($word)."%' ";
 	}
 	
-	if(sizeof($string) > 0){
-		$where[] = "(( " . implode(" AND ", $string) . " ) OR post_title LIKE '%".mysql_real_escape_string($s)."%')";
+	//check category name for keyword
+	$term_ids   = $wpdb->get_row("select group_concat(term_id) as term_ids from wp_terms where name like '%$s%'");
+	$keyword_or = "";
+	if($term_ids){
+		$term_ids = $term_ids->term_ids;
+		$keyword_or = " OR ( p.ID IN ( select object_id from wp_term_relationships where term_taxonomy_id IN($term_ids) ) )";
+	}
+		
+	if(sizeof($string) > 1){
+		$where[] = "( (".implode(" AND ", $string).") OR post_title LIKE '%$s%' $keyword_or)";
 	}
 	else{
-		$where[] = "post_title LIKE '%$search%'";
+		$where[] = "( post_title LIKE '%$s%' $keyword_or)";
 	}
 }
 
@@ -73,11 +82,14 @@ foreach($ccats as $cat_ids){
 		$term_ids[] = $cat_id->term_id;
 		$term_ids  = array_unique($term_ids);
 		$term_ids_str = implode(",",$term_ids);
-		
-		$orArr[] = "p.ID IN ( select object_id from wp_term_relationships where term_taxonomy_id IN($term_ids_str) ) ";
+		if($term_ids_str){
+			$orArr[] = "p.ID IN ( select object_id from wp_term_relationships where term_taxonomy_id IN($term_ids_str) ) ";
+		}
 	}
 	
-	$cat_condition[] = "(". implode(" OR ", $orArr). ")";
+	if($orArr){
+		$cat_condition[] = "(". implode(" OR ", $orArr). ")";
+	}
 }
 
 if($cat_condition){
