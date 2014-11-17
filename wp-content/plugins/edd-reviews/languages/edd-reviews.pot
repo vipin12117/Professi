@@ -23,101 +23,101 @@ msgstr ""
 
 #: edd-reviews.php:461
 msgid "Leave a Review"
-msgstr ""
+msgstr "Deja un Comentario"
 
 #: edd-reviews.php:465
 msgid "Name"
-msgstr ""
+msgstr "nombre"
 
 #: edd-reviews.php:467
 msgid "Email"
-msgstr ""
+msgstr "Correo electrónico"
 
 #: edd-reviews.php:470
 msgid "Submit Review"
-msgstr ""
+msgstr "Enviar opinión"
 
 #: edd-reviews.php:477 edd-reviews.php:888
 msgid "Review Title"
-msgstr ""
+msgstr "reseña Título"
 
 #: edd-reviews.php:482 edd-reviews.php:889
 msgid "Rating"
-msgstr ""
+msgstr "clasificación"
 
 #: edd-reviews.php:505
 msgid "Review"
-msgstr ""
+msgstr "revisión"
 
 #: edd-reviews.php:548
 msgid ""
 "You are only allowed to post one review for this product. Multiple reviews "
 "have been disabled."
-msgstr ""
+msgstr "Sólo se le permite publicar una reseña para este producto. Múltiples comentarios han sido deshabilitados."
 
 #: edd-reviews.php:549
 msgid "Multiple Reviews Not Allowed"
-msgstr ""
+msgstr "Múltiples Comentarios no permitidos"
 
 #: edd-reviews.php:570
 #, php-format
 msgid "%sERROR:%s You did not add a review title."
-msgstr ""
+msgstr "No ha añadido un título opinión."
 
 #: edd-reviews.php:570 edd-reviews.php:586 edd-reviews.php:1679
 #: edd-reviews.php:1683
 msgid "Error"
-msgstr ""
+msgstr "error"
 
 #: edd-reviews.php:586
 #, php-format
 msgid ""
 "%sERROR:%s You did not add a rating or the rating you supplied was not "
 "validated."
-msgstr ""
+msgstr "Usted no ha añadido una clasificación o la calificación que ha suministrado no fue validado."
 
 #: edd-reviews.php:752 edd-reviews.php:953 edd-reviews.php:990
 #: edd-reviews.php:1176
 msgid "Reviews"
-msgstr ""
+msgstr "Comentarios"
 
 #: edd-reviews.php:772
 msgid "Allow reviews."
-msgstr ""
+msgstr "Permitir comentarios."
 
 #: edd-reviews.php:798
 msgid "No reviews yet."
-msgstr ""
+msgstr "No hay comentarios aún."
 
 #: edd-reviews.php:808
 msgid "Show comments"
-msgstr ""
+msgstr "Mostrar comentarios"
 
 #: edd-reviews.php:853 edd-reviews.php:1295
 msgid "Thank you for your feedback."
-msgstr ""
+msgstr "Gracias por sus comentarios."
 
 #: edd-reviews.php:959
 msgid "Enable review breakdown"
-msgstr ""
+msgstr "Activar desglose opinión"
 
 #: edd-reviews.php:960
 msgid ""
 "This will show how many people have rated the download for each star rating."
-msgstr ""
+msgstr "Esto le mostrará cómo muchas personas han evaluado la descarga de cada categoría de estrellas."
 
 #: edd-reviews.php:966
 msgid "Disable multiple reviews by same author"
-msgstr ""
+msgstr "Desactivar múltiples opiniones mismo autor"
 
 #: edd-reviews.php:967
 msgid ""
 "This will disallow authors to post multiple reviews on the same download"
-msgstr ""
+msgstr "Esto no permitir autores para publicar varios comentarios sobre la misma descarga"
 
 #: edd-reviews.php:996
 msgid "Disable EDD Reviews CSS"
-msgstr ""
+msgstr "Desactivar EDD Opiniones CSS"
 
 #: edd-reviews.php:997
 msgid ""
@@ -127,7 +127,7 @@ msgstr ""
 
 #: edd-reviews.php:1025 edd-reviews.php:1034
 msgid "View Reviews"
-msgstr ""
+msgstr "Ver Comentarios"
 
 #: edd-reviews.php:1049
 #, php-format
@@ -153,39 +153,39 @@ msgstr ""
 
 #: edd-reviews.php:1280 edd-reviews.php:1321
 msgid "Your review is awaiting moderation."
-msgstr ""
+msgstr "Su opinión está en espera de moderación."
 
 #: edd-reviews.php:1282
 #: classes/shortcodes/class-edd-reviews-shortcode-review.php:56
 #: classes/shortcodes/class-edd-reviews-shortcode-review.php:107
 #: classes/widgets/class-featured-review-widget.php:80
 msgid "by"
-msgstr ""
+msgstr "por"
 
 #: edd-reviews.php:1302
 msgid "Help other customers find the most helpful reviews"
-msgstr ""
+msgstr "Ayuda a otros clientes encontrar las opiniones más útiles"
 
 #: edd-reviews.php:1304
 msgid "Did you find this review helpful?"
-msgstr ""
+msgstr "¿Le ha resultado útil esta opinión?"
 
 #: edd-reviews.php:1306
 msgid "Yes"
-msgstr ""
+msgstr "diez"
 
 #: edd-reviews.php:1307
 msgid "No"
-msgstr ""
+msgstr "no"
 
 #: edd-reviews.php:1361
 #, php-format
 msgid "%s of %s people found this review helpful."
-msgstr ""
+msgstr "personas encontraron esta crítica útil."
 
 #: edd-reviews.php:1418
 msgid "review"
-msgstr ""
+msgstr "revisión"
 
 #: edd-reviews.php:1443
 msgid "star"
@@ -193,7 +193,7 @@ msgstr ""
 
 #: edd-reviews.php:1565
 msgid "Easy Digital Downloads Recent Reviews"
-msgstr ""
+msgstr "Easy Digital Descargas Comentarios recientes"
 
 #: edd-reviews.php:1613
 msgid "By"
@@ -201,29 +201,29 @@ msgstr ""
 
 #: edd-reviews.php:1622
 msgid "There are no reviews yet."
-msgstr ""
+msgstr "No hay comentarios aún."
 
 #: edd-reviews.php:1634
 msgid "Review Information"
-msgstr ""
+msgstr "Información Comentario"
 
 #: edd-reviews.php:1654
 msgid "Review Title:"
-msgstr ""
+msgstr "Título de la reseña:"
 
 #: edd-reviews.php:1658
 msgid "Rating:"
-msgstr ""
+msgstr "Clasificación:"
 
 #: edd-reviews.php:1679
 #, php-format
 msgid "%sError%s: Please add a review title."
-msgstr ""
+msgstr "Por favor, añadir un título opinión."
 
 #: edd-reviews.php:1683
 #, php-format
 msgid "%sError%s: Please add a valid rating between 1 and 5."
-msgstr ""
+msgstr "Por favor, añada una habilitación en vigor entre el 1 y 5."
 
 #: edd-reviews.php:1772
 #, php-format
@@ -232,15 +232,15 @@ msgstr ""
 
 #: edd-reviews.php:1893 edd-reviews.php:1932
 msgid "Embed Review"
-msgstr ""
+msgstr "Insertar Comentario"
 
 #: edd-reviews.php:1923
 msgid "Select a Review to Embed"
-msgstr ""
+msgstr "Seleccionar una revisión para incrustar"
 
 #: edd-reviews.php:1934
 msgid "No Reviews Have Been Created Yet"
-msgstr ""
+msgstr "No hay comentarios Todavía no has"
 
 #: edd-reviews.php:1964
 msgid "API Documentation"
@@ -279,7 +279,7 @@ msgstr ""
 #: classes/widgets/class-featured-review-widget.php:139
 #: classes/widgets/class-reviews-widget.php:159
 msgid "Title:"
-msgstr ""
+msgstr "Título:"
 
 #: classes/widgets/class-featured-review-widget.php:144
 msgid "Review to display:"
@@ -331,4 +331,4 @@ msgstr ""
 #: templates/reviews.php:58
 #, php-format
 msgid "No reviews yet! Be the first to review this %s!"
-msgstr ""
+msgstr "No hay comentarios aún! ¡Sé el primero en opinar sobre este %s!"

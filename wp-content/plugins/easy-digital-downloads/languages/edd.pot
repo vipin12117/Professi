@@ -3589,7 +3589,7 @@ msgstr ""
 
 #: includes/ajax-functions.php:474
 msgid "No users found"
-msgstr ""
+msgstr "No hay usuarios encontrados"
 
 #: includes/cart/functions.php:365
 msgid "includes %s tax"
@@ -3602,100 +3602,100 @@ msgstr ""
 #: includes/cart/functions.php:996 includes/cart/functions.php:1064
 #: templates/shortcode-profile-editor.php:20
 msgid "Success"
-msgstr ""
+msgstr "éxito"
 
 #: includes/cart/functions.php:997
 msgid "Cart saved successfully. You can restore your cart using this URL:"
-msgstr ""
+msgstr "Cesta guardado correctamente. Puede restaurar su compra usando esta URL:"
 
 #: includes/cart/functions.php:1034 includes/cart/functions.php:1051
 msgid "Cart restoration failed. Invalid token."
-msgstr ""
+msgstr "Cesta restauración fracasó. Elemento inválido."
 
 #: includes/cart/functions.php:1042 includes/cart/functions.php:1054
 msgid "The cart cannot be restored. Invalid token."
-msgstr ""
+msgstr "El carro no se puede restaurar. Elemento inválido."
 
 #: includes/cart/functions.php:1064
 msgid "Cart restored successfully."
-msgstr ""
+msgstr "Cesta restaurado correctamente."
 
 #: includes/cart/template.php:117
 msgid "Your cart is empty."
-msgstr ""
+msgstr "Su cesta está vacía."
 
 #: includes/cart/template.php:162
 msgid "Restore Previous Cart"
-msgstr ""
+msgstr "Restaurar carrito Anterior"
 
 #: includes/cart/template.php:164
 msgid "Save Cart"
-msgstr ""
+msgstr "Guardar la Cesta"
 
 #: includes/cart/template.php:180
 msgid "Restore Previous Cart."
-msgstr ""
+msgstr "Restaurar carrito Anterior."
 
 #: includes/cart/template.php:201
 msgid "Update Cart"
-msgstr ""
+msgstr "Actualizar Cesta"
 
 #: includes/cart/template.php:246
 msgid "You have successfully added %s to your shopping cart."
-msgstr ""
+msgstr "Ha agregado %s de su carrito de compras."
 
 #: includes/cart/template.php:247
 msgid "Checkout."
-msgstr ""
+msgstr "caja"
 
 #: includes/checkout/template.php:134
 msgid "Personal Info"
-msgstr ""
+msgstr "Información Personal"
 
 #: includes/checkout/template.php:138 templates/shortcode-profile-editor.php:52
 #: templates/shortcode-register.php:21
 msgid "Email Address"
-msgstr ""
+msgstr "dirección de correo electrónico"
 
 #: includes/checkout/template.php:143
 msgid "We will send the purchase receipt to this address."
-msgstr ""
+msgstr "Le enviaremos el recibo de compra a esta dirección."
 
 #: includes/checkout/template.php:144
 msgid "Email address"
-msgstr ""
+msgstr "dirección de correo electrónico"
 
 #: includes/checkout/template.php:154
 msgid "We will use this to personalize your account experience."
-msgstr ""
+msgstr "Vamos a usar esto para personalizar su experiencia cuenta."
 
 #: includes/checkout/template.php:155
 msgid "First name"
-msgstr ""
+msgstr "nombre de pila"
 
 #: includes/checkout/template.php:164
 msgid "We will use this as well to personalize your account experience."
-msgstr ""
+msgstr "Usaremos esta así a personalizar su experiencia cuenta."
 
 #: includes/checkout/template.php:165
 msgid "Last name"
-msgstr ""
+msgstr "apellido"
 
 #: includes/checkout/template.php:186
 msgid "Credit Card Info"
-msgstr ""
+msgstr "Credit Card Info"
 
 #: includes/checkout/template.php:190
 msgid "This is a secure SSL encrypted payment."
-msgstr ""
+msgstr "Se trata de un pago encriptado SSL segura."
 
 #: includes/checkout/template.php:195
 msgid "Card Number"
-msgstr ""
+msgstr "número de tarjeta"
 
 #: includes/checkout/template.php:199
 msgid "The (typically) 16 digits on the front of your credit card."
-msgstr ""
+msgstr "Los (típicamente) 16 dígitos en la parte delantera de su tarjeta de crédito."
 
 #: includes/checkout/template.php:200
 msgid "Card number"
@@ -3795,15 +3795,15 @@ msgstr ""
 
 #: includes/checkout/template.php:398
 msgid "Already have an account?"
-msgstr ""
+msgstr "¿Ya tienes una cuenta?"
 
 #: includes/checkout/template.php:398 includes/checkout/template.php:489
 msgid "Login"
-msgstr ""
+msgstr "login"
 
 #: includes/checkout/template.php:404
 msgid "Create an account"
-msgstr ""
+msgstr "Crear una cuenta"
 
 #: includes/checkout/template.php:404
 msgid "(optional)"
@@ -3811,7 +3811,7 @@ msgstr ""
 
 #: includes/checkout/template.php:413
 msgid "The username you will use to log into your account."
-msgstr ""
+msgstr "El nombre de usuario que utilizará para iniciar sesión en su cuenta."
 
 #: includes/checkout/template.php:418 includes/checkout/template.php:424
 #: includes/checkout/template.php:484 templates/shortcode-login.php:16
@@ -3825,84 +3825,84 @@ msgstr ""
 
 #: includes/checkout/template.php:428
 msgid "Password Again"
-msgstr ""
+msgstr "Nuevamente Password"
 
 #: includes/checkout/template.php:433
 msgid "Confirm your password."
-msgstr ""
+msgstr "Confirme su contraseña."
 
 #: includes/checkout/template.php:434
 msgid "Confirm password"
-msgstr ""
+msgstr "confirmar Contraseña"
 
 #: includes/checkout/template.php:472
 msgid "Need to create an account?"
-msgstr ""
+msgstr "¿Necesitas crear una cuenta?"
 
 #: includes/checkout/template.php:474 templates/shortcode-register.php:41
 msgid "Register"
-msgstr ""
+msgstr "Registrarse"
 
 #: includes/checkout/template.php:474
 msgid "or checkout as a guest."
-msgstr ""
+msgstr "o de pagar como invitado."
 
 #: includes/checkout/template.php:481
 msgid "Your username"
-msgstr ""
+msgstr "Su nombre de usuario"
 
 #: includes/checkout/template.php:485
 msgid "Your password"
-msgstr ""
+msgstr "Su contraseña"
 
 #: includes/checkout/template.php:517
 msgid "Select Payment Method"
-msgstr ""
+msgstr "Seleccione el método de pago"
 
 #: includes/checkout/template.php:641
 msgid "Have a discount code?"
-msgstr ""
+msgstr "¿Tiene un código de descuento?"
 
 #: includes/checkout/template.php:645
 msgid "Discount"
-msgstr ""
+msgstr "descuento"
 
 #: includes/checkout/template.php:648
 msgid "Enter a coupon code if you have one."
-msgstr ""
+msgstr "Introduzca un código de descuento si usted tiene uno."
 
 #: includes/checkout/template.php:649 includes/process-purchase.php:268
 #: includes/scripts.php:50
 msgid "Enter discount"
-msgstr ""
+msgstr "Introduzca descuento"
 
 #: includes/checkout/template.php:681
 msgid "Show Terms"
-msgstr ""
+msgstr "Mostrar Condiciones"
 
 #: includes/checkout/template.php:682
 msgid "Hide Terms"
-msgstr ""
+msgstr "Ocultar Condiciones"
 
 #: includes/checkout/template.php:684
 msgid "Agree to Terms?"
-msgstr ""
+msgstr "Concedes a las condiciones?"
 
 #: includes/checkout/template.php:701
 msgid "Purchase Total:"
-msgstr ""
+msgstr "Compra Total:"
 
 #: includes/checkout/template.php:727
 msgid "Go back"
-msgstr ""
+msgstr "volver"
 
 #: includes/checkout/template.php:752
 msgid "Next"
-msgstr ""
+msgstr "siguiente"
 
 #: includes/checkout/template.php:774
 msgid "Free Download"
-msgstr ""
+msgstr "Descarga gratuita"
 
 #: includes/class-edd-api.php:254
 msgid "You must specify both a token and API key!"
@@ -4071,7 +4071,7 @@ msgstr ""
 
 #: includes/class-edd-cli.php:145
 msgid "No Downloads found"
-msgstr ""
+msgstr "No Descargas encontrados"
 
 #: includes/class-edd-cli.php:191
 msgid "ID: %d"
@@ -4079,15 +4079,15 @@ msgstr ""
 
 #: includes/class-edd-cli.php:192 includes/class-edd-cli.php:375
 msgid "Status: %s"
-msgstr ""
+msgstr "Estado:"
 
 #: includes/class-edd-cli.php:193
 msgid "Posted: %s"
-msgstr ""
+msgstr "publicado:"
 
 #: includes/class-edd-cli.php:194
 msgid "Categories: %s"
-msgstr ""
+msgstr "Categorías:"
 
 #: includes/class-edd-cli.php:195
 msgid "Tags: %s"
@@ -4147,19 +4147,19 @@ msgstr ""
 
 #: includes/class-edd-cli.php:270
 msgid "Purchases: %s"
-msgstr ""
+msgstr "Fichajes: %s"
 
 #: includes/class-edd-cli.php:271
 msgid "Total Spent: %s"
-msgstr ""
+msgstr "Total en: %s"
 
 #: includes/class-edd-cli.php:272
 msgid "Total Downloads: %s"
-msgstr ""
+msgstr "Descargas totales: %s"
 
 #: includes/class-edd-cli.php:295
 msgid "No sales found"
-msgstr ""
+msgstr "Prohibida la venta se han encontrado"
 
 #: includes/class-edd-cli.php:301
 msgid "Purchase Key: %s"
@@ -4167,11 +4167,11 @@ msgstr ""
 
 #: includes/class-edd-cli.php:303
 msgid "Date: %s"
-msgstr ""
+msgstr "Fecha: %s"
 
 #: includes/class-edd-cli.php:304
 msgid "Subtotal: %s"
-msgstr ""
+msgstr "Subtotal: %s"
 
 #: includes/class-edd-cli.php:305
 msgid "Tax: %s"
@@ -4204,7 +4204,7 @@ msgstr ""
 #: includes/class-edd-cli.php:355 includes/class-edd-html-elements.php:116
 #: includes/shortcodes.php:208
 msgid "No discounts found"
-msgstr ""
+msgstr "No hay descuentos encontrados"
 
 #: includes/class-edd-cli.php:361
 msgid "Name: %s"
@@ -4314,82 +4314,82 @@ msgstr ""
 
 #: includes/deprecated-functions.php:221
 msgid "You have already purchased this item, but you may purchase it again."
-msgstr ""
+msgstr "Usted ya ha comprado este producto, pero usted puede comprar de nuevo."
 
 #: includes/deprecated-functions.php:302 includes/deprecated-functions.php:335
 #: includes/emails/class-edd-email-tags.php:270
 msgid "A list of download links for each download purchased"
-msgstr ""
+msgstr "Una lista de los enlaces de descarga de cada descarga comprado"
 
 #: includes/deprecated-functions.php:303 includes/deprecated-functions.php:336
 #: includes/emails/class-edd-email-tags.php:275
 msgid "A plain-text list of download URLs for each download purchased"
-msgstr ""
+msgstr "Una lista de texto sin formato de descarga URLs por cada descarga comprado"
 
 #: includes/deprecated-functions.php:304 includes/deprecated-functions.php:337
 #: includes/emails/class-edd-email-tags.php:280
 msgid "The buyer's first name"
-msgstr ""
+msgstr "El primer nombre del comprador"
 
 #: includes/deprecated-functions.php:305 includes/deprecated-functions.php:338
 #: includes/emails/class-edd-email-tags.php:285
 msgid "The buyer's full name, first and last"
-msgstr ""
+msgstr "El nombre completo del comprador, la primera y última"
 
 #: includes/deprecated-functions.php:306 includes/deprecated-functions.php:339
 #: includes/emails/class-edd-email-tags.php:290
 msgid "The buyer's user name on the site, if they registered an account"
-msgstr ""
+msgstr "Nombre de usuario del comprador en el sitio, si se ha registrado una cuenta"
 
 #: includes/deprecated-functions.php:307 includes/deprecated-functions.php:340
 #: includes/emails/class-edd-email-tags.php:295
 msgid "The buyer's email address"
-msgstr ""
+msgstr "Dirección de correo electrónico del comprador"
 
 #: includes/deprecated-functions.php:308 includes/deprecated-functions.php:341
 #: includes/emails/class-edd-email-tags.php:300
 msgid "The buyer's billing address"
-msgstr ""
+msgstr "Dirección de facturación del comprador"
 
 #: includes/deprecated-functions.php:309 includes/deprecated-functions.php:342
 #: includes/emails/class-edd-email-tags.php:305
 msgid "The date of the purchase"
-msgstr ""
+msgstr "La fecha de la compra"
 
 #: includes/deprecated-functions.php:310 includes/deprecated-functions.php:343
 #: includes/emails/class-edd-email-tags.php:310
 msgid "The price of the purchase before taxes"
-msgstr ""
+msgstr "El precio de la compra antes de impuestos"
 
 #: includes/deprecated-functions.php:311 includes/deprecated-functions.php:344
 #: includes/emails/class-edd-email-tags.php:315
 msgid "The taxed amount of the purchase"
-msgstr ""
+msgstr "La cantidad sujeta a impuestos de la compra"
 
 #: includes/deprecated-functions.php:312 includes/deprecated-functions.php:345
 #: includes/emails/class-edd-email-tags.php:320
 msgid "The total price of the purchase"
-msgstr ""
+msgstr "El precio total de la compra"
 
 #: includes/deprecated-functions.php:313 includes/deprecated-functions.php:346
 #: includes/emails/class-edd-email-tags.php:325
 msgid "The unique ID number for this purchase"
-msgstr ""
+msgstr "El número de identificación único para esta compra"
 
 #: includes/deprecated-functions.php:314 includes/deprecated-functions.php:347
 #: includes/emails/class-edd-email-tags.php:330
 msgid "The unique ID number for this purchase receipt"
-msgstr ""
+msgstr "El número de identificación único para este recibo de compra"
 
 #: includes/deprecated-functions.php:315 includes/deprecated-functions.php:348
 #: includes/emails/class-edd-email-tags.php:335
 msgid "The method of payment used for this purchase"
-msgstr ""
+msgstr "El método de pago utilizado para esta compra"
 
 #: includes/deprecated-functions.php:316 includes/deprecated-functions.php:349
 #: includes/emails/class-edd-email-tags.php:340
 msgid "Your site name"
-msgstr ""
+msgstr "Su nombre del sitio"
 
 #: includes/deprecated-functions.php:317
 #: includes/emails/class-edd-email-tags.php:345
@@ -4400,63 +4400,63 @@ msgstr ""
 
 #: includes/discount-functions.php:344
 msgid "This discount is expired."
-msgstr ""
+msgstr "Este descuento ha caducado."
 
 #: includes/discount-functions.php:350
 msgid "This discount is not active."
-msgstr ""
+msgstr "Este descuento no está activo."
 
 #: includes/discount-functions.php:577
 msgid "This discount is not active yet."
-msgstr ""
+msgstr "Este descuento aún no está activa."
 
 #: includes/discount-functions.php:608
 msgid "This discount has reached it's maximum usage."
-msgstr ""
+msgstr "Este descuento ha alcanzado su máximo aprovechamiento."
 
 #: includes/discount-functions.php:637
 msgid "Minimum order of %s not met."
-msgstr ""
+msgstr "Pedido mínimo de %s no se reunió."
 
 #: includes/discount-functions.php:684 includes/discount-functions.php:704
 msgid "The product requirements for this discount are not met."
-msgstr ""
+msgstr "No se cumplen los requisitos del producto para este descuento."
 
 #: includes/discount-functions.php:715
 msgid "This discount is not valid for the cart contents."
-msgstr ""
+msgstr "Este descuento no es válido para el contenido del carrito."
 
 #: includes/discount-functions.php:784
 msgid "This discount has already been redeemed."
-msgstr ""
+msgstr "Este descuento ya ha sido redimido."
 
 #: includes/discount-functions.php:824
 msgid "This discount is invalid."
-msgstr ""
+msgstr "Este descuento no es válido."
 
 #: includes/download-functions.php:440
 msgid "Default"
-msgstr ""
+msgstr "defecto"
 
 #: includes/download-functions.php:441
 msgid "Bundle"
-msgstr ""
+msgstr "liar"
 
 #: includes/download-functions.php:1054
 msgid "Sorry but you have hit your download limit for this file."
-msgstr ""
+msgstr "Lo sentimos, pero usted ha golpeado su límite de descarga de este archivo."
 
 #: includes/download-functions.php:1064
 msgid "Sorry but your download link has expired."
-msgstr ""
+msgstr "Lo sentimos, pero tu enlace de descarga ha expirado."
 
 #: includes/download-functions.php:1074
 msgid "No payments matching your request were found."
-msgstr ""
+msgstr "No se encontraron pagos resultado de su búsqueda."
 
 #: includes/emails/class-edd-email-tags.php:350
 msgid "Adds a list of any discount codes applied to this purchase"
-msgstr ""
+msgstr "Añade una lista de los códigos de descuento aplicado a esta compra"
 
 #: includes/emails/class-edd-email-tags.php:404
 #: includes/emails/class-edd-email-tags.php:500
@@ -4494,7 +4494,7 @@ msgstr ""
 
 #: includes/emails/functions.php:179 includes/emails/template.php:221
 msgid "A %s purchase has been made"
-msgstr ""
+msgstr "Compra un %s se ha hecho"
 
 #: includes/emails/functions.php:180 includes/emails/template.php:222
 msgid "%s sold:"
@@ -4502,43 +4502,43 @@ msgstr ""
 
 #: includes/emails/functions.php:182 includes/emails/template.php:224
 msgid "Purchased by: "
-msgstr ""
+msgstr "Comprado por:"
 
 #: includes/emails/functions.php:184 includes/emails/template.php:226
 msgid "Payment Method: "
-msgstr ""
+msgstr "Método de pago:"
 
 #: includes/emails/functions.php:185 includes/emails/template.php:227
 msgid "Thank you"
-msgstr ""
+msgstr "Gracias"
 
 #: includes/emails/template.php:57
 msgid "Sample Product Title"
-msgstr ""
+msgstr "Muestra el título del producto"
 
 #: includes/emails/template.php:59
 msgid "Sample Download File Name"
-msgstr ""
+msgstr "Muestra Nombre Descargar Archivo"
 
 #: includes/emails/template.php:59
 msgid "Optional notes about this download."
-msgstr ""
+msgstr "Notas opcionales sobre la descarga."
 
 #: includes/emails/template.php:72
 msgid "These are some sample notes added to a product."
-msgstr ""
+msgstr "Estas son algunas notas de muestra agregados a un producto."
 
 #: includes/emails/template.php:117
 msgid "Purchase Receipt Preview"
-msgstr ""
+msgstr "Recibo de Compra Prevista"
 
 #: includes/emails/template.php:117
 msgid "Preview Purchase Receipt"
-msgstr ""
+msgstr "Vista previa de recibo de compra"
 
 #: includes/emails/template.php:118
 msgid "This will send a demo purchase receipt to the emails listed below."
-msgstr ""
+msgstr "Esto enviará un recibo de compra de prueba para los mensajes de correo electrónico que figuran a continuación."
 
 #: includes/emails/template.php:118
 msgid "Send Test Email"
@@ -4550,7 +4550,7 @@ msgstr ""
 
 #: includes/emails/template.php:257
 msgid "Receipt"
-msgstr ""
+msgstr "recibo"
 
 #: includes/gateways/actions.php:54
 msgid "You must enable a payment gateway to use Easy Digital Downloads"
@@ -4655,41 +4655,41 @@ msgstr ""
 
 #: includes/install.php:72
 msgid "Purchase Confirmation"
-msgstr ""
+msgstr "Compra Confirmación"
 
 #: includes/install.php:73
 msgid "Thank you for your purchase! [edd_receipt]"
-msgstr ""
+msgstr "Gracias por su compra! [edd_receipt]"
 
 #: includes/install.php:98
 msgid "Purchase History"
-msgstr ""
+msgstr "Historial de compras"
 
 #: includes/login-register.php:86
 msgid "The password you entered is incorrect"
-msgstr ""
+msgstr "La contraseña introducida no es correcta"
 
 #: includes/login-register.php:89 includes/process-purchase.php:570
 msgid "The username you entered does not exist"
-msgstr ""
+msgstr "El nombre de usuario introducido no existe"
 
 #: includes/login-register.php:142 includes/login-register.php:150
 #: includes/process-purchase.php:458
 msgid "Invalid username"
-msgstr ""
+msgstr "nombre de usuario no válido"
 
 #: includes/login-register.php:146 includes/process-purchase.php:451
 msgid "Username already taken"
-msgstr ""
+msgstr "Nombre de usuario ya adoptadas"
 
 #: includes/login-register.php:154
 msgid "Email address already taken"
-msgstr ""
+msgstr "Dirección de correo electrónico ya adoptadas"
 
 #: includes/login-register.php:158 includes/process-purchase.php:398
 #: includes/process-purchase.php:473 includes/process-purchase.php:603
 msgid "Invalid email"
-msgstr ""
+msgstr "e-mail válida"
 
 #: includes/login-register.php:162
 msgid "Invalid payment email"
@@ -4697,11 +4697,11 @@ msgstr ""
 
 #: includes/login-register.php:166
 msgid "Please enter a password"
-msgstr ""
+msgstr "Por favor, ingrese una contraseña"
 
 #: includes/login-register.php:170
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Las contraseñas no coinciden"
 
 #: includes/misc-functions.php:311 tests/tests-misc.php:56
 msgid "US Dollars (&#36;)"
@@ -4851,27 +4851,27 @@ msgstr ""
 
 #: includes/post-types.php:31
 msgid "Add New %1$s"
-msgstr ""
+msgstr "Añadir Nuevas %1$s"
 
 #: includes/post-types.php:32
 msgid "Edit %1$s"
-msgstr ""
+msgstr "editar %1$s"
 
 #: includes/post-types.php:33
 msgid "New %1$s"
-msgstr ""
+msgstr "nuevo %1$"
 
 #: includes/post-types.php:34
 msgid "All %2$s"
-msgstr ""
+msgstr "todos %2$s"
 
 #: includes/post-types.php:35
 msgid "View %1$s"
-msgstr ""
+msgstr "vista %1$s"
 
 #: includes/post-types.php:36
 msgid "Search %2$s"
-msgstr ""
+msgstr "Búsqueda %2$s"
 
 #: includes/post-types.php:37
 msgid "No %2$s found"

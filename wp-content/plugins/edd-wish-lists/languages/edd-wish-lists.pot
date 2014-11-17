@@ -207,11 +207,11 @@ msgstr ""
 
 #: ../includes/admin-settings.php:197
 msgid "Email"
-msgstr ""
+msgstr "Correo electrónico"
 
 #: ../includes/ajax-functions.php:140
 msgid "My list"
-msgstr ""
+msgstr "Mi lista"
 
 #: ../includes/ajax-functions.php:180
 #, php-format
@@ -221,48 +221,48 @@ msgstr ""
 #: ../includes/dashboard-columns.php:19 ../includes/messages.php:31
 #: ../templates/wish-list-edit.php:20
 msgid "Title"
-msgstr ""
+msgstr "título"
 
 #: ../includes/dashboard-columns.php:20
 msgid "Downloads"
-msgstr ""
+msgstr "descargas"
 
 #: ../includes/dashboard-columns.php:21
 msgid "Author"
-msgstr ""
+msgstr "autor"
 
 #: ../includes/dashboard-columns.php:22
 msgid "Total"
-msgstr ""
+msgstr "total"
 
 #: ../includes/dashboard-columns.php:23
 msgid "Date"
-msgstr ""
+msgstr "fecha"
 
 #: ../includes/dashboard-columns.php:60
 msgid "Guest"
-msgstr ""
+msgstr "invitado"
 
 #: ../includes/install.php:34 ../includes/post-type.php:73
 msgid "Wish Lists"
-msgstr ""
+msgstr "Listas de deseos"
 
 #: ../includes/install.php:46
 msgid "View"
-msgstr ""
+msgstr "vista"
 
 #: ../includes/install.php:59
 msgid "Edit"
-msgstr ""
+msgstr "editar"
 
 #: ../includes/install.php:72 ../templates/wish-list-create.php:29
 msgid "Create"
-msgstr ""
+msgstr "crear"
 
 #: ../includes/messages.php:18
 #, php-format
 msgid "Sorry, you must login to create a %s"
-msgstr ""
+msgstr "Lo lamentamos, debes iniciar sesión para crear un"
 
 #: ../includes/messages.php:19
 #, php-format
@@ -299,37 +299,37 @@ msgstr ""
 #: ../includes/messages.php:25
 #, php-format
 msgid "Nothing here yet, how about adding some %s?"
-msgstr ""
+msgstr "No hay nada aquí, sin embargo, ¿qué hay de la adición de algunos %s?"
 
 #: ../includes/messages.php:26
 msgid "This item has already been added to: "
-msgstr ""
+msgstr "Este artículo ya ha sido añadido a:"
 
 #: ../includes/messages.php:27
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: ../includes/messages.php:28
 msgid "Great, I'm done"
-msgstr ""
+msgstr "Grande, he terminado"
 
 #: ../includes/messages.php:29
 msgid "Add to new"
-msgstr ""
+msgstr "Añadir a la nueva"
 
 #: ../includes/messages.php:30
 msgid "Add to existing"
-msgstr ""
+msgstr "Añadir a la existente"
 
 #: ../includes/messages.php:32 ../includes/template-functions.php:524
 #, php-format
 msgid "Delete %s"
-msgstr ""
+msgstr "borrar %s"
 
 #: ../includes/messages.php:33
 #, php-format
 msgid "Yes, delete this %s"
-msgstr ""
+msgstr "Sí, eliminar este %s"
 
 #: ../includes/messages.php:34
 #, php-format
@@ -338,25 +338,25 @@ msgstr ""
 
 #: ../includes/messages.php:35
 msgid "Successfully shared"
-msgstr ""
+msgstr "Con éxito compartido"
 
 #: ../includes/messages.php:36 ../templates/wish-list-create.php:24
 #: ../templates/wish-list-edit.php:29
 msgid "Private - only viewable by you"
-msgstr ""
+msgstr "Privado - sólo visible para usted"
 
 #: ../includes/messages.php:37 ../templates/wish-list-create.php:25
 #: ../templates/wish-list-edit.php:30
 msgid "Public - viewable by anyone"
-msgstr ""
+msgstr "Pública - visible por cualquier persona"
 
 #: ../includes/messages.php:38
 msgid "You need to enter a title"
-msgstr ""
+msgstr "Es necesario introducir un título"
 
 #: ../includes/messages.php:39
 msgid "Already purchased"
-msgstr ""
+msgstr "ya comprado"
 
 #: ../includes/metabox.php:20
 #, php-format
@@ -365,29 +365,29 @@ msgstr ""
 
 #: ../includes/metabox.php:52
 msgid "Total:"
-msgstr ""
+msgstr "total:"
 
 #: ../includes/metabox.php:54
 msgid "No items have been added yet"
-msgstr ""
+msgstr "No hay elementos se han añadido aún"
 
 #: ../includes/modals.php:52 ../includes/modals.php:94
 #: ../includes/modals.php:129 ../includes/modals.php:186
 msgid "Close"
-msgstr ""
+msgstr "cerca"
 
 #: ../includes/modals.php:70
 msgid "Send Now"
-msgstr ""
+msgstr "Enviar ahora"
 
 #: ../includes/post-type.php:18
 msgid "Add New"
-msgstr ""
+msgstr "Agregar nuevo"
 
 #: ../includes/post-type.php:19
 #, php-format
 msgid "Add New %1$s"
-msgstr ""
+msgstr "Agregar nuevo %1$s"
 
 #: ../includes/post-type.php:20
 #, php-format
@@ -426,11 +426,11 @@ msgstr ""
 
 #: ../includes/post-type.php:72
 msgid "Wish List"
-msgstr ""
+msgstr "Lista de deseos"
 
 #: ../includes/sharing.php:20
 msgid "Share via email"
-msgstr ""
+msgstr "Compartir por correo electrónico"
 
 #: ../includes/sharing.php:36
 #, php-format
@@ -457,27 +457,27 @@ msgstr ""
 
 #: ../includes/shortcodes.php:116
 msgid "Add to wish list"
-msgstr ""
+msgstr "Añadir a la lista de deseos"
 
 #: ../includes/template-functions.php:66
 msgid " Total: "
-msgstr ""
+msgstr "total:"
 
 #: ../includes/template-functions.php:353
 msgid "Checkout"
-msgstr ""
+msgstr "caja"
 
 #: ../includes/template-functions.php:463
 msgid "Add all to cart"
-msgstr ""
+msgstr "Añadir todos a la cesta"
 
 #: ../includes/template-functions.php:605
 msgid "Remove"
-msgstr ""
+msgstr "quitar"
 
 #: ../includes/template-functions.php:712
 msgid "Edit settings"
-msgstr ""
+msgstr "Editar configuración"
 
 #: ../includes/template-functions.php:757
 msgid "edit"
@@ -490,72 +490,72 @@ msgstr ""
 
 #: ../templates/wish-list-create.php:15
 msgid "Title:"
-msgstr ""
+msgstr "Título:"
 
 #: ../templates/wish-list-create.php:19
 msgid "Description:"
-msgstr ""
+msgstr "Descripción:"
 
 #: ../templates/wish-list-edit.php:24
 msgid "Description"
-msgstr ""
+msgstr "Descripción:"
 
 #: ../templates/wish-list-edit.php:34
 msgid "Update"
-msgstr ""
+msgstr "actualización"
 
 #: ../templates/wish-list-email-share.php:8
 #: ../templates/wish-list-email-share.php:9
 msgid "Your Name"
-msgstr ""
+msgstr "Su nombre"
 
 #: ../templates/wish-list-email-share.php:9
 msgid "Please enter your name"
-msgstr ""
+msgstr "Introduzca su nombre"
 
 #: ../templates/wish-list-email-share.php:13
 msgid "Your Email Address"
-msgstr ""
+msgstr "Su dirección de correo electrónico"
 
 #: ../templates/wish-list-email-share.php:14
 msgid "Your Email address"
-msgstr ""
+msgstr "Su dirección de correo electrónico"
 
 #: ../templates/wish-list-email-share.php:14
 msgid "Please enter your email address"
-msgstr ""
+msgstr "Introduzca su dirección de correo electrónico"
 
 #: ../templates/wish-list-email-share.php:14
 msgid "Please enter a valid email address"
-msgstr ""
+msgstr "Introduzca una dirección de correo electrónico válida"
 
 #: ../templates/wish-list-email-share.php:18
 msgid "Friend's Email Address"
-msgstr ""
+msgstr "Del amigo Dirección de correo electrónico"
 
 #: ../templates/wish-list-email-share.php:19
 msgid "To send to multiple email addresses, separate each email with a comma"
-msgstr ""
+msgstr "Para enviar a múltiples direcciones de correo electrónico, separe cada dirección de correo electrónico con una coma"
 
 #: ../templates/wish-list-email-share.php:20
 msgid "Friend's Email address"
-msgstr ""
+msgstr "Dirección de correo electrónico del amigo"
 
 #: ../templates/wish-list-email-share.php:20
 msgid "Please enter one or more email addresses"
-msgstr ""
+msgstr "Por favor introduzca una o más direcciones de correo electrónico"
 
 #: ../templates/wish-list-email-share.php:20
 msgid "You must enter a valid email, or comma separate multiple emails"
-msgstr ""
+msgstr "Debe introducir una dirección de correo electrónico válida, o una coma varios correos electrónicos separados"
 
 #: ../templates/wish-list-email-share.php:24
 msgid "Your Message"
-msgstr ""
+msgstr "tu mensaje"
 
 #: ../templates/wish-list-email-share.php:25
 msgid "Optional"
-msgstr ""
+msgstr "opcional"
 
 #: ../templates/wish-lists.php:17
 #, php-format

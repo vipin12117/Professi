@@ -27,14 +27,14 @@ get_header(); ?>
         <div id="content" class="right-container col-xs-12 col-sm-8 col-md-8 site-content ">
         	<?php if(!$author):?>
 	            <div class="title-top-container header clearfix">
-	                <div class="title-top page-title fontsforweb_fontid_9785 left">O U R&nbsp; T E A C H E R&nbsp;  A U T O R S</div>
-	                <div class="title-right right"><a href="<?php echo esc_url( home_url( '/fes-vendor' ) ); ?>">See all <i class="glyphicon glyphicon-play"></i></a></div>
+	                <div class="title-top page-title fontsforweb_fontid_9785 left">O U R &nbsp; T E A C H E R &nbsp;  A U T O R S</div>
+	                <div class="title-right right"><a href="<?php echo esc_url( home_url( '/fes-vendor' ) ); ?>">ver todos <i class="glyphicon glyphicon-play"></i></a></div>
 	            </div>
 	            <div class="download-product-review-details content-items clearfix">
 	                <section id="primary" class="content-area col-md-12 col-sm-12 col-xs-12">
 	                    <main id="main" class="site-main" role="main">
 	
-	                        <div class="the-title-home">OUR TEACHER AUTORS</div>
+	                        <div class="the-title-home">NUESTROS MAESTROS AUTORS</div>
 	                        <div class="teacher-autors clearfix">
 	                            <?php echo pippin_list_authors(); ?>
 	                            <?php //echo do_shortcode( sprintf( '[downloads number="%s"]', get_option( 'posts_per_page' ) ) ); ?>
@@ -45,7 +45,7 @@ get_header(); ?>
 	            
 	        <?php else:?>
 	        	<div class="title-top-container header clearfix">
-                	<div class="title-top page-title fontsforweb_fontid_9785">T E A C H E R&nbsp;  A U T H O R</div>
+                	<div class="title-top page-title fontsforweb_fontid_9785">T E A C H E R &nbsp; A U T O R</div>
             	</div>
             
             	<div class="teacher-author">
@@ -68,22 +68,22 @@ get_header(); ?>
                                		<?php echo get_user_meta($author->ID, 'location' , 1);  ?> 
                                	</div>
                                 
-                                <div class="teacher-ratings gray-light">Overall User Rating: <span>4.0 /4.0</span></div>
+                                <div class="teacher-ratings gray-light">Valoración general del usuario: <span>4.0 /4.0</span></div>
                                 
                                 <br />
-                                <div class="teacher-store gray-light">Products in my store: <span><?php echo marketify_count_user_downloads( $author->ID ); ?></span></div>
+                                <div class="teacher-store gray-light">Productos en mi tienda: <span><?php echo marketify_count_user_downloads( $author->ID ); ?></span></div>
                                 
                                 <br />
-                                <div class="title-right right" style="padding-right: 50px;"><a href="<?php echo esc_url( home_url( '/fes-vendor/'.$author->display_name ) ); ?>">See all my <?php echo $products;?> products <i class="glyphicon glyphicon-play"></i></a></div>
+                                <div class="title-right right" style="padding-right: 50px;"><a href="<?php echo esc_url( home_url( '/fes-vendor/'.$author->display_name ) ); ?>">Ver todo mi <?php echo $products;?> products <i class="glyphicon glyphicon-play"></i></a></div>
                             </div>
                         </div>
                         <div class="form-horizontal">
                             <div class="control-group">
-                                <span class="control-label"><b>GRADES: </b></span>
+                                <span class="control-label"><b>GRADOS: </b></span>
                                 <span class="controls gray-light"><?php echo get_user_meta($author->ID, 'what_level_do_you_teach?' , 1);  ?></span>
                             </div>
                             <div class="control-group">
-                                <span class="control-label"><b>SUBJECTS: </b></span>
+                                <span class="control-label"><b>Sujetos: </b></span>
                                 <span class="controls gray-light"><?php echo get_user_meta($author->ID, 'what_subject_do_you_teach?' , 1);  ?></span>
                             </div>
                         </div>
@@ -107,8 +107,8 @@ get_header(); ?>
 	        <?php endif;?>    
             
             <div class="title-top-container header clearfix">
-                <div class="title-top page-title fontsforweb_fontid_9785 left">C R E A T E D&nbsp;  B Y&nbsp;  <?php echo $author->display_name;?></div>
-                <div class="title-right right"><a href="<?php echo esc_url( home_url( '/fes-vendor' ) ); ?>">See all <i class="glyphicon glyphicon-play"></i></a></div>
+                <div class="title-top page-title fontsforweb_fontid_9785 left">C R E A T E D &nbsp; B Y &nbsp;  <?php echo $author->display_name;?></div>
+                <div class="title-right right"><a href="<?php echo esc_url( home_url( '/fes-vendor' ) ); ?>">ver todos <i class="glyphicon glyphicon-play"></i></a></div>
             </div>
             
             <div class="download-product-review-details content-items clearfix">

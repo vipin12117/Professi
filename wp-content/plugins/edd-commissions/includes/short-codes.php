@@ -13,13 +13,13 @@ function eddc_user_product_list() {
 
 	ob_start(); ?>
 	<div id="edd_commissioned_products">
-		<h3 class="edd_commissioned_products_header"><?php _e('Your Items', 'eddc'); ?></h3>
+		<h3 class="edd_commissioned_products_header"><?php _e('sus artículos', 'eddc'); ?></h3>
 		<table id="edd_commissioned_products_table">
 			<thead>
 				<tr>
 					<?php do_action( 'edd_commissioned_products_head_row_begin' ); ?>
-					<th class="edd_commissioned_item"><?php _e('Item', 'eddc'); ?></th>
-					<th class="edd_commissioned_sales"><?php _e('Sales', 'eddc'); ?></th>
+					<th class="edd_commissioned_item"><?php _e('artículo', 'eddc'); ?></th>
+					<th class="edd_commissioned_sales"><?php _e('venta', 'eddc'); ?></th>
 					<?php do_action( 'edd_commissioned_products_head_row_end' ); ?>
 				</tr>
 			</thead>
@@ -36,7 +36,7 @@ function eddc_user_product_list() {
 				<?php endforeach; ?>
 			<?php else : ?>
 				<tr class="edd_commissioned_products_row_empty">
-					<td colspan="4"><?php _e('No item', 'eddc'); ?></td>
+					<td colspan="4"><?php _e('Ningún artículo', 'eddc'); ?></td>
 				</tr>
 			<?php endif; ?>
 			</tbody>
@@ -76,15 +76,15 @@ function eddc_user_commissions( ) {
 
 				<!-- unpaid -->
 				<div id="edd_user_commissions_unpaid">
-					<h3 class="edd_user_commissions_header"><?php _e('Unpaid Commissions', 'eddc'); ?></h3>
+					<h3 class="edd_user_commissions_header"><?php _e('las comisiones pendientes', 'eddc'); ?></h3>
 					<table id="edd_user_unpaid_commissions_table" class="edd_user_commissions">
 						<thead>
 							<tr class="edd_user_commission_row">
 								<?php do_action( 'eddc_user_commissions_unpaid_head_row_begin' ); ?>
-								<th class="edd_commission_item"><?php _e('Item', 'eddc'); ?></th>
-								<th class="edd_commission_amount"><?php _e('Amount', 'eddc'); ?></th>
-								<th class="edd_commission_rate"><?php _e('Rate', 'eddc'); ?></th>
-								<th class="edd_commission_date"><?php _e('Date', 'eddc'); ?></th>
+								<th class="edd_commission_item"><?php _e('artículo', 'eddc'); ?></th>
+								<th class="edd_commission_amount"><?php _e('cantidad', 'eddc'); ?></th>
+								<th class="edd_commission_rate"><?php _e('tarifa', 'eddc'); ?></th>
+								<th class="edd_commission_date"><?php _e('fecha', 'eddc'); ?></th>
 								<?php do_action( 'eddc_user_commissions_unpaid_head_row_end' ); ?>
 							</tr>
 						</thead>
@@ -109,12 +109,12 @@ function eddc_user_commissions( ) {
 							<?php endforeach; ?>
 						<?php else : ?>
 							<tr class="edd_user_commission_row edd_row_empty">
-								<td colspan="4"><?php _e('No unpaid commissions', 'eddc'); ?></td>
+								<td colspan="4"><?php _e('No hay comisiones pendientes', 'eddc'); ?></td>
 							</tr>
 						<?php endif; ?>
 						</tbody>
 					</table>
-					<div id="edd_user_commissions_unpaid_total"><?php _e('Total unpaid:', 'eddc');?>&nbsp;<?php echo edd_currency_filter( edd_format_amount( eddc_get_unpaid_totals( $user_ID ) ) ); ?></div>
+					<div id="edd_user_commissions_unpaid_total"><?php _e('Total no pagado:', 'eddc');?>&nbsp;<?php echo edd_currency_filter( edd_format_amount( eddc_get_unpaid_totals( $user_ID ) ) ); ?></div>
 
 					<div id="edd_commissions_unpaid_pagination" class="navigation">
 					<?php
@@ -132,15 +132,15 @@ function eddc_user_commissions( ) {
 
 				<!-- paid -->
 				<div id="edd_user_commissions_paid">
-					<h3 class="edd_user_commissions_header"><?php _e('Paid Commissions', 'eddc'); ?></h3>
+					<h3 class="edd_user_commissions_header"><?php _e('Las comisiones pagadas', 'eddc'); ?></h3>
 					<table id="edd_user_paid_commissions_table" class="edd_user_commissions">
 						<thead>
 							<tr class="edd_user_commission_row">
 								<?php do_action( 'eddc_user_commissions_paid_head_row_begin' ); ?>
-								<th class="edd_commission_item"><?php _e('Item', 'eddc'); ?></th>
-								<th class="edd_commission_amount"><?php _e('Amount', 'eddc'); ?></th>
-								<th class="edd_commission_rate"><?php _e('Rate', 'eddc'); ?></th>
-								<th class="edd_commission_date"><?php _e('Date', 'eddc'); ?></th>
+								<th class="edd_commission_item"><?php _e('artículo', 'eddc'); ?></th>
+								<th class="edd_commission_amount"><?php _e('cantidad', 'eddc'); ?></th>
+								<th class="edd_commission_rate"><?php _e('tarifa', 'eddc'); ?></th>
+								<th class="edd_commission_date"><?php _e('fecha', 'eddc'); ?></th>
 								<?php do_action( 'eddc_user_commissions_paid_head_row_end' ); ?>
 							</tr>
 						</thead>
@@ -165,12 +165,12 @@ function eddc_user_commissions( ) {
 							<?php endforeach; ?>
 						<?php else : ?>
 							<tr class="edd_user_commission_row edd_row_empty">
-								<td colspan="4"><?php _e('No paid commissions', 'eddc'); ?></td>
+								<td colspan="4"><?php _e('No hay comisiones pagadas', 'eddc'); ?></td>
 							</tr>
 						<?php endif; ?>
 						</tbody>
 					</table>
-					<div id="edd_user_commissions_paid_total"><?php _e('Total paid:', 'eddc');?>&nbsp;<?php echo edd_currency_filter( edd_format_amount( eddc_get_paid_totals( $user_ID ) ) ); ?></div>
+					<div id="edd_user_commissions_paid_total"><?php _e('Total percibido:', 'eddc');?>&nbsp;<?php echo edd_currency_filter( edd_format_amount( eddc_get_paid_totals( $user_ID ) ) ); ?></div>
 
 					<div id="edd_commissions_paid_pagination" class="navigation">
 					<?php
@@ -185,12 +185,12 @@ function eddc_user_commissions( ) {
 					</div>
 
 					<div id="edd_commissions_export">
-						<p><strong><?php _e( 'Export Paid Commissions', 'eddc' ); ?></strong></p>
+						<p><strong><?php _e( 'Comisiones exportación Pagado', 'eddc' ); ?></strong></p>
 						<form method="post" action="<?php echo home_url(); ?>">
 							<?php echo EDD()->html->month_dropdown(); ?>
 							<?php echo EDD()->html->year_dropdown(); ?>
 							<input type="hidden" name="edd_action" value="generate_commission_export"/>
-							<input type="submit" class="edd-submit button" value="<?php _e( 'Download CSV', 'eddc' ); ?>"/>
+							<input type="submit" class="edd-submit button" value="<?php _e( 'Descarga CSV', 'eddc' ); ?>"/>
 						</form><br/>
 					</div>
 

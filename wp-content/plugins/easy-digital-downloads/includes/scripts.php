@@ -65,7 +65,7 @@ function edd_load_scripts() {
 				'ajaxurl'                 => edd_get_ajax_url(),
 				'position_in_cart'        => isset( $position ) ? $position : -1,
 				'already_in_cart_message' => __('You have already added this item to your cart', 'edd'), // Item already in the cart message
-				'empty_cart_message'      => __('Your cart is empty', 'edd'), // Item already in the cart message
+				'empty_cart_message'      => __('Su cesta está vacía', 'edd'), // Item already in the cart message
 				'loading'                 => __('Loading', 'edd') , // General loading message
 				'select_option'           => __('Please select an option', 'edd') , // Variable pricing error with multi-purchase option enabled
 				'ajax_loader'             => EDD_PLUGIN_URL . 'assets/images/loading.gif', // Ajax loading image

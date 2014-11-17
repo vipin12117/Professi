@@ -55,7 +55,7 @@ $privacy = get_post_status( $list_id );
 	*/
 	if ( 'private' !== get_post_status( $list_id ) && apply_filters( 'edd_wl_display_sharing', true ) ) : ?>
 		<div class="edd-wl-sharing">
-			<h3><?php _e( 'Share', 'edd-wish-lists' ); ?></h3>
+			<h3><?php _e( 'cuota', 'edd-wish-lists' ); ?></h3>
 			<p><?php echo wp_get_shortlink( $list_id ); // Shortlink to share ?></p>
 			
 			<?php 

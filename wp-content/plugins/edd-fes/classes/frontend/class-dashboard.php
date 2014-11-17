@@ -273,15 +273,15 @@ class FES_Dashboard {
 	public function product_list_actions( $product_id ) {
 		
 		if( 'publish' == get_post_status( $product_id ) ) : ?>
-			<a href="<?php echo esc_html( get_permalink( $product_id ) );?>" title="<?php _e( 'View', 'edd_fes' );?>" class="btn btn-mini view-product-fes"><?php _e( 'View', 'edd_fes' );?></a>
+			<a href="<?php echo esc_html( get_permalink( $product_id ) );?>" title="<?php _e( 'Ver', 'edd_fes' );?>" class="btn btn-mini view-product-fes"><?php _e( 'Ver', 'edd_fes' );?></a>
 		<?php endif; ?>
 
 		<?php if ( EDD_FES()->helper->get_option( 'fes-allow-vendors-to-edit-products', true ) && 'future' != get_post_status( $product_id ) ) : ?>
-			<a href="<?php echo add_query_arg( array( 'task' => 'edit-product', 'post_id' => $product_id ), get_permalink() ); ?>" title="<?php _e( 'Edit', 'edd_fes' );?>" class="btn btn-mini edit-product-fes"><?php _e( 'Edit', 'edd_fes' );?></a>
+			<a href="<?php echo add_query_arg( array( 'task' => 'edit-product', 'post_id' => $product_id ), get_permalink() ); ?>" title="<?php _e( 'Editar', 'edd_fes' );?>" class="btn btn-mini edit-product-fes"><?php _e( 'Editar', 'edd_fes' );?></a>
 		<?php endif; ?>
 
 		<?php if ( EDD_FES()->helper->get_option( 'fes-allow-vendors-to-delete-products', true ) ) : ?>
-			<a href="<?php echo add_query_arg( array( 'task' => 'delete-product', 'post_id' => $product_id ), get_permalink() );?>" title="<?php _e( 'Delete', 'edd_fes' );?>" class="btn btn-mini edit-product-fes"><?php _e( 'Delete', 'edd_fes' );?></a>
+			<a href="<?php echo add_query_arg( array( 'task' => 'delete-product', 'post_id' => $product_id ), get_permalink() );?>" title="<?php _e( 'Borrar', 'edd_fes' );?>" class="btn btn-mini edit-product-fes"><?php _e( 'Borrar', 'edd_fes' );?></a>
 		<?php endif;
 	}
 
@@ -289,7 +289,7 @@ class FES_Dashboard {
 		$post = get_post( $product_id );
 		$date = '';
 		if ( '0000-00-00 00:00:00' == $post->post_date ) {
-			$t_time = $h_time = __( 'Unpublished', 'edd_fes' );
+			$t_time = $h_time = __( 'inédito', 'edd_fes' );
 			$time_diff = 0;
 		} else {
 			$t_time = get_the_time( __( 'Y/m/d g:i:s A', 'edd_fes' ) );
@@ -307,11 +307,11 @@ class FES_Dashboard {
 
 		$date = '<abbr title="' . $t_time . '">' . apply_filters( 'fes_product_list_time', $h_time, $post, 'date', 'all' ) . '</abbr><br />';
 		if ( 'publish' == $post->post_status ) {
-			$date = $date . __( 'Published', 'edd_fes' );
+			$date = $date . __( 'publicado', 'edd_fes' );
 		} elseif ( 'future' == $post->post_status ) {
-			$date = $date . __( 'Scheduled', 'edd_fes' );
+			$date = $date . __( 'Programado', 'edd_fes' );
 		} else {
-			$date = $date . __( 'Last Modified', 'edd_fes' );
+			$date = $date . __( 'la última actualización', 'edd_fes' );
 		}
 		$date = apply_filters( 'fes_product_list_date', $date, $product_id );
 		return $date;
@@ -449,35 +449,35 @@ class FES_Dashboard {
 	public function post_status_to_display( $status ) {
 
 		if ( $status == 'publish' ) {
-			$status = __( 'Live', 'edd_fes' );
+			$status = __( 'Vivo', 'edd_fes' );
 		}
 		elseif ( $status == 'draft' ) {
-			$status = __( 'Draft', 'edd_fes' );
+			$status = __( 'borrador', 'edd_fes' );
 		}
 		elseif ( $status == 'pending' ) {
-			$status = __( 'Pending Review', 'edd_fes' );
+			$status = __( 'Pendiente de Revisión', 'edd_fes' );
 		}
 		elseif ( $status == 'future' ) {
-			$status = __( 'Scheduled for Release', 'edd_fes' );
+			$status = __( 'Previsto para su lanzamiento', 'edd_fes' );
 		}
 		else {
-			$status = __( 'Trash', 'edd_fes' );
+			$status = __( 'basura', 'edd_fes' );
 		}
 		return apply_filters( 'fes_product_list_product_status', $status );
 	}
 
 	public function order_status_to_display( $status ) {
 		if ( $status == 'publish' || $status == '') {
-			$status = __( 'Complete', 'edd_fes' );
+			$status = __( 'completo', 'edd_fes' );
 		}
 		elseif ( $status == 'draft' ) {
-			$status = __( 'Draft', 'edd_fes' );
+			$status = __( 'borrador', 'edd_fes' );
 		}
 		elseif ( $status == 'pending' ) {
-			$status = __( 'Pending', 'edd_fes' );
+			$status = __( 'pendiente', 'edd_fes' );
 		}
 		else {
-			$status = __( 'Trash', 'edd_fes' );
+			$status = __( 'basura', 'edd_fes' );
 		}
 		return apply_filters( 'fes_order_list_order_status', $status );
 	}
@@ -502,7 +502,7 @@ class FES_Dashboard {
 
 	public function order_list_actions( $order_id ) {
 	?>
-		<a href="<?php echo add_query_arg( array( 'task' => 'edit-order', 'order_id' => $order_id ), get_permalink() ); ?>" title="<?php _e( 'View', 'edd_fes' );?>" class="btn btn-mini view-order-fes"><?php _e( 'View', 'edd_fes' );?></a>
+		<a href="<?php echo add_query_arg( array( 'task' => 'edit-order', 'order_id' => $order_id ), get_permalink() ); ?>" title="<?php _e( 'View', 'edd_fes' );?>" class="btn btn-mini view-order-fes"><?php _e( 'Ver', 'edd_fes' );?></a>
 	<?php
 	}
 
@@ -615,7 +615,7 @@ class FES_Dashboard {
 		$comments = $comments_query->query( $args );
 		
 		if ( count( $comments ) == 0 ) {
-			echo '<tr><td colspan="4">' . __( 'No Comments Found', 'edd_fes' ) . '</td></tr>';
+			echo '<tr><td colspan="4">' . __( 'No hay comentarios encontrados', 'edd_fes' ) . '</td></tr>';
 		}
 		foreach ($comments as $comment) {
 			$this->render_comments_table_row( $comment );

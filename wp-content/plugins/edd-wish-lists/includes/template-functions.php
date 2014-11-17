@@ -802,7 +802,7 @@ function edd_wl_create_list_link( $args = array() ) {
 
 	$defaults = apply_filters( 'edd_wl_create_list_link_defaults', 
 		array(
-			'text'			=> sprintf( __( 'Create new %s', 'edd-wish-lists' ), edd_wl_get_label_singular( true ) ),
+			'text'			=> 'Crear nueva lista de deseos', //sprintf( __( 'Create new %s', 'edd-wish-lists' ), edd_wl_get_label_singular( true ) ),
 			'wrapper_class'	=> '',
 			'wrapper' 		=> 'p',
 			'class'			=> ''

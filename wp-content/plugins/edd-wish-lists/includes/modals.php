@@ -49,7 +49,7 @@ function edd_wl_modal_share_via_email() {
 		</h2>
 		<a class="edd-wl-close" href="#" data-dismiss="modal">
 			<i class="glyphicon glyphicon-remove"></i>
-			<span class="hide-text"><?php _e( 'Close', 'edd-wish-lists' ); ?></span>
+			<span class="hide-text"><?php _e( 'cerca', 'edd-wish-lists' ); ?></span>
 		</a>
 	</div>
 	<div class="modal-body">
@@ -67,7 +67,7 @@ function edd_wl_modal_share_via_email() {
 	</div>
 	<div class="modal-footer">
 		<a href="#" data-action="edd_wl_share_via_email" data-post-id="<?php echo $list_id; ?>" class="edd-wl-button edd-wl-action edd-wl-share-via-email">
-			<span class="label"><?php _e( 'Send Now', 'edd-wish-lists' ); ?></span>
+			<span class="label"><?php _e( 'Enviar ahora', 'edd-wish-lists' ); ?></span>
 			<span class="edd-loading"><i class="edd-icon-spinner edd-icon-spin"></i></span>
 		</a>
 	</div>
@@ -91,7 +91,7 @@ function edd_wl_modal_share_via_email_success() {
 		</h2>
 		<a class="edd-wl-close" href="#" data-dismiss="modal">
 			<i class="glyphicon glyphicon-remove"></i>
-			<span class="hide-text"><?php _e( 'Close', 'edd-wish-lists' ); ?></span>
+			<span class="hide-text"><?php _e( 'cerca', 'edd-wish-lists' ); ?></span>
 		</a>
 	</div>
 
@@ -126,7 +126,7 @@ function edd_wl_list_delete_confirm() {
 		</h2>
 		<a class="edd-wl-close" href="#" data-dismiss="modal">
 			<i class="glyphicon glyphicon-remove"></i>
-			<span class="hide-text"><?php _e( 'Close', 'edd-wish-lists' ); ?></span>
+			<span class="hide-text"><?php _e( 'cerca', 'edd-wish-lists' ); ?></span>
 		</a>
 	</div>
 	<div class="modal-body">
@@ -183,7 +183,7 @@ function edd_wl_get_wish_lists( $download_id, $price_ids, $items, $price_option_
 
 	<a class="edd-wl-close" href="#" data-dismiss="modal">
 		<i class="glyphicon glyphicon-remove"></i>
-		<span class="hide-text"><?php _e( 'Close', 'edd-wish-lists' ); ?></span>
+		<span class="hide-text"><?php _e( 'cerca', 'edd-wish-lists' ); ?></span>
 	</a>
 	
 </div>

@@ -4,13 +4,13 @@
 <table class="table fes-table table-condensed  table-striped" id="fes-order-list">
 	<thead>
 		<tr>
-			<th><?php _e( 'Order', 'edd_fes' ); ?></th>
-			<th><?php _e( 'Status', 'edd_fes' ); ?></th>
-			<th><?php _e( 'Total', 'edd_fes' ); ?></th>
-			<th><?php _e( 'Customer', 'edd_fes' ) ?></th>
-			<th><?php _e( 'View Order','edd_fes') ?></th>
+			<th><?php _e( 'orden', 'edd_fes' ); ?></th>
+			<th><?php _e( 'estado', 'edd_fes' ); ?></th>
+			<th><?php _e( 'total', 'edd_fes' ); ?></th>
+			<th><?php _e( 'cliente', 'edd_fes' ) ?></th>
+			<th><?php _e( 'Ver pedido','edd_fes') ?></th>
 			<?php do_action('fes-order-table-column-title'); ?>
-			<th><?php _e( 'Date', 'edd_fes' ); ?></th>
+			<th><?php _e( 'fecha', 'edd_fes' ); ?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -29,7 +29,7 @@
 		<?php endforeach;
 		}
 		else{
-			echo '<tr><td colspan="6">'.__('No orders found','edd_fes').'</td></tr>';
+			echo '<tr><td colspan="6">'.__('No hay pedidos encontrados','edd_fes').'</td></tr>';
 		}
 		?>
 	</tbody>

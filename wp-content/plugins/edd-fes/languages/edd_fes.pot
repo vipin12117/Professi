@@ -386,7 +386,7 @@ msgstr ""
 #: ../classes/frontend/class-dashboard.php:272
 #: ../classes/frontend/class-dashboard.php:479
 msgid "View"
-msgstr ""
+msgstr "Ver"
 
 #: ../classes/admin/class-list-table.php:621
 #: ../classes/frontend/class-dashboard.php:285
@@ -416,7 +416,7 @@ msgstr ""
 #: ../classes/admin/class-list-table.php:1008
 #: ../classes/frontend/class-dashboard.php:303
 msgid "Published"
-msgstr ""
+msgstr "publicado"
 
 #: ../classes/admin/class-list-table.php:646
 msgid "Missed schedule"

@@ -95,7 +95,7 @@ $author = get_the_author();
 								<span class="controls gray-light"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
 							</div>
 							<div class="control-group">
-								<span class="control-label lv2">PRODUCT RATING </span>
+								<span class="control-label lv2">CALIFICACIÓN DE PRODUCTOS </span>
 								<span class="controls gray-light">
 									<div class="star-ratings">
 										<?php $j = 0; for($i = 0; $i < $full; ++ $i)  {?>
@@ -116,7 +116,7 @@ $author = get_the_author();
 										echo $rating; 
 										?></span>
 									</div>
-									<div class="ratings"><?php echo $ratingCount; ?> ratings</div>
+									<div class="ratings"><?php echo $ratingCount; ?> calificaciones</div>
 								</span>
 							</div>
 							<div class="control-group clearfix">
@@ -137,7 +137,7 @@ $author = get_the_author();
 								<span class="controls file-comment">
 									<?php echo ucfirst(end($file_parts));?> (<?php echo getSizeFile($edd_download_files[0]['file']);?> MB)  |  
 									
-									<?php echo $data_custom['add_number_of_pages_or_slides'][0]?> pages
+									<?php echo $data_custom['add_number_of_pages_or_slides'][0]?> páginas
 								</span>
 							</div>
 						</div>
@@ -148,8 +148,7 @@ $author = get_the_author();
 			<hr/>
 			<div class="description-post">
 				<div class="post-title fontsforweb_fontid_9785">
-					<span>DESCRIPCIÓN DEL PRODUCTO
-</span>
+					<span>DESCRIPCIÓN DEL PRODUCTO</span>
 				</div>
 				<div class="post-description fontsforweb_fontid_9785">
 					<span class="gray-light"><?php echo str_replace(array("\n"), '<br/>', $data_custom['add_description'][0]); ?></span>
@@ -165,10 +164,10 @@ $author = get_the_author();
 					<span>COMENTARIOS Y RATINGS</span>
 				</div>
 				<div style="padding-left:20px"><!-- #comment-content -->
-					<div class="info-post">AVERAGE RATINGS</div>
+					<div class="info-post">Media de valoraciones</div>
 					<div class="row clearfix">
 						<div class="col-md-4">
-								<div class="type-ratings left">Overall Quality:</div>
+								<div class="type-ratings left">Calidad general:</div>
 								<div class="star-ratings left">
 									<i class="star star-full"></i>
 									<i class="star star-full"></i>
@@ -176,13 +175,13 @@ $author = get_the_author();
 									<i class="star star-no"></i>
 									<i class="star star-no"></i>
 								</div>
-								<div class="type-ratings left">Accuracy:</div>
+								<div class="type-ratings left">Precisión:</div>
 								<div class="star-ratings left">
 								<?php for($i = $j; $i < 5; ++ $i)  {?>
 									<i class="star star-full"></i>
 								<?php } ?>
 								</div>
-								<div class="type-ratings left">Practicality:</div>
+								<div class="type-ratings left">Aplicación en la práctica:</div>
 								<div class="star-ratings left">
 									<?php for($i = $j; $i < 5; ++ $i)  {?>
 									<i class="star star-full"></i>
@@ -196,13 +195,13 @@ $author = get_the_author();
 									<i class="star star-full"></i>
 								<?php } ?>
 								</div>
-								<div class="type-ratings left">Creativity:</div>
+								<div class="type-ratings left">Creatividad:</div>
 								<div class="star-ratings left">
 								<?php for($i = $j; $i < 5; ++ $i)  {?>
 									<i class="star star-full"></i>
 								<?php } ?>
 								</div>
-								<div class="type-ratings left">Clarity:</div>
+								<div class="type-ratings left">Claridad:</div>
 								<div class="star-ratings left">
 									<?php for($i = $j; $i < 5; ++ $i)  {?>
 									<i class="star star-full"></i>
@@ -210,7 +209,7 @@ $author = get_the_author();
 								</div>
 						</div>
 						<div class="col-md-4">
-							<div class="left" style="width:60px;">Total:</div>
+							<div class="left" style="width:60px;">total:</div>
 							<div class="star-ratings">
 								<?php $j = 0; for($i = 0; $i < $full; ++ $i)  {?>
 								<i class="star star-full"></i>
@@ -230,7 +229,7 @@ $author = get_the_author();
 								echo '&nbsp;'.$rating; 
 								?></span>
 							</div>
-							<div class="ratings" style="padding-left:60px;"><?php echo $ratingCount; ?> ratings</div>
+							<div class="ratings" style="padding-left:60px;"><?php echo $ratingCount; ?> calificaciones</div>
 						</div>
 					</div>
 				</div><!-- #comment-content -->
@@ -313,7 +312,7 @@ $author = get_the_author();
 							<a href="/fes-vendor/<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>"
 								 title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) );?></a>
 						</div>
-						<div class="user-rating gray-light"> Rating</div>
+						<div class="user-rating gray-light"> clasificación</div>
 						<div style="padding: 20px 0px 0px 5px;"><a href="/fes-vendor/<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>">Visite mi tienda <i class="glyphicon glyphicon-play"></i></a></div>
 					</div>
 				</div>
@@ -321,7 +320,7 @@ $author = get_the_author();
 			</div><!--#action-container -->
 			<br/>
 			<div class="download-product-details download-list"><!--#download-list -->
-				<div class="top-list"><span>M O R E  P R O D U C T S  F R O M</span></div>
+				<div class="top-list"><span>M R E P R O D U C T O S D E M</span></div>
 				<div class="user-info clearfix" style="padding: 0px 0px 10px 20px">
 					<div class="avatar-info left"  style="width:90px">
 						<div class="download-product-details radius50">

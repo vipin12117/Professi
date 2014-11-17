@@ -40,15 +40,15 @@ msgstr ""
 
 #: ../includes/admin-page.php:70
 msgid "Total Unpaid:"
-msgstr ""
+msgstr "Total no pagado:"
 
 #: ../includes/commission-functions.php:326
 msgid "No commissions to be paid"
-msgstr ""
+msgstr "No hay comisiones a pagar"
 
 #: ../includes/commission-functions.php:326
 msgid "Error"
-msgstr ""
+msgstr "error"
 
 #: ../includes/commission-functions.php:391
 msgid "Hello"
@@ -61,58 +61,58 @@ msgstr ""
 
 #: ../includes/commission-functions.php:392
 msgid "Item sold: "
-msgstr ""
+msgstr "El artículo se vende:"
 
 #: ../includes/commission-functions.php:393
 msgid "Amount: "
-msgstr ""
+msgstr "monto:"
 
 #: ../includes/commission-functions.php:394
 msgid "Commission Rate: "
-msgstr ""
+msgstr "Comisión de Tarifas:"
 
 #: ../includes/commission-functions.php:395
 msgid "Thank you"
-msgstr ""
+msgstr "Gracias"
 
 #: ../includes/commission-functions.php:399
 msgid "New Sale!"
-msgstr ""
+msgstr "Nueva venta!"
 
 #: ../includes/EDD_C_List_Table.php:38
 msgid "unpaid"
-msgstr ""
+msgstr "no pagado"
 
 #: ../includes/EDD_C_List_Table.php:45
 msgid "View all commissions for this item"
-msgstr ""
+msgstr "Ver todas las comisiones por este concepto"
 
 #: ../includes/EDD_C_List_Table.php:57
 #: ../includes/EDD_C_List_Table.php:112
 msgid "Mark as Unpaid"
-msgstr ""
+msgstr "Marcar como no remunerado"
 
 #: ../includes/EDD_C_List_Table.php:59
 #: ../includes/EDD_C_List_Table.php:111
 msgid "Mark as Paid"
-msgstr ""
+msgstr "Marcar como Pagado"
 
 #: ../includes/EDD_C_List_Table.php:61
 msgid "Edit"
-msgstr ""
+msgstr "editar"
 
 #: ../includes/EDD_C_List_Table.php:62
 #: ../includes/EDD_C_List_Table.php:113
 msgid "Delete"
-msgstr ""
+msgstr "borrar"
 
 #: ../includes/EDD_C_List_Table.php:69
 msgid "View all commissions for this user"
-msgstr ""
+msgstr "Ver todas las comisiones de este usuario"
 
 #: ../includes/EDD_C_List_Table.php:87
 msgid "User"
-msgstr ""
+msgstr "usuario"
 
 #: ../includes/EDD_C_List_Table.php:89
 #: ../includes/edit-commission.php:11
@@ -121,7 +121,7 @@ msgstr ""
 #: ../includes/widgets.php:45
 #: ../includes/widgets.php:85
 msgid "Rate"
-msgstr ""
+msgstr "tarifa"
 
 #: ../includes/EDD_C_List_Table.php:90
 #: ../includes/edit-commission.php:20
@@ -130,11 +130,11 @@ msgstr ""
 #: ../includes/widgets.php:44
 #: ../includes/widgets.php:84
 msgid "Amount"
-msgstr ""
+msgstr "cantidad"
 
 #: ../includes/EDD_C_List_Table.php:91
 msgid "Status"
-msgstr ""
+msgstr "estado"
 
 #: ../includes/EDD_C_List_Table.php:92
 #: ../includes/short-codes.php:27
@@ -142,40 +142,40 @@ msgstr ""
 #: ../includes/widgets.php:46
 #: ../includes/widgets.php:86
 msgid "Date"
-msgstr ""
+msgstr "fecha"
 
 #: ../includes/EDD_C_List_Table.php:101
 msgid "All"
-msgstr ""
+msgstr "todos"
 
 #: ../includes/EDD_C_List_Table.php:102
 msgid "Unpaid"
-msgstr ""
+msgstr "no pagado"
 
 #: ../includes/EDD_C_List_Table.php:103
 msgid "Paid"
-msgstr ""
+msgstr "pagado"
 
 #: ../includes/edit-commission.php:15
 msgid "The percentage rate of this commission"
-msgstr ""
+msgstr "La tasa de esta comisión"
 
 #: ../includes/edit-commission.php:24
 msgid "The total amount of this commission"
-msgstr ""
+msgstr "El importe total de esta comisión"
 
 #: ../includes/edit-commission.php:33
 msgid "Update"
-msgstr ""
+msgstr "actualización"
 
 #: ../includes/metabox.php:4
 #: ../includes/post-type.php:20
 msgid "Commission"
-msgstr ""
+msgstr "comisión"
 
 #: ../includes/metabox.php:37
 msgid "Check to enable commissions"
-msgstr ""
+msgstr "Marque para activar comisiones"
 
 #: ../includes/metabox.php:42
 msgid "User(s)"
@@ -183,59 +183,59 @@ msgstr ""
 
 #: ../includes/metabox.php:45
 msgid "Enter the user ID that should receive a commission of each sale. Separate user IDs by a comma."
-msgstr ""
+msgstr "Introduzca el ID de usuario que debe recibir una comisión de cada venta. ID de usuario separados por una coma."
 
 #: ../includes/metabox.php:50
 msgid "Rate(s)"
-msgstr ""
+msgstr "Tasa (s)"
 
 #: ../includes/metabox.php:53
 msgid "Enter the percentage amount the user(s) should receive of each sale. Separate rates by a comma."
-msgstr ""
+msgstr "Introduzca la cantidad de porcentaje el usuario (s) debe recibir de cada venta. Tasas separadas por una coma."
 
 #: ../includes/post-type.php:21
 msgid "Add New"
-msgstr ""
+msgstr "Agregar nuevo"
 
 #: ../includes/post-type.php:22
 msgid "Add New Commission"
-msgstr ""
+msgstr "Añadir Nueva Comisión"
 
 #: ../includes/post-type.php:23
 msgid "Edit Commission"
-msgstr ""
+msgstr "Editar Comisión"
 
 #: ../includes/post-type.php:24
 msgid "New Commission"
-msgstr ""
+msgstr "nueva Comisión"
 
 #: ../includes/post-type.php:25
 msgid "All Commissions"
-msgstr ""
+msgstr "todas las Comisiones"
 
 #: ../includes/post-type.php:26
 msgid "View Commission"
-msgstr ""
+msgstr "Ver Comisión"
 
 #: ../includes/post-type.php:27
 msgid "Search Commissions"
-msgstr ""
+msgstr "Buscar Comisiones"
 
 #: ../includes/post-type.php:28
 msgid "No Commissions found"
-msgstr ""
+msgstr "No hay comisiones encontrados"
 
 #: ../includes/post-type.php:29
 msgid "No Commissions found in Trash"
-msgstr ""
+msgstr "No se encuentran en la Papelera Comisiones"
 
 #: ../includes/reports.php:81
 msgid "Commissions Paid Over Time"
-msgstr ""
+msgstr "Las comisiones pagadas a través del tiempo"
 
 #: ../includes/reports.php:217
 msgid "Total commissions for period shown: "
-msgstr ""
+msgstr "Comisiones totales de período muestran:"
 
 #: ../includes/settings.php:24
 msgid "License Key"
@@ -255,7 +255,7 @@ msgstr ""
 #: ../includes/widgets.php:43
 #: ../includes/widgets.php:83
 msgid "Item"
-msgstr ""
+msgstr "artículo"
 
 #: ../includes/short-codes.php:53
 #: ../includes/widgets.php:69
