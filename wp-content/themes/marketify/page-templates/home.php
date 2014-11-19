@@ -48,6 +48,10 @@ get_header(); ?>
 					
 					
 					<div class="download-product-review-details">
+					<h1>BIENVENIDO A PROFESI.ORG</h1>
+					<p> DONDE MAESTROS COMPARTEN COMPRAN Y VIENDEN SUS INNOVACIONES EDUCATIVAS</p>
+
+
 					<div class="video">
 			
 
@@ -78,10 +82,7 @@ get_header(); ?>
  </div>
 
 </ul> 
-<p>Become parts of our first
-							group of teacher sellers.
-							Sell your products and 
-							keep up to 80%</p>
+<p>Discover great resources created by teachers for teachers</p>
 
 	</div>		
 	

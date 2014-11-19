@@ -1096,8 +1096,23 @@ body:not(.minimal) .fes-headers:after {
 	background: #bdc3c7;
 }
 
+/*Home page styling*/
+.download-product-review-details h1 {
+font-size: 35px;
+padding: 0;
+text-align: center;
+font-weight: 700;
+color: #ADADAD;
+padding-bottom:8px;
+}
 
 
+.download-product-review-details p {
+font-size: 18px!important;
+text-align: center!important;
+color: #473E3E!important;
+padding-bottom: 10px!important;
+}
 
 
 .home-widget-title span,
@@ -5168,7 +5183,7 @@ font-weight:bold;
 
 	a.red {
 		background-color: rgba(239,57,50,1);
-		color: rgba(133,32,28,1);
+		color: white;
 		border-color: rgba(133,32,28,.2);
 	}
 
@@ -5178,7 +5193,7 @@ font-weight:bold;
 
 	a.green {
 		background-color: rgba(1,151,171,1);
-		color: rgba(0,63,71,1);
+		color: white;
 		border-color: rgba(0,63,71,.2);
 	}
 
