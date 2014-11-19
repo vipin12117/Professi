@@ -59,8 +59,9 @@ get_header(); ?>
 					<!-- elegant minimal -->
       <div class="vp1_html5" style="border:4px solid #d3e8e7;overflow:hidden;" >
             <video id="vp1_html5_EM" width="704" height="396" preload="auto" poster="<?php echo get_template_directory_uri(); ?>/images/prev.jpg">
-                <source src="<?php echo get_template_directory_uri(); ?>/images/promo_profesi_V1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-                <source src="videos/big_buck_bunny_trailer.webm" type='video/webm; codecs="vp8, vorbis"' />
+                <source src="<?php echo get_template_directory_uri(); ?>/images/promo.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+                <source src="<?php echo get_template_directory_uri(); ?>/images/promo.webm" type='video/webm; codecs="vp8, vorbis"' />
+                <source src="<?php echo get_template_directory_uri(); ?>/images/promo.ogg"  type='video/ogg; codecs="theora, vorbis"' />
             </video>
       </div>
 
