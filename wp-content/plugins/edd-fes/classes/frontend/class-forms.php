@@ -2665,7 +2665,7 @@ if ( $rich == 'yes' ) {
 		<?php printf( '<span class="fes-image-validation" data-required="%s" data-type="image"></span>', $required ); ?>
 <input type="hidden" name="feat-image-id" class="fes-feat-image-id"
 	value="<?php echo $id; ?>"> <a href="#"
-	class="fes-feat-image-btn btn btn-sm"><?php _e( 'Upload Featured Image', 'edd_fes' ); ?></a>
+	class="fes-feat-image-btn btn btn-sm"><?php _e( 'SUBIR IMAGEN PRINCIPAL', 'edd_fes' ); ?></a>
 </div>
 
 <div class="image-wrap <?php if ($id === 0 ){ echo 'fes-hide';} ?>"><a
