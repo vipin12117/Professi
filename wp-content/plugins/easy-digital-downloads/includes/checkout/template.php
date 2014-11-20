@@ -135,34 +135,34 @@ function edd_user_info_fields() {
 		<?php do_action( 'edd_purchase_form_before_email' ); ?>
 		<p id="edd-email-wrap">
 			<label class="edd-label" for="edd-email">
-				<?php _e( 'Email Address', 'edd' ); ?>
+				<?php _e( 'Correo Electrónico', 'edd' ); ?>
 				<?php if( edd_field_is_required( 'edd_email' ) ) { ?>
 					<span class="edd-required-indicator">*</span>
 				<?php } ?>
 			</label>
-			<span class="edd-description"><?php _e( 'We will send the purchase receipt to this address.', 'edd' ); ?></span>
-			<input class="edd-input required" type="email" name="edd_email" placeholder="<?php _e( 'Email address', 'edd' ); ?>" id="edd-email" value="<?php echo is_user_logged_in() ? $user_data->user_email : ''; ?>"/>
+			<span class="edd-description"><?php _e( 'Le enviaremos el recibo de su compra a esta dirección.', 'edd' ); ?></span>
+			<input class="edd-input required" type="email" name="edd_email" placeholder="<?php _e( 'Correo Electrónico', 'edd' ); ?>" id="edd-email" value="<?php echo is_user_logged_in() ? $user_data->user_email : ''; ?>"/>
 		</p>
 		<?php do_action( 'edd_purchase_form_after_email' ); ?>
 		<p id="edd-first-name-wrap">
 			<label class="edd-label" for="edd-first">
-				<?php _e( 'First Name', 'edd' ); ?>
+				<?php _e( 'Primer Nombre', 'edd' ); ?>
 				<?php if( edd_field_is_required( 'edd_first' ) ) { ?>
 					<span class="edd-required-indicator">*</span>
 				<?php } ?>
 			</label>
-			<span class="edd-description"><?php _e( 'We will use this to personalize your account experience.', 'edd' ); ?></span>
-			<input class="edd-input required" type="text" name="edd_first" placeholder="<?php _e( 'First name', 'edd' ); ?>" id="edd-first" value="<?php echo is_user_logged_in() ? $user_data->first_name : ''; ?>"/>
+			<span class="edd-description"><?php _e( 'Utilizaremos esta información para personalizar su experiencia.', 'edd' ); ?></span>
+			<input class="edd-input required" type="text" name="edd_first" placeholder="<?php _e( 'Primer Nombre', 'edd' ); ?>" id="edd-first" value="<?php echo is_user_logged_in() ? $user_data->first_name : ''; ?>"/>
 		</p>
 		<p id="edd-last-name-wrap">
 			<label class="edd-label" for="edd-last">
-				<?php _e( 'Last Name', 'edd' ); ?>
+				<?php _e( 'Apellido', 'edd' ); ?>
 				<?php if( edd_field_is_required( 'edd_last' ) ) { ?>
 					<span class="edd-required-indicator">*</span>
 				<?php } ?>
 			</label>
-			<span class="edd-description"><?php _e( 'We will use this as well to personalize your account experience.', 'edd' ); ?></span>
-			<input class="edd-input<?php if( edd_field_is_required( 'edd_last' ) ) { echo ' required'; } ?>" type="text" name="edd_last" id="edd-last" placeholder="<?php _e( 'Last name', 'edd' ); ?>" value="<?php echo is_user_logged_in() ? $user_data->last_name : ''; ?>"/>
+			<span class="edd-description"><?php _e( 'Utilizaremos esta información para personalizar su experiencia.', 'edd' ); ?></span>
+			<input class="edd-input<?php if( edd_field_is_required( 'edd_last' ) ) { echo ' required'; } ?>" type="text" name="edd_last" id="edd-last" placeholder="<?php _e( 'Apellido', 'edd' ); ?>" value="<?php echo is_user_logged_in() ? $user_data->last_name : ''; ?>"/>
 		</p>
 		<?php do_action( 'edd_purchase_form_user_info' ); ?>
 	</fieldset>
@@ -698,7 +698,7 @@ add_action( 'edd_purchase_form_before_submit', 'edd_terms_agreement' );
 function edd_checkout_final_total() {
 ?>
 <p id="edd_final_total_wrap">
-	<strong><?php _e( 'Purchase Total:', 'edd' ); ?></strong>
+	<strong><?php _e( 'Total de la compra:', 'edd' ); ?></strong>
 	<span class="edd_cart_amount" data-subtotal="<?php echo edd_get_cart_subtotal(); ?>" data-total="<?php echo edd_get_cart_subtotal(); ?>"><?php edd_cart_total(); ?></span>
 </p>
 <?php
@@ -769,9 +769,9 @@ function edd_checkout_button_purchase() {
 	$style = isset( $edd_options[ 'button_style' ] ) ? $edd_options[ 'button_style' ] : 'button';
 
 	if ( edd_get_cart_total() ) {
-		$complete_purchase = ! empty( $edd_options['checkout_label'] ) ? $edd_options['checkout_label'] : __( 'Purchase', 'edd' );
+		$complete_purchase = ! empty( $edd_options['checkout_label'] ) ? $edd_options['checkout_label'] : __( 'COMPRAR', 'edd' );
 	} else {
-		$complete_purchase = ! empty( $edd_options['checkout_label'] ) ? $edd_options['checkout_label'] : __( 'Free Download', 'edd' );
+		$complete_purchase = ! empty( $edd_options['checkout_label'] ) ? $edd_options['checkout_label'] : __( 'Free COMPRAR', 'edd' );
 	}
 
 	ob_start();

@@ -3346,7 +3346,7 @@ if ( $id ) {
 <input type="hidden" name="submission_status" value="new"> <input
 	type="submit"
 	class="edd-submit <?php echo $color; ?> <?php echo $style; ?>"
-	name="submit" value="<?php echo __( 'Submit', 'edd_fes' ); ?>" /> <?php }
+	name="submit" value="<?php echo __( 'ENVIAR', 'edd_fes' ); ?>" /> <?php }
 	break;
 case 'profile':
 	?>
@@ -3361,7 +3361,7 @@ case 'profile':
 <input type="hidden" name="is_admin" value="1"> <?php endif; ?> <input
 	type="submit"
 	class="edd-submit <?php echo $color; ?> <?php echo $style; ?>"
-	name="submit" value="<?php echo __( 'Update Profile', 'edd_fes' ); ?>" />
+	name="submit" value="<?php echo __( 'ACTUALIZAR MI PERFIL', 'edd_fes' ); ?>" />
 </fieldset>
 	<?php
 	break;
@@ -3380,7 +3380,7 @@ case 'login':
 	<?php
 	break;
 case 'registration':
-	$wording = sprintf( __( 'Become A %s', 'edd_fes' ),  EDD_FES()->vendors->get_vendor_constant_name( $plural = false, $uppercase = true ) );
+	$wording = sprintf( __( 'EMPEZAR A %s', 'edd_fes' ),  EDD_FES()->vendors->get_vendor_constant_name( $plural = false, $uppercase = true ) );
 	if ( $id ) {
 		$wording =  __( 'Submit Changes', 'edd_fes' );
 	}

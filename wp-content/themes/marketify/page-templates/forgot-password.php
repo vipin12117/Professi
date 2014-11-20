@@ -112,15 +112,15 @@ elseif($_POST['edd_submit']){
 					<?php if($_GET['action'] != 'rp' and $_GET['action'] != 'resetpass'):?>
 							<form id="lostpasswordform" class="edd_form" action="" method="post">
 								<fieldset>
-                                                                   	<?php do_action( 'edd_login_fields_before' ); ?>
+                                     <?php do_action( 'edd_login_fields_before' ); ?>
 									<p>
-										<label for="edd_user_Login"><?php _e( 'Ingrese Nombre de usuario o correo electrónico:', 'edd' ); ?></label>
+										<label for="edd_user_Login"><?php _e( 'Ingrese su nombre de usuario o correo electrónico:', 'edd' ); ?></label>
 										<input name="user_login" id="edd_user_login" class="required edd-input" type="text" title="<?php _e( 'Username', 'edd' ); ?>"/>
 									</p>
 									<p>
 										<input type="hidden" name="edd_redirect" value="<?php echo esc_url( $edd_login_redirect ); ?>"/>
 										<input type="hidden" name="action" value="lostpassword"/>
-										<input id="edd_login_submit" type="submit" name="edd_submit" class="edd_submit" value="<?php _e( 'Submit', 'edd' ); ?>"/>
+										<input id="edd_login_submit" type="submit" name="edd_submit" class="edd_submit" value="<?php _e( 'ENVIAR', 'edd' ); ?>"/>
 									</p>
 									<?php do_action( 'edd_login_fields_after' ); ?>
 								</fieldset>
@@ -145,7 +145,7 @@ elseif($_POST['edd_submit']){
 								
 									<br class="clear" />
 									
-									<p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php esc_attr_e('Reset Password'); ?>" /></p>
+									<p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php esc_attr_e('Restablecer contraseña'); ?>" /></p>
 								</form>
 							<?php endif;?>
 					<?php endif;?>			
