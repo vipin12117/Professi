@@ -7,7 +7,7 @@
 		<tr>
 			<th><?php _e( 'IMAGEN', 'edd_fes' ); ?></th>
 			<th><?php _e( 'NOMBRE', 'edd_fes' ); ?></th>
-			<th><?php _e( 'ESTATUS', 'edd_fes' ); ?></th>
+			<th><?php _e( 'ESTADO', 'edd_fes' ); ?></th>
 			<th><?php _e( 'PRECIO', 'edd_fes' ); ?></th>
 			<th><?php _e( 'VENTAS', 'edd_fes' ) ?></th>
 			<th><?php _e( 'ACCIONES','edd_fes') ?></th>

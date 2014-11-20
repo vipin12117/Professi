@@ -131,7 +131,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 			<h1 class="download-single-widget-title"></h1>
 			<ul class="edd-taxonomy-widget">
 				<li class="cat-item cat-item-15">
-					<a class="filter-banner">YOU SELECTED</a>
+					<a class="filter-banner">HA SELECCIONADO</a>
 					<ul class="children selected-cat">
 						<?php foreach($pcats as $key=>$pcat) {?>
 						<li class="cat-item cat-item-selected">
@@ -139,7 +139,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 									echo '<span class="pcat">'.$pcat->name.'</span>'; 
 									$icats = $ccats[$key];
 									foreach($icats as $ccat) {
-										echo '<span title="Click on this category to remove selected search." class="icon-cat" data-slug="'.$ccat->slug.'">'.$ccat->name.'<i class="icon"></i></span>'; 
+										echo '<span title="Haga clic para deseleccionar." class="icon-cat" data-slug="'.$ccat->slug.'">'.$ccat->name.'<i class="icon"></i></span>'; 
 									}
 								?>
 								<a>&nbsp;</a>
@@ -148,7 +148,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 							if(count($pcats) == 0) {
 						?>
 						<li class="cat-item cat-item-21">
-								<a>Search in all categories</a>
+								<a>Buscar en todas las categorías</a>
 						</li>
 						<?php } ?>
 					</ul>
@@ -166,7 +166,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 				
 				<!--  <div class="the-title-home"><?php //marketify_downloads_section_title();?></div> -->
 				<div class="result-info clearfix">
-					<div class="result fontsforweb_fontid_9785 left"><?php echo $splitPage->number_of_rows?> results</div>
+					<div class="result fontsforweb_fontid_9785 left"><?php echo $splitPage->number_of_rows?> resultados</div>
 					<div class="result-selectbox right" style="display:none;">
 						<span>sort by:</span>
 						<select id="selext-orderby" class="form-control">
@@ -221,15 +221,15 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 									?>
 									<div class="form-horizontal ">
 										<div class="control-group">
-											<span class="control-label">SUBJECTS:</span>
+											<span class="control-label">MATERIA:</span>
 											<span class="controls gray-light sub"><?php echo $category_str;?></span>
 										</div>
 										<div class="control-group">
-											<span class="control-label">GRADES:</span>
+											<span class="control-label">NIVEL (EDAD):</span>
 											<span class="controls gray-light grades"><?php echo ($data_custom['pick_grade_level(s)'][0]); ?></span>
 										</div>
 										<div class="control-group">
-											<span class="control-label lv2">RESOURCE TYPES:</span>
+											<span class="control-label lv2">TIPO DE RECURSO:</span>
 											<span class="controls gray-light resource-type"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
 										</div>
 									</div>	
@@ -237,10 +237,10 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 								
 								<div class="col-md-4" >
 									<div class="download-product-details action-container" style="padding:5px 0 5px 10px;"><!--#action-container -->
-										<div class="price">Price: <?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
+										<div class="price">Precio: <?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
 										<br />
 										<div class="control-group">
-											<span class="control-label lv2">PRODUCT RATING </span>
+											<span class="control-label lv2">EVALUACIÓN DEL PRODUCTO:</span>
 											<span class="controls gray-light">
 												<div class="star-ratings">
 													<?php $j = 0; for($i = 0; $i < $full; ++ $i)  {?>
@@ -264,7 +264,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 													
 													<?php //echo edd_reviews()->microdata();?>
 												</div>
-												<div class="ratings"><?php echo $ratingCount; ?> ratings</div>
+												<div class="ratings"><?php echo $ratingCount; ?> comentario(s)</div>
 											</span>
 										</div>
 										<br />
@@ -288,7 +288,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 											data-variable-price="no"
 											data-price-mode="single"
 											>
-											<i class="add-wl"></i>W I S H&nbsp;&nbsp;L I S T</a>
+											<i class="add-wl"></i>LISTA DE DESEOS</a>
 										</div>
 									</div><!--#action-container -->
 								</div>

@@ -754,7 +754,7 @@ function edd_wl_edit_link( $list_id, $args = array() ) {
 
 	$defaults = apply_filters( 'edd_wl_edit_link_defaults', 
 		array(
-			'text'			=> __( 'edit', 'edd-wish-lists' ),
+			'text'			=> __( 'editar', 'edd-wish-lists' ),
 			'wrapper_class'	=> '',
 			'wrapper' 		=> 'span',
 			'class'			=> ''

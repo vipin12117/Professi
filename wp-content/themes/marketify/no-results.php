@@ -16,7 +16,7 @@
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'marketify' ); ?></p>
+			<p><?php _e( 'Lo sentimos, pero no hemos encontrado productos que correspondan con los términos que utilizó en su búsqueda. Por favor, intente de nuevo.', 'marketify' ); ?></p>
 
 			<?php if ( ! is_post_type_archive( 'download' ) ) : ?>
 			<?php get_search_form(); ?>

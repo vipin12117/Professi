@@ -29,7 +29,7 @@ function marketify_downloads_section_title() {
 		} else if (isset($GLOBALS['is_search']) && $GLOBALS['is_search'] == true) {
 			printf( __( 'SEACH RESULTS', 'marketify' ), $base, $order );
 		} else {
-			printf( __( 'All:<strong> %s%s</strong>', 'marketify' ), $base, $order );
+			printf( __( '<strong> %s%s</strong>: All', 'marketify' ), $base, $order );
 		}
 	}
 }
@@ -226,7 +226,9 @@ function marketify_content_nav( $nav_id ) {
 				'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 				'format'  => '?paged=%#%',
 				'current' => max( 1, get_query_var('paged') ),
-				'total'   => $wp_query->max_num_pages
+				'total'   => $wp_query->max_num_pages,
+				'prev_next' => '&laquo; anterior',
+				'next_text' => 'SIGUIENTE &raquo;'
 			) );
 		?>
 

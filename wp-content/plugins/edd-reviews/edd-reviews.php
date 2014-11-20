@@ -523,7 +523,7 @@ final class EDD_Reviews {
 			</p>
 
 			<p class="comment_form_rating">
-				<label for="edd_rating">' . __( 'Rating', 'edd-reviews' ) . '<span class="required">*</span></label>
+				<label for="edd_rating">' . __( 'Evaluación', 'edd-reviews' ) . '<span class="required">*</span></label>
 
 				' . apply_filters( 'edd_reviews_rating_box', '
 				<span class="edd_reviews_rating_box">

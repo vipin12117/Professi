@@ -44,12 +44,12 @@ if(isset($_GET['action']) && $_GET['action'] == 'resetpass'){
 	}
 	
 	if ( isset($_POST['pass1']) && $_POST['pass1'] != $_POST['pass2'] )
-		$error = "The passwords do not match.";
+		$error = "Las contraseñas no coinciden.";
 		
 	if ( ( ! $error ) && $user && isset( $_POST['pass1'] ) && !empty( $_POST['pass1'] ) ) {
 		reset_password($user, $_POST['pass1']);
 		
-		$success = 'Your password has been reset.';
+		$success = 'Su contraseña se ha restablecido.';
 	}		
 }
 
@@ -74,11 +74,11 @@ if($_POST['edd_submit'] && $_POST['user_login']){
 	$hashed = $wp_hasher->HashPassword( $key );
 	$wpdb->update( $wpdb->users, array( 'user_activation_key' => $hashed ), array( 'user_login' => $user_login ) );
 
-	$message = __('Someone requested that the password be reset for the following account:') . "\r\n\r\n";
+	$message = __('Alguien pidió que la contraseña se restablecerá a la siguiente cuenta:') . "\r\n\r\n";
 	$message .= network_home_url( '/' ) . "\r\n\r\n";
 	$message .= sprintf(__('Username: %s'), $user_login) . "\r\n\r\n";
-	$message .= __('If this was a mistake, just ignore this email and nothing will happen.') . "\r\n\r\n";
-	$message .= __('To reset your password, visit the following address:') . "\r\n\r\n";
+	$message .= __('Si esto fue un error, simplemente ignorar este mensaje y no pasará nada.') . "\r\n\r\n";
+	$message .= __('Para restablecer su contraseña, visite la siguiente dirección:') . "\r\n\r\n";
 	$message .= '<' . network_site_url("forgot-password?action=rp&key=$key&login=" . rawurlencode($user_login), 'login') . ">\r\n";
 
 	$blogname = wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
@@ -86,14 +86,14 @@ if($_POST['edd_submit'] && $_POST['user_login']){
 	$title = apply_filters( 'retrieve_password_title', $title );
 
 	if ( $message && !wp_mail( $user_email, wp_specialchars_decode( $title ), $message ) ){
-		$error = ( __('The e-mail could not be sent.') . "<br />\n" . __('Possible reason: your host may have disabled the mail() function.') );
+		$error = ( __('DISCULPA, TUVIMOS UN PROBLEMA PROCESANDO SU INFORMACIÓN. POR FAVOR INTENTE DE NUEVO.') );
 	}
 	else{
-		$success = "Email is sent for reset password.";
+		$success = "LE HEMOS ENVIADO UN CORREO PARA RESTABLECER  SU CONTRASEÑA.";
 	}
 }
 elseif($_POST['edd_submit']){
-	$error = "Please enter valid email address or username";
+	$error = "Por favor, introduzca la dirección de correo electrónico válida o nombre de usuario";
 }
 ?>
 <div class="container seller">	
@@ -114,7 +114,7 @@ elseif($_POST['edd_submit']){
 								<fieldset>
                                                                    	<?php do_action( 'edd_login_fields_before' ); ?>
 									<p>
-										<label for="edd_user_Login"><?php _e( 'Enter Username or E-mail:', 'edd' ); ?></label>
+										<label for="edd_user_Login"><?php _e( 'Ingrese Nombre de usuario o correo electrónico:', 'edd' ); ?></label>
 										<input name="user_login" id="edd_user_login" class="required edd-input" type="text" title="<?php _e( 'Username', 'edd' ); ?>"/>
 									</p>
 									<p>
@@ -132,16 +132,16 @@ elseif($_POST['edd_submit']){
 									<input type="hidden" name="login" value="<?php echo esc_attr( $rp_login ); ?>" autocomplete="off" />
 								
 									<p>
-										<label for="pass1"><?php _e('New password') ?><br />
+										<label for="pass1"><?php _e('Nueva contraseña') ?><br />
 										<input type="password" name="pass1" id="pass1" class="input" size="20" value="" autocomplete="off" /></label>
 									</p>
 									<p>
-										<label for="pass2"><?php _e('Confirm new password') ?><br />
+										<label for="pass2"><?php _e('Confirmar nueva contraseña') ?><br />
 										<input type="password" name="pass2" id="pass2" class="input" size="20" value="" autocomplete="off" /></label>
 									</p>
 								
 									<div id="pass-strength-result" class="hide-if-no-js"><?php _e('Strength indicator'); ?></div>
-									<p class="description indicator-hint"><?php _e('Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers, and symbols like ! " ? $ % ^ &amp; ).'); ?></p>
+									<p class="description indicator-hint"><?php _e('Sugerencia: La contraseña debe tener al menos siete caracteres de longitud. Para hacerlo más fuerte, use letras mayúsculas y minúsculas, números y símbolos como ! " ? $ % ^ &amp; ).'); ?></p>
 								
 									<br class="clear" />
 									

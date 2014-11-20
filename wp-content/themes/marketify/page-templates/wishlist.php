@@ -29,7 +29,7 @@ get_header(); ?>
 					<div class="download-author">
 						<?php echo get_avatar( $author->ID, 130 ); ?>
 						<a href="#" class="author-link"><?php echo esc_attr( $author->display_name ); ?></a>
-						<span class="author-joined"><?php printf( __( 'Author since: %s', 'marketify' ), date_i18n( 'Y', strtotime( $author->user_registered ) ) ); ?></span>
+						<span class="author-joined"><?php printf( __( 'Miembro desde: %s', 'marketify' ), date_i18n( 'Y', strtotime( $author->user_registered ) ) ); ?></span>
 					</div>
 
 					<div class="download-author-bio">

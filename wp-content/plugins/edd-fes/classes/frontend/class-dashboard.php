@@ -388,7 +388,7 @@ class FES_Dashboard {
 			$status = __( 'Draft', 'edd_fes' );
 		}
 		elseif ( $status == 'pending' ) {
-			$status = __( 'Pending Review', 'edd_fes' );
+			$status = __( 'En trámite de aprobación', 'edd_fes' );
 		}
 		elseif ( $status == 'future' ) {
 			$status = __( 'Scheduled', 'edd_fes' );

@@ -151,9 +151,9 @@ $author = get_the_author();
 					<span>DESCRIPCIÓN DEL PRODUCTO</span>
 				</div>
 				<div class="post-description fontsforweb_fontid_9785">
-					<span class="gray-light"><?php echo str_replace(array("\n"), '<br/>', $data_custom['add_description'][0]); ?></span>
+					<span class="gray-light" style="float:left;word-wrap:break-word;width:95%"><?php echo str_replace(array("\n"), '<br/>', $data_custom['add_description'][0]); ?></span>
 				</div>
-				<br/>
+				<br clear="all" />
 				<div class="info-post">NÚMEROS DE PÁGINAS:<span class="gray-light"><?php echo $data_custom['add_number_of_pages_or_slides'][0]?></span></div>
 				<div class="info-post">DURACIÓN DE LA ENSEÑANZA:<span class="gray-light"><?php echo $data_custom['add_teaching_duration'][0]?></span></div>
 				<div class="report-post gray-light"><a href="mailto:<?php echo get_the_author_meta( 'email' )?>"><i class="report-icon"></i> Infórmenos de cualquier  violación de derechos del autor </a></div>
@@ -320,7 +320,7 @@ $author = get_the_author();
 			</div><!--#action-container -->
 			<br/>
 			<div class="download-product-details download-list"><!--#download-list -->
-				<div class="top-list"><span>M R E P R O D U C T O S D E M</span></div>
+				<div class="top-list"><span>MÁS PRODUCTOS CREADOS POR:</span></div>
 				<div class="user-info clearfix" style="padding: 0px 0px 10px 20px">
 					<div class="avatar-info left"  style="width:90px">
 						<div class="download-product-details radius50">

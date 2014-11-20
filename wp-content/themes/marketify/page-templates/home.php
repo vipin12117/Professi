@@ -121,7 +121,7 @@ get_header(); ?>
 				
 				<div class="download-product-review-details content-items clearfix">
 					<?php if ( ! is_paged() && ! get_query_var( 'orderby' ) && ! is_page_template( 'page-templates/popular.php' ) ) : ?>
-						<?php// get_template_part( 'content-grid-download', 'popular' ); ?>
+						<?php // get_template_part( 'content-grid-download', 'popular' ); ?>
 					<?php endif; ?>
 					
 					<section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-12 col-xs-12">

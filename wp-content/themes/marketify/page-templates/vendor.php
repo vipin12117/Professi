@@ -27,7 +27,7 @@ get_header(); ?>
         <div id="content" class="right-container col-xs-12 col-sm-8 col-md-8 site-content ">
         	<?php if(!$author):?>
 	            <div class="title-top-container header clearfix">
-	                <div class="title-top page-title fontsforweb_fontid_9785 left">O U R &nbsp; T E A C H E R &nbsp;  A U T O R S</div>
+	                <div class="title-top page-title fontsforweb_fontid_9785 left">NUESTROS PROFE-VENDEDORES</div>
 	                <div class="title-right right"><a href="<?php echo esc_url( home_url( '/fes-vendor' ) ); ?>">ver todos <i class="glyphicon glyphicon-play"></i></a></div>
 	            </div>
 	            <div class="download-product-review-details content-items clearfix">
@@ -45,7 +45,7 @@ get_header(); ?>
 	            
 	        <?php else:?>
 	        	<div class="title-top-container header clearfix">
-                	<div class="title-top page-title fontsforweb_fontid_9785">T E A C H E R &nbsp; A U T O R</div>
+                	<div class="title-top page-title fontsforweb_fontid_9785">PROFE-VENDEDOR</div>
             	</div>
             
             	<div class="teacher-author">
@@ -71,10 +71,10 @@ get_header(); ?>
                                 <div class="teacher-ratings gray-light">Valoración general del usuario: <span>4.0 /4.0</span></div>
                                 
                                 <br />
-                                <div class="teacher-store gray-light">Productos en mi tienda: <span><?php echo marketify_count_user_downloads( $author->ID ); ?></span></div>
+                                <div class="teacher-store gray-light">N° de productos en mi tienda: <span><?php echo marketify_count_user_downloads( $author->ID ); ?></span></div>
                                 
                                 <br />
-                                <div class="title-right right" style="padding-right: 50px;"><a href="<?php echo esc_url( home_url( '/fes-vendor/'.$author->display_name ) ); ?>">Ver todo mi <?php echo $products;?> products <i class="glyphicon glyphicon-play"></i></a></div>
+                                <div class="title-right right" style="padding-right: 50px;"><a href="<?php echo esc_url( home_url( '/fes-vendor/'.$author->display_name ) ); ?>">Ver todos mis  <?php echo $products;?> productos <i class="glyphicon glyphicon-play"></i></a></div>
                             </div>
                         </div>
                         <div class="form-horizontal">
@@ -107,7 +107,7 @@ get_header(); ?>
 	        <?php endif;?>    
             
             <div class="title-top-container header clearfix">
-                <div class="title-top page-title fontsforweb_fontid_9785 left">C R E A T E D &nbsp; B Y &nbsp;  <?php echo $author->display_name;?></div>
+                <div class="title-top page-title fontsforweb_fontid_9785 left">CREADO POR  <?php echo $author->display_name;?></div>
                 <div class="title-right right"><a href="<?php echo esc_url( home_url( '/fes-vendor' ) ); ?>">ver todos <i class="glyphicon glyphicon-play"></i></a></div>
             </div>
             

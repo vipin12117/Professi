@@ -114,7 +114,7 @@ class FES_Setup {
 				), fes_plugin_version );
 			wp_localize_script( 'fes_form', 'fes_form', array(
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
-				'error_message' => __( 'Please fix the errors to proceed', 'edd_fes' ),
+				'error_message' => __( 'POR FAVOR CORRIJA LOS ERRORES EN ROJO PARA PROCEDER', 'edd_fes' ),
 				'nonce' => wp_create_nonce( 'fes_nonce' ),
 				'avatar_title' =>  __( 'Choose an avatar', 'edd_fes' ),
 				'avatar_button' =>  __( 'Select as avatar', 'edd_fes' ),
