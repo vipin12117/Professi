@@ -2415,10 +2415,10 @@ if ( $rich == 'yes' ) {
 			<td class="fes-name-column"><?php _e( 'Name of Price Option', 'edd_fes' ); ?></td>
 			<?php } ?>
 			<?php if ( !$prices_disabled || $predefined_on ) { ?>
-			<td class="fes-price-column"><?php printf( __( 'Amount (%s)', 'edd_fes' ), edd_currency_filter( '' ) ); ?></td>
+			<td class="fes-price-column"><?php printf( __( 'Monto (%s)', 'edd_fes' ), edd_currency_filter( '' ) ); ?></td>
 			<?php } ?>
 			<?php if ( !$files_disabled ) { ?>
-			<td class="fes-file-column" colspan="2"><?php _e( 'File URL', 'edd_fes' ); ?></td>
+			<td class="fes-file-column" colspan="2"><?php _e( 'URL del Archivo', 'edd_fes' ); ?></td>
 			<?php } ?>
 			<?php do_action("fes-add-multiple-pricing-column"); ?>
 			<?php if ( $attr[ 'single' ] === 'yes' || $predefined_on ) { ?>
@@ -2495,8 +2495,8 @@ if ( $rich == 'yes' ) {
 				id="fes-file-row-js" name="fes-file-row-js" value="1" /></td>
 			<td class="fes-url-choose-row"><a href="#"
 				class="btn btn-sm btn-default upload_file_button"
-				data-choose="<?php _e( 'Choose file', 'edd_fes' ); ?>"
-				data-update="<?php _e( 'Insert file URL', 'edd_fes' ); ?>"> <?php echo str_replace( ' ', '&nbsp;', __( 'Upload', 'edd_fes' ) ); ?></a>
+				data-choose="<?php _e( 'BUSCAR', 'edd_fes' ); ?>"
+				data-update="<?php _e( 'Insert file URL', 'edd_fes' ); ?>"> <?php echo str_replace( ' ', '&nbsp;', __( 'BUSCAR', 'edd_fes' ) ); ?></a>
 			</td>
 			<?php }
 			do_action("fes-add-multiple-pricing-row-value", $file); ?>
@@ -2550,7 +2550,7 @@ if ( $rich == 'yes' ) {
 <table class="<?php echo sanitize_key($attr['name']); ?>">
 	<thead>
 		<tr>
-			<td class="fes-file-column" colspan="2"><?php _e( 'File URL', 'edd_fes' ); ?></td>
+			<td class="fes-file-column" colspan="2"><?php _e( 'URL del Archivo', 'edd_fes' ); ?></td>
 			<?php if ( is_admin() ) { ?>
 			<td class="fes-download-file"><?php _e( 'Download File', 'edd_fes' ); ?>
 			</td>
@@ -2577,8 +2577,8 @@ if ( $rich == 'yes' ) {
 				value="<?php echo esc_attr( $download ); ?>" /></td>
 			<td class="fes-url-choose-row" width="1%"><a href="#"
 				class="btn btn-sm btn-default upload_file_button"
-				data-choose="<?php _e( 'Choose file', 'edd_fes' ); ?>"
-				data-update="<?php _e( 'Insert file URL', 'edd_fes' ); ?>"> <?php echo str_replace( ' ', '&nbsp;', __( 'Choose file', 'edd_fes' ) ); ?></a>
+				data-choose="<?php _e( 'BUSCAR', 'edd_fes' ); ?>"
+				data-update="<?php _e( 'Insert file URL', 'edd_fes' ); ?>"> <?php echo str_replace( ' ', '&nbsp;', __( 'BUSCAR', 'edd_fes' ) ); ?></a>
 			</td>
 			<?php if ( is_admin() ) { ?>
 			<td class="fes-download-file"><?php printf( '<a href="%s">%s</a>', wp_get_attachment_url( $attach_id ), __( 'Download File', 'edd_fes' ) ); ?>
