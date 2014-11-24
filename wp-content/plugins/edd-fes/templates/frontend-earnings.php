@@ -6,7 +6,7 @@ if ( EDD_FES()->integrations->is_commissions_active() ) { ?>
 		echo do_shortcode('[edd_commissions]'); 
 	}
 	else{
-		echo __( 'You haven\'t made any sales yet!', 'edd_fes' );
+		echo __( '¡No ha vendido nada todavía!', 'edd_fes' );
 	}
 } else {
 	echo 'Error 4908';

@@ -21,7 +21,7 @@ if ( edd_wl_allow_guest_creation() ) : ?>
 	</p>
 	<p>
 	  <select name="privacy">
-	  	<option value="private"><?php _e( 'Privado - sólo visible para usted', 'edd-wish-lists' ); ?></option>
+	  	<option value="private"><?php _e( 'Privada - visible solamente para usted', 'edd-wish-lists' ); ?></option>
 	    <option value="publish"><?php _e( 'Pública - visible por cualquier persona', 'edd-wish-lists' ); ?></option>
 	  </select>
 	</p>

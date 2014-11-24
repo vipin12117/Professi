@@ -54,7 +54,7 @@
 				}
 				//
 				fromSearch.find('button.search-submit:first').trigger( "click" );
-			}).attr('title', 'Click on this category to select search.');
+			}).attr('title', 'Haga click para seleccionar');
 			//
 			if(window.lastSearchCats) {
 				$('#quick-search-form').find('#absc_search_cat:first').val( window.lastSearchCats );

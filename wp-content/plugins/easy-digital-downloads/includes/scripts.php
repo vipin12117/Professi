@@ -51,8 +51,8 @@ function edd_load_scripts() {
 			'discount_applied'   => __( 'Discount Applied', 'edd' ), // Discount verified message
 			'no_email'           => __( 'Please enter an email address before applying a discount code', 'edd' ),
 			'no_username'        => __( 'Please enter a username before applying a discount code', 'edd' ),
-			'purchase_loading'   => __( 'Please Wait...', 'edd' ),
-			'complete_purchase'  => __( 'Purchase', 'edd' ),
+			'purchase_loading'   => __( 'PROCESANDO...', 'edd' ),
+			'complete_purchase'  => __( 'COMPRAR', 'edd' ),
 			'taxes_enabled'      => edd_use_taxes() ? '1' : '0',
 			'edd_version'        => EDD_VERSION
 		));

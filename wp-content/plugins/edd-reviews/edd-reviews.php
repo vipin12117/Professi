@@ -496,15 +496,15 @@ final class EDD_Reviews {
 		$commenter = wp_get_current_commenter();
 
 		$form = array(
-			'title_reply'          => apply_filters( 'edd_reviews_leave_a_review_text',  __( 'DEJA UN COMENTARIO', 'edd-reviews' ) ),
+			'title_reply'          => apply_filters( 'edd_reviews_leave_a_review_text',  __( 'DEJE UN COMENTARIO', 'edd-reviews' ) ),
 			'title_reply_to'       => '',
 			'must_log_in'          => $this->display_login_form(),
 			'comment_notes_before' => $this->maybe_show_review_breakdown( $post->ID ),
 			'comment_notes_after'  => '',
 			'fields' => array(
-				'author'           => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name', 'edd-reviews' ) . '<span class="required">*</span></label>' .
+				'author'           => '<p class="comment-form-author">' . '<label for="author">' . __( 'Nombre', 'edd-reviews' ) . '<span class="required">*</span></label>' .
 						          	'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30" aria-required="true" /></p>',
-				'email'            => '<p class="comment-form-email"><label for="email">' . __( 'Email', 'edd-reviews' ) . '<span class="required">*</span></label>' .
+				'email'            => '<p class="comment-form-email"><label for="email">' . __( 'Correo electrónico', 'edd-reviews' ) . '<span class="required">*</span></label>' .
 						          	'<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" aria-required="true" /></p>',
 		),
 			'label_submit'         => __( 'ENVIAR', 'edd-reviews' ),
@@ -1320,26 +1320,42 @@ final class EDD_Reviews {
 
 		<?php if ( ( isset( $_GET['edd_reviews_vote'] ) && $_GET['edd_reviews_vote'] == 'success' && isset( $_GET['edd_c'] ) && is_numeric( $_GET['edd_c'] ) && $_GET['edd_c'] == get_comment_ID() ) || EDD()->session->get( 'wordpress_edd_reviews_voted_' . get_comment_ID() ) ) : ?>
 
-<div class="edd-review-vote edd-yellowfade">
-<p style="margin: 0; padding: 0;"><?php echo apply_filters( 'edd_reviews_thank_you_for_voting_message', __( 'Thank you for your feedback.', 'edd-reviews' ) ); ?></p>
-		<?php $this->voting_info(); ?></div>
+			<div class="edd-review-vote edd-yellowfade">
+				<p style="margin: 0; padding: 0;">
+				<?php echo apply_filters( 'edd_reviews_thank_you_for_voting_message', __( 'Thank you for your feedback.', 'edd-reviews' ) ); ?></p>
+				<?php $this->voting_info(); ?>
+			</div>
 
 		<?php else: ?>
 
-<div class="edd-review-vote"><?php do_action( 'edd_reviews_voting_box_before' ); ?>
-		<?php $this->voting_info(); ?>
-<p><?php echo apply_filters( 'edd_reviews_voting_intro_text', _e( 'Help other customers find the most helpful reviews', 'edd-reviews' ) ); ?></p>
-<p><?php echo apply_filters( 'edd_reviews_review_helpful_text', __( 'Did you find this review helpful?', 'edd-reviews' ) ); ?>
-<span class="edd-reviews-voting-buttons"> <a class="vote-yes"
-	data-edd-reviews-comment-id="<?php echo get_comment_ID(); ?>"
-	data-edd-reviews-vote="yes" rel="nofollow"
-	href="<?php echo add_query_arg( array( 'edd_review_vote' => 'yes', 'edd_c' => get_comment_ID() ) ); ?>"><?php _e( 'Yes', 'edd-reviews' ); ?></a>&nbsp;<a
-	class="vote-no"
-	data-edd-reviews-comment-id="<?php echo get_comment_ID(); ?>"
-	data-edd-reviews-vote="no" rel="nofollow"
-	href="<?php echo add_query_arg( array( 'edd_review_vote' => 'no', 'edd_c' => get_comment_ID() ) ); ?>"><?php _e( 'No', 'edd-reviews' ); ?></a>
-</span></p>
-		<?php do_action( 'edd_reviews_voting_box_after' ); ?></div>
+		<div class="edd-review-vote">
+			<?php do_action( 'edd_reviews_voting_box_before' ); ?>
+			
+			<?php $this->voting_info(); ?>
+				
+			<p><?php echo apply_filters( 'edd_reviews_voting_intro_text', _e( 'Help other customers find the most helpful reviews', 'edd-reviews' ) ); ?></p>
+			
+			<!-- 
+			<p>
+				<?php //echo apply_filters( 'edd_reviews_review_helpful_text', __( 'Did you find this review helpful?', 'edd-reviews' ) ); ?>
+				<span class="edd-reviews-voting-buttons"> 
+					 <a class="vote-yes" data-edd-reviews-comment-id="<?php echo get_comment_ID(); ?>" 	data-edd-reviews-vote="yes" rel="nofollow"
+						href="<?php //echo add_query_arg( array( 'edd_review_vote' => 'yes', 'edd_c' => get_comment_ID() ) ); ?>">
+						<?php _e( 'Yes', 'edd-reviews' ); ?>
+					</a>
+				
+					&nbsp;
+				
+					<a class="vote-no" data-edd-reviews-comment-id="<?php echo get_comment_ID(); ?>" data-edd-reviews-vote="no" rel="nofollow"
+						href="<?php //echo add_query_arg( array( 'edd_review_vote' => 'no', 'edd_c' => get_comment_ID() ) ); ?>">
+						<?php _e( 'No', 'edd-reviews' ); ?>
+					</a>
+				</span>
+			</p>
+			 -->
+
+			<?php do_action( 'edd_reviews_voting_box_after' ); ?>
+		</div>
 
 		<?php endif; ?>
 

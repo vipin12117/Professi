@@ -1532,7 +1532,7 @@ return $form;
 				$response = array(
 				'success' => true,
 				'redirect_to' => $redirect_to,
-				'message' => __( 'Success!', 'edd_fes' ),
+				'message' => __( '¡SU PRODUCTO FUE SUBIDO EXITOSAMENTE!', 'edd_fes' ),
 				'is_post' => true
 				);
 				$response = apply_filters( 'fes_add_post_redirect', $response, $post_id, $form_id );

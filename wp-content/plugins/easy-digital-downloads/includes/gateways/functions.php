@@ -118,7 +118,7 @@ function edd_get_gateway_checkout_label( $gateway ) {
 	$label    = isset( $gateways[ $gateway ] ) ? $gateways[ $gateway ]['checkout_label'] : $gateway;
 
 	if( $gateway == 'manual' ) {
-		$label = __( 'Free Purchase', 'edd' );
+		$label = __( 'Producto gratís', 'edd' );
 	}
 
 	return apply_filters( 'edd_gateway_checkout_label', $label, $gateway );

@@ -69,8 +69,8 @@ add_filter( 'private_title_format', 'edd_wl_private_list_title' );
  */
 function edd_wl_get_default_labels() {
 	$defaults = array(
-	   'singular' => __( 'Lista de deseos', 'edd-wish-lists' ),
-	   'plural' => __( 'Listas de deseos', 'edd-wish-lists')
+	   'singular' => __( 'LISTA', 'edd-wish-lists' ),
+	   'plural' => __( 'LISTAS', 'edd-wish-lists')
 	);
 
 	return apply_filters( 'edd_wl_default_labels', $defaults );

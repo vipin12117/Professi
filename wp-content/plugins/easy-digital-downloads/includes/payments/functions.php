@@ -545,8 +545,8 @@ function edd_get_payment_status( $payment, $return_label = false ) {
  */
 function edd_get_payment_statuses() {
 	$payment_statuses = array(
-		'pending'   => __( 'Pending', 'edd' ),
-		'publish'   => __( 'Complete', 'edd' ),
+		'pending'   => __( 'Transacción incompleta', 'edd' ),
+		'publish'   => __( 'Realizado', 'edd' ),
 		'refunded'  => __( 'Refunded', 'edd' ),
 		'failed'    => __( 'Failed', 'edd' ),
 		'abandoned' => __( 'Abandoned', 'edd' ),

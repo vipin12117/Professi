@@ -131,8 +131,8 @@ add_action( 'init', 'edd_setup_edd_post_types', 1 );
  */
 function edd_get_default_labels() {
 	$defaults = array(
-	   'singular' => __( 'Download', 'edd' ),
-	   'plural' => __( 'Downloads', 'edd')
+	   'singular' => __( 'tienda', 'edd' ),
+	   'plural' => __( 'tiendas', 'edd')
 	);
 	return apply_filters( 'edd_default_downloads_name', $defaults );
 }

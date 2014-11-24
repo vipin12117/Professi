@@ -139,35 +139,35 @@ function edd_process_register_form( $data ) {
 	do_action( 'edd_pre_process_register_form' );
 
 	if( empty( $data['edd_user_login'] ) ) {
-		edd_set_error( 'empty_username', __( 'Invalid username', 'edd' ) );
+		edd_set_error( 'empty_username', __( 'Nombre de usuario no válido', 'edd' ) );
 	}
 
 	if( username_exists( $data['edd_user_login'] ) ) {
-		edd_set_error( 'username_unavailable', __( 'Username already taken', 'edd' ) );
+		edd_set_error( 'username_unavailable', __( 'NOMBRE DE USUARIO YA EXISTE', 'edd' ) );
 	}
 
 	if( ! validate_username( $data['edd_user_login'] ) ) {
-		edd_set_error( 'username_invalid', __( 'Invalid username', 'edd' ) );
+		edd_set_error( 'username_invalid', __( 'Nombre de usuario no válido', 'edd' ) );
 	}
 
 	if( email_exists( $data['edd_user_email'] ) ) {
-		edd_set_error( 'email_unavailable', __( 'Email address already taken', 'edd' ) );
+		edd_set_error( 'email_unavailable', __( 'Dirección de correo electrónico ya adoptadas', 'edd' ) );
 	}
 
 	if( empty( $data['edd_user_email'] ) || ! is_email( $data['edd_user_email'] ) ) {
-		edd_set_error( 'email_invalid', __( 'Invalid email', 'edd' ) );
+		edd_set_error( 'email_invalid', __( 'CORREO ELECTRÓNICO NO VÁLIDO', 'edd' ) );
 	}
 
 	if( ! empty( $data['edd_payment_email'] ) && $data['edd_payment_email'] != $data['edd_user_email'] && ! is_email( $data['edd_payment_email'] ) ) {
-		edd_set_error( 'payment_email_invalid', __( 'Invalid payment email', 'edd' ) );
+		edd_set_error( 'payment_email_invalid', __( 'Email de pago válida', 'edd' ) );
 	}
 
 	if( empty( $_POST['edd_user_pass'] ) ) {
-		edd_set_error( 'empty_password', __( 'Please enter a password', 'edd' ) );
+		edd_set_error( 'empty_password', __( 'Por favor, ingrese una contraseña', 'edd' ) );
 	}
 
 	if( ( ! empty( $_POST['edd_user_pass'] ) && empty( $_POST['edd_user_pass2'] ) ) || ( $_POST['edd_user_pass'] !== $_POST['edd_user_pass2'] ) ) {
-		edd_set_error( 'password_mismatch', __( 'Passwords do not match', 'edd' ) );
+		edd_set_error( 'password_mismatch', __( 'LAS CONTRASEÑAS NO SON IGUALES', 'edd' ) );
 	}
 
 	do_action( 'edd_process_register_form' );

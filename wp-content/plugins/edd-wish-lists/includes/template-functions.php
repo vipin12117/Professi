@@ -521,7 +521,7 @@ function edd_wl_delete_list_link( $args = array() ) {
 
 	$defaults = apply_filters( 'edd_wl_delete_list_link_defaults', 
 		array(
-			'text' 		=> sprintf( __( 'Delete %s', 'edd-wish-lists' ), edd_wl_get_label_singular( true ) ),
+			'text' 		=> sprintf( __( 'Borrar esta lista de deseos', 'edd-wish-lists' ), edd_wl_get_label_singular( true ) ),
 			'class'		=> '',
 			'wrapper' 	=> 'p',
 		)

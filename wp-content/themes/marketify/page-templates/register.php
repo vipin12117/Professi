@@ -26,9 +26,9 @@ get_header();
                 <!-- /CONTENT -->
                 <!-- FEATURES -->
                 <ul class="features">
-                    <li><span i class="fa fa-cog"></span>- Enriquezca la calidad de su enseñanza</li>
-                    <li><span i class="fa fa-star"></span> -  Libere valioso tiempo personal</li>
-                    <li><span i class="fa-fa-dashboard"></span> - Colabore con maestros innovadores</li>
+                    <li><span i class="fa fa-star"></span> Libere valioso tiempo personal</li>
+                    <li><span i class="fa fa-cog"></span> Enriquezca la calidad de su enseñanza</li>
+                    <li><span i class="fa fa-cloud"></span> Colabore con maestros innovadores</li>
 					<p> <a href="<?php echo esc_url( home_url( '/register-buyer' ) ); ?>" class="redbut inaction-button">¡Únase Ya!</a></p>
                 </ul>
 			
@@ -51,14 +51,13 @@ get_header();
                         <span>  Gratis</span>
                        
                     </p>
-                    <p class="hint">Comparta sus recursos educativos con otros profesores y...</p>
+                    <p class="hint">Comparta sus recursos con otros profesores y...</p>
                 </div>
                 <!-- /CONTENT -->
                 <!-- FEATURES -->
                 <ul class="features">
                     <li><span i class="fa fa-cog"></span>Aumente sus ingresos</li>
                     <li><span i class="fa fa-star"></span>Obtenga mayor reconocimiento</li>
-                    <li><span i class="fa-fa-dashboard"></span>Mejore sus productos al recibir críticas constructivas</li>
                     <li><span i class="fa fa-cloud"></span>Acceda a sus materiales de donde quiera</li>
 					<p> <a href="<?php echo esc_url( home_url( '/register/register-seller/' ) ); ?>" class="redbut inaction-button">¡Únase Ya!</a></p>
                 </ul>
@@ -75,12 +74,12 @@ get_header();
 			
 			 <!-- PERSONAL -->
             <div class="block personal fl">
-                <h2 class="title">Cuenta: INSTITUCIÓN EDUCATIVA</h2>
+                <h2 class="title">Cuenta: Institución Educativa</h2>
                 <!-- CONTENT -->
                 <div class="content">
                     <p class="price">
                       <span><i class="fa fa-graduation-cap"></i></span> </br>
-                        <span>  Muy Pronto</span>
+                        <span> Pronto</span>
                        
                     </p>
                     <p class="hint">Para colegios y otras instituciones relevantes...</p>
@@ -88,10 +87,9 @@ get_header();
                 <!-- /CONTENT -->
                 <!-- FEATURES -->
                 <ul class="features">
-                    <li><span i class="fa fa-cog"></span>Mantenga a sus maestros felices y motivados</li>
+                    <li><span i class="fa fa-cog"></span>Mantenga a sus maestros motivados</li>
                     <li><span i class="fa fa-star"></span>Mejore la experiencia educativa de sus estudiantes</li>
-                    <li><span i class="fa-fa-dashboard"></span>Permanezca en la vanguardia de las innovaciones educativas</li>
-                    <li><span i class="fa fa-cloud"></span>) Ayude a estimular la creación de recursos educativos excepcionales</li>
+                    <li><span i class="fa fa-cloud"></span> Estimule la creación de recursos excepcionales</li>
 					<p> <a href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="redbut inaction-button">¡Próximamente!</a></p>
                 </ul>
 			

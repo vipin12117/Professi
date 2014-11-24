@@ -107,16 +107,6 @@ get_header(); ?>
 						
 					</div>
 					
-			
-					
-					
-								
-			
-
-					
-			
-					
-					
 				<?php ?>
 				
 				<div class="download-product-review-details content-items clearfix">
@@ -127,7 +117,7 @@ get_header(); ?>
 					<section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-12 col-xs-12">
 						<main id="main" class="site-main" role="main">
 
-							<div class="the-title-home"><?php marketify_downloads_section_title();?></div>
+							<div class="the-title-home">PRODUCTOS DESTACADOS</div>
 							<div class="clearfix">
 								<?php echo do_shortcode( sprintf( '[downloads number="%s"]', get_option( 'posts_per_page' ) ) ); ?>
 							</div>

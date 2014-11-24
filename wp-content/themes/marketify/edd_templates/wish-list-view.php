@@ -66,7 +66,7 @@ if($viewWhishlist === false) {
 	<div class="header">
 		<div class="page-title fontsforweb_fontid_9785"><?php echo $list->post_content; ?></div>
 	</div>
-	<div class="view-whishlist" >
+	<div class="view-whishlist" style="display:none;">
 		<hr/>
 			<div class="view-icon-list fontsforweb_fontid_9785"><span>Ver: </span><a href="#" class="view box"></a><a class="view list" href="#"></a></div>
 		<hr/>
@@ -90,7 +90,7 @@ if($viewWhishlist === false) {
 		<div class="clearfix">
 			<div class="left">
 				
-				<span>Showing </span><span><?php echo ($downloads->current_post + 2); ?>-<?php echo $max_current; ?> of <?php echo $downloads->found_posts; ?></span>
+				<span>Mostrando  </span><span><?php echo ($downloads->current_post + 2); ?>-<?php echo $max_current; ?> de <?php echo $downloads->found_posts; ?></span>
 				<?php
 				if($current_page > 1) {
 					echo "<span>&nbsp;Back</span>";	
@@ -112,7 +112,7 @@ if($viewWhishlist === false) {
 	if ( 'private' !== get_post_status( $list_id ) ) : ?>
 		<div class="edd-wl-sharing">
 			<h3>
-				<?php _e( 'Share', 'edd-wish-lists' ); ?>
+				<?php _e( 'Comparte', 'edd-wish-lists' ); ?>
 			</h3>
 			<p>
 				<?php
@@ -147,6 +147,6 @@ if($viewWhishlist === false) {
 */
 if ( edd_wl_is_users_list( $list_id ) ) : ?>
 
-	<p><a href="<?php echo edd_wl_get_wish_list_edit_uri( $list_id ); ?>"><?php printf( __( 'Edit %s', 'edd-wish-lists' ), edd_wl_get_label_singular( true ) ); ?></a></p>
+	<p><a href="<?php echo edd_wl_get_wish_list_edit_uri( $list_id ); ?>"><?php printf( __( 'Editar esta lista de deseos', 'edd-wish-lists' ), edd_wl_get_label_singular( true ) ); ?></a></p>
 
 <?php endif; wp_reset_query(); ?>

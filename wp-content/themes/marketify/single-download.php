@@ -95,7 +95,7 @@ $author = get_the_author();
 								<span class="controls gray-light"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
 							</div>
 							<div class="control-group">
-								<span class="control-label lv2">CALIFICACIÓN DE PRODUCTOS </span>
+								<span class="control-label lv2">EVALUACIÓN DEL PRODUCTO </span>
 								<span class="controls gray-light">
 									<div class="star-ratings">
 										<?php $j = 0; for($i = 0; $i < $full; ++ $i)  {?>
@@ -116,14 +116,14 @@ $author = get_the_author();
 										echo $rating; 
 										?></span>
 									</div>
-									<div class="ratings"><?php echo $ratingCount; ?> calificaciones</div>
+									<div class="ratings"><?php echo $ratingCount; ?>  comentario(s)</div>
 								</span>
 							</div>
 							<div class="control-group clearfix">
 								<span class="control-label lv2"></span>
 								<br/>
 								<span class="control-label lv2 left"></span>
-								<span class="controls file-comment">Asegúrese de que usted tenga un programa para abrir este tipo de archivo antes de descargar y / o comprar.</span>
+								<span class="controls file-comment">Asegúrese de tener un programa para abrir este tipo de archivo antes de descargar y / o comprar.</span>
 								<br/>
 								<span class="control-label lv2 left"></span>
 								
@@ -154,12 +154,12 @@ $author = get_the_author();
 					<span class="gray-light" style="float:left;word-wrap:break-word;width:95%"><?php echo str_replace(array("\n"), '<br/>', $data_custom['add_description'][0]); ?></span>
 				</div>
 				<br clear="all" />
-				<div class="info-post">NÚMEROS DE PÁGINAS:<span class="gray-light"><?php echo $data_custom['add_number_of_pages_or_slides'][0]?></span></div>
+				<div class="info-post">NÚMERO DE PÁGINAS:<span class="gray-light"><?php echo $data_custom['add_number_of_pages_or_slides'][0]?></span></div>
 				<div class="info-post">DURACIÓN DE LA ENSEÑANZA:<span class="gray-light"><?php echo $data_custom['add_teaching_duration'][0]?></span></div>
 				<div class="report-post gray-light"><a href="mailto:<?php echo get_the_author_meta( 'email' )?>"><i class="report-icon"></i> Infórmenos de cualquier  violación de derechos del autor </a></div>
 			</div>
 			<hr/>
-			<div class="comment-post">
+			<div class="comment-post" style="display:none;">
 				<div class="post-title fontsforweb_fontid_9785">
 					<span>COMENTARIOS Y RATINGS</span>
 				</div>
@@ -290,7 +290,7 @@ $author = get_the_author();
 			<div class="download-product-details action-container fontsforweb_fontid_9785"><!--#action-container -->
 				<div class="price"><?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
 				<!--<div class="type">Digital Download</div>-->
-				<div class="add-to-card"><a id="main-add-to-card" href="#">AÑADIR AL CARRITO</a></div>
+				<div class="add-to-card"><a id="main-add-to-card" href="#">COMPRAR</a></div>
 				<!-- <div class="by-licence"><a href="#">BUY LICENCE TO SHARE</a></div> -->
 				
 				<div class="add-wish-list"><a class="edd-add-to-cart-from-wish-list edd-wl-open-modal edd-has-js" href="#"
@@ -298,7 +298,7 @@ $author = get_the_author();
 				data-download-id="<?php echo $post->ID; ?>"
 				data-variable-price="no"
 				data-price-mode="single"
-				><i class="add-wl"></i>FAVORITO</a></div>
+				><i class="add-wl"></i>LISTA DE DESEOS</a></div>
 				<hr/>
 				<div class="user-info clearfix">
 					<div class="avatar-info left">

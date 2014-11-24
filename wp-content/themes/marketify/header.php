@@ -7,7 +7,7 @@
  * @package Marketify
  */
 ?><!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html lang="es" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -93,8 +93,7 @@ $(function() {
 
                                     <?php endif;?>
 
-                                    <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Favoritos</a></li>
-                                    <li class="pull-left btn"> <?php echo do_shortcode('[edd_select_currency]');?></li>
+                                    <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Lista de deseos</a></li>                                    <li class="pull-left btn"> <?php echo do_shortcode('[edd_select_currency]');?></li>
                             </ul>
                     </div>
                 </div>

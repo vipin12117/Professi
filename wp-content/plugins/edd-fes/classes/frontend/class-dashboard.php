@@ -299,7 +299,7 @@ class FES_Dashboard {
 			$time_diff = time() - $time;
 
 			if ( $time_diff > 0 && $time_diff < 24 * 60 * 60 ) {
-				$h_time = sprintf( __( '%s ago', 'edd_fes' ), human_time_diff( $time ) );
+				$h_time = sprintf( __( 'Hace %s', 'edd_fes' ), human_time_diff( $time ) );
 			} else {
 				$h_time = mysql2date( __( 'Y/m/d', 'edd_fes' ), $m_time );
 			}
@@ -325,7 +325,7 @@ class FES_Dashboard {
         	<a href="<?php echo add_query_arg( array( 'status' => $status ) ); ?>" title="<?php echo $this->post_status_to_display( $status ); ?>" class="btn btn-mini edit-product-fes"><?php echo $this->post_status_to_display( $status ); ?></a>&nbsp|&nbsp;
        	<?php } ?>
 
-       		<a href="<?php echo remove_query_arg( array( 'status' ) ); ?>" title="<?php _e( 'All', 'edd_fes' ); ?>" class="btn btn-mini edit-product-fes"><?php _e( 'All', 'edd_fes' ); ?></a>
+       		<a href="<?php echo remove_query_arg( array( 'status' ) ); ?>" title="<?php _e( 'Todos', 'edd_fes' ); ?>" class="btn btn-mini edit-product-fes"><?php _e( 'Todos', 'edd_fes' ); ?></a>
        	<?php
 		echo '</div>';
 	}
@@ -352,6 +352,8 @@ class FES_Dashboard {
 					'total' => $num_of_pages,
 					'base' => str_replace( 9999999 , '%#%', esc_url( get_pagenum_link( 9999999 ) ) ),
 					'current' => max( 1, get_query_var( 'paged' ) ),
+					'prev_text' => __('&laquo; Anterior'),
+					'next_text' => __('SIGUIENTE &raquo;'),
 				) );
 			echo '</div>';
 		}
@@ -382,7 +384,7 @@ class FES_Dashboard {
 			return apply_filters( 'fes_product_list_product_status_css', $status, $post );
 		}
 		if ( $status == 'publish' ) {
-			$status = __( 'Live', 'edd_fes' );
+			$status = __( 'Aprobado', 'edd_fes' );
 		}
 		elseif ( $status == 'draft' ) {
 			$status = __( 'Draft', 'edd_fes' );
@@ -449,13 +451,13 @@ class FES_Dashboard {
 	public function post_status_to_display( $status ) {
 
 		if ( $status == 'publish' ) {
-			$status = __( 'Vivo', 'edd_fes' );
+			$status = __( 'Aprobado', 'edd_fes' );
 		}
 		elseif ( $status == 'draft' ) {
 			$status = __( 'borrador', 'edd_fes' );
 		}
 		elseif ( $status == 'pending' ) {
-			$status = __( 'Pendiente de Revisión', 'edd_fes' );
+			$status = __( 'En trámite de aprobación', 'edd_fes' );
 		}
 		elseif ( $status == 'future' ) {
 			$status = __( 'Previsto para su lanzamiento', 'edd_fes' );

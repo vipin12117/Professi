@@ -14,7 +14,7 @@ $public 	= edd_wl_get_query( 'public' ); // get the public lists
  * Private lists
 */
 if ( $private ) : ?>
-	<h3><?php echo sprintf( __( 'privado %s', 'edd-wish-lists' ), edd_wl_get_label_plural() ); ?></h3>
+	<h3><?php echo sprintf( __( 'PRIVADA %s', 'edd-wish-lists' ), edd_wl_get_label_plural() ); ?></h3>
 	<ul class="edd-wish-list">
 	<?php foreach ( $private as $id ) : ?>
 		<li>
@@ -36,7 +36,7 @@ if ( $private ) : ?>
  * Public lists
 */
 if ( $public ) : ?>
-	<h3><?php echo sprintf( __( 'público %s', 'edd-wish-lists' ), edd_wl_get_label_plural() ); ?></h3>
+	<h3><?php echo sprintf( __( 'PÚBLICA %s', 'edd-wish-lists' ), edd_wl_get_label_plural() ); ?></h3>
 	<ul class="edd-wish-list">
 	<?php foreach ( $public as $id ) : ?>
 		<li>

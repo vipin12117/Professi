@@ -93,7 +93,7 @@ if($_POST['edd_submit'] && $_POST['user_login']){
 	}
 }
 elseif($_POST['edd_submit']){
-	$error = "Por favor, introduzca la dirección de correo electrónico válida o nombre de usuario";
+	$error = "DISCULPA, TUVIMOS UN PROBLEMA PROCESANDO SU INFORMACIÓN. POR FAVOR INTENTE DE NUEVO.";
 }
 ?>
 <div class="container seller">	

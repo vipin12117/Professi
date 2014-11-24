@@ -153,7 +153,8 @@ function edd_wl_get_wish_lists( $download_id, $price_ids, $items, $price_option_
 	$messages = edd_wl_messages();
 
 	global $edd_options;
-	$text = ! empty( $edd_options[ 'edd_wl_add_to_wish_list' ] ) ? $edd_options[ 'edd_wl_add_to_wish_list' ] : sprintf( __( 'Add to %s', 'edd-wish-lists' ), edd_wl_get_label_singular( true ) );
+	$edd_options['edd_wl_add_to_wish_list'] = 'AÑADIR LISTA DE DESEOS';
+	$text = ! empty( $edd_options[ 'edd_wl_add_to_wish_list' ] ) ? $edd_options[ 'edd_wl_add_to_wish_list' ] : sprintf( __( 'AÑADIR LISTA DE DESEOS', 'edd-wish-lists' ), edd_wl_get_label_singular( true ) );
 ?>
 
 <div class="modal-header">
@@ -222,7 +223,7 @@ function edd_wl_get_wish_lists( $download_id, $price_ids, $items, $price_option_
 		            	*/
 		            	if ( $public ) : ?>
 
-		            	  <optgroup label="Public">
+		            	  <optgroup label="PÚBLICA">
 		            	 
 		            	  <?php foreach ( $public as $id ) : ?>
 		            	    <option value="<?php echo $id; ?>"><?php echo get_the_title( $id ) . ' ' . edd_wl_get_item_count( $id ); ?></option>  
@@ -238,7 +239,7 @@ function edd_wl_get_wish_lists( $download_id, $price_ids, $items, $price_option_
 		              */
 		              if ( $private ) : ?>
 
-		                <optgroup label="Private">
+		                <optgroup label="PRIVADA">
 		               
 		                <?php foreach ( $private as $id ) : ?>
 		                  <option value="<?php echo $id; ?>"><?php echo get_the_title( $id ) . ' ' . edd_wl_get_item_count( $id ); ?></option> 

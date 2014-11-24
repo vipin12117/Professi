@@ -6,10 +6,10 @@ if ( $purchases ) : ?>
 		<thead>
 			<tr class="edd_purchase_row">
 				<?php do_action('edd_purchase_history_header_before'); ?>
-				<th class="edd_purchase_id"><?php _e('ID', 'edd'); ?></th>
-				<th class="edd_purchase_date"><?php _e('Date', 'edd'); ?></th>
-				<th class="edd_purchase_amount"><?php _e('Amount', 'edd'); ?></th>
-				<th class="edd_purchase_details"><?php _e('Details', 'edd'); ?></th>
+				<th class="edd_purchase_id"><?php _e('N°', 'edd'); ?></th>
+				<th class="edd_purchase_date"><?php _e('FECHA', 'edd'); ?></th>
+				<th class="edd_purchase_amount"><?php _e('MONTO', 'edd'); ?></th>
+				<th class="edd_purchase_details"><?php _e('DETALLES', 'edd'); ?></th>
 				<?php do_action('edd_purchase_history_header_after'); ?>
 			</tr>
 		</thead>
@@ -27,7 +27,7 @@ if ( $purchases ) : ?>
 					<span class="edd_purchase_status <?php echo $post->post_status; ?>"><?php echo edd_get_payment_status( $post, true ); ?></span>
 					<a href="<?php echo add_query_arg( 'payment_key', edd_get_payment_key( $post->ID ), edd_get_success_page_uri() ); ?>">&raquo;</a>
 					<?php else: ?>
-					<a href="<?php echo add_query_arg( 'payment_key', edd_get_payment_key( $post->ID ), edd_get_success_page_uri() ); ?>"><?php _e( 'View Details and Downloads', 'edd' ); ?></a>
+					<a href="<?php echo add_query_arg( 'payment_key', edd_get_payment_key( $post->ID ), edd_get_success_page_uri() ); ?>"><?php _e( 'Ver producto', 'edd' ); ?></a>
 					<?php endif; ?>
 				</td>
 				<?php do_action( 'edd_purchase_history_row_end', $post->ID, $purchase_data ); ?>
@@ -47,5 +47,5 @@ if ( $purchases ) : ?>
 	</div>
 	<?php wp_reset_postdata(); ?>
 <?php else : ?>
-	<p class="edd-no-purchases"><?php _e('You have not made any purchases', 'edd'); ?></p>
+	<p class="edd-no-purchases"><?php _e('Usted no ha realizado ninguna compra.', 'edd'); ?></p>
 <?php endif;

@@ -12,7 +12,7 @@ $privacy    = get_post_status( $post_id );
 ?>
 
 <h3>
-	<?php _e( 'Settings', 'edd-wish-lists' ); ?>
+	<?php _e( 'EDITAR LISTA DE DESEOS', 'edd-wish-lists' ); ?>
 </h3>
 
 <form action="<?php echo add_query_arg( 'updated', true ); ?>" class="wish-list-form" method="post">
@@ -31,7 +31,7 @@ $privacy    = get_post_status( $post_id );
 	  </select>
 	</p>
 	<p> 
-	    <input type="submit" value="<?php _e( 'actualización', 'edd-wish-lists' ); ?>" class="button">
+	    <input type="submit" value="<?php _e( 'ACTUALIZAR', 'edd-wish-lists' ); ?>" class="button">
 	</p>
 
 	<input type="hidden" name="submitted" id="submitted" value="true">

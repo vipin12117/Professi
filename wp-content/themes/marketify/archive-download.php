@@ -269,7 +269,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 										</div>
 										<br />
 										
-										<div class="type">Digital Download</div>
+										<div class="type">Tipo de archivo</div>
 										<div class="control-group clearfix">
 											<span class="control-label lv2"></span>
 											<span class="controls gray-light">

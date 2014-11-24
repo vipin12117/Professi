@@ -509,7 +509,9 @@ function edd_downloads_query( $atts, $content = null ) {
 						'base'    => get_permalink() . '%#%',
 						'format'  => '?paged=%#%',
 						'current' => max( 1, $query['paged'] ),
-						'total'   => $downloads->max_num_pages
+						'total'   => $downloads->max_num_pages,
+						'prev_text' => __('&laquo; Anterior'),
+						'next_text' => __('SIGUIENTE &raquo;'),
 					), $atts, $downloads, $query ) );
 				} else {
 					$big = 999999;
@@ -517,12 +519,13 @@ function edd_downloads_query( $atts, $content = null ) {
 						'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 						'format'  => '?paged=%#%',
 						'current' => max( 1, $query['paged'] ),
-						'total'   => $downloads->max_num_pages
+						'total'   => $downloads->max_num_pages,
+						'prev_text' => __('&laquo; Anterior'),
+						'next_text' => __('SIGUIENTE &raquo;'),
 					), $atts, $downloads, $query ) );
 				}
 				?>
 			</div>
-
 		</div>
 		<?php
 		$display = ob_get_clean();

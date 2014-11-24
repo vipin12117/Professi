@@ -177,7 +177,7 @@ function edd_ajax_add_to_wish_list() {
 		// get URL of list
 		$url = get_permalink( $list_id );
 
-		$return['success'] = sprintf( __( 'Successfully added to <strong>%s</strong>', 'edd-wish-lists' ), '<a href="' . $url . '">' . $title . '</a>' );
+		$return['success'] = sprintf( __( 'Agregado exitosamente a <strong>%s</strong>', 'edd-wish-lists' ), '<a href="' . $url . '">' . $title . '</a>' );
 
 		echo json_encode( $return );
 	}

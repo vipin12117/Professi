@@ -17,7 +17,7 @@ $status    = edd_get_payment_status( $payment, true );
 
 		<?php if ( $edd_receipt_args['payment_id'] ) : ?>
 		<tr>
-			<th><strong><?php _e( 'Payment', 'edd' ); ?>:</strong></th>
+			<th><strong><?php _e( 'DETALLES DE LA COMPRA', 'edd' ); ?>:</strong></th>
 			<th><?php echo edd_get_payment_number( $payment->ID ); ?></th>
 		</tr>
 		<?php endif; ?>
@@ -26,7 +26,7 @@ $status    = edd_get_payment_status( $payment, true );
 	<tbody>
 
 		<tr>
-			<td class="edd_receipt_payment_status"><strong><?php _e( 'Payment Status', 'edd' ); ?>:</strong></td>
+			<td class="edd_receipt_payment_status"><strong><?php _e( 'Estado del pago', 'edd' ); ?>:</strong></td>
 			<td class="edd_receipt_payment_status <?php echo strtolower( $status ); ?>"><?php echo $status; ?></td>
 		</tr>
 
@@ -39,13 +39,13 @@ $status    = edd_get_payment_status( $payment, true );
 
 		<?php if ( $edd_receipt_args['payment_method'] ) : ?>
 			<tr>
-				<td><strong><?php _e( 'Payment Method', 'edd' ); ?>:</strong></td>
+				<td><strong><?php _e( 'Método de pago', 'edd' ); ?>:</strong></td>
 				<td><?php echo edd_get_gateway_checkout_label( edd_get_payment_gateway( $payment->ID ) ); ?></td>
 			</tr>
 		<?php endif; ?>
 		<?php if ( $edd_receipt_args['date'] ) : ?>
 		<tr>
-			<td><strong><?php _e( 'Date', 'edd' ); ?>:</strong></td>
+			<td><strong><?php _e( 'Fecha', 'edd' ); ?>:</strong></td>
 			<td><?php echo date_i18n( get_option( 'date_format' ), strtotime( $meta['date'] ) ); ?></td>
 		</tr>
 		<?php endif; ?>
@@ -91,7 +91,7 @@ $status    = edd_get_payment_status( $payment, true );
 			</tr>
 
 			<tr>
-				<td><strong><?php _e( 'Total Price', 'edd' ); ?>:</strong></td>
+				<td><strong><?php _e( 'Precio Total', 'edd' ); ?>:</strong></td>
 				<td><?php echo edd_payment_amount( $payment->ID ); ?></td>
 			</tr>
 
@@ -105,18 +105,18 @@ $status    = edd_get_payment_status( $payment, true );
 
 <?php if ( $edd_receipt_args[ 'products' ] ) : ?>
 
-	<h3><?php echo apply_filters( 'edd_payment_receipt_products_title', __( 'Products', 'edd' ) ); ?></h3>
+	<h3><?php echo apply_filters( 'edd_payment_receipt_products_title', __( 'PRODUCTOS', 'edd' ) ); ?></h3>
 
 	<table id="edd_purchase_receipt_products">
 		<thead>
-			<th><?php _e( 'Name', 'edd' ); ?></th>
+			<th><?php _e( 'NOMBRE', 'edd' ); ?></th>
 			<?php if ( edd_use_skus() ) { ?>
 				<th><?php _e( 'SKU', 'edd' ); ?></th>
 			<?php } ?>
 			<?php if ( edd_item_quantities_enabled() ) : ?>
 				<th><?php _e( 'Quantity', 'edd' ); ?></th>
 			<?php endif; ?>
-			<th><?php _e( 'Price', 'edd' ); ?></th>
+			<th><?php _e( 'PRECIO', 'edd' ); ?></th>
 		</thead>
 
 		<tbody>

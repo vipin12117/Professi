@@ -3,9 +3,9 @@
 	<thead>
 		<tr class="edd_cart_header_row">
 			<?php do_action( 'edd_checkout_table_header_first' ); ?>
-			<th class="edd_cart_item_name"><?php _e( 'Item Name', 'edd' ); ?></th>
-			<th class="edd_cart_item_price"><?php _e( 'Item Price', 'edd' ); ?></th>
-			<th class="edd_cart_actions"><?php _e( 'Actions', 'edd' ); ?></th>
+			<th class="edd_cart_item_name"><?php _e( 'Nombre del artículo', 'edd' ); ?></th>
+			<th class="edd_cart_item_price"><?php _e( 'Precio del artículo', 'edd' ); ?></th>
+			<th class="edd_cart_actions"><?php _e( 'Acciones', 'edd' ); ?></th>
 			<?php do_action( 'edd_checkout_table_header_last' ); ?>
 		</tr>
 	</thead>
@@ -37,7 +37,7 @@
 							<input type="hidden" name="edd-cart-downloads[]" value="<?php echo $item['id']; ?>"/>
 							<input type="hidden" name="edd-cart-download-<?php echo $key; ?>-options" value="<?php echo esc_attr( serialize( $item['options'] ) ); ?>"/>
 						<?php endif; ?>
-						<a class="edd_cart_remove_item_btn" href="<?php echo esc_url( edd_remove_item_url( $key, $post ) ); ?>"><?php _e( 'Remove', 'edd' ); ?></a>
+						<a class="edd_cart_remove_item_btn" href="<?php echo esc_url( edd_remove_item_url( $key, $post ) ); ?>"><?php _e( 'Retirar', 'edd' ); ?></a>
 					</td>
 					<?php do_action( 'edd_checkout_table_body_last', $item ); ?>
 				</tr>
@@ -52,7 +52,7 @@
 					<td class="edd_cart_fee_amount"><?php echo esc_html( edd_currency_filter( edd_format_amount( $fee['amount'] ) ) ); ?></td>
 					<td>
 						<?php if( ! empty( $fee['type'] ) && 'item' == $fee['type'] ) : ?>
-							<a href="<?php echo esc_url( edd_remove_cart_fee_url( $fee_id ) ); ?>"><?php _e( 'Remove', 'edd' ); ?></a>
+							<a href="<?php echo esc_url( edd_remove_cart_fee_url( $fee_id ) ); ?>"><?php _e( 'Retirar', 'edd' ); ?></a>
 						<?php endif; ?>
 					</td>
 				</tr>

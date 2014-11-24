@@ -36,7 +36,7 @@ get_header(); ?>
 						<?php echo esc_attr( $author->description ); ?>
 					</div>
 
-					<div class="download-author-sales">
+					<div class="download-author-sales" style="display:none;">
 						<?php
 							$loves = get_user_option( 'li_user_loves', $author->ID );
 
