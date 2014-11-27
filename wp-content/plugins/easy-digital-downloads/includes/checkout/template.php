@@ -130,7 +130,7 @@ function edd_user_info_fields() {
 		$user_data = get_userdata( get_current_user_id() );
 	endif;
 	?>
-	<fieldset id="edd_checkout_user_info">
+	<fieldset id="edd_checkout_user_info" style="display:none;">
 		<span><legend><?php echo apply_filters( 'edd_checkout_personal_info_text', __( 'INFORMACIÓN PERSONAL', 'edd' ) ); ?></legend></span>
 		<?php do_action( 'edd_purchase_form_before_email' ); ?>
 		<p id="edd-email-wrap">
@@ -152,7 +152,7 @@ function edd_user_info_fields() {
 				<?php } ?>
 			</label>
 			<span class="edd-description"><?php _e( 'Utilizaremos esta información para personalizar su experiencia.', 'edd' ); ?></span>
-			<input class="edd-input required" type="text" name="edd_first" placeholder="<?php _e( 'Primer Nombre', 'edd' ); ?>" id="edd-first" value="<?php echo is_user_logged_in() ? $user_data->first_name : ''; ?>"/>
+			<input class="edd-input required" type="text" name="edd_first" placeholder="<?php _e( 'Primer Nombre', 'edd' ); ?>" id="edd-first" value="<?php echo is_user_logged_in() ? $user_data->display_name : ''; ?>"/>
 		</p>
 		<p id="edd-last-name-wrap">
 			<label class="edd-label" for="edd-last">
@@ -162,7 +162,7 @@ function edd_user_info_fields() {
 				<?php } ?>
 			</label>
 			<span class="edd-description"><?php _e( 'Utilizaremos esta información para personalizar su experiencia.', 'edd' ); ?></span>
-			<input class="edd-input<?php if( edd_field_is_required( 'edd_last' ) ) { echo ' required'; } ?>" type="text" name="edd_last" id="edd-last" placeholder="<?php _e( 'Apellido', 'edd' ); ?>" value="<?php echo is_user_logged_in() ? $user_data->last_name : ''; ?>"/>
+			<input class="edd-input<?php if( edd_field_is_required( 'edd_last' ) ) { echo ' required'; } ?>" type="text" name="edd_last" id="edd-last" placeholder="<?php _e( 'Apellido', 'edd' ); ?>" value="<?php echo is_user_logged_in() ? $user_data->display_name : ''; ?>"/>
 		</p>
 		<?php do_action( 'edd_purchase_form_user_info' ); ?>
 	</fieldset>

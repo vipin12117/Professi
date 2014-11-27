@@ -60,7 +60,7 @@ if(strlen($s) > 1){
 	//check category name for keyword
 	$term_ids   = $wpdb->get_row("select group_concat(term_id) as term_ids from wp_terms where name like '%$s%'");
 	$keyword_or = "";
-	if($term_ids){
+	if($term_ids->term_ids){
 		$term_ids = $term_ids->term_ids;
 		$keyword_or = " OR ( p.ID IN ( select object_id from wp_term_relationships where term_taxonomy_id IN($term_ids) ) )";
 	}

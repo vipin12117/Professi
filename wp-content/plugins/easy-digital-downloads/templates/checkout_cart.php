@@ -1,4 +1,11 @@
 <?php global $post; ?>
+
+<?php if(!is_user_logged_in()){
+	$url = home_url("/login/");
+	echo "<script>window.location.href='$url';</script>";
+	exit;
+}?>
+
 <table id="edd_checkout_cart" <?php if ( ! edd_is_ajax_disabled() ) { echo 'class="ajaxed"'; } ?>>
 	<thead>
 		<tr class="edd_cart_header_row">
