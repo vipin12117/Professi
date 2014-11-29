@@ -27,7 +27,7 @@ function pippin_list_authors() {
 
 			$archive_url = str_replace( 'vendor', 'fes-vendor', marketify_edd_fes_author_url( $author->ID ) );
 			$list .= '<div class="edd_download_inner"><div class="entry-image">';
-			$list .= get_avatar($author->user_email , 1024);
+			$list .= get_avatar($author->user_email , 300);
 			$list .= "</div>";
 			$list .= '<header class="entry-header">
 						<h1 class="entry-title"><a rel="bookmark" href="'.$archive_url.'">'.$author->display_name.'</a></h1>

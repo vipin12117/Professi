@@ -1950,7 +1950,7 @@ body.product-display-inline .single-project .page-header,
 }
 
 .content-grid-download .entry-image {
-	position: relative;
+	position: relative;min-height: 220px;overflow: hidden;
 }
 
 .content-grid-download .entry-image a,
@@ -1963,6 +1963,9 @@ body.product-display-inline .single-project .page-header,
 
 .content-grid-download .entry-image img {
 	min-width: 90px;margin: 0 auto;
+        position: absolute;top:50%;
+        transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
 }
 
 .content-grid-download .entry-image .image-placeholder,
