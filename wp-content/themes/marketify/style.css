@@ -425,6 +425,8 @@ text-shadow: 0px -2px #9B3636;
 	border-bottom: 5px solid #669f9b;
 	text-shadow: 0px -2px #669f9b;
 	color: #fff!important;
+	font-family: 'Pacifico', cursive, sans-serif;
+font-size: 20px;
 }
 
 .action-button:active
@@ -497,6 +499,7 @@ body:not(.minimal) .edd_form legend {
     color:white!important;
     border:none!important;
     background:#b4d2d0!important;
+    min-width: 100%!important;
 }
 .button.small,
 a.button.small,

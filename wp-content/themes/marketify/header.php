@@ -89,11 +89,11 @@ $(function() {
 											<li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Cerrar sesión</a></li>
 
                                     <?php else:?>
-                                            <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>login/">Iniciar Sesión</a></li>
+                                                <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Lista de deseos</a></li>           
 
                                     <?php endif;?>
 
-                                    <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Lista de deseos</a></li>                                    <li class="pull-left btn"> <?php echo do_shortcode('[edd_select_currency]');?></li>
+                                        <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>login/">Iniciar Sesión</a></li>                     <li class="pull-left btn"> <?php echo do_shortcode('[edd_select_currency]');?></li>
                             </ul>
                     </div>
                 </div>
