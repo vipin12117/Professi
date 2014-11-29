@@ -23,12 +23,7 @@ if($viewWhishlist === false) {
 ?>
 
 <?php if(!stristr($_SERVER['REQUEST_URI'],"downloads")):?>
-	<style type="text/css">
-	   .attachment-content-grid-download{
-	      width:130px !important;
-	      height: 150px !important;
-	   }
-	</style>
+	
 <?php endif;?>
 
 <div class="entry-image">

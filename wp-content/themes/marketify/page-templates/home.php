@@ -69,38 +69,24 @@ get_header(); ?>
 						
 						</div>
 																												</div>
-							
-					<div class="row">	
+								
 					
-					<div class="col-md-12" style=" padding-top:20px; padding-bottom:5px;">
-                                            <div style="margin-left:175px;"><img src=" <?php echo get_template_directory_uri(); ?>/images/dotted_lines.png" /> </div></div>
-					
-					<div class="col-md-6">
-						
-			<div class="round_buttons"
-						<ul>
-  <li ><a href="<?php echo esc_url( home_url( '/fes-vendor/' ) ); ?>" class="round green">Start </br> Browsing<span class="round">That is, if you already have an account.</span></a></li>
- </div>
+                                            <div class="home-widget marketify_widget_featured_popular" >
+                                                <h1 class="home-widget-title">
+                                                    <span ><a href="<?php echo esc_url( home_url( '/fes-vendor/' ) ); ?>">Featured </a></span>
+                                            <span><a href="<?php echo esc_url( home_url( '/register' ) ); ?>">Popular</a></span>
+                                            </h1>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
 
-</ul> 
-<p>Discover great resources created by teachers for teachers</p>
+                                                <p>Discover great resources created by teachers for teachers</p>
 
-	</div>		
-	
-	<div class="col-md-6">
-						
-			<div class="round_buttons"
-						<ul>
+                                            </div>		
 
-  <li ><a href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="round red">Start  </br> Selling <span class="round">But only if you really, really want to. </span></a></li> </div>
-
-</ul> 
-<p>Become parts of our first
-							group of teacher sellers.
-							Sell your products and 
-							keep up to 80%</p>
-	</div>		
-</div>			
+                                            <div class="col-md-6">	
+                                                <p>Become parts of our firstgroup of teacher sellers.Sell your products and 							keep up to 80%</p>
+                                            </div>		
 						
 					<br clear="all" />
 						

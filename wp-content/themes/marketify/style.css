@@ -426,7 +426,7 @@ text-shadow: 0px -2px #9B3636;
 	text-shadow: 0px -2px #669f9b;
 	color: #fff!important;
 	font-family: 'Pacifico', cursive, sans-serif;
-font-size: 20px;
+font-size: 16px;
 }
 
 .action-button:active
@@ -454,7 +454,7 @@ text-decoration: none;
 }
 
 
-
+#green_button .blue {font-size: 16px;}
 button,
 input[type="reset"],
 input[type="submit"],
@@ -1147,7 +1147,14 @@ body:not(.minimal) .edd_form fieldset > span legend {
 	color: #bdc3c7;
 	border-color: #bdc3c7;
 }
-
+.home-widget-title span a {
+    color: #bdc3c7;
+    
+}
+.home-widget-title span a:hover {
+    color: #515a63;
+    
+}
 body:not(.minimal) .edd_form fieldset > span:first-child,
 .entry-content .fes-headers,
 body:not(.minimal) .edd_form legend {
@@ -2874,11 +2881,11 @@ object {
 ----------------------------------------------- */
 
 .home-widget {
-	margin-bottom: 100px;
+	margin-bottom: 20px;clear: both
 }
 
 .home-widget-title {
-	margin-top: 0;
+	margin-top: 20px;
 }
 
 .home-widget-description {
@@ -2934,11 +2941,20 @@ object {
 
 .marketify_widget_featured_popular .home-widget-title span {
 	cursor: pointer;
-	margin: 0 10px;
+	margin: 0  100px
+        
+}
+
+@media (max-width:1200px) {
+    .marketify_widget_featured_popular .home-widget-title span {	
+	margin: 0  10px
+        
+}
+    
 }
 
 .marketify_widget_featured_popular .home-widget-title {
-	margin-bottom: 100px;
+	margin-bottom:20px;
 }
 
 .marketify_widget_featured_popular .flex-control-nav {
@@ -6268,7 +6284,7 @@ body #edd-wl-modal input[type="email"], body  #edd-wl-modal input[type="text"],b
 .current-cart {
 top:-57px;
 left: auto;
-    right: 173px;
+    right: 200px;
   position:absolute!important; 
      border:none;background: none!important;
  
