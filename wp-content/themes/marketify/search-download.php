@@ -237,7 +237,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 								
 								<div class="col-md-4" >
 									<div class="download-product-details action-container" style="padding:5px 0 5px 10px;"><!--#action-container -->
-										<div class="price">Precio: <?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
+										<div class="price"><!--Precio: --><?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
 										<br />
 										<div class="control-group">
 											<span class="control-label lv2">EVALUACIÓN DEL PRODUCTO:</span>
