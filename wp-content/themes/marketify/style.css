@@ -1409,7 +1409,7 @@ body div.fes-form fieldset .fes-section-wrap {
 .entry-content th,
 .comment-content th,
 .edd_download_title {
-	font: 400 14px  sans-serif;
+	/*font: 400 14px  sans-serif;*/
 	color: #bdc3c7;
 	text-transform: uppercase;
 	padding: 6px 10px 6px 0;
@@ -6579,8 +6579,17 @@ background: #E3536C;
     clear: none!important;
     width: 90%;
 }  
+
+.price
+{
+	font-size:30px;
+}
+
 .i_agree_with_the_terms_of_service_and_privacy_policy > div {
     
+
+
+
 }
 /* responsive here */
 @media(max-width: 1024px) {
