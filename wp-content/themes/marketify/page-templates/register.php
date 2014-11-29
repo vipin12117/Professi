@@ -9,11 +9,11 @@ get_header();
 	<div class="container-non-responsivea">
 	    <div class="pricing_page">
  <div class="pricing-table group">
-            <h1 class="heading">
-                Resumen Precios
+            <h1 class="welcome_header">
+                REGISTRESE GRATUITAMENTE
             </h1>
-            <!-- PERSONAL -->
-            <div class="block personal fl">
+            <!-- GREENFIRST -->
+            <div class="block greenfirst fl">
                 <h2 class="title">Cuenta: Profe-Comprador</h2>
                 <!-- CONTENT -->
                 <div class="content">
@@ -29,7 +29,7 @@ get_header();
                     <li><span i class="fa fa-star"></span> Libere valioso tiempo personal</li>
                     <li><span i class="fa fa-cog"></span> Enriquezca la calidad de su enseñanza</li>
                     <li><span i class="fa fa-cloud"></span> Colabore con maestros innovadores</li>
-					<p> <a href="<?php echo esc_url( home_url( '/register-buyer' ) ); ?>" class="redbut inaction-button">¡Únase Ya!</a></p>
+					<p> <a href="<?php echo esc_url( home_url( '/register-buyer' ) ); ?>" class="redbut inaction-button">Comienza a Vender</a></p>
                 </ul>
 			
                 <!-- /FEATURES -->
@@ -88,9 +88,9 @@ get_header();
                 <!-- FEATURES -->
                 <ul class="features">
                     <li><span i class="fa fa-cog"></span>Mantenga a sus maestros motivados</li>
-                    <li><span i class="fa fa-star"></span>Mejore la experiencia educativa de sus estudiantes</li>
+                    <li><span i class="fa fa-star"></span>Eleve el aprendizaje de su alumnado</li>
                     <li><span i class="fa fa-cloud"></span> Estimule la creación de recursos excepcionales</li>
-					<p> <a href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="redbut inaction-button">¡Próximamente!</a></p>
+					<p> <a href="" onclick="return false" class="greybut inaction-button">¡Próximamente!</a></p>
                 </ul>
 			
                 <!-- /FEATURES -->

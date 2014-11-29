@@ -48,8 +48,8 @@ get_header(); ?>
 					
 					
 					<div class="download-product-review-details">
-					<h1>BIENVENIDO A PROFESI.ORG</h1>
-					<p> DONDE MAESTROS COMPARTEN COMPRAN Y VIENDEN SUS INNOVACIONES EDUCATIVAS</p>
+					<h1>¡BIENVENIDO A PROFESI.ORG!</h1>
+					<p> Donde maestros comparten, compran y venden recursos educativos</p>
 
 
 					<div class="video">

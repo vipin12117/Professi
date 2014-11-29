@@ -421,9 +421,17 @@ text-shadow: 0px -2px #9B3636;
 
 .blue
 {
+	/*
 	background-color: #8dc5c1;
 	border-bottom: 5px solid #669f9b;
 	text-shadow: 0px -2px #669f9b;
+
+*/
+
+background-color: #F06F74;
+border-bottom: 5px solid #812C2C;
+text-shadow: 0px -2px #B62C2C;
+
 	color: #fff!important;
 	font-family: 'Pacifico', cursive, sans-serif;
 font-size: 16px;
@@ -449,7 +457,7 @@ border-radius: 6px;
 /* font-family: 'Pacifico', cursive; */
 font-size: 18px;
 font-weight: 700;
-color: #FFF;
+color: #FFF!important;
 text-decoration: none;
 }
 
@@ -6328,6 +6336,8 @@ width:100%;
 .login_page #edd_login_submit {width:100%; padding: 10px 20px;}
 .login_page .welcome_header {padding-top:20px; padding-bottom:20px; font-size:30px; font-weight:700; text-align:center; width:90%; } 
 
+.pricing_page .welcome_header {padding-top:20px; padding-bottom:20px; font-size:30px; font-weight:700; text-align:center; width:90%; } 
+
  .login_page  a{color:#FFF;}
  
 
@@ -6465,6 +6475,13 @@ background: #b4d2d0;
     font-size: 12px;
 }
 
+.greybut {
+background-color: #C2C2C2;
+border-bottom: 5px solid #8B8A8A;
+text-shadow: 0px -2px #837A7A;
+}
+
+
 
 .pricing_page .features{
     list-style-type: none;    
@@ -6504,7 +6521,38 @@ margin: 0;
     display:block;
     font-weight: bold;    width: 100%;
 }
+
+
+/*GREEN*/
+.pricing_page .greenfirst{
+-webkit-box-shadow: 1px 1px 2px 1px #B8B8B8;
+box-shadow: 1px 1px 2px 1px #B8B8B8;
+background:white;
+}
+
+.pricing_page .greenfirst .title{        
+    background: #C9DBD8;    
+}
+.pricing_page .greenfirst .content,.greenfirst .pt-footer{
+    background: #1c9496;
+}
+.pricing_page .greenfirst .content:after{	
+	border-top-color: #1c9496;	
+}
+.pricing_page .greenfirst span {line-height:1em;}
+
+.pricing_page .greenfirst .pt-footer:after{
+    border-top-color: #FFFFFF;
+}
+
+.pricing_page .greenfirst h2{
+	color:#1c9496;
+
+
+}
 /*PERSONAL*/
+
+
 .pricing_page .personal{
 -webkit-box-shadow: 1px 1px 2px 1px #B8B8B8;
 box-shadow: 1px 1px 2px 1px #B8B8B8;
