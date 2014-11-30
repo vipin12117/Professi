@@ -126,7 +126,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 ?>
 <div class="container result-search main-body">
   <div class="row">
-	 <div class="left-container col-xs-12 col-sm-4 col-md-4 sidebar">
+	 <div class="left-container col-xs-12 col-sm-4 col-md-3 sidebar">
 		<aside id="selected-categories" class="widget download-single-widget widget_edd_categories_tags_widget">
 			<h1 class="download-single-widget-title"></h1>
 			<ul class="edd-taxonomy-widget">
@@ -159,7 +159,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 		<?php dynamic_sidebar( 'sidebar-download-single' ); ?>
 	</div>
 
-	<div id="content" class="right-container col-xs-12 col-sm-8 col-md-8 site-content ">
+	<div id="content" class="right-container col-xs-12 col-sm-8 col-md-9 site-content ">
 	  <div class="download-product-review-details content-items clearfix">
 		 <section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-12 col-xs-12">
 			<main id="main" class="site-main" role="main">
@@ -189,7 +189,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 									<?php edd_get_template_part( 'shortcode', 'content-image' ); ?>
 								</div>
 								
-								<div class="col-md-5">
+								<div class="col-md-6">
 									<div>
 										<?php edd_get_template_part( 'shortcode', 'content-title' ); ?>
 									</div>
@@ -219,23 +219,23 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 										  
 										  //print $rating . " -- " . $post->ID . " -- " . $ratingCount . "<br />";
 									?>
-									<div class="form-horizontal ">
-										<div class="control-group">
-											<span class="control-label">MATERIA:</span>
-											<span class="controls gray-light sub"><?php echo $category_str;?></span>
+									<div class="form-horizontal style=width:300px; ">
+										<div class="control-group row">
+											<div class="control-label col-md-3">MATERIA:</div>
+											<div class="controls green-light sub col-md-9"><?php echo $category_str;?></div>
 										</div>
-										<div class="control-group">
-											<span class="control-label">NIVEL (EDAD):</span>
-											<span class="controls gray-light grades"><?php echo ($data_custom['pick_grade_level(s)'][0]); ?></span>
+										<div class="control-group row">
+											<div class="control-label col-md-3">NIVEL:</div>
+											<div class="controls green-light grades col-md-9"><?php echo ($data_custom['pick_grade_level(s)'][0]); ?></div>
 										</div>
-										<div class="control-group">
-											<span class="control-label lv2">TIPO DE RECURSO:</span>
-											<span class="controls gray-light resource-type"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
+										<div class="control-group row">
+											<div class="control-label lv2 col-md-3">TIPO:</div>
+											<div class="controls green-light resource-type col-md-9"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></div>
 										</div>
 									</div>	
 								</div>
 								
-								<div class="col-md-4" >
+								<div class="col-md-3" >
 									<div class="download-product-details action-container" style="padding:5px 0 5px 10px;"><!--#action-container -->
 										<div class="price"><!--Precio: --><?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
 										<br />

@@ -29,7 +29,7 @@ get_header();
                     <li><span i class="fa fa-star"></span> Libere valioso tiempo personal</li>
                     <li><span i class="fa fa-cog"></span> Enriquezca la calidad de su enseñanza</li>
                     <li><span i class="fa fa-cloud"></span> Colabore con maestros innovadores</li>
-					<p> <a href="<?php echo esc_url( home_url( '/register-buyer' ) ); ?>" class="redbut inaction-button">Comienza a Vender</a></p>
+					<p> <a href="<?php echo esc_url( home_url( '/register-buyer' ) ); ?>" class="redbut inaction-button">¡Únase Ya!</a></p>
                 </ul>
 			
                 <!-- /FEATURES -->
@@ -42,7 +42,7 @@ get_header();
             </div>
             <!-- /PERSONAL -->
             <!-- PERSONAL -->
-            <div class="block personal fl">
+            <div class="block greenfirst fl">
                 <h2 class="title">Cuenta: Profe-Vendedor</h2>
                 <!-- CONTENT -->
                 <div class="content">
@@ -73,7 +73,7 @@ get_header();
             <!-- /PERSONAL -->
 			
 			 <!-- PERSONAL -->
-            <div class="block personal fl">
+            <div class="block greenfirst fl">
                 <h2 class="title">Cuenta: Institución Educativa</h2>
                 <!-- CONTENT -->
                 <div class="content">

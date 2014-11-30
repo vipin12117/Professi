@@ -1610,6 +1610,24 @@ body div.fes-form fieldset .fes-section-wrap {
 	width: 140px;
 }
 
+/** Search Results Page **/
+.content-grid-download .edd_download_title a{
+	color:#6e8e8c!important;
+
+}
+
+.hentry.row .entry-title, .edd_download_title{
+	margin:0;
+	}
+
+.control-label.col-md-3 {
+padding-top: 0;
+}
+
+.content-grid-download span.byline {
+font-size: 12px;
+}
+
 /** Minimal Page */
 .minimal .site-content {
 	margin-top: 0;
@@ -5629,6 +5647,9 @@ i.add-wl {
 .gray-light {
 	color: #6c7171;
 }
+.green-light {
+	color: #6e8e8c;
+}
 
 .teacher-container {
 }
@@ -6631,6 +6652,9 @@ background: #E3536C;
 .price
 {
 	font-size:30px;
+
+font-weight: 700;
+}
 }
 
 .i_agree_with_the_terms_of_service_and_privacy_policy > div {
