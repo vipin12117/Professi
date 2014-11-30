@@ -26,8 +26,8 @@ get_header();
                 <!-- /CONTENT -->
                 <!-- FEATURES -->
                 <ul class="features">
-                    <li><span i class="fa fa-star"></span> Libere valioso tiempo personal</li>
-                    <li><span i class="fa fa-cog"></span> Enriquezca la calidad de su enseñanza</li>
+                    <li><span i class="fa fa-cog"></span> Libere valioso tiempo personal</li>
+                    <li><span i class="fa fa-star"></span> Enriquezca la calidad de su enseñanza</li>
                     <li><span i class="fa fa-cloud"></span> Colabore con maestros innovadores</li>
 					<p> <a href="<?php echo esc_url( home_url( '/register-buyer' ) ); ?>" class="redbut inaction-button">¡Únase Ya!</a></p>
                 </ul>

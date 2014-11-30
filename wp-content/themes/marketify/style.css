@@ -262,6 +262,8 @@ input {
 	line-height: normal; /* Addresses FF3/4 setting line-height using !important in the UA stylesheet */
 }
 
+
+
 button,
 html input[type="button"]:not(.ed_button),
 input[type="reset"],
@@ -299,6 +301,8 @@ input[type="reset"]:active,
 input[type="submit"]:active {
 
 }
+
+
 
 input[type="checkbox"],
 input[type="radio"] {
@@ -387,7 +391,30 @@ a:active {
 /*navigation*/
 .nav_mainstuff > div > div  { padding-top:20px; }
 
-/* Buttons */
+/** Buttons **/
+.greenbutton:link, .greenbutton:visited {
+	border: 2px solid #b4d2d0;
+	color: #fff;
+	text-decoration: none;
+	padding: 16px 32px;
+	background-color: #b4d2d0;
+ 
+	-webkit-transition: color .15s linear, background-color .15s ease-in-out, border-color .15s ease-in-out;
+	-moz-transition: color .15s linear, background-color .15s ease-in-out, border-color .15s ease-in-out;
+	-o-transition: color .15s linear, background-color .15s ease-in-out, border-color .15s ease-in-out;
+	transition: color .15s linear, background-color .15s ease-in-out, border-color .15s ease-in-out;
+}
+.greenbutton:hover {
+	background-color: #FFF;
+	border-color: #473E3E;
+	color: #473E3E;
+ 
+	-webkit-transition: background-color .15s ease-in-out, border-color .15s ease-in-out;;
+	-moz-transition: background-color .15s ease-in-out, border-color .15s ease-in-out;;
+	-o-transition: background-color .15s ease-in-out, border-color .15s ease-in-out;;
+	transition: background-color .15s ease-in-out, border-color .15s ease-in-out;;
+}
+
 
 #green_button a{	color: #FFF; }
 .animate
@@ -1627,6 +1654,10 @@ padding-top: 0;
 .content-grid-download span.byline {
 font-size: 12px;
 }
+
+.content-grid-download .form-horizontal .control-label {
+text-align:left;
+	}
 
 /** Minimal Page */
 .minimal .site-content {
@@ -3505,6 +3536,11 @@ NOTE
 	background-color: #fff;
 }
 
+.details-home {
+background: none!important;
+
+}
+
 .download-single-widget:first-child {
 }
 
@@ -5102,6 +5138,9 @@ input.search-field-input {
 	display: block;
 }
 
+.video{padding-top:30px;
+}
+
 .video {
 	vertical-align: middle;
 }
@@ -5321,6 +5360,15 @@ font-weight:bold;
 
 .content-area .the-title-home {
 	min-height: 30px;margin-bottom: 20px;
+}
+
+.the-title-home h2{
+
+
+text-align: left;
+font-weight: bold;
+font-size: 16px;
+
 }
 
 .content-items .content-grid-download {

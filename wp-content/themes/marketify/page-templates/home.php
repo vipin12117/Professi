@@ -47,11 +47,14 @@ get_header(); ?>
 					</div> !-->
 					
 					
-					<div class="download-product-review-details">
+					<div class="download-product-review-details details-home">
 					<h1>¡BIENVENIDO A PROFESI.ORG!</h1>
 					<p> Donde maestros comparten, compran y venden recursos educativos</p>
+<br />
+<p><a class="greenbutton" href="<?php echo esc_url( home_url( '/fes-vendor/' ) ); ?>">COMPRA AHORA</a> 
+<a class="greenbutton" href="<?php echo esc_url( home_url( '/register' ) ); ?>">EMPIEZA A VENDER</a>
 
-
+</p>
 					<div class="video">
 			
 
@@ -70,7 +73,7 @@ get_header(); ?>
 						</div>
 																												</div>
 								
-					
+					<!--
                                             <div class="home-widget marketify_widget_featured_popular" >
                                                 <h1 class="home-widget-title">
                                                     <span ><a href="<?php echo esc_url( home_url( '/fes-vendor/' ) ); ?>">Featured </a></span>
@@ -86,7 +89,7 @@ get_header(); ?>
 
                                             <div class="col-md-6">	
                                                 <p>Become parts of our firstgroup of teacher sellers.Sell your products and 							keep up to 80%</p>
-                                            </div>		
+                                            </div>		-->
 						
 					<br clear="all" />
 						
@@ -95,7 +98,7 @@ get_header(); ?>
 					
 				<?php ?>
 				
-				<div class="download-product-review-details content-items clearfix">
+				<div class="download-product-review-details content-items clearfix details-home">
 					<?php if ( ! is_paged() && ! get_query_var( 'orderby' ) && ! is_page_template( 'page-templates/popular.php' ) ) : ?>
 						<?php // get_template_part( 'content-grid-download', 'popular' ); ?>
 					<?php endif; ?>
@@ -103,7 +106,7 @@ get_header(); ?>
 					<section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-12 col-xs-12">
 						<main id="main" class="site-main" role="main">
 
-							<div class="the-title-home">PRODUCTOS DESTACADOS</div>
+							<div class="the-title-home"><h2>PRODUCTOS DESTACADOS</h2></div>
 							<div class="clearfix">
 								<?php echo do_shortcode( sprintf( '[downloads number="%s"]', get_option( 'posts_per_page' ) ) ); ?>
 							</div>
