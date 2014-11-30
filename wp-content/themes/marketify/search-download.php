@@ -148,7 +148,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 							if(count($pcats) == 0) {
 						?>
 						<li class="cat-item cat-item-21">
-								<a>Buscar en todas las categorías</a>
+								<a>Todas las categorías</a>
 						</li>
 						<?php } ?>
 					</ul>
