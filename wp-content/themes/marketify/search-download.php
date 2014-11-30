@@ -219,7 +219,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 										  
 										  //print $rating . " -- " . $post->ID . " -- " . $ratingCount . "<br />";
 									?>
-									<div class="form-horizontal style=width:300px; ">
+									<div class="form-horizontal  ">
 										<div class="control-group row">
 											<div class="control-label col-md-3">MATERIA:</div>
 											<div class="controls green-light sub col-md-9"><?php echo $category_str;?></div>
