@@ -70,7 +70,7 @@ $table_prefix  = 'wp_';
  * language support.
  */
 
-define('WPLANG', '');
+define('WPLANG', 'es_ES');
 
 /**
  * For developers: WordPress debugging mode.
