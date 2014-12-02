@@ -197,7 +197,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 									<?php $data_custom = get_post_custom($post->ID);?>
 									<div class="des">
                                          <?php $text=$data_custom['add_description'][0];  ?>
-                                         <?php $text=  substr($text, 0 ,60); echo $text; ?>
+                                         <?php $text=  substr($text, 0 ,170); echo $text; ?> ...
 				                    </div>
 									
 									<?php $data_custom = get_post_custom($post->ID);?>

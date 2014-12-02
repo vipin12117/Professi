@@ -1371,6 +1371,12 @@ body div.fes-form fieldset .fes-section-wrap {
 	text-decoration: none;
 }
 
+
+.edd_download_inner .edd_download_title a {
+font-weight:normal;
+	font-size:13px!important;
+}
+
 .blog-archive-image img {
 	border-radius: 50%;
 }
