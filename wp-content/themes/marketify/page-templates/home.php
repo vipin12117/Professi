@@ -52,7 +52,12 @@ get_header(); ?>
 					<p> Donde maestros comparten, compran y venden recursos educativos</p>
 <br />
 <p><a class="greenbutton" href="<?php echo esc_url( home_url( '/fes-vendor/' ) ); ?>">COMPRA AHORA</a> 
+<?php if ( is_user_logged_in() ):?>
+<a class="greenbutton" href="<?php echo esc_url( home_url( '/fes-vendor-dashboard/?task=new-product' ) ); ?>">EMPIEZA A VENDER</a>
+  <?php else:?>
 <a class="greenbutton" href="<?php echo esc_url( home_url( '/register' ) ); ?>">EMPIEZA A VENDER</a>
+
+  <?php endif;?>	
 
 </p>
 					<div class="video">

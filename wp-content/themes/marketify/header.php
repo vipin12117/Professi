@@ -116,10 +116,10 @@ $(function() {
                                 <div class="pull-left"><?php locate_template( array( 'searchform-header.php' ), true ); ?> </div> 
                                 
                                 <?php if ( is_user_logged_in() ):?>
-                               		 <div id="green_button " class="pull-right"> <a href="<?php echo esc_url( home_url( '/fes-vendor-dashboard/?task=new-product' ) ); ?>" class="action-button shadow animate blue">Comienza a vender!</a> </div>
+                               		 <div id="green_button " class="pull-right"> <a href="<?php echo esc_url( home_url( '/fes-vendor-dashboard/?task=new-product' ) ); ?>" class="action-button shadow animate blue">¡Empieza a Vender!</a> </div>
                                 <?php else:?>
                                 
-                                	<div id="green_button " class="pull-right"> <a href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="action-button shadow animate blue">Comienza a vender!</a> </div>
+                                	<div id="green_button " class="pull-right"> <a href="<?php echo esc_url( home_url( '/register' ) ); ?>" class="action-button shadow animate blue">¡Empieza a Vender!</a> </div>
                                 <?php endif;?>		  
                             </div>
                         </div>
