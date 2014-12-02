@@ -5120,7 +5120,7 @@ input.search-field-input {
 	position: relative;
 }
 .left-container .download-single-widget ul.children ul.children
-{left:200px;}
+{left:200px!important;}
 
 .left-container .download-single-widget ul.children > li > a {
 	height: 25px;
