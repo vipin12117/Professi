@@ -35,6 +35,32 @@
  
   
   <?php wp_head(); ?>
+
+  <!--Analytic scripts-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52739927-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-K3HR8H"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K3HR8H');</script>
+<!-- End Google Tag Manager -->
+
+<!-- KISSmetrics tracking snippet --> <script type="text/javascript">var _kmq = _kmq || []; var _kmk = _kmk || '1e1e65e15960e58109b4a106ee96593a211c3e07'; function _kms(u){   setTimeout(function(){     var d = document, f = d.getElementsByTagName('script')[0],     s = d.createElement('script');     s.type = 'text/javascript'; s.async = true; s.src = u;     f.parentNode.insertBefore(s, f);   }, 1); } _kms('//i.kissmetrics.com/i.js'); _kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js'); </script>
+
+
   
   <!-- Add mousewheel plugin (this is optional) -->
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/source/jquery.mousewheel-3.0.6.pack.js"></script>
@@ -84,8 +110,8 @@ $(function() {
                             <ul class="none list-top clearfix">
 
                                     <?php if (  is_user_logged_in() ):?>
-                                            <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/fes-vendor-dashboard/' ) ); ?>"><?php echo $userdata->display_name;?></a></li>
-											<li class="pull-left"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/checkout/purchase-history/' ) ); ?>">Compras</a></li>
+                                            <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop icon_admin"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/fes-vendor-dashboard/' ) ); ?>"><?php echo $userdata->display_name;?></a></li>
+											<li class="pull-left"><i class="uiIcon16x16 uiIconTop icon_compras"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/checkout/purchase-history/' ) ); ?>">Compras</a></li>
 											<li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Cerrar sesión</a></li>
 
                                                <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Lista de deseos</a></li>    

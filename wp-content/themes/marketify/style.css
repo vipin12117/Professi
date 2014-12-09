@@ -4989,6 +4989,8 @@ ul.none li, ul.edd-taxonomy-widget li {
 .top-bar ul.none li:first-child {
 	border-left: 1px solid #d6d6d6;
 }
+.icon_compras {background: url('images/compras.png') left bottom no-repeat;}
+.icon_admin {background: url('images/admin.png') left bottom no-repeat;}
 .man_top {background: url('images/man_top.png') left bottom no-repeat;}
 .heart_top {background: url('images/heart_top.png') left bottom no-repeat;}
 .arrow_top {background: url('images/arrow_top.png') left bottom no-repeat;}
