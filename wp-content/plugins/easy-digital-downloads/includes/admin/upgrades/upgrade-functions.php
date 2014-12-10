@@ -230,7 +230,7 @@ function edd_v134_upgrades() {
 	$failed = wp_insert_post(
 		array(
 			'post_title'     => __( 'Transaction Failed', 'edd' ),
-			'post_content'   => __( 'Your transaction failed, please try again or contact site support.', 'edd' ),
+			'post_content'   => __( 'Tuvimos problemas procesando su transacción, por favor intente de nuevo o póngase en contacto con nuestro equipo de soporte.', 'edd' ),
 			'post_status'    => 'publish',
 			'post_author'    => 1,
 			'post_type'      => 'page',

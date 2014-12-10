@@ -19,7 +19,7 @@ get_header(); ?>
 	<div class="wishlist">
 	<?php while ( have_posts() ) : the_post(); ?>
 	<div class="header">
-		<h1 class="page-title fontsforweb_fontid_9785"><?php the_title(); ?></h1>
+		<h1 class="page-title fontsforweb_fontid_9785">LISTAS DE DESEOS</h1>
 	</div><!-- .page-header -->
 
 		<div id="content" class="site-content row">

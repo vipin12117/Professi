@@ -1741,7 +1741,7 @@ return $form;
 				$response    = array(
 			'success' => true,
 			'redirect_to' => $redirect_to,
-			'message' => __( 'Profile Successfully Updated' , 'edd_fes' ),
+			'message' => __( 'SU PERFIL HA SIDO ACTUALIZADO EXITOSAMENTE' , 'edd_fes' ),
 			'is_post' => false
 				);
 				$response    = apply_filters( 'fes_profile_form_redirect', $response, $user_id, $form_id );
@@ -2705,7 +2705,7 @@ if ( $rich == 'yes' ) {
 			<?php printf( '<span class="fes-image-validation" data-required="%s" data-type="image"></span>', $required ); ?>
 <input type="hidden" name="avatar_id" class="fes-avatar-image-id"
 	value="<?php echo esc_attr( $avatar_id ); ?>"> <a href="#"
-	class="fes-avatar-image-btn btn btn-sm"><?php _e( 'Upload Avatar', 'edd_fes' ); ?></a>
+	class="fes-avatar-image-btn btn btn-sm"><?php _e( 'Escoja su avatar', 'edd_fes' ); ?></a>
 </div>
 
 <div
@@ -3342,7 +3342,7 @@ if ( $id ) {
 	type="hidden" name="submission_status" value="edit"> <input
 	type="submit"
 	class="edd-submit <?php echo $color; ?> <?php echo $style; ?>"
-	name="submit" value="<?php echo __( 'Update', 'edd_fes' ); ?>" /> <?php } else { ?>
+	name="submit" value="<?php echo __( 'ACTUALIZAR', 'edd_fes' ); ?>" /> <?php } else { ?>
 <input type="hidden" name="submission_status" value="new"> <input
 	type="submit"
 	class="edd-submit <?php echo $color; ?> <?php echo $style; ?>"

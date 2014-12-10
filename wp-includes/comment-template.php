@@ -1437,7 +1437,7 @@ function post_reply_link($args = array(), $post = null) {
  */
 function get_cancel_comment_reply_link( $text = '' ) {
 	if ( empty($text) )
-		$text = __('Click here to cancel reply.');
+		$text = __('HAGA CLIC AQUÍ PARA CANCELAR LA RESPUESTA.');
 
 	$style = isset($_GET['replytocom']) ? '' : ' style="display:none;"';
 	$link = esc_html( remove_query_arg('replytocom') ) . '#respond';
