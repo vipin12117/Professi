@@ -76,7 +76,7 @@ function eddc_user_commissions( ) {
 
 				<!-- unpaid -->
 				<div id="edd_user_commissions_unpaid">
-					<h3 class="edd_user_commissions_header"><?php _e('las comisiones pendientes', 'eddc'); ?></h3>
+					<h3 class="edd_user_commissions_header"><?php _e('MIS GANANCIAS', 'eddc'); ?></h3>
 					<table id="edd_user_unpaid_commissions_table" class="edd_user_commissions">
 						<thead>
 							<tr class="edd_user_commission_row">
@@ -114,7 +114,7 @@ function eddc_user_commissions( ) {
 						<?php endif; ?>
 						</tbody>
 					</table>
-					<div id="edd_user_commissions_unpaid_total"><?php _e('Total no pagado:', 'eddc');?>&nbsp;<?php echo edd_currency_filter( edd_format_amount( eddc_get_unpaid_totals( $user_ID ) ) ); ?></div>
+					<div id="edd_user_commissions_unpaid_total"><?php _e('Total de mis ganancias:', 'eddc');?>&nbsp;<?php echo edd_currency_filter( edd_format_amount( eddc_get_unpaid_totals( $user_ID ) ) ); ?></div>
 
 					<div id="edd_commissions_unpaid_pagination" class="navigation">
 					<?php
@@ -132,7 +132,7 @@ function eddc_user_commissions( ) {
 
 				<!-- paid -->
 				<div id="edd_user_commissions_paid">
-					<h3 class="edd_user_commissions_header"><?php _e('Las comisiones pagadas', 'eddc'); ?></h3>
+					<h3 class="edd_user_commissions_header"><?php _e('MIS GANANCIAS PAGADAS', 'eddc'); ?></h3>
 					<table id="edd_user_paid_commissions_table" class="edd_user_commissions">
 						<thead>
 							<tr class="edd_user_commission_row">
@@ -170,7 +170,7 @@ function eddc_user_commissions( ) {
 						<?php endif; ?>
 						</tbody>
 					</table>
-					<div id="edd_user_commissions_paid_total"><?php _e('Total percibido:', 'eddc');?>&nbsp;<?php echo edd_currency_filter( edd_format_amount( eddc_get_paid_totals( $user_ID ) ) ); ?></div>
+					<div id="edd_user_commissions_paid_total"><?php _e('Total de mis ganancias pagadas:', 'eddc');?>&nbsp;<?php echo edd_currency_filter( edd_format_amount( eddc_get_paid_totals( $user_ID ) ) ); ?></div>
 
 					<div id="edd_commissions_paid_pagination" class="navigation">
 					<?php
@@ -185,7 +185,7 @@ function eddc_user_commissions( ) {
 					</div>
 
 					<div id="edd_commissions_export">
-						<p><strong><?php _e( 'Comisiones exportación Pagado', 'eddc' ); ?></strong></p>
+						<p><strong><?php _e( 'Exportar mis ganancias pagadas', 'eddc' ); ?></strong></p>
 						<form method="post" action="<?php echo home_url(); ?>">
 							<?php echo EDD()->html->month_dropdown(); ?>
 							<?php echo EDD()->html->year_dropdown(); ?>

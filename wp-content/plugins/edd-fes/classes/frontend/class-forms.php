@@ -3380,7 +3380,7 @@ case 'login':
 	<?php
 	break;
 case 'registration':
-	$wording = sprintf( __( 'EMPEZAR A %s', 'edd_fes' ),  EDD_FES()->vendors->get_vendor_constant_name( $plural = false, $uppercase = true ) );
+	$wording = sprintf( __( 'EMPIEZA A %s', 'edd_fes' ),  EDD_FES()->vendors->get_vendor_constant_name( $plural = false, $uppercase = true ) );
 	if ( $id ) {
 		$wording =  __( 'Submit Changes', 'edd_fes' );
 	}

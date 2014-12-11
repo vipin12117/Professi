@@ -58,7 +58,7 @@ class EDD_HTML_Elements {
 				$options[ absint( $product->ID ) ] = esc_html( $product->post_title );
 			}
 		} else {
-			$options[0] = __( 'No products found', 'edd' );
+			$options[0] = __( 'No tiene ningún producto a la venta', 'edd' );
 		}
 
 		// This ensures that any selected products are included in the drop down

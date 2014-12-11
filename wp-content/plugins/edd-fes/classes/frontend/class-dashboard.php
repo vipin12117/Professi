@@ -470,7 +470,7 @@ class FES_Dashboard {
 
 	public function order_status_to_display( $status ) {
 		if ( $status == 'publish' || $status == '') {
-			$status = __( 'completo', 'edd_fes' );
+			$status = __( 'Completado', 'edd_fes' );
 		}
 		elseif ( $status == 'draft' ) {
 			$status = __( 'borrador', 'edd_fes' );
@@ -526,7 +526,7 @@ class FES_Dashboard {
 		$time_diff = time() - $time;
 
 		if ( $time_diff > 0 && $time_diff < 24 * 60 * 60 ) {
-			$h_time = sprintf( __( '%s ago', 'edd_fes' ), human_time_diff( $time ) );
+			$h_time = sprintf( __( '%s Hace', 'edd_fes' ), human_time_diff( $time ) );
 		} else {
 			$h_time = mysql2date( __( 'Y/m/d', 'edd_fes' ), $m_time );
 		}
@@ -534,7 +534,7 @@ class FES_Dashboard {
 	}
 
 	public function order_list_title( $product_id ) {
-		$title = __( 'Order: #' ).$product_id;
+		$title = __( 'Pedido: #' ).$product_id;
 		$title = apply_filters( 'fes_order_list_title', $title, $product_id );
 		return $title;
 	}
