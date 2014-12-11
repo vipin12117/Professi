@@ -154,7 +154,7 @@ $author = get_the_author();
 					<span class="gray-light" style="float:left;word-wrap:break-word;width:95%"><?php echo str_replace(array("\n"), '<br/>', $data_custom['add_description'][0]); ?></span>
 				</div>
 				<br clear="all" />
-				<div class="info-post">NÃšMERO DE PÃ�GINAS:<span class="gray-light"><?php echo $data_custom['add_number_of_pages_or_slides'][0]?></span></div>
+				<div class="info-post">NÃšMERO DE PÃGINAS:<span class="gray-light"><?php echo $data_custom['add_number_of_pages_or_slides'][0]?></span></div>
 				<div class="info-post">DURACIÃ“N DE LA ENSEÃ‘ANZA:<span class="gray-light"><?php echo $data_custom['add_teaching_duration'][0]?></span></div>
 				<div class="report-post gray-light"><a href="mailto:<?php echo get_the_author_meta( 'email' )?>"><i class="report-icon"></i> InfÃ³rmenos de cualquier  violaciÃ³n de derechos del autor </a></div>
 			</div>
