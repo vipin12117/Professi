@@ -204,25 +204,25 @@ class FES_Vendors {
 		$constant = EDD_FES()->helper->get_option( 'fes-plugin-constants', array() );
 		// Vendors
 		if ( $plural && $uppercase ){
-			$constant = ( isset( $constant[1] ) && $constant[1] != '' ) ? $constant[1] : __('Vendors', 'edd_fes');
+			$constant = ( isset( $constant[1] ) && $constant[1] != '' ) ? $constant[1] : __('VENDERS', 'edd_fes');
 			$constant = apply_filters( 'fes_vendor_constant_plural_uppercase', $constant );
 			return $constant;
 		}
 		// vendors
 		else if ( $plural){
-			$constant = ( isset( $constant[3] ) && $constant[3] != '' ) ? $constant[3] : __('vendors', 'edd_fes');
+			$constant = ( isset( $constant[3] ) && $constant[3] != '' ) ? $constant[3] : __('VENDERS', 'edd_fes');
 			$constant = apply_filters( 'fes_vendor_constant_plural_lowercase', $constant );
 			return $constant;
 		}
 		// Vendor
 		else if( !$plural && $uppercase ){
-			$constant = ( isset( $constant[2] ) && $constant[2] != '' ) ? $constant[2] : __('Vendor', 'edd_fes');
+			$constant = ( isset( $constant[2] ) && $constant[2] != '' ) ? $constant[2] : __('VENDER', 'edd_fes');
 			$constant = apply_filters( 'fes_vendor_constant_singular_uppercase', $constant );
 			return $constant;
 		}
 		// vendor
 		else{
-			$constant = ( isset( $constant[4] ) && $constant[4] != '' ) ? $constant[4] : __('vendor', 'edd_fes');
+			$constant = ( isset( $constant[4] ) && $constant[4] != '' ) ? $constant[4] : __('VENDER', 'edd_fes');
 			$constant = apply_filters( 'fes_vendor_constant_singular_lowercase', $constant );
 			return $constant;
 		}

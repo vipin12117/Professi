@@ -617,7 +617,7 @@ class FES_Dashboard {
 		$comments = $comments_query->query( $args );
 		
 		if ( count( $comments ) == 0 ) {
-			echo '<tr><td colspan="4">' . __( 'No hay comentarios encontrados', 'edd_fes' ) . '</td></tr>';
+			echo '<tr><td colspan="4">' . __( 'No tiene comentarios pendientes.', 'edd_fes' ) . '</td></tr>';
 		}
 		foreach ($comments as $comment) {
 			$this->render_comments_table_row( $comment );

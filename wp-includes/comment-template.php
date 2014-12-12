@@ -1296,7 +1296,7 @@ function get_comment_reply_link($args = array(), $comment = null, $post = null) 
 	$defaults = array(
 		'add_below'  => 'comment',
 		'respond_id' => 'respond',
-		'reply_text' => __('Reply'),
+		'reply_text' => __('Responder'),
 		'login_text' => __('Log in to Reply'),
 		'depth'      => 0,
 		'before'     => '',
@@ -1754,7 +1754,7 @@ class Walker_Comment extends Walker {
 ?>
 		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
 			<div class="comment-body">
-				<?php _e( 'Pingback:' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
+				<?php _e( 'Pingback:' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Editar' ), '<span class="edit-link">', '</span>' ); ?>
 			</div>
 <?php
 	}
@@ -1796,7 +1796,7 @@ class Walker_Comment extends Walker {
 		<div class="comment-meta commentmetadata"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID, $args ) ); ?>">
 			<?php
 				/* translators: 1: date, 2: time */
-				printf( __( '%1$s at %2$s' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)' ), '&nbsp;&nbsp;', '' );
+				printf( __( '%1$s at %2$s' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Editar)' ), '&nbsp;&nbsp;', '' );
 			?>
 		</div>
 
@@ -1840,7 +1840,7 @@ class Walker_Comment extends Walker {
 								<?php printf( _x( '%1$s at %2$s', '1: date, 2: time' ), get_comment_date(), get_comment_time() ); ?>
 							</time>
 						</a>
-						<?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
+						<?php edit_comment_link( __( 'Editar' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .comment-metadata -->
 
 					<?php if ( '0' == $comment->comment_approved ) : ?>

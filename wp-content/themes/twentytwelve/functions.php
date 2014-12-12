@@ -337,7 +337,7 @@ function twentytwelve_comment( $comment, $args, $depth ) {
 			</header><!-- .comment-meta -->
 
 			<?php if ( '0' == $comment->comment_approved ) : ?>
-				<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'twentytwelve' ); ?></p>
+				<p class="comment-awaiting-moderation"><?php _e( 'Estamos aprobando su comentario.', 'twentytwelve' ); ?></p>
 			<?php endif; ?>
 
 			<section class="comment-content comment">

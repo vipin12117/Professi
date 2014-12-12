@@ -343,7 +343,7 @@ function edd_get_registered_settings() {
 					'name' => __( 'Purchase Receipt', 'edd' ),
 					'desc' => __('Enter the email that is sent to users after completing a successful purchase. HTML is accepted. Available template tags:', 'edd') . '<br/>' . edd_get_emails_tags_list(),
 					'type' => 'rich_editor',
-					'std'  => __( "Dear", "edd" ) . " {name},\n\n" . __( "Thank you for your purchase. Please click on the link(s) below to download your files.", "edd" ) . "\n\n{download_list}\n\n{sitename}"
+					'std'  => __( "Dear", "edd" ) . " {name},\n\n" . __( "!Gracias por su compra!. Please click on the link(s) below to download your files.", "edd" ) . "\n\n{download_list}\n\n{sitename}"
 				),
 				'sale_notification_header' => array(
 					'id' => 'sale_notification_header',

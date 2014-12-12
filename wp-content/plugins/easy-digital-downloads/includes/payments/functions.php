@@ -549,7 +549,7 @@ function edd_get_payment_statuses() {
 		'publish'   => __( 'Realizado', 'edd' ),
 		'refunded'  => __( 'Refunded', 'edd' ),
 		'failed'    => __( 'Failed', 'edd' ),
-		'abandoned' => __( 'Abandoned', 'edd' ),
+		'abandoned' => __( 'Transacción incompleta', 'edd' ),
 		'revoked'   => __( 'Revoked', 'edd' )
 	);
 

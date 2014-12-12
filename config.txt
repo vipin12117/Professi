@@ -16,3 +16,9 @@ https://secure35.webhostinghub.com:2083/
 
 username:scamps5
 password: Loverules75$
+
+
+CPANLX
+https://p3plcpnl0526.prod.phx3.secureserver.net:2083/
+username:profesishop
+password: paraMaestros4
