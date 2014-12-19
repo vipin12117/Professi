@@ -307,7 +307,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 					<?php //marketify_content_nav( 'nav-below' ); ?>
 			<?php else : ?>
 
-				<?php get_template_part( 'no-results', 'download' ); ?>
+				<?php //get_template_part( 'no-results', 'download' ); ?>
 
 			<?php endif; ?>
 

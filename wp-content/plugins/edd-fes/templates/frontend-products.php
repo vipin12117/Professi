@@ -32,7 +32,7 @@
 		<?php endforeach;
 		}
 		else{
-			echo '<tr><td colspan="7" class = "fes-product-list-td" >'.__('No', 'edd_fes') . ' ' . EDD_FES()->vendors->get_product_constant_name( $plural = true, $uppercase = false ) . ' ' . __('found','edd_fes').'</td></tr>';
+			echo '<tr><td colspan="7" class = "fes-product-list-td" >'.__('No ha subido productos', 'edd_fes').'</td></tr>';
 		}
 		?>
 	</tbody>

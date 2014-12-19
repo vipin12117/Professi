@@ -1297,7 +1297,7 @@ function get_comment_reply_link($args = array(), $comment = null, $post = null) 
 		'add_below'  => 'comment',
 		'respond_id' => 'respond',
 		'reply_text' => __('Responder'),
-		'login_text' => __('Log in to Reply'),
+		'login_text' => __('Entre a su cuenta para Responder'),
 		'depth'      => 0,
 		'before'     => '',
 		'after'      => ''
@@ -1320,8 +1320,10 @@ function get_comment_reply_link($args = array(), $comment = null, $post = null) 
 
 	$link = '';
 
+	//$link = '<a rel="nofollow" class="comment-reply-login" href="' . esc_url( wp_login_url( get_permalink() ) ) . '">' . $login_text . '</a>';
+	
 	if ( get_option('comment_registration') && ! is_user_logged_in() )
-		$link = '<a rel="nofollow" class="comment-reply-login" href="' . esc_url( wp_login_url( get_permalink() ) ) . '">' . $login_text . '</a>';
+		$link = '<a rel="nofollow" class="comment-reply-login" href="' . esc_url( home_url("/login") ) . '">' . $login_text . '</a>';
 	else
 		$link = "<a class='comment-reply-link' href='" . esc_url( add_query_arg( 'replytocom', $comment->comment_ID ) ) . "#" . $respond_id . "' onclick='return addComment.moveForm(\"$add_below-$comment->comment_ID\", \"$comment->comment_ID\", \"$respond_id\", \"$post->ID\")'>$reply_text</a>";
 

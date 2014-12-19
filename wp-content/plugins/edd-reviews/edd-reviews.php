@@ -465,10 +465,12 @@ final class EDD_Reviews {
 
 		$output  = '<div id="respond" class="comment-respond">';
 		$output .= '<div class="edd-reviews-must-log-in  comment-form" id="commentform">';
-		$output .= '<p class="edd-reviews-not-logged-in">' . apply_filters( 'edd_reviews_user_logged_out_message', sprintf( __( 'You must log in and be a buyer of this %s to submit a review.' ), strtolower( edd_get_label_singular() ) ) ) . '</p>';
+		$output .= '<p class="edd-reviews-not-logged-in">' . apply_filters( 'edd_reviews_user_logged_out_message', sprintf( __( 'Debe registrarse para poder dejar sus comentarios' ), strtolower( edd_get_label_singular() ) ) ) . '</p>';
 
 		if ( ! is_user_logged_in() )
-		$output .= wp_login_form( array( 'echo' => false ) );
+		$output .= wp_login_form( array( 'echo' => false , 'label_username' => 'Nombre de usuario:', 
+										  'label_password' => 'Contraseña:' , 'label_remember' => 'Recuerdame', 
+										  'label_log_in' => 'INICIAR SESIÓN' ) );
 
 		$output .= '</div><!-- /.edd-reviews-must-log-in -->';
 		$output .= '</div><!-- /#respond -->';
@@ -1473,10 +1475,13 @@ final class EDD_Reviews {
 		global $edd_options;
 
 		$output = '';
-
+		
 		$output .= '<div class="edd-reviews-must-log-in comment-form" id="commentform">';
-		$output .= '<p class="edd-reviews-not-logged-in">' . apply_filters( 'edd_reviews_user_logged_out_message', sprintf( __( 'You must log in and be a buyer of this %s to submit a review.' ), strtolower( edd_get_label_singular() ) ) ) . '</p>';
-		$output .= wp_login_form( array( 'echo' => false ) );
+		
+		$output .= '<p class="edd-reviews-not-logged-in">' . apply_filters( 'edd_reviews_user_logged_out_message', sprintf( __( 'Debe registrarse para poder dejar sus comentarios' ), strtolower( edd_get_label_singular() ) ) ) . '</p>';
+		$output .= wp_login_form( array( 'echo' => false , 'label_username' => 'Nombre de usuario:', 
+										  'label_password' => 'Contraseña:' , 'label_remember' => 'Recuerdame', 
+										  'label_log_in' => 'INICIAR SESIÓN' ) );
 		$output .= '</div><!-- /.edd-reviews-must-log-in -->';
 
 		return apply_filters( 'edd_reviews_login_form', $output );

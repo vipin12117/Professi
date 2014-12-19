@@ -71,7 +71,7 @@ class EDD_Currency_Renderer {
 				$currency_message = '';
 				if( $_COOKIE['edd-currency-saved-msg'] == 'save' ) {
 					$selected_currency_code = edd_currency_get_stored_currency();
-					$currency_message = __( 'Listo, ya puede ver productos en as', 'eddcurrency' ) .' '. $this->model->edd_currency_current_currency_name( $selected_currency_code );	
+					$currency_message = __( 'Listo, ya puede ver los precios en '.$this->model->edd_currency_current_currency_name( $selected_currency_code ).'. Por favor tome nota de que Profesi actualiza las tasas de cambio semanalmente y que (por ahora) sólo aceptamos pagos en USD ($)', 'eddcurrency' );	
 				} else {
 					$currency_message = __( 'Currency reset successfully.', 'eddcurrency' );
 				}

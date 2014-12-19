@@ -90,10 +90,11 @@ function marketify_comment( $comment, $args, $depth ) {
 						<?php printf( '<cite class="fn">%s</cite>', get_comment_author_link() ); ?>
 
 						<?php
-							if ( get_option( 'comment_registration' ) && edd_has_user_purchased( $comment->user_id, $post->ID ) ) :
+							//if ( get_option( 'comment_registration' ) && edd_has_user_purchased( $comment->user_id, $post->ID ) ) :
 						?>
-							<a class="button purchased"><?php _e( 'Purchased', 'marketify' ); ?></a>
-						<?php endif; ?>
+							<!-- <a class="button purchased"><?php //_e( 'Purchased', 'marketify' ); ?></a> -->
+						<?php  //endif; ?>
+						
 					<?php endif; ?>
 				</div><!-- .comment-author -->
 			</footer><!-- .comment-meta -->

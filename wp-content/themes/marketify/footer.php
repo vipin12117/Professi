@@ -15,7 +15,7 @@
 				<li><a data-toggle="modal" href="#myModal">Política de privacidad</a></li>
 				<li><a data-toggle="modal" href="#autor">Derechos de autor</a></li>
 				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Sobre nosotros</a></li>
-				<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Contáctenos</a></li>
+				<li><a href="<?php echo esc_url( home_url( '/contactenos/' ) ); ?>">Contáctenos</a></li>
 			</ul>
 		</div>
 
