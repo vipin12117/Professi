@@ -112,16 +112,17 @@ $(function() {
                                     <?php if (  is_user_logged_in() ):?>
                                             <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop icon_admin"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/fes-vendor-dashboard/' ) ); ?>"><?php echo $userdata->display_name;?></a></li>
 											<li class="pull-left"><i class="uiIcon16x16 uiIconTop icon_compras"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/checkout/purchase-history/' ) ); ?>">Compras</a></li>
-											<li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Cerrar sesión</a></li>
+											
 
-                                               <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Lista de deseos</a></li>    
+                                               <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Lista de deseos</a></li>  
+                                               <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top_bk"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>fes-vendor-dashboard/?task=logout">Cerrar sesión</a></li>  
                                                 <li class="pull-left btn"> <?php echo do_shortcode('[edd_select_currency]');?></li>
                                     <?php else:?>
                                                 <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop heart_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>wish-lists/">Lista de deseos</a></li>           
 
                                     
 
-                                        <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>login/">Iniciar Sesión</a></li>                     <li class="pull-left btn"> <?php echo do_shortcode('[edd_select_currency]');?></li>
+                                        <li class="pull-left btn"><i class="uiIcon16x16 uiIconTop man_top_bk"></i><a class="actionIcon" href="<?php echo esc_url( home_url( '/' ) ); ?>login/">Iniciar Sesión</a></li>                     <li class="pull-left btn"> <?php echo do_shortcode('[edd_select_currency]');?></li>
                         <?php endif;?>    </ul>
                     </div>
                 </div>

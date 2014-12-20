@@ -4992,6 +4992,7 @@ ul.none li, ul.edd-taxonomy-widget li {
 .icon_compras {background: url('images/compras.png') left bottom no-repeat;}
 .icon_admin {background: url('images/admin.png') left bottom no-repeat;}
 .man_top {background: url('images/man_top.png') left bottom no-repeat;}
+.man_top_bk {background: url('images/man_top_bk.png') left bottom no-repeat;}
 .heart_top {background: url('images/heart_top.png') left bottom no-repeat;}
 .arrow_top {background: url('images/arrow_top.png') left bottom no-repeat;}
 .uiIconTop {
@@ -5394,11 +5395,25 @@ font-size: 16px;
 
 }
 
+
+
+
 .content-items .content-grid-download {
 	border-radius: 10px;
 	-webkit-box-shadow: 0px 0px 5px 0.5px rgba(13,13,13,0.27);
 	-moz-box-shadow: 0px 0px 5px 0.5px rgba(13,13,13,0.27);
 	box-shadow: 0px 0px 5px 0.5px rgba(13,13,13,0.27);
+	padding: 10px;
+	padding-top:50px;
+	padding-bottom:50px;
+	background-color: #fff;
+}
+
+.page-id-11 .content-items .content-grid-download {
+	border-radius: 10px;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
 	padding: 10px;
 	padding-top:50px;
 	padding-bottom:50px;
