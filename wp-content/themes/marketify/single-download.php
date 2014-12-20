@@ -95,7 +95,7 @@ $author = get_the_author();
 								<span class="controls gray-light"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
 							</div>
 							<div class="control-group">
-								<span class="control-label lv2">EVALUACIÃ“N DEL PRODUCTO </span>
+								<span class="control-label lv2">EVALUACIÓN DEL PRODUCTO </span>
 								<span class="controls gray-light">
 									<div class="star-ratings">
 										<?php $j = 0; for($i = 0; $i < $full; ++ $i)  {?>
@@ -123,7 +123,7 @@ $author = get_the_author();
 								<span class="control-label lv2"></span>
 								<br/>
 								<span class="control-label lv2 left"></span>
-								<span class="controls file-comment">AsegÃºrese de tener un programa para abrir este tipo de archivo antes de descargar y / o comprar.</span>
+								<span class="controls file-comment">Asegúrese de tener un programa para abrir este tipo de archivo antes de descargar y / o comprar.</span>
 								<br/>
 								<span class="control-label lv2 left"></span>
 								
@@ -137,7 +137,7 @@ $author = get_the_author();
 								<span class="controls file-comment">
 									<?php echo ucfirst(end($file_parts));?> (<?php echo getSizeFile($edd_download_files[0]['file']);?> MB)  |  
 									
-									<?php echo $data_custom['add_number_of_pages_or_slides'][0]?> pÃ¡ginas
+									<?php echo $data_custom['add_number_of_pages_or_slides'][0]?> páginas
 								</span>
 							</div>
 						</div>
@@ -148,15 +148,15 @@ $author = get_the_author();
 			<hr/>
 			<div class="description-post">
 				<div class="post-title fontsforweb_fontid_9785">
-					<span>DESCRIPCIÃ“N DEL PRODUCTO</span>
+					<span>DESCRIPCIÓN DEL PRODUCTO</span>
 				</div>
 				<div class="post-description fontsforweb_fontid_9785">
 					<span class="gray-light" style="float:left;word-wrap:break-word;width:95%"><?php echo str_replace(array("\n"), '<br/>', $data_custom['add_description'][0]); ?></span>
 				</div>
 				<br clear="all" />
-				<div class="info-post">NÃšMERO DE PÃGINAS:<span class="gray-light"><?php echo $data_custom['add_number_of_pages_or_slides'][0]?></span></div>
-				<div class="info-post">DURACIÃ“N DE LA ENSEÃ‘ANZA:<span class="gray-light"><?php echo $data_custom['add_teaching_duration'][0]?></span></div>
-				<div class="report-post gray-light"><a href="mailto:<?php echo get_the_author_meta( 'email' )?>"><i class="report-icon"></i> InfÃ³rmenos de cualquier  violaciÃ³n de derechos del autor </a></div>
+				<div class="info-post">NÚMERO DE PÁGINAS:<span class="gray-light"><?php echo $data_custom['add_number_of_pages_or_slides'][0]?></span></div>
+				<div class="info-post">DURACIÓN DE LA ENSEÑANZA:<span class="gray-light"><?php echo $data_custom['add_teaching_duration'][0]?></span></div>
+				<div class="report-post gray-light"><a href="mailto:<?php echo get_the_author_meta( 'email' )?>"><i class="report-icon"></i> Infórmenos de cualquier violación de derechos del autor </a></div>
 			</div>
 			<hr/>
 			<div class="comment-post" style="display:none;">
@@ -312,7 +312,7 @@ $author = get_the_author();
 							<a href="/fes-vendor/<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>"
 								 title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) );?></a>
 						</div>
-						<div class="user-rating gray-light"> clasificaciÃ³n</div>
+						<div class="user-rating gray-light"> profe-vendedor</div>
 						<div style="padding: 20px 0px 0px 5px;"><a href="/fes-vendor/<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>">Visite mi tienda <i class="glyphicon glyphicon-play"></i></a></div>
 					</div>
 				</div>
@@ -320,7 +320,7 @@ $author = get_the_author();
 			</div><!--#action-container -->
 			<br/>
 			<div class="download-product-details download-list"><!--#download-list -->
-				<div class="top-list"><span>MÃS PRODUCTOS CREADOS POR:</span></div>
+				<div class="top-list"><span>MÁS PRODUCTOS CREADOS POR:</span></div>
 				<div class="user-info clearfix" style="padding: 0px 0px 10px 20px">
 					<div class="avatar-info left"  style="width:90px">
 						<div class="download-product-details radius50">
