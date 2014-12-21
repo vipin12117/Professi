@@ -1097,7 +1097,7 @@ return $form;
 			$to = apply_filters('fes_registration_form_frontend_vendor_to', $userdata[ 'user_email' ], $userdata );
 			$from_name = isset( $edd_options[ 'from_name' ] ) ? $edd_options[ 'from_name' ] : get_bloginfo( 'name' );
 			$from_email = isset( $edd_options[ 'from_email' ] ) ? $edd_options[ 'from_email' ] : get_option( 'admin_email' );
-			$subject = apply_filters('fes_registration_form_to_vendor_accepted_subject', __('Application Accepted', 'edd_fes' ) );
+			$subject = apply_filters('fes_registration_form_to_vendor_accepted_subject', __('SOLICITUD ACEPTADA', 'edd_fes' ) );
 			$message = EDD_FES()->helper->get_option( 'fes-vendor-new-auto-vendor-email', '' );
 			$type = "user";
 			$id = $user_id;
@@ -1113,7 +1113,7 @@ return $form;
 			$response = array(
 				'success' => true,
 				'redirect_to' => get_permalink( EDD_FES()->helper->get_option( 'fes-vendor-dashboard-page', false ) ),
-				'message' => __( 'Your Application has been Approved!', 'edd_fes' ),
+				'message' => __( '¡SU SOLICITUD HA SIDO ACEPTADA!', 'edd_fes' ),
 				'is_post' => true
 			);
 			do_action('fes_registration_form_frontend_vendor', $user_id, $userdata);

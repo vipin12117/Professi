@@ -77,12 +77,12 @@ if($_POST['edd_submit'] && $_POST['user_login']){
 	$message = __('Alguien pidió que la contraseña se restablecerá a la siguiente cuenta:') . "\r\n\r\n";
 	$message .= network_home_url( '/' ) . "\r\n\r\n";
 	$message .= sprintf(__('Username: %s'), $user_login) . "\r\n\r\n";
-	$message .= __('Si esto fue un error, simplemente ignorar este mensaje y no pasará nada.') . "\r\n\r\n";
+	$message .= __('Si esto fue un error, simplemente ignore este mensaje y no pasará nada.') . "\r\n\r\n";
 	$message .= __('Para restablecer su contraseña, visite la siguiente dirección:') . "\r\n\r\n";
 	$message .= '<' . network_site_url("forgot-password?action=rp&key=$key&login=" . rawurlencode($user_login), 'login') . ">\r\n";
 
 	$blogname = wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
-	$title = sprintf( __('[%s] Password Reset'), $blogname );
+	$title = sprintf( __('[%s] Restablecer Contraseña'), $blogname );
 	$title = apply_filters( 'retrieve_password_title', $title );
 
 	if ( $message && !wp_mail( $user_email, wp_specialchars_decode( $title ), $message ) ){

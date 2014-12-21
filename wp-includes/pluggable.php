@@ -1344,18 +1344,19 @@ function wp_notify_postauthor( $comment_id, $deprecated = null ) {
 			$subject = sprintf( __('[%1$s] Pingback: "%2$s"'), $blogname, $post->post_title );
 			break;
 		default: // Comments
-			$notify_message  = sprintf( __( 'New comment on your post "%s"' ), $post->post_title ) . "\r\n";
+			$notify_message  = sprintf( __( 'Tiene un nuevo comentario para su producto "%s"' ), $post->post_title ) . "\r\n";
 			/* translators: 1: comment author, 2: author IP, 3: author domain */
-			$notify_message .= sprintf( __('Author : %1$s (IP: %2$s , %3$s)'), $comment->comment_author, $comment->comment_author_IP, $comment_author_domain ) . "\r\n";
-			$notify_message .= sprintf( __('E-mail : %s'), $comment->comment_author_email ) . "\r\n";
-			$notify_message .= sprintf( __('URL    : %s'), $comment->comment_author_url ) . "\r\n";
-			$notify_message .= sprintf( __('Whois  : http://whois.arin.net/rest/ip/%s'), $comment->comment_author_IP ) . "\r\n";
-			$notify_message .= __('Comment: ') . "\r\n" . $comment->comment_content . "\r\n\r\n";
-			$notify_message .= __('You can see all comments on this post here: ') . "\r\n";
+			//$notify_message .= sprintf( __('Author : %1$s (IP: %2$s , %3$s)'), $comment->comment_author, $comment->comment_author_IP, $comment_author_domain ) . "\r\n";
+			$notify_message .= sprintf( __('Email del autor del comentario: %s'), $comment->comment_author_email ) . "\r\n";
+			//$notify_message .= sprintf( __('URL    : %s'), $comment->comment_author_url ) . "\r\n";
+			//$notify_message .= sprintf( __('Whois  : http://whois.arin.net/rest/ip/%s'), $comment->comment_author_IP ) . "\r\n";
+			$notify_message .= __('Comentario: ') . "\r\n" . $comment->comment_content . "\r\n\r\n";
+			$notify_message .= __('Para responder a este comentario, por favor haga clic aquí: ') . "\r\n";
 			/* translators: 1: blog name, 2: post title */
-			$subject = sprintf( __('[%1$s] Comment: "%2$s"'), $blogname, $post->post_title );
+			$subject = sprintf( __('[%1$s] Nuevo Comentario: "%2$s"'), $blogname, $post->post_title );
 			break;
 	}
+	
 	$notify_message .= get_permalink($comment->comment_post_ID) . "#comments\r\n\r\n";
 	$notify_message .= sprintf( __('Permalink: %s'), get_comment_link( $comment_id ) ) . "\r\n";
 
