@@ -6868,3 +6868,33 @@ font-weight: 700;
         width: 146px;
     }
 }
+
+
+/*====== MODAL STYLE ======*/
+
+#autor h3 {
+font-size: 20px;
+padding-bottom: 5px;
+font-weight: 700;
+}
+
+#myModal h3 {
+font-size: 20px;
+padding-bottom: 5px;
+font-weight: 700;
+}
+
+#terms_service h3 {
+font-size: 20px;
+padding-bottom: 5px;
+font-weight: 700;
+}
+
+.modal-title {
+margin: 0;
+line-height: 1.42857143;
+text-align: center;
+font-size: 18px;
+font-weight: 700;
+color:#6e8e8c!important;
+}
