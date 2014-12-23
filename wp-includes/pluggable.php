@@ -1594,12 +1594,14 @@ function wp_new_user_notification($user_id, $plaintext_pass = '') {
 	if ( empty($plaintext_pass) )
 		return;
 
-	$message  = sprintf(__('Username: %s'), $user->user_login) . "\r\n";
-	$message .= sprintf(__('Password: %s'), $plaintext_pass) . "\r\n";
-	$message .= wp_login_url() . "\r\n";
+	//$message  = sprintf(__('Username: %s'), $user->user_login) . "\r\n";
+	//$message .= sprintf(__('Password: %s'), $plaintext_pass) . "\r\n";
+	$message  = $user->user_login. "\r\n\r\n";
+	$message .= "¡Gracias por registrase en Profesi.org! Hemos recibido sus datos y ya puede empezar a ahorrar tiempo usando recursos educativos creados por otros maestros. 
+					Todo lo mejor,";
+	//$message .= wp_login_url() . "\r\n";
 
-	wp_mail($user->user_email, sprintf(__('[%s] Your username and password'), $blogname), $message);
-
+	wp_mail($user->user_email, sprintf(__('[%s] ¡Bienvenido a Profesi.org!'), $blogname), $message);
 }
 endif;
 

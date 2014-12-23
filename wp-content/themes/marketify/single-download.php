@@ -39,7 +39,7 @@ $author = get_the_author();
 								<?php endif; ?>
 							</div>
 							<div class="more-images">
-								<?php $preview_file_1 = unserialize($data_custom['upload_preview_file_1'][0]);?>
+								<?php $preview_file_1 = unserialize($data_custom['muestra_del_producto_-_imagen_#1'][0]);?>
 								<?php 
 									if($preview_file_1[0]){
 										$preview_file1_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_1[0]."'");
@@ -49,7 +49,7 @@ $author = get_the_author();
 									<img width="70" src="<?php echo $preview_file1_url[0]; ?>"/>
 								</a>
 								
-								<?php $preview_file_2 = unserialize($data_custom['upload_preview_file_2'][0]);?>
+								<?php $preview_file_2 = unserialize($data_custom['muestra_del_producto_-_imagen_#2'][0]);?>
 								<?php 
 									if($preview_file_2[0]){
 										$preview_file2_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_2[0]."'");
@@ -59,7 +59,7 @@ $author = get_the_author();
 									<img width="70" src="<?php echo $preview_file2_url[0]; ?>"/>
 								</a>
 								
-								<?php $preview_file_3 = unserialize($data_custom['upload_preview_file_3'][0]);?>
+								<?php $preview_file_3 = unserialize($data_custom['muestra_del_producto_-_imagen_#3'][0]);?>
 								<?php 
 									if($preview_file_3[0]){
 										$preview_file3_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_3[0]."'");
@@ -88,11 +88,11 @@ $author = get_the_author();
 							</div>
 							<div class="control-group">
 								<span class="control-label">NIVEL (EDAD)</span>
-								<span class="controls gray-light"><?php echo ($data_custom['pick_grade_level(s)'][0]); ?></span>
+								<span class="controls gray-light"><?php echo ($data_custom['seleccione_el_nivel'][0]); ?></span>
 							</div>
 							<div class="control-group">
 								<span class="control-label lv2">TIPO DE RECURSO </span>
-								<span class="controls gray-light"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
+								<span class="controls gray-light"><?php echo str_replace('|', ',', $data_custom['tipo_de_recurso'][0]); ?></span>
 							</div>
 							<div class="control-group">
 								<span class="control-label lv2">EVALUACIÓN DEL PRODUCTO </span>
@@ -151,7 +151,7 @@ $author = get_the_author();
 					<span>DESCRIPCIÓN DEL PRODUCTO</span>
 				</div>
 				<div class="post-description fontsforweb_fontid_9785">
-					<span class="gray-light" style="float:left;word-wrap:break-word;width:95%"><?php echo str_replace(array("\n"), '<br/>', $data_custom['add_description'][0]); ?></span>
+					<span class="gray-light" style="float:left;word-wrap:break-word;width:95%"><?php echo str_replace(array("\n"), '<br/>', $data_custom['descripción_del_producto'][0]); ?></span>
 				</div>
 				<br clear="all" />
 				<div class="info-post">NÚMERO DE PÁGINAS:<span class="gray-light"><?php echo $data_custom['add_number_of_pages_or_slides'][0]?></span></div>
@@ -309,11 +309,11 @@ $author = get_the_author();
 					<div class="info left">
 						<div class="madeby-lb gray-light"><i>Hecho por</i></div>
 						<div class="teacher-name fontsforweb_fontid_9785">
-							<a href="/fes-vendor/<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>"
-								 title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) );?></a>
+							<?php $archive_url = str_replace( 'vendor', 'fes-vendor', marketify_edd_fes_author_url( get_the_author_meta( 'ID' ) ) );?>
+							<a href="<?php echo $archive_url?>"	 title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) );?></a>
 						</div>
 						<div class="user-rating gray-light"> profe-vendedor</div>
-						<div style="padding: 20px 0px 0px 5px;"><a href="/fes-vendor/<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>">Visite mi tienda <i class="glyphicon glyphicon-play"></i></a></div>
+						<div style="padding: 20px 0px 0px 5px;"><a href="<?php echo $archive_url; ?>">Visite mi tienda <i class="glyphicon glyphicon-play"></i></a></div>
 					</div>
 				</div>
 				

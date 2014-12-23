@@ -140,8 +140,7 @@ elseif($_POST['edd_submit']){
 										<input type="password" name="pass2" id="pass2" class="input" size="20" value="" autocomplete="off" /></label>
 									</p>
 								
-									<div id="pass-strength-result" class="hide-if-no-js"><?php _e('Strength indicator'); ?></div>
-									<p class="description indicator-hint"><?php _e('Sugerencia: La contraseña debe tener al menos siete caracteres de longitud. Para hacerlo más fuerte, use letras mayúsculas y minúsculas, números y símbolos como ! " ? $ % ^ &amp; ).'); ?></p>
+									<p class="description indicator-hint"><?php _e('Sugerencia: La contraseña debe tener por lo menos siete caracteres de longitud. Para hacerlo más fuerte, use letras mayúsculas y minúsculas, números y símbolos como ! " ? $ % ^ & ).'); ?></p>
 								
 									<br class="clear" />
 									
