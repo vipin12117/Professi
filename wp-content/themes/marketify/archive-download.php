@@ -98,13 +98,13 @@ if($cat_condition){
 
 $where[] = " post_type = 'download' ";
 if($where){
-	$whereCondition = "where ".implode(" AND ",$where);
+	$whereCondition = "where post_status = 'publish' and ".implode(" AND ",$where);
 }
 else{
-	$whereCondition = "";
+	$whereCondition = " post_status = 'publish' ";
 }
 
-$search_query = "select p.ID , post_title , post_name , (sum(meta_value) / 5) as average_rating , count(comment_ID) as count_rating  from wp_posts p 
+$search_query = "select p.ID , p.post_type , post_title , post_name , (sum(meta_value) / 5) as average_rating , count(comment_ID) as count_rating  from wp_posts p 
 				 left join
 				 (
 				    select c.comment_ID , comment_post_ID , meta_value from wp_comments c 
@@ -180,10 +180,8 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 				<br />
 
 				<?php if ( $downloads ) : ?>
-					<div class="download-grid-wrapper  search-result clearfix" d>
-						<?php foreach($downloads as $post):?>
-							<?php //get_template_part( 'content-grid', 'download' ); ?>
-							
+					<div class="download-grid-wrapper  search-result clearfix">
+						<?php global $post; foreach($downloads as $post):?>
 							<div  id="post-<?php the_ID(); ?>" class="content-grid-download row">
 								<div class="col-md-3">
 									<?php edd_get_template_part( 'shortcode', 'content-image' ); ?>
@@ -191,12 +189,14 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 								
 								<div class="col-md-6">
 									<div>
-										<?php edd_get_template_part( 'shortcode', 'content-title' ); ?>
+										<h3 itemprop="name" class="edd_download_title">
+											<a title="<?php the_title_attribute(); ?>" itemprop="url" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+										</h3>
 									</div>
 									
 									<?php $data_custom = get_post_custom($post->ID);?>
 									<div class="des">
-                                         <?php $text=$data_custom['add_description'][0];  ?>
+                                         <?php $text=$data_custom['descripción_del_producto'][0];  ?>
                                          <?php $text=  substr($text, 0 ,170); echo $text; ?> ...
 				                    </div>
 									
@@ -226,11 +226,11 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 										</div>
 										<div class="control-group row">
 											<span class="control-label col-md-3">NIVEL:</span>
-											<span class="controls green-light grades"><?php echo ($data_custom['pick_grade_level(s)'][0]); ?></span>
+											<span class="controls green-light grades"><?php echo ($data_custom['seleccione_el_nivel'][0]); ?></span>
 										</div>
 										<div class="control-group row ">
 											<span class="control-label lv2 col-md-3">TIPO:</span>
-											<span class="controls green-light resource-type"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
+											<span class="controls green-light resource-type"><?php echo str_replace('|', ',', $data_custom['tipo_de_recurso'][0]); ?></span>
 										</div>
 									</div>	
 								</div>
