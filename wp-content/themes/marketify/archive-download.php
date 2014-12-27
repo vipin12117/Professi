@@ -189,10 +189,8 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 								
 								<div class="col-md-6">
 									<div>
-										<h3 itemprop="name" class="edd_download_title">
-											<a title="<?php the_title_attribute(); ?>" itemprop="url" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-										</h3>
-									</div>
+										<?php edd_get_template_part( 'shortcode', 'content-title' ); ?>
+									</div>	
 									
 									<?php $data_custom = get_post_custom($post->ID);?>
 									<div class="des">
