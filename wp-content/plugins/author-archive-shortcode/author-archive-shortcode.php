@@ -10,10 +10,14 @@
  */
 
 function pippin_list_authors() {
-	$authors = get_users(array(
-			'orderby' => 'display_name',
-			'count_totals' => false,
-			'who' => 'shop_vendor'));
+	$meta_query = array('relation' => 'AND',
+					array(
+                		'key' => 'is_featured_user',
+                		'value' => 'Yes',
+            		)
+		         );
+		         
+	$authors = get_users(array('orderby' => 'display_name','count_totals' => false,'who' => 'shop_vendor','meta_query' => $meta_query));
 
 	$list = '';
 

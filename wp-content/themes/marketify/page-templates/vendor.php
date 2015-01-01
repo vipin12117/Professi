@@ -7,6 +7,8 @@
  * @package Marketify
  */
 
+include_once get_template_directory().'/split_page_results.php';
+
 $author = get_query_var( 'vendor' );
 $author = get_user_by( 'slug', $author );
 
@@ -15,8 +17,34 @@ if ( $author ) {
     $avatar = get_avatar( $authorID, 150, apply_filters( 'marketify_default_avatar', null ) );
 }
 
-get_header(); ?>
+get_header(); 
 
+$author_cond = "";
+if($authorID){
+	$author_cond = " and p.post_author = '$authorID' ";
+}
+
+$search_query = "select p.ID , p.post_type, p.post_author , post_title , post_name , (sum(wm.meta_value) / 5) as average_rating , count(comment_ID) as count_rating  from wp_posts p 
+				 left join
+				 (
+				    select c.comment_ID , comment_post_ID , meta_value from wp_comments c 
+				    inner join wp_commentmeta cm on (c.comment_ID = cm.comment_id and cm.meta_key = 'edd_rating')
+				    where c.comment_approved = 1 and meta_value != '' order by meta_value DESC
+				 )
+				 as wm on (p.ID = wm.comment_post_ID)
+				 left join wp_postmeta pm on (p.ID = pm.post_id) 
+				 where pm.meta_key = 'is_featured_download' and  pm.meta_value = 'Yes' and post_status = 'publish' and post_type = 'download'
+				 $author_cond
+				 group by p.ID order by count_rating DESC , average_rating DESC";
+
+$page = (int)$_GET['page'];		
+if(!$page){
+	$page = 1;
+}		 
+
+$splitPage = new splitPageResults($search_query , 9 , "", $page);			
+$downloads = $wpdb->get_results($splitPage->sql_query);
+?>
 <div class="container vendor main-body">
     <?php while ( have_posts() ) : the_post(); ?>
     <div class="row">
@@ -74,6 +102,7 @@ get_header(); ?>
                                 <div class="teacher-store gray-light">N° de productos en mi tienda: <span><?php echo marketify_count_user_downloads( $author->ID ); ?></span></div>
                                 
                                 <br />
+                                <?php $products = marketify_count_user_downloads( $author->ID );?>
                                 <div class="title-right right" style="padding-right: 50px;"><a href="<?php echo esc_url( home_url( '/fes-vendor/'.$author->display_name ) ); ?>">Ver todos mis  <?php echo $products;?> productos <i class="glyphicon glyphicon-play"></i></a></div>
                             </div>
                         </div>
@@ -87,18 +116,6 @@ get_header(); ?>
                                 <span class="controls gray-light"><?php echo get_user_meta($author->ID, 'what_subject_do_you_teach?' , 1);  ?></span>
                             </div>
                         </div>
-                    </div>
-                    <div class="teacher-dl content-items left">
-	                    <?php
-		                    wp_reset_query();
-		                    $download_ = new WP_Query( array(
-		                    	'post_type'   => 'download',
-		                    	'post_status' => 'publish',
-		                    	'post_author' => $author->ID,
-		                        'posts_per_page' => 2
-		                    ));
-	                   		$products = marketify_count_user_downloads( $author->ID );
-	                    ?>
                     </div>
                 </div>
                 <hr/>
@@ -116,7 +133,20 @@ get_header(); ?>
                     <main id="main" class="site-main" role="main">
                         <div class="the-title-home">PRODUCTOS DESTACADOS</div>
                         <div class="clearfix">
-                            <?php echo do_shortcode( sprintf( '[downloads number="%s"]', get_option( 'posts_per_page' ) ) ); ?>
+                            <?php //echo do_shortcode( sprintf( '[downloads number="%s"]', get_option( 'posts_per_page' ) ) ); ?>
+                            
+                            <?php global $post; foreach($downloads as $post):?>
+									<div class="col-md-4">
+										<?php  get_template_part( 'content-grid-download'); ?>
+									</div>
+							<?php endforeach;?>
+							
+							<?php if($splitPage->number_of_rows > 9):?>
+								<div id="edd_download_pagination" class="navigation">
+									<?php $_SERVER['QUERY_STRING'] = preg_replace("/page=[0-9+]/is","",$_SERVER['QUERY_STRING']);?>
+									<?php echo $splitPage->display_links("3",$_SERVER['QUERY_STRING']);?>
+								</div>
+							<?php endif;?>	
                         </div>
                     </main><!-- #main -->
                 </section><!-- #primary -->
