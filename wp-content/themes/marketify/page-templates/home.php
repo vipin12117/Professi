@@ -29,7 +29,8 @@ if(!$page){
 	$page = 1;
 }		 
 
-$splitPage = new splitPageResults($search_query , 9 , "", $page);			
+$limit = 9;
+$splitPage = new splitPageResults($search_query , $limit , "", $page);			
 $downloads = $wpdb->get_results($splitPage->sql_query);
 ?>
 <div class="container main-body">
@@ -115,10 +116,11 @@ $downloads = $wpdb->get_results($splitPage->sql_query);
 								<?php endforeach;?>
 							</div>
 							
-							<?php if($splitPage->number_of_rows > 9):?>
+							<br clear="all" />
+							
+							<?php if($splitPage->number_of_rows > $limit):?>
 								<div id="edd_download_pagination" class="navigation">
-									<?php $_SERVER['QUERY_STRING'] = preg_replace("/page=[0-9+]/is","",$_SERVER['QUERY_STRING']);?>
-									<?php echo $splitPage->display_links("3",$_SERVER['QUERY_STRING']);?>
+									<?php echo $splitPage->display_links("5",null);?>
 								</div>
 							<?php endif;?>	
 					

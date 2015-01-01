@@ -104,7 +104,7 @@ else{
 	$whereCondition = " post_status = 'publish' ";
 }
 
-$search_query = "select p.ID , p.post_type , post_title , post_name , (sum(meta_value) / 5) as average_rating , count(comment_ID) as count_rating  from wp_posts p 
+$search_query = "select p.ID , p.post_type, p.post_author , post_title , post_name , (sum(meta_value) / 5) as average_rating , count(comment_ID) as count_rating  from wp_posts p 
 				 left join
 				 (
 				    select c.comment_ID , comment_post_ID , meta_value from wp_comments c 
@@ -121,7 +121,6 @@ if(!$page){
 $splitPage = new splitPageResults($search_query , 5 , "", $page);			
 $downloads = $wpdb->get_results($splitPage->sql_query);
 
-$wp_query->found_posts = $splitPage->number_of_rows;
 //print_R($search_query); exit;
 ?>
 <div class="container result-search main-body">
@@ -189,6 +188,8 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 								
 								<div class="col-md-6">
 									<div>
+										<?php global $authordata; $authordata->ID = $post->post_author;?>
+										
 										<?php edd_get_template_part( 'shortcode', 'content-title' ); ?>
 									</div>	
 									
@@ -298,7 +299,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 					<?php if($splitPage->number_of_rows > 5):?>
 						<div id="edd_download_pagination" class="navigation">
 							<?php $_SERVER['QUERY_STRING'] = preg_replace("/page=[0-9+]/is","",$_SERVER['QUERY_STRING']);?>
-							<?php echo $splitPage->display_links("3",$_SERVER['QUERY_STRING']);?>
+							<?php echo $splitPage->display_links("10",$_SERVER['QUERY_STRING']);?>
 						</div>
 					<?php endif;?>	
 					

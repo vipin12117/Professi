@@ -13,15 +13,15 @@ $author = get_query_var( 'vendor' );
 $author = get_user_by( 'slug', $author );
 
 if ( $author ) {
-    $authorID = get_current_user_id();
+    $authorID = $author->ID;
     $avatar = get_avatar( $authorID, 150, apply_filters( 'marketify_default_avatar', null ) );
 }
 
 get_header(); 
 
 $author_cond = "";
-if($authorID){
-	$author_cond = " and p.post_author = '$authorID' ";
+if($author){
+	$author_cond = " and p.post_author = '".$author->ID."' ";
 }
 
 $search_query = "select p.ID , p.post_type, p.post_author , post_title , post_name , (sum(wm.meta_value) / 5) as average_rating , count(comment_ID) as count_rating  from wp_posts p 
@@ -37,12 +37,13 @@ $search_query = "select p.ID , p.post_type, p.post_author , post_title , post_na
 				 $author_cond
 				 group by p.ID order by count_rating DESC , average_rating DESC";
 
-$page = (int)$_GET['page'];		
+$page = (int)$_GET['pg'];		
 if(!$page){
 	$page = 1;
-}		 
+}	
 
-$splitPage = new splitPageResults($search_query , 9 , "", $page);			
+$limit = 9;
+$splitPage = new splitPageResults($search_query , $limit , home_url('/fes-vendor/') , $page);			
 $downloads = $wpdb->get_results($splitPage->sql_query);
 ?>
 <div class="container vendor main-body">
@@ -141,10 +142,11 @@ $downloads = $wpdb->get_results($splitPage->sql_query);
 									</div>
 							<?php endforeach;?>
 							
-							<?php if($splitPage->number_of_rows > 9):?>
+							<br clear="all" />
+							
+							<?php if($splitPage->number_of_rows > $limit):?>
 								<div id="edd_download_pagination" class="navigation">
-									<?php $_SERVER['QUERY_STRING'] = preg_replace("/page=[0-9+]/is","",$_SERVER['QUERY_STRING']);?>
-									<?php echo $splitPage->display_links("3",$_SERVER['QUERY_STRING']);?>
+									<?php echo $splitPage->display_links("5",null,'pg');?>
 								</div>
 							<?php endif;?>	
                         </div>

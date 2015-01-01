@@ -342,9 +342,11 @@ $author = get_the_author();
 					$downloads = new WP_Query( array(
 						'post_type'   => 'download',
 						'post_status' => 'publish',
-						'post_author' => $author,
+						'author' => get_the_author_meta( 'ID' ),
 						'posts_per_page' => 3
 					) );
+					
+					//print_r($downloads); exit;
 				?>			
 				<div class="wishlist">
 					<div class="dlcontainer">
@@ -355,7 +357,7 @@ $author = get_the_author();
 						<?php endwhile; ?>
 					</div>
 					<div style="">
-						<a href="<?php echo marketify_edd_fes_author_url( get_the_author_meta( 'ID' ) );?>"
+						<a href="<?php echo $archive_url;?>"
 							title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>">Ver todos <i class="glyphicon glyphicon-play"></i></a>
 					</div>
 				</div>
