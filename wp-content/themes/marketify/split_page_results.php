@@ -42,7 +42,7 @@ class splitPageResults {
 	}
 
 	// display split-page-number-links
-	function display_links($max_page_links, $parameters = '') {
+	function display_links($max_page_links, $parameters = '' , $name = 'page') {
 		global $PHP_SELF, $request_type;
 
 		$display_links_string = '';
@@ -58,7 +58,7 @@ class splitPageResults {
 			if(!is_null($parameters) && (substr($parameters, -1) != '&')) $parameters .= '&';
 
 			if ($this->current_page_number > 1)
-			$display_links_string .= '<a href="'. $this->page_url . '?' . $parameters . 'page=' . ($this->current_page_number - 1) . '" class="prev page-numbers" title=" ' . PREVNEXT_TITLE_PREVIOUS_PAGE . ' "><u>' . PREVNEXT_BUTTON_PREV . '</u></a>&nbsp;&nbsp;';
+			$display_links_string .= '<a href="'. $this->page_url . '?' . $parameters . $name.'=' . ($this->current_page_number - 1) . '" class="prev page-numbers" title=" ' . PREVNEXT_TITLE_PREVIOUS_PAGE . ' "><u>' . PREVNEXT_BUTTON_PREV . '</u></a>&nbsp;&nbsp;';
 
 
 			$cur_window_num = intval($this->current_page_number / $max_page_links);
@@ -68,14 +68,14 @@ class splitPageResults {
 			if($this->number_of_pages % $max_page_links) $max_window_num++;
 
 			if($cur_window_num > 1)
-			$display_links_string .= '<a href="' . $this->page_url . '?' . $parameters . 'page=' . (($cur_window_num - 1) * $max_page_links) . '" class="page-numbers" title=" ' . sprintf(PREVNEXT_TITLE_PREV_SET_OF_NO_PAGE, $max_page_links) . ' ">...</a>';
+			$display_links_string .= '<a href="' . $this->page_url . '?' . $parameters . $name.'=' . (($cur_window_num - 1) * $max_page_links) . '" class="page-numbers" title=" ' . sprintf(PREVNEXT_TITLE_PREV_SET_OF_NO_PAGE, $max_page_links) . ' ">...</a>';
 
 			for($jump_to_page = 1 + (($cur_window_num - 1) * $max_page_links); ($jump_to_page <= ($cur_window_num * $max_page_links)) && ($jump_to_page <= $this->number_of_pages); $jump_to_page++) {
 				if($jump_to_page == $this->current_page_number) {
 					$display_links_string .= '&nbsp;<b>' . $jump_to_page . '</b>&nbsp;';
 				}
 				else{
-					$display_links_string .= '&nbsp;<a href="' . $this->page_url . '?' . $parameters . 'page=' . $jump_to_page  . '" class="page-numbers" title=" ' . sprintf(PREVNEXT_TITLE_PAGE_NO, $jump_to_page) . ' "><u>' . $jump_to_page . '</u></a>&nbsp;';
+					$display_links_string .= '&nbsp;<a href="' . $this->page_url . '?' . $parameters . $name.'=' . $jump_to_page  . '" class="page-numbers" title=" ' . sprintf(PREVNEXT_TITLE_PAGE_NO, $jump_to_page) . ' "><u>' . $jump_to_page . '</u></a>&nbsp;';
 				}
 			}
 
@@ -84,7 +84,7 @@ class splitPageResults {
 
 			// next button
 			if(($this->current_page_number < $this->number_of_pages) && ($this->number_of_pages != 1))
-			$display_links_string .= '&nbsp;<a href="' . $this->page_url . '?' . $parameters . 'page=' . ($this->current_page_number + 1) . '" class="next page-numbers" title=" ' . PREVNEXT_TITLE_NEXT_PAGE . ' "><u>' . PREVNEXT_BUTTON_NEXT . '</u></a>&nbsp;';
+			$display_links_string .= '&nbsp;<a href="' . $this->page_url . '?' . $parameters . $name.'=' . ($this->current_page_number + 1) . '" class="next page-numbers" title=" ' . PREVNEXT_TITLE_NEXT_PAGE . ' "><u>' . PREVNEXT_BUTTON_NEXT . '</u></a>&nbsp;';
 		}
 		else  {  // if zero rows, then simply say that
 			$display_links_string .= '&nbsp;<b>0</b>&nbsp;';

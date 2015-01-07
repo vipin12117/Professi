@@ -50,51 +50,69 @@ wp_reset_query();
 
 $where = array();
 if(strlen($s) > 1){
+	$s = mysql_real_escape_string($s);
 	$s_parts = explode(" ",$s);
 	$string  = array();
 	foreach((array)$s_parts as $word){
 		$string[] = " post_title LIKE '%".mysql_real_escape_string($word)."%' ";
 	}
 	
-	
-	if(sizeof($string) > 0){
-		$where[] = "(( " . implode(" AND ", $string) . " ) OR post_title LIKE '%".mysql_real_escape_string($s)."%')";
+	//check category name for keyword
+	$term_ids   = $wpdb->get_row("select group_concat(term_id) as term_ids from wp_terms where name like '%$s%'");
+	$keyword_or = "";
+	if($term_ids->term_ids){
+		$term_ids = $term_ids->term_ids;
+		$keyword_or = " OR ( p.ID IN ( select object_id from wp_term_relationships where term_taxonomy_id IN($term_ids) ) )";
+	}
+		
+	if(sizeof($string) > 1){
+		$where[] = "( (".implode(" AND ", $string).") OR post_title LIKE '%$s%' $keyword_or)";
 	}
 	else{
-		$where[] = "post_title LIKE '%$search%'";
+		$where[] = "( post_title LIKE '%$s%' $keyword_or)";
 	}
 }
 
 $cat_condition = array();
 foreach($ccats as $cat_ids){
+	$orArr = array();
+	
 	foreach($cat_ids as $cat_id){
 		$term_ids = get_term_children($cat_id->term_id,'download_category');
 		$term_ids[] = $cat_id->term_id;
 		$term_ids  = array_unique($term_ids);
 		$term_ids_str = implode(",",$term_ids);
-		
-	    $cat_condition[] = " t.term_id IN($term_ids_str) ";
+		if($term_ids_str){
+			$orArr[] = "p.ID IN ( select object_id from wp_term_relationships where term_taxonomy_id IN($term_ids_str) ) ";
+		}
+	}
+	
+	if($orArr){
+		$cat_condition[] = "(". implode(" OR ", $orArr). ")";
 	}
 }
+
 if($cat_condition){
 	$where[] = implode(" AND ", $cat_condition);
 }
 
 $where[] = " post_type = 'download' ";
 if($where){
-	$whereCondition = "where ".implode(" AND ",$where);
+	$whereCondition = "where post_status = 'publish' and ".implode(" AND ",$where);
 }
 else{
-	$whereCondition = "";
+	$whereCondition = " post_status = 'publish' ";
 }
 
-$search_query = "select ID , post_title , post_name , (sum(meta_value) / 5) average_rating , count(cm.comment_ID) count_rating  from wp_posts p 
-				 left join wp_term_relationships tr on (p.ID = tr.object_id) 
-				 left join wp_term_taxonomy tt on (tr.term_taxonomy_id = tt.term_taxonomy_id) 
-				 left join wp_terms t on (t.term_id = tt.term_id) 
-				 left join wp_comments c on (p.ID = c.comment_post_ID) 
-				 left join wp_commentmeta cm on (c.comment_ID = cm.comment_id and meta_key = 'edd_rating' AND comment_approved = '1')
-				 $whereCondition group by ID order by count_rating DESC , average_rating DESC";
+$search_query = "select p.ID , p.post_type, p.post_author , post_title , post_name , (sum(meta_value) / 5) as average_rating , count(comment_ID) as count_rating  from wp_posts p 
+				 left join
+				 (
+				    select c.comment_ID , comment_post_ID , meta_value from wp_comments c 
+				    inner join wp_commentmeta cm on (c.comment_ID = cm.comment_id and cm.meta_key = 'edd_rating')
+				    where c.comment_approved = 1 and meta_value != '' order by meta_value DESC
+				 )
+				 as wm on (p.ID = wm.comment_post_ID)
+				 $whereCondition group by p.ID order by count_rating DESC , average_rating DESC";
 $page = (int)$_GET['page'];		
 if(!$page){
 	$page = 1;
@@ -103,17 +121,16 @@ if(!$page){
 $splitPage = new splitPageResults($search_query , 5 , "", $page);			
 $downloads = $wpdb->get_results($splitPage->sql_query);
 
-$wp_query->found_posts = $splitPage->number_of_rows;
 //print_R($search_query); exit;
 ?>
 <div class="container result-search main-body">
   <div class="row">
-	 <div class="left-container col-xs-12 col-sm-4 col-md-4 sidebar">
+	 <div class="left-container col-xs-12 col-sm-4 col-md-3 sidebar">
 		<aside id="selected-categories" class="widget download-single-widget widget_edd_categories_tags_widget">
 			<h1 class="download-single-widget-title"></h1>
 			<ul class="edd-taxonomy-widget">
 				<li class="cat-item cat-item-15">
-					<a class="filter-banner">YOU SELECTED</a>
+					<a class="filter-banner">HA SELECCIONADO</a>
 					<ul class="children selected-cat">
 						<?php foreach($pcats as $key=>$pcat) {?>
 						<li class="cat-item cat-item-selected">
@@ -121,7 +138,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 									echo '<span class="pcat">'.$pcat->name.'</span>'; 
 									$icats = $ccats[$key];
 									foreach($icats as $ccat) {
-										echo '<span title="Click on this category to remove selected search." class="icon-cat" data-slug="'.$ccat->slug.'">'.$ccat->name.'<i class="icon"></i></span>'; 
+										echo '<span title="Haga clic para deseleccionar." class="icon-cat" data-slug="'.$ccat->slug.'">'.$ccat->name.'<i class="icon"></i></span>'; 
 									}
 								?>
 								<a>&nbsp;</a>
@@ -130,7 +147,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 							if(count($pcats) == 0) {
 						?>
 						<li class="cat-item cat-item-21">
-								<a>Search in all categories</a>
+							 <a href="<?php echo home_url("?s=&post_type=download&absc_search_cat=&search_order=title");?>">Todas las categorías</a>
 						</li>
 						<?php } ?>
 					</ul>
@@ -141,14 +158,14 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 		<?php dynamic_sidebar( 'sidebar-download-single' ); ?>
 	</div>
 
-	<div id="content" class="right-container col-xs-12 col-sm-8 col-md-8 site-content ">
+	<div id="content" class="right-container col-xs-12 col-sm-8 col-md-9 site-content ">
 	  <div class="download-product-review-details content-items clearfix">
 		 <section id="primary" class="content-area col-md-<?php echo is_active_sidebar( 'sidebar-download' ) ? '9' : '12'; ?> col-sm-12 col-xs-12">
 			<main id="main" class="site-main" role="main">
 				
 				<!--  <div class="the-title-home"><?php //marketify_downloads_section_title();?></div> -->
 				<div class="result-info clearfix">
-					<div class="result fontsforweb_fontid_9785 left"><?php echo $splitPage->number_of_rows?> results</div>
+					<div class="result fontsforweb_fontid_9785 left"><?php echo $splitPage->number_of_rows?> resultados</div>
 					<div class="result-selectbox right" style="display:none;">
 						<span>sort by:</span>
 						<select id="selext-orderby" class="form-control">
@@ -162,24 +179,24 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 				<br />
 
 				<?php if ( $downloads ) : ?>
-					<div class="download-grid-wrapper  search-result clearfix" d>
-						<?php foreach($downloads as $post):?>
-							<?php //get_template_part( 'content-grid', 'download' ); ?>
-							
+					<div class="download-grid-wrapper  search-result clearfix">
+						<?php global $post; foreach($downloads as $post):?>
 							<div  id="post-<?php the_ID(); ?>" class="content-grid-download row">
 								<div class="col-md-3">
 									<?php edd_get_template_part( 'shortcode', 'content-image' ); ?>
 								</div>
 								
-								<div class="col-md-5">
+								<div class="col-md-6">
 									<div>
+										<?php global $authordata; $authordata->ID = $post->post_author;?>
+										
 										<?php edd_get_template_part( 'shortcode', 'content-title' ); ?>
-									</div>
+									</div>	
 									
 									<?php $data_custom = get_post_custom($post->ID);?>
 									<div class="des">
-                                         <?php $text=$data_custom['add_description'][0];  ?>
-                                         <?php $text=  substr($text, 0 ,60); echo $text; ?>
+                                         <?php $text=$data_custom['descripción_del_producto'][0];  ?>
+                                         <?php $text=  substr($text, 0 ,170); echo $text; ?> ...
 				                    </div>
 									
 									<?php $data_custom = get_post_custom($post->ID);?>
@@ -202,27 +219,27 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 										  //print $rating . " -- " . $post->ID . " -- " . $ratingCount . "<br />";
 									?>
 									<div class="form-horizontal ">
-										<div class="control-group">
-											<span class="control-label">SUBJECTS:</span>
-											<span class="controls gray-light sub"><?php echo $category_str;?></span>
+										<div class="control-group row">
+											<span class="control-label col-md-3">MATERIA:</span>
+											<span class="controls green-light sub"><?php echo $category_str;?></span>
 										</div>
-										<div class="control-group">
-											<span class="control-label">GRADES:</span>
-											<span class="controls gray-light grades"><?php echo ($data_custom['pick_grade_level(s)'][0]); ?></span>
+										<div class="control-group row">
+											<span class="control-label col-md-3">NIVEL:</span>
+											<span class="controls green-light grades"><?php echo ($data_custom['seleccione_el_nivel'][0]); ?></span>
 										</div>
-										<div class="control-group">
-											<span class="control-label lv2">RESOURCE TYPES:</span>
-											<span class="controls gray-light resource-type"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
+										<div class="control-group row ">
+											<span class="control-label lv2 col-md-3">TIPO:</span>
+											<span class="controls green-light resource-type"><?php echo str_replace('|', ',', $data_custom['tipo_de_recurso'][0]); ?></span>
 										</div>
 									</div>	
 								</div>
 								
-								<div class="col-md-4" >
+								<div class="col-md-3" >
 									<div class="download-product-details action-container" style="padding:5px 0 5px 10px;"><!--#action-container -->
-										<div class="price">Price: <?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
+										<div class="price"><?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
 										<br />
 										<div class="control-group">
-											<span class="control-label lv2">PRODUCT RATING </span>
+											<span class="control-label lv2">EVALUACIÓN DEL PRODUCTO:</span>
 											<span class="controls gray-light">
 												<div class="star-ratings">
 													<?php $j = 0; for($i = 0; $i < $full; ++ $i)  {?>
@@ -246,12 +263,12 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 													
 													<?php //echo edd_reviews()->microdata();?>
 												</div>
-												<div class="ratings"><?php echo $ratingCount; ?> ratings</div>
+												<div class="ratings"><?php echo $ratingCount; ?> comentario(s)</div>
 											</span>
 										</div>
 										<br />
 										
-										<div class="type">Digital Download</div>
+										<div class="type">Tipo de archivo</div>
 										<div class="control-group clearfix">
 											<span class="control-label lv2"></span>
 											<span class="controls gray-light">
@@ -270,7 +287,7 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 											data-variable-price="no"
 											data-price-mode="single"
 											>
-											<i class="add-wl"></i>W I S H&nbsp;&nbsp;L I S T</a>
+											<i class="add-wl"></i>LISTA DE DESEOS</a>
 										</div>
 									</div><!--#action-container -->
 								</div>
@@ -282,14 +299,14 @@ $wp_query->found_posts = $splitPage->number_of_rows;
 					<?php if($splitPage->number_of_rows > 5):?>
 						<div id="edd_download_pagination" class="navigation">
 							<?php $_SERVER['QUERY_STRING'] = preg_replace("/page=[0-9+]/is","",$_SERVER['QUERY_STRING']);?>
-							<?php echo $splitPage->display_links("3",$_SERVER['QUERY_STRING']);?>
+							<?php echo $splitPage->display_links("10",$_SERVER['QUERY_STRING']);?>
 						</div>
 					<?php endif;?>	
 					
 					<?php //marketify_content_nav( 'nav-below' ); ?>
 			<?php else : ?>
 
-				<?php get_template_part( 'no-results', 'download' ); ?>
+				<?php //get_template_part( 'no-results', 'download' ); ?>
 
 			<?php endif; ?>
 

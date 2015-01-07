@@ -21,7 +21,7 @@ $author = get_the_author();
 			<header class="post-header">
 				<?php the_post(); ?>
 				<div class="post-title fontsforweb_fontid_9785">
-					<span>BOOK NAME: </span><span><?php the_title();?></span>
+					<span><!--BOOK NAME:--> </span><span><?php the_title();?></span>
 				</div>
 				<div class="header-container clearfix">
 					<div class="left">
@@ -39,7 +39,7 @@ $author = get_the_author();
 								<?php endif; ?>
 							</div>
 							<div class="more-images">
-								<?php $preview_file_1 = unserialize($data_custom['upload_preview_file_1'][0]);?>
+								<?php $preview_file_1 = unserialize($data_custom['muestra_del_producto_-_imagen_#1'][0]);?>
 								<?php 
 									if($preview_file_1[0]){
 										$preview_file1_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_1[0]."'");
@@ -49,7 +49,7 @@ $author = get_the_author();
 									<img width="70" src="<?php echo $preview_file1_url[0]; ?>"/>
 								</a>
 								
-								<?php $preview_file_2 = unserialize($data_custom['upload_preview_file_2'][0]);?>
+								<?php $preview_file_2 = unserialize($data_custom['muestra_del_producto_-_imagen_#2'][0]);?>
 								<?php 
 									if($preview_file_2[0]){
 										$preview_file2_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_2[0]."'");
@@ -59,10 +59,10 @@ $author = get_the_author();
 									<img width="70" src="<?php echo $preview_file2_url[0]; ?>"/>
 								</a>
 								
-								<?php $preview_file_3 = unserialize($data_custom['upload_preview_file_3'][0]);?>
+								<?php $preview_file_3 = unserialize($data_custom['muestra_del_producto_-_imagen_#3'][0]);?>
 								<?php 
 									if($preview_file_3[0]){
-										$preview_file3_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_2[0]."'");
+										$preview_file3_url = $wpdb->get_col("select guid from wp_posts where ID = '".$preview_file_3[0]."'");
 									}
 								?>
 								<a href="<?php echo $preview_file3_url[0]; ?>" rel="lightbox">
@@ -83,19 +83,19 @@ $author = get_the_author();
 					<div class="teacher-info fontsforweb_fontid_9785 left">
 						<div class="form-horizontal">
 							<div class="control-group">
-								<span class="control-label">SUBJECTS </span>
+								<span class="control-label">MATERIA </span>
 								<span class="controls gray-light"><?php echo $category_str;?></span>
 							</div>
 							<div class="control-group">
-								<span class="control-label">GRADES </span>
-								<span class="controls gray-light"><?php echo ($data_custom['pick_grade_level(s)'][0]); ?></span>
+								<span class="control-label">NIVEL (EDAD)</span>
+								<span class="controls gray-light"><?php echo ($data_custom['seleccione_el_nivel'][0]); ?></span>
 							</div>
 							<div class="control-group">
-								<span class="control-label lv2">RESOURCE TYPES </span>
-								<span class="controls gray-light"><?php echo str_replace('|', ',', $data_custom['pick_resource_type'][0]); ?></span>
+								<span class="control-label lv2">TIPO DE RECURSO </span>
+								<span class="controls gray-light"><?php echo str_replace('|', ',', $data_custom['tipo_de_recurso'][0]); ?></span>
 							</div>
 							<div class="control-group">
-								<span class="control-label lv2">PRODUCT RATING </span>
+								<span class="control-label lv2">EVALUACIÓN DEL PRODUCTO </span>
 								<span class="controls gray-light">
 									<div class="star-ratings">
 										<?php $j = 0; for($i = 0; $i < $full; ++ $i)  {?>
@@ -116,14 +116,14 @@ $author = get_the_author();
 										echo $rating; 
 										?></span>
 									</div>
-									<div class="ratings"><?php echo $ratingCount; ?> ratings</div>
+									<div class="ratings"><?php echo $ratingCount; ?>  comentario(s)</div>
 								</span>
 							</div>
 							<div class="control-group clearfix">
 								<span class="control-label lv2"></span>
 								<br/>
 								<span class="control-label lv2 left"></span>
-								<span class="controls file-comment">Be sure that you have an application to open this file type before downloading and/or purchasing.</span>
+								<span class="controls file-comment">Asegúrese de tener un programa para abrir este tipo de archivo antes de descargar y / o comprar.</span>
 								<br/>
 								<span class="control-label lv2 left"></span>
 								
@@ -137,7 +137,7 @@ $author = get_the_author();
 								<span class="controls file-comment">
 									<?php echo ucfirst(end($file_parts));?> (<?php echo getSizeFile($edd_download_files[0]['file']);?> MB)  |  
 									
-									<?php echo $data_custom['add_number_of_pages_or_slides'][0]?> pages
+									<?php echo $data_custom['add_number_of_pages_or_slides'][0]?> páginas
 								</span>
 							</div>
 						</div>
@@ -148,26 +148,26 @@ $author = get_the_author();
 			<hr/>
 			<div class="description-post">
 				<div class="post-title fontsforweb_fontid_9785">
-					<span>PRODUCT DESCRIPTION</span>
+					<span>DESCRIPCIÓN DEL PRODUCTO</span>
 				</div>
 				<div class="post-description fontsforweb_fontid_9785">
-					<span class="gray-light"><?php echo str_replace(array("\n"), '<br/>', $data_custom['add_description'][0]); ?></span>
+					<span class="gray-light" style="float:left;word-wrap:break-word;width:95%"><?php echo str_replace(array("\n"), '<br/>', $data_custom['descripción_del_producto'][0]); ?></span>
 				</div>
-				<br/>
-				<div class="info-post">TOTAL PAGES:<span class="gray-light"><?php echo $data_custom['add_number_of_pages_or_slides'][0]?></span></div>
-				<div class="info-post">TEACHING DURATION:<span class="gray-light"><?php echo $data_custom['add_teaching_duration'][0]?></span></div>
-				<div class="report-post gray-light"><a href="mailto:<?php echo get_the_author_meta( 'email' )?>"><i class="report-icon"></i> Report Copyright Infringement</a></div>
+				<br clear="all" />
+				<div class="info-post">NÚMERO DE PÁGINAS:<span class="gray-light"><?php echo $data_custom['add_number_of_pages_or_slides'][0]?></span></div>
+				<div class="info-post">DURACIÓN DE LA ENSEÑANZA:<span class="gray-light"><?php echo $data_custom['add_teaching_duration'][0]?></span></div>
+				<div class="report-post gray-light"><a href="mailto:<?php echo get_the_author_meta( 'email' )?>"><i class="report-icon"></i> Infórmenos de cualquier violación de derechos del autor </a></div>
 			</div>
 			<hr/>
-			<div class="comment-post">
+			<div class="comment-post" style="display:none;">
 				<div class="post-title fontsforweb_fontid_9785">
-					<span>COMMENTS AND RATINGS</span>
+					<span>COMENTARIOS Y RATINGS</span>
 				</div>
 				<div style="padding-left:20px"><!-- #comment-content -->
-					<div class="info-post">AVERAGE RATINGS</div>
+					<div class="info-post">Media de valoraciones</div>
 					<div class="row clearfix">
 						<div class="col-md-4">
-								<div class="type-ratings left">Overall Quality:</div>
+								<div class="type-ratings left">Calidad general:</div>
 								<div class="star-ratings left">
 									<i class="star star-full"></i>
 									<i class="star star-full"></i>
@@ -175,13 +175,13 @@ $author = get_the_author();
 									<i class="star star-no"></i>
 									<i class="star star-no"></i>
 								</div>
-								<div class="type-ratings left">Accuracy:</div>
+								<div class="type-ratings left">PrecisiÃ³n:</div>
 								<div class="star-ratings left">
 								<?php for($i = $j; $i < 5; ++ $i)  {?>
 									<i class="star star-full"></i>
 								<?php } ?>
 								</div>
-								<div class="type-ratings left">Practicality:</div>
+								<div class="type-ratings left">AplicaciÃ³n en la prÃ¡ctica:</div>
 								<div class="star-ratings left">
 									<?php for($i = $j; $i < 5; ++ $i)  {?>
 									<i class="star star-full"></i>
@@ -195,13 +195,13 @@ $author = get_the_author();
 									<i class="star star-full"></i>
 								<?php } ?>
 								</div>
-								<div class="type-ratings left">Creativity:</div>
+								<div class="type-ratings left">Creatividad:</div>
 								<div class="star-ratings left">
 								<?php for($i = $j; $i < 5; ++ $i)  {?>
 									<i class="star star-full"></i>
 								<?php } ?>
 								</div>
-								<div class="type-ratings left">Clarity:</div>
+								<div class="type-ratings left">Claridad:</div>
 								<div class="star-ratings left">
 									<?php for($i = $j; $i < 5; ++ $i)  {?>
 									<i class="star star-full"></i>
@@ -209,7 +209,7 @@ $author = get_the_author();
 								</div>
 						</div>
 						<div class="col-md-4">
-							<div class="left" style="width:60px;">Total:</div>
+							<div class="left" style="width:60px;">total:</div>
 							<div class="star-ratings">
 								<?php $j = 0; for($i = 0; $i < $full; ++ $i)  {?>
 								<i class="star star-full"></i>
@@ -229,7 +229,7 @@ $author = get_the_author();
 								echo '&nbsp;'.$rating; 
 								?></span>
 							</div>
-							<div class="ratings" style="padding-left:60px;"><?php echo $ratingCount; ?> ratings</div>
+							<div class="ratings" style="padding-left:60px;"><?php echo $ratingCount; ?> calificaciones</div>
 						</div>
 					</div>
 				</div><!-- #comment-content -->
@@ -289,8 +289,8 @@ $author = get_the_author();
 		<div class="right-post left">
 			<div class="download-product-details action-container fontsforweb_fontid_9785"><!--#action-container -->
 				<div class="price"><?php echo edd_cart_item_price( $post->ID, $post->options );?></div>
-				<div class="type">Digital Download</div>
-				<div class="add-to-card"><a id="main-add-to-card" href="#">ADD ONE TO CART</a></div>
+				<!--<div class="type">Digital Download</div>-->
+				<div class="add-to-card"><a id="main-add-to-card" href="#">COMPRAR</a></div>
 				<!-- <div class="by-licence"><a href="#">BUY LICENCE TO SHARE</a></div> -->
 				
 				<div class="add-wish-list"><a class="edd-add-to-cart-from-wish-list edd-wl-open-modal edd-has-js" href="#"
@@ -298,7 +298,7 @@ $author = get_the_author();
 				data-download-id="<?php echo $post->ID; ?>"
 				data-variable-price="no"
 				data-price-mode="single"
-				><i class="add-wl"></i>W I S H&nbsp;&nbsp;L I S T</a></div>
+				><i class="add-wl"></i>LISTA DE DESEOS</a></div>
 				<hr/>
 				<div class="user-info clearfix">
 					<div class="avatar-info left">
@@ -307,20 +307,20 @@ $author = get_the_author();
 						</div>
 					</div>
 					<div class="info left">
-						<div class="madeby-lb gray-light"><i>Made by</i></div>
+						<div class="madeby-lb gray-light"><i>Hecho por</i></div>
 						<div class="teacher-name fontsforweb_fontid_9785">
-							<a href="/fes-vendor/<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>"
-								 title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) );?></a>
+							<?php $archive_url = str_replace( 'vendor', 'fes-vendor', marketify_edd_fes_author_url( get_the_author_meta( 'ID' ) ) );?>
+							<a href="<?php echo $archive_url?>"	 title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>"><?php echo esc_html( get_the_author_meta( 'display_name' ) );?></a>
 						</div>
-						<div class="user-rating gray-light"> User Rating: 4.0 /4.0</div>
-						<div style="padding: 20px 0px 0px 5px;"><a href="/fes-vendor/<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>">Visit my Store <i class="glyphicon glyphicon-play"></i></a></div>
+						<div class="user-rating gray-light"> profe-vendedor</div>
+						<div style="padding: 20px 0px 0px 5px;"><a href="<?php echo $archive_url; ?>">Visite mi tienda <i class="glyphicon glyphicon-play"></i></a></div>
 					</div>
 				</div>
 				
 			</div><!--#action-container -->
 			<br/>
 			<div class="download-product-details download-list"><!--#download-list -->
-				<div class="top-list"><span>M O R E  P R O D U C T S  F R O M</span></div>
+				<div class="top-list"><span>MÁS PRODUCTOS CREADOS POR:</span></div>
 				<div class="user-info clearfix" style="padding: 0px 0px 10px 20px">
 					<div class="avatar-info left"  style="width:90px">
 						<div class="download-product-details radius50">
@@ -332,7 +332,6 @@ $author = get_the_author();
 							<?php echo esc_html( get_the_author_meta( 'display_name' ) );?>
 						</div>
 						<div class="teacher-local gray-light">
-							<?php echo get_user_meta(get_the_author_ID() , 'country' , 1);  ?> ,
                             <?php echo get_user_meta(get_the_author_ID() , 'location' , 1);  ?> 
 						</div>
 					</div>
@@ -343,9 +342,11 @@ $author = get_the_author();
 					$downloads = new WP_Query( array(
 						'post_type'   => 'download',
 						'post_status' => 'publish',
-						'post_author' => $author,
+						'author' => get_the_author_meta( 'ID' ),
 						'posts_per_page' => 3
 					) );
+					
+					//print_r($downloads); exit;
 				?>			
 				<div class="wishlist">
 					<div class="dlcontainer">
@@ -356,8 +357,8 @@ $author = get_the_author();
 						<?php endwhile; ?>
 					</div>
 					<div style="">
-						<a href="<?php echo marketify_edd_fes_author_url( get_the_author_meta( 'ID' ) );?>"
-							title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>">See all <i class="glyphicon glyphicon-play"></i></a>
+						<a href="<?php echo $archive_url;?>"
+							title="<?php echo esc_attr( sprintf( __( 'View all %s by %s', 'marketify' ), edd_get_label_plural(), $author ) );?>">Ver todos <i class="glyphicon glyphicon-play"></i></a>
 					</div>
 				</div>
 				<?php 

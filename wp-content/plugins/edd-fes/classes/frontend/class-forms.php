@@ -1097,7 +1097,7 @@ return $form;
 			$to = apply_filters('fes_registration_form_frontend_vendor_to', $userdata[ 'user_email' ], $userdata );
 			$from_name = isset( $edd_options[ 'from_name' ] ) ? $edd_options[ 'from_name' ] : get_bloginfo( 'name' );
 			$from_email = isset( $edd_options[ 'from_email' ] ) ? $edd_options[ 'from_email' ] : get_option( 'admin_email' );
-			$subject = apply_filters('fes_registration_form_to_vendor_accepted_subject', __('Application Accepted', 'edd_fes' ) );
+			$subject = apply_filters('fes_registration_form_to_vendor_accepted_subject', __('SOLICITUD ACEPTADA', 'edd_fes' ) );
 			$message = EDD_FES()->helper->get_option( 'fes-vendor-new-auto-vendor-email', '' );
 			$type = "user";
 			$id = $user_id;
@@ -1110,10 +1110,13 @@ return $form;
 			// remove pending_vendor role
 			$user->remove_role( 'pending_vendor' );
 			// redirect to dashboard
+			
+			$url = home_url("/fes-vendor-dashboard-page?task=profile");
+			//get_permalink( EDD_FES()->helper->get_option( 'fes-vendor-dashboard-page', false ) )
 			$response = array(
 				'success' => true,
-				'redirect_to' => get_permalink( EDD_FES()->helper->get_option( 'fes-vendor-dashboard-page', false ) ),
-				'message' => __( 'Your Application has been Approved!', 'edd_fes' ),
+				'redirect_to' => $url ,
+				'message' => __( '¡SU SOLICITUD HA SIDO ACEPTADA!', 'edd_fes' ),
 				'is_post' => true
 			);
 			do_action('fes_registration_form_frontend_vendor', $user_id, $userdata);
@@ -1158,9 +1161,12 @@ return $form;
 			// add pending vendor cap
 			$user->add_role( 'pending_vendor' );
 			// redirect to app under view
+			
+			//get_permalink( EDD_FES()->helper->get_option( 'fes-vendor-dashboard-page', false ) )
+			$url = home_url("/fes-vendor-dashboard-page?task=profile");
 			$response = array(
 				'success' => true,
-				'redirect_to' => get_permalink( EDD_FES()->helper->get_option( 'fes-vendor-dashboard-page', false ) ),
+				'redirect_to' => $url ,
 				'message' => __( 'Application Submitted', 'edd_fes' ),
 				'is_post' => true
 			);
@@ -1374,9 +1380,9 @@ return $form;
 				global $wpdb;
 					
 				//quick fix by vipin to search in pick resource type category
-				if(isset($_POST['pick_resource_type']) and is_array($_POST['pick_resource_type'])){
+				if(isset($_POST['tipo_de_recurso']) and is_array($_POST['tipo_de_recurso'])){
 					$pick_resource_types = array();
-					foreach($_POST['pick_resource_type'] as $pick_resource_type){
+					foreach($_POST['tipo_de_recurso'] as $pick_resource_type){
 						$term_id = $wpdb->get_col("select term_id from wp_terms where name = '$pick_resource_type'");
 						$pick_resource_types[] = $term_id[0];
 					}
@@ -1395,9 +1401,9 @@ return $form;
 					}
 				}
 					
-				if(isset($_POST['pick_grade_level(s)']) and is_array($_POST['pick_grade_level(s)'])){
+				if(isset($_POST['seleccione_el_nivel']) and is_array($_POST['seleccione_el_nivel'])){
 					$pick_grade_levels = array();
-					foreach($_POST['pick_grade_level(s)'] as $pick_grade_level){
+					foreach($_POST['seleccione_el_nivel'] as $pick_grade_level){
 						$term_id = $wpdb->get_col("select term_id from wp_terms where name = '$pick_grade_level'");
 						$pick_grade_levels[] = $term_id[0];
 					}
@@ -1479,7 +1485,6 @@ return $form;
 						'condition' => $key
 						);
 					}
-
 				}
 
 				do_action( 'fes_submission_form_save_custom_fields', $post_id );
@@ -1528,11 +1533,13 @@ return $form;
 					'task' => 'dashboard'
 					), $redirect_to );
 				}
+				
+				$redirect_to = home_url("/fes-vendor-dashboard?task=products");
 
 				$response = array(
 				'success' => true,
 				'redirect_to' => $redirect_to,
-				'message' => __( 'Success!', 'edd_fes' ),
+				'message' => __( '¡SU PRODUCTO FUE SUBIDO EXITOSAMENTE!', 'edd_fes' ),
 				'is_post' => true
 				);
 				$response = apply_filters( 'fes_add_post_redirect', $response, $post_id, $form_id );
@@ -1741,7 +1748,7 @@ return $form;
 				$response    = array(
 			'success' => true,
 			'redirect_to' => $redirect_to,
-			'message' => __( 'Profile Successfully Updated' , 'edd_fes' ),
+			'message' => __( 'SU PERFIL HA SIDO ACTUALIZADO EXITOSAMENTE' , 'edd_fes' ),
 			'is_post' => false
 				);
 				$response    = apply_filters( 'fes_profile_form_redirect', $response, $user_id, $form_id );
@@ -2415,10 +2422,10 @@ if ( $rich == 'yes' ) {
 			<td class="fes-name-column"><?php _e( 'Name of Price Option', 'edd_fes' ); ?></td>
 			<?php } ?>
 			<?php if ( !$prices_disabled || $predefined_on ) { ?>
-			<td class="fes-price-column"><?php printf( __( 'Amount (%s)', 'edd_fes' ), edd_currency_filter( '' ) ); ?></td>
+			<td class="fes-price-column"><?php printf( __( 'Monto (%s)', 'edd_fes' ), edd_currency_filter( '' ) ); ?></td>
 			<?php } ?>
 			<?php if ( !$files_disabled ) { ?>
-			<td class="fes-file-column" colspan="2"><?php _e( 'File URL', 'edd_fes' ); ?></td>
+			<td class="fes-file-column" colspan="2"><?php _e( 'URL del Archivo', 'edd_fes' ); ?></td>
 			<?php } ?>
 			<?php do_action("fes-add-multiple-pricing-column"); ?>
 			<?php if ( $attr[ 'single' ] === 'yes' || $predefined_on ) { ?>
@@ -2495,8 +2502,8 @@ if ( $rich == 'yes' ) {
 				id="fes-file-row-js" name="fes-file-row-js" value="1" /></td>
 			<td class="fes-url-choose-row"><a href="#"
 				class="btn btn-sm btn-default upload_file_button"
-				data-choose="<?php _e( 'Choose file', 'edd_fes' ); ?>"
-				data-update="<?php _e( 'Insert file URL', 'edd_fes' ); ?>"> <?php echo str_replace( ' ', '&nbsp;', __( 'Upload', 'edd_fes' ) ); ?></a>
+				data-choose="<?php _e( 'BUSCAR', 'edd_fes' ); ?>"
+				data-update="<?php _e( 'Insert file URL', 'edd_fes' ); ?>"> <?php echo str_replace( ' ', '&nbsp;', __( 'BUSCAR', 'edd_fes' ) ); ?></a>
 			</td>
 			<?php }
 			do_action("fes-add-multiple-pricing-row-value", $file); ?>
@@ -2550,7 +2557,7 @@ if ( $rich == 'yes' ) {
 <table class="<?php echo sanitize_key($attr['name']); ?>">
 	<thead>
 		<tr>
-			<td class="fes-file-column" colspan="2"><?php _e( 'File URL', 'edd_fes' ); ?></td>
+			<td class="fes-file-column" colspan="2"><?php _e( 'URL del Archivo', 'edd_fes' ); ?></td>
 			<?php if ( is_admin() ) { ?>
 			<td class="fes-download-file"><?php _e( 'Download File', 'edd_fes' ); ?>
 			</td>
@@ -2577,8 +2584,8 @@ if ( $rich == 'yes' ) {
 				value="<?php echo esc_attr( $download ); ?>" /></td>
 			<td class="fes-url-choose-row" width="1%"><a href="#"
 				class="btn btn-sm btn-default upload_file_button"
-				data-choose="<?php _e( 'Choose file', 'edd_fes' ); ?>"
-				data-update="<?php _e( 'Insert file URL', 'edd_fes' ); ?>"> <?php echo str_replace( ' ', '&nbsp;', __( 'Choose file', 'edd_fes' ) ); ?></a>
+				data-choose="<?php _e( 'BUSCAR', 'edd_fes' ); ?>"
+				data-update="<?php _e( 'Insert file URL', 'edd_fes' ); ?>"> <?php echo str_replace( ' ', '&nbsp;', __( 'BUSCAR', 'edd_fes' ) ); ?></a>
 			</td>
 			<?php if ( is_admin() ) { ?>
 			<td class="fes-download-file"><?php printf( '<a href="%s">%s</a>', wp_get_attachment_url( $attach_id ), __( 'Download File', 'edd_fes' ) ); ?>
@@ -2665,7 +2672,7 @@ if ( $rich == 'yes' ) {
 		<?php printf( '<span class="fes-image-validation" data-required="%s" data-type="image"></span>', $required ); ?>
 <input type="hidden" name="feat-image-id" class="fes-feat-image-id"
 	value="<?php echo $id; ?>"> <a href="#"
-	class="fes-feat-image-btn btn btn-sm"><?php _e( 'Upload Featured Image', 'edd_fes' ); ?></a>
+	class="fes-feat-image-btn btn btn-sm"><?php _e( 'SUBIR IMAGEN PRINCIPAL', 'edd_fes' ); ?></a>
 </div>
 
 <div class="image-wrap <?php if ($id === 0 ){ echo 'fes-hide';} ?>"><a
@@ -2705,7 +2712,7 @@ if ( $rich == 'yes' ) {
 			<?php printf( '<span class="fes-image-validation" data-required="%s" data-type="image"></span>', $required ); ?>
 <input type="hidden" name="avatar_id" class="fes-avatar-image-id"
 	value="<?php echo esc_attr( $avatar_id ); ?>"> <a href="#"
-	class="fes-avatar-image-btn btn btn-sm"><?php _e( 'Upload Avatar', 'edd_fes' ); ?></a>
+	class="fes-avatar-image-btn btn btn-sm"><?php _e( 'Escoja su avatar', 'edd_fes' ); ?></a>
 </div>
 
 <div
@@ -3342,11 +3349,11 @@ if ( $id ) {
 	type="hidden" name="submission_status" value="edit"> <input
 	type="submit"
 	class="edd-submit <?php echo $color; ?> <?php echo $style; ?>"
-	name="submit" value="<?php echo __( 'Update', 'edd_fes' ); ?>" /> <?php } else { ?>
+	name="submit" value="<?php echo __( 'ACTUALIZAR', 'edd_fes' ); ?>" /> <?php } else { ?>
 <input type="hidden" name="submission_status" value="new"> <input
 	type="submit"
 	class="edd-submit <?php echo $color; ?> <?php echo $style; ?>"
-	name="submit" value="<?php echo __( 'Submit', 'edd_fes' ); ?>" /> <?php }
+	name="submit" value="<?php echo __( 'ENVIAR', 'edd_fes' ); ?>" /> <?php }
 	break;
 case 'profile':
 	?>
@@ -3361,7 +3368,7 @@ case 'profile':
 <input type="hidden" name="is_admin" value="1"> <?php endif; ?> <input
 	type="submit"
 	class="edd-submit <?php echo $color; ?> <?php echo $style; ?>"
-	name="submit" value="<?php echo __( 'Update Profile', 'edd_fes' ); ?>" />
+	name="submit" value="<?php echo __( 'ACTUALIZAR MI PERFIL', 'edd_fes' ); ?>" />
 </fieldset>
 	<?php
 	break;
@@ -3380,7 +3387,7 @@ case 'login':
 	<?php
 	break;
 case 'registration':
-	$wording = sprintf( __( 'Become A %s', 'edd_fes' ),  EDD_FES()->vendors->get_vendor_constant_name( $plural = false, $uppercase = true ) );
+	$wording = sprintf( __( 'EMPIEZA A VENDER', 'edd_fes' ),  EDD_FES()->vendors->get_vendor_constant_name( $plural = false, $uppercase = true ) );
 	if ( $id ) {
 		$wording =  __( 'Submit Changes', 'edd_fes' );
 	}
