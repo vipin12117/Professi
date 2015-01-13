@@ -48,10 +48,9 @@ $search_query = "select p.ID , p.post_type, p.post_author , post_title , post_na
 				 )
 				 as wm on (p.ID = wm.comment_post_ID)
 				 left join wp_postmeta pm on (p.ID = pm.post_id) 
-				 where  post_status = 'publish' and post_type = 'download'
+				 where pm.meta_key = 'is_featured_download' and  pm.meta_value = 'Yes' and post_status = 'publish' and post_type = 'download'
 				 $author_cond
 				 group by p.ID $sort_order";
-				 //pm.meta_key = 'is_featured_download' and  pm.meta_value = 'Yes' and
 
 $page = (int)$_GET['pg'];		
 if(!$page){

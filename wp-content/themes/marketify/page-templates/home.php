@@ -5,12 +5,29 @@
  * @package Marketify
  */
 
+global $wpdb;
+
 include_once get_template_directory().'/split_page_results.php';
 
 $pageid = basename(get_permalink());
-$isHome = (strcmp($pageid, "") == 0 || strcmp($pageid, "Professi") == 0 || strcmp($pageid, "profesi.growthlabs.ca") == 0);
+$isHome = (strcmp($pageid, "") == 0 || strcmp($pageid, "Professi") == 0 || strcmp($pageid, "profesi.org") == 0);
 $GLOBALS['is_home'] = $isHome;
 get_header(); 
+
+$post_ids = array();
+$result = $wpdb->get_results("select post_id , abs(meta_value) as meta_value from wp_postmeta pm inner join wp_posts p on (p.ID = pm.post_id)
+							  where pm.meta_key = 'sort_order' and p.post_type = 'download' and p.post_status = 'publish' 
+							  order by meta_value ASC");
+if($result){
+	foreach($result as $p){
+		$post_ids[] = $p->post_id;
+	}
+	$post_ids_str = implode(",",$post_ids);
+	$sort_order = "order by field(p.ID , $post_ids_str)";// , count_rating DESC , average_rating DESC";
+}
+else{
+	$sort_order = "order by count_rating DESC , average_rating DESC";
+}
 
 $search_query = "select p.ID , p.post_type, p.post_author , post_title , post_name , (sum(wm.meta_value) / 5) as average_rating , count(comment_ID) as count_rating  from wp_posts p 
 				 left join
@@ -21,8 +38,9 @@ $search_query = "select p.ID , p.post_type, p.post_author , post_title , post_na
 				 )
 				 as wm on (p.ID = wm.comment_post_ID)
 				 left join wp_postmeta pm on (p.ID = pm.post_id) 
-				 where pm.meta_key = 'show_on_home' and  pm.meta_value = 'Yes' and post_status = 'publish' and post_type = 'download'
-				 group by p.ID order by count_rating DESC , average_rating DESC";
+				 where  post_status = 'publish' and post_type = 'download'
+				 group by p.ID $sort_order"; //order by count_rating DESC , average_rating DESC";
+				 //pm.meta_key = 'show_on_home' and  pm.meta_value = 'Yes' and
 
 $page = (int)$_GET['page'];		
 if(!$page){
@@ -115,8 +133,6 @@ $downloads = $wpdb->get_results($splitPage->sql_query);
 										</div>
 								<?php endforeach;?>
 							</div>
-							
-							<br clear="all" />
 							
 							<?php if($splitPage->number_of_rows > $limit):?>
 								<div id="edd_download_pagination" class="navigation">
